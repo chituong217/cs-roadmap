@@ -1,6 +1,8 @@
-# Lộ trình KHMT — bản thử
+# Lộ trình KHMT · Chí Tường — 1.0
 
-Website React + React Flow, 32 nhiệm vụ mẫu thuộc 4 chặng: C++, OOP, Git và project thư viện. Đây là bản thử cách trình bày, chưa phải toàn bộ chương trình KHMT.
+Website React + React Flow, **339 nhiệm vụ trong 27 chặng**, từ củng cố C++/OOP qua toán, DSA, hệ thống, phần mềm, AI đến chọn hướng, đồ án và thực tập. Toàn bộ nhiệm vụ nối thành một chuỗi dọc, bấm mở chi tiết.
+
+Đây là lộ trình tự học bổ trợ, không thay thế chương trình và yêu cầu tốt nghiệp chính thức của HCMUS. Phạm vi và đối chiếu nguồn ở `docs/CURRICULUM.md`. Bản văn bản toàn bộ nội dung ở `public/ROADMAP.md`, được cập nhật tự động khi build.
 
 ## Chạy trên máy
 
@@ -13,7 +15,7 @@ npm ci
 npm run dev
 ```
 
-Mở địa chỉ Local mà terminal hiển thị. Dùng `npm test` để kiểm tra dữ liệu sao lưu và chương trình mẫu, `npm run build` để tạo website trong `dist`.
+Mở địa chỉ Local mà terminal hiển thị. Dùng `npm test` để kiểm tra dữ liệu sao lưu, thứ tự nền tảng và ID nhiệm vụ; `npm run build` để xuất bản văn bản rồi tạo website trong `dist`.
 
 ## Đưa lên GitHub Pages
 
@@ -34,6 +36,8 @@ Cấu hình dùng đường dẫn tương đối nên hỗ trợ địa chỉ `h
 
 ## Sửa nội dung
 
-Thay đổi `src/curriculum.js`. Giữ nguyên ID của nhiệm vụ cũ để tiến độ không mất khi thêm nội dung. Mỗi nhiệm vụ có tên, loại (Học/Luyện/Áp dụng), danh sách việc cần làm, ghi chú và nguồn tùy chọn. Mở rộng nội dung không cần sửa giao diện.
+Nội dung ở `src/curriculum/`: `initial.js` giữ 32 ID bản thử, các nhóm mới nằm trong `foundations.js`, `systems.js`, `engineering.js`, `future.js`. `index.js` ghép và đánh số lại; `format.js` đọc định dạng nhiệm vụ và khai báo nguồn.
+
+Giữ nguyên ID nhiệm vụ cũ để tiến độ không mất. Số thứ tự có thể đổi khi chèn phần nền còn thiếu. Mỗi nhiệm vụ có tên, loại (Học/Luyện/Áp dụng), danh sách việc cần làm, ghi chú và nguồn tùy chọn. Build lại sau khi sửa nội dung để bản văn bản và website khớp nhau.
 
 Không có tài khoản, đồng bộ trực tuyến hay chấm bài tự động. Trang dùng Google Fonts; khi không kết nối mạng, chữ chuyển sang phông hệ thống.

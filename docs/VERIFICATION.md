@@ -1,5 +1,16 @@
 # Kiểm tra bản thử — 2026-11-03
 
+## Mở rộng lộ trình 1.0
+
+- 339 nhiệm vụ / 27 chặng, ID của 32 nhiệm vụ cũ giữ nguyên. Tự kiểm tra 8 nhóm test: thêm thứ tự tiên quyết, chương liên tiếp và khả năng nhận bản sao lưu của bản thử.
+- Khởi động giao diện mới vẫn đọc nhiệm vụ đang chọn trước đó theo ID, hiển thị đúng số thứ tự mới.
+- Trong trình duyệt, tìm Dijkstra → mở 119, xem điều kiện trọng số không âm và nguồn MIT. Bấm trực tiếp Chi tiết của ô 120 mở bài luyện đúng tên.
+- Nhảy tới nhiệm vụ 339 ở cuối chuỗi thành công; nút tiếp theo bị khóa đúng tại cuối.
+- Chỉ khoảng 3 node đang nằm trong khung được dựng; cả chuỗi vẫn giữ quan hệ liên tiếp. Console warn/error rỗng tại các lần kiểm tra nội dung và cuối chuỗi.
+- Bản đầy đủ có thêm public/ROADMAP.md xuất từ cùng dữ liệu. Không có hoạt động nào tự đánh dấu người dùng đã học xong nhiệm vụ mới.
+- Build cuối: tách thư viện ~407 kB và nội dung/ứng dụng ~134 kB, không còn cảnh báo chunk trên 500 kB. Các node ngoài khung không dựng đồng loạt.
+- Màn hình 390×844: không tràn ngang, chọn chặng đồ thị mở đúng; tìm Kruskal ra 127/129; bấm trực tiếp Chi tiết của ô 127 mở đúng nội dung. Đã trả viewport về mặc định sau khi thử.
+
 ## Sửa lỗi bấm trực tiếp trên roadmap
 
 - Tái hiện trước sửa: bấm chữ Chi tiết trong ô 001 không mở dialog. Computed pointer-events của cả node và nút đều là none. Các kiểm tra trước đó qua tìm kiếm/mục lục đã không phát hiện được lỗi này.

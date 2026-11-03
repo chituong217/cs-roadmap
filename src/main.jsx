@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
 import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Check, ChevronRight, Circle, Download, ExternalLink, Focus, GitBranch, Minus, Plus, Search, Upload, X } from 'lucide-react';
-import { chapters, tasks } from './curriculum';
+import { chapters, tasks, edition } from './curriculum';
 import { emptyProgress, labels, nextTask, STORAGE_KEY, validateProgress } from './progress.mjs';
 import '@xyflow/react/dist/style.css';
 import './style.css';
@@ -16,6 +16,7 @@ function TaskNode({ data }) {
     <Handle type="target" position={Position.Top} />
     <button className={`task-node nodrag nopan ${data.active ? 'active' : ''} ${data.status}`} onClick={event => { event.stopPropagation(); data.open(data.task.id); }} aria-label={`${data.task.number} · ${data.task.title}`} aria-pressed={data.active}>
       <span className="node-meta"><span>{data.task.number} <span className="meta-divider">/</span> {data.chapter.number}</span><span className={`kind kind-${data.task.kind}`}>{data.task.kind}</span></span>
+      <span className="node-chapter">{data.chapter.title}</span>
       <strong>{data.task.title}</strong>
       <span className="node-bottom"><span className="node-status"><Icon size={13}/>{labels[data.status]}</span><span className="open-node">Chi tiết <ArrowRight size={14}/></span></span>
     </button>
@@ -106,7 +107,7 @@ function Roadmap() {
       const { data, ignored } = validateProgress(JSON.parse(await file.text()), ids);
       setProgress(p => ({ ...p, statuses: { ...p.statuses, ...data.statuses }, lastTask: data.lastTask || p.lastTask }));
       if (data.lastTask) { setSelected(data.lastTask); center(data.lastTask); }
-      setNotice(`Đã nhập tiến độ. Các nhiệm vụ không có trong tệp vẫn được giữ nguyên.${ignored ? ` Bỏ qua ${ignored} mục chưa có trong bản thử.` : ''}`);
+      setNotice(`Đã nhập tiến độ. Các nhiệm vụ không có trong tệp vẫn được giữ nguyên.${ignored ? ` Bỏ qua ${ignored} mục chưa có trong phiên bản này.` : ''}`);
     } catch (err) { setNotice(err instanceof SyntaxError ? 'Không đọc được JSON. Tiến độ hiện tại được giữ nguyên.' : err.message); }
   };
   const details = <>
@@ -120,14 +121,14 @@ function Roadmap() {
       {current.extra && <section className="extra"><h3>Thông tin thêm</h3><p>{current.extra}</p></section>}
       {current.sources?.length > 0 && <section className="sources"><h3>Nguồn tham khảo thêm</h3>{current.sources.map(([label, url]) => <a href={url} key={url} target="_blank" rel="noreferrer">{label}<ExternalLink size={14}/></a>)}</section>}
     </div>
-    <div className="detail-footer"><button className="icon-button" aria-label="Nhiệm vụ trước" disabled={index === 0} onClick={() => open(tasks[index - 1].id)}><ArrowLeft size={18}/></button><button className="next-button" disabled={index === tasks.length - 1} onClick={() => open(tasks[index + 1].id)}>{index === tasks.length - 1 ? 'Hết bản thử' : 'Nhiệm vụ tiếp theo'}<ArrowRight size={17}/></button></div>
+    <div className="detail-footer"><button className="icon-button" aria-label="Nhiệm vụ trước" disabled={index === 0} onClick={() => open(tasks[index - 1].id)}><ArrowLeft size={18}/></button><button className="next-button" disabled={index === tasks.length - 1} onClick={() => open(tasks[index + 1].id)}>{index === tasks.length - 1 ? 'Đã tới cuối lộ trình' : 'Nhiệm vụ tiếp theo'}<ArrowRight size={17}/></button></div>
   </>;
 
   return <div className="app-shell">
-    <header className="app-header"><a className="brand" href="#" onClick={e => { e.preventDefault(); open(tasks[0].id); }}><span className="brand-icon"><GitBranch size={21}/></span><span>Lộ trình <b>KHMT</b><small>DÀNH CHO CHÍ TƯỜNG</small></span></a><span className="prototype-tag">Bản thử · 01</span><div className="header-actions"><button aria-label="Xuất tiến độ" onClick={exportProgress} title="Tải tệp sao lưu"><Download size={16}/><span>Xuất tiến độ</span></button><button aria-label="Nhập tiến độ" onClick={() => importRef.current.click()}><Upload size={16}/><span>Nhập tiến độ</span></button><input ref={importRef} type="file" accept=".json,application/json" onChange={importProgress} hidden/></div></header>
+    <header className="app-header"><a className="brand" href="#" onClick={e => { e.preventDefault(); open(tasks[0].id); }}><span className="brand-icon"><GitBranch size={21}/></span><span>Lộ trình <b>KHMT</b><small>DÀNH CHO CHÍ TƯỜNG</small></span></a><span className="prototype-tag">Lộ trình · {edition.version}</span><div className="header-actions"><button aria-label="Xuất tiến độ" onClick={exportProgress} title="Tải tệp sao lưu"><Download size={16}/><span>Xuất tiến độ</span></button><button aria-label="Nhập tiến độ" onClick={() => importRef.current.click()}><Upload size={16}/><span>Nhập tiến độ</span></button><input ref={importRef} type="file" accept=".json,application/json" onChange={importProgress} hidden/></div></header>
     <div className="workspace">
-      <aside className="sidebar"><div className="sidebar-top"><span className="eyebrow">ĐƯỜNG ĐI CỦA EM</span><h1>Từng bước,<br/>vững nền.</h1><p>C++ → OOP → project đầu tiên</p></div>
-        <div className="progress-box"><div><span>Tiến độ bản thử</span><strong>{percent}%</strong></div><progress value={done} max={tasks.length} aria-label="Tiến độ bản thử"/><small>{done} / {tasks.length} nhiệm vụ hoàn thành</small></div>
+      <aside className="sidebar"><div className="sidebar-top"><span className="eyebrow">ĐƯỜNG ĐI CỦA EM</span><h1>Từng bước,<br/>vững nền.</h1><p>{edition.title}</p></div>
+        <div className="progress-box"><div><span>Tiến độ lộ trình</span><strong>{percent}%</strong></div><progress value={done} max={tasks.length} aria-label="Tiến độ lộ trình"/><small>{done} / {tasks.length} nhiệm vụ hoàn thành</small></div>
         <label className="search-box"><Search size={16}/><input type="search" aria-label="Tìm nhiệm vụ" placeholder="Tìm nhiệm vụ…" value={query} onChange={e => setQuery(e.target.value)}/></label>
         <nav className="chapter-nav" aria-label="Mục lục lộ trình">{query ? <><p className="search-count">{results.length} nhiệm vụ tìm thấy</p>{results.map(t => <button className="search-result" key={t.id} onClick={() => open(t.id)}><span>{t.number}</span>{t.title}</button>)}{!results.length && <p className="empty">Thử tên khác, ví dụ “kế thừa” hoặc “tệp”.</p>}</> : chapters.map(c => { const group = tasks.filter(t => t.chapter === c.id); const count = group.filter(t => progress.statuses[t.id] === 'done').length; return <button className={`chapter-link ${c.id === current.chapter ? 'selected' : ''}`} key={c.id} onClick={() => open(group[0].id)}><span className="chapter-number">{c.number}</span><span><strong>{c.title}</strong><small>{count}/{group.length} hoàn thành</small></span><ChevronRight size={15}/></button>; })}</nav>
         <div className="sidebar-bottom"><span className="local-dot"/><span>Lưu trên trình duyệt này<br/><small>Xuất tiến độ để sao lưu.</small></span></div>
@@ -135,11 +136,11 @@ function Roadmap() {
       <main className="map-main"><div className="map-heading"><div><span className="eyebrow">LỘ TRÌNH CÁ NHÂN</span><h2>Nền tảng trước. Đi xa sau.</h2></div><button className="resume-button" onClick={() => open(nextTask(tasks, progress.statuses).id)}>Tiếp tục học<ArrowRight size={15}/></button></div>
         <div className="map-subheading"><span><ArrowDown size={14}/> Học theo thứ tự từ trên xuống</span><button onClick={() => setHelpOpen(v => !v)} aria-expanded={helpOpen}>Cách dùng</button></div>
         <div className="mobile-search"><label className="search-box"><Search size={16}/><input aria-label="Tìm nhiệm vụ trên điện thoại" placeholder="Tìm nhiệm vụ…" value={query} onChange={e => setQuery(e.target.value)}/></label>{query ? <div className="mobile-results">{results.length ? results.map(t => <button key={t.id} onClick={() => { open(t.id); setQuery(''); }}>{t.number} · {t.title}</button>) : <p>Không tìm thấy nhiệm vụ.</p>}</div> : <select aria-label="Chọn chặng" value={current.chapter} onChange={e => open(tasks.find(t => t.chapter === e.target.value).id)}>{chapters.map(c => <option value={c.id} key={c.id}>{c.number} · {c.title}</option>)}</select>}</div>
-        <div className="map-canvas"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, node) => open(node.id)} onInit={() => center(selected, 0)} minZoom={0.35} maxZoom={1.3} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false} edgesFocusable={false} zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling><Background color="#d9ddd6" gap={22} size={1}/></ReactFlow>
-          {helpOpen && <div className="help-card"><button className="icon-button" aria-label="Đóng hướng dẫn" onClick={() => setHelpOpen(false)}><X size={16}/></button><strong>Một nhiệm vụ mỗi bước.</strong><p>Bấm một ô để xem việc cần làm. Cuộn để đi dọc lộ trình, kéo để di chuyển, dùng +/− để phóng to hoặc thu nhỏ.</p><p>Đánh dấu tiến độ trong bảng chi tiết. Đường nối chỉ thứ tự học đề xuất.</p><small>32 nhiệm vụ là nội dung mẫu. Toán, DSA và các môn hệ thống sẽ được bổ sung ở bản đầy đủ.</small></div>}
+        <div className="map-canvas"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onlyRenderVisibleElements onNodeClick={(_, node) => open(node.id)} onInit={() => center(selected, 0)} minZoom={0.35} maxZoom={1.3} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false} edgesFocusable={false} zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling><Background color="#d9ddd6" gap={22} size={1}/></ReactFlow>
+          {helpOpen && <div className="help-card"><button className="icon-button" aria-label="Đóng hướng dẫn" onClick={() => setHelpOpen(false)}><X size={16}/></button><strong>Một nhiệm vụ mỗi bước.</strong><p>Bấm một ô để xem việc cần làm. Cuộn để đi dọc lộ trình, kéo để di chuyển, dùng +/− để phóng to hoặc thu nhỏ. Tìm kiếm và mục lục giúp nhảy tới chặng cần học.</p><p>Đường nối là thứ tự đề xuất. Phần đã biết hãy tự làm bài kiểm tra rồi đi tiếp. Có thể ứng tuyển thực tập khi đã đủ năng lực phù hợp, không cần đợi học hết.</p><small>{edition.scope}</small><a href="./ROADMAP.md" target="_blank" rel="noreferrer">Xem toàn bộ nội dung dạng văn bản ↗</a></div>}
           <div className="canvas-controls"><button aria-label="Thu nhỏ" onClick={() => flow.zoomOut()}><Minus size={17}/></button><button aria-label="Phóng to" onClick={() => flow.zoomIn()}><Plus size={17}/></button><span/><button aria-label="Về nhiệm vụ đang chọn" onClick={() => center(selected)}><Focus size={17}/></button></div><div className="canvas-caption">Bấm vào ô để mở nhiệm vụ</div>
         </div>
-        <footer className="map-footer"><span className="sample-pill">NỘI DUNG MẪU</span><span>4 chặng · {tasks.length} nhiệm vụ · Chưa phải toàn bộ KHMT</span></footer>
+        <footer className="map-footer"><span className="sample-pill">LỘ TRÌNH {edition.version}</span><span>{chapters.length} chặng · {tasks.length} nhiệm vụ · Học, luyện và làm project</span></footer>
       </main>
       <aside className="details desktop-details" aria-label="Chi tiết nhiệm vụ">{!smallScreen && details}</aside>
     </div>
