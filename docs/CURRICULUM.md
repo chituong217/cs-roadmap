@@ -1,6 +1,12 @@
-# Phạm vi và cách biên soạn lộ trình 1.0
+# Phạm vi và cách biên soạn lộ trình 1.1
 
 Lộ trình bổ trợ cho sinh viên năm 2 đã học C++ và đang học OOP, đi qua nền tảng KHMT, bài tập, sản phẩm và chuẩn bị thực tập. Mỗi nhiệm vụ giữ tên, việc cần làm, thông tin thêm và tài liệu khi hữu ích. Chương là mục lục; toàn bộ nhiệm vụ nối thành một chuỗi duy nhất.
+
+## Rà độ chi tiết ở phiên bản 1.1
+
+Toàn bộ 339 nhiệm vụ giữ ID và thứ tự, phần việc cần làm được bổ sung riêng theo chủ đề. Không áp số gạch đầu dòng cố định. Nội dung mới làm rõ các thao tác, giả thiết, cấu trúc dữ liệu, trường hợp kiểm thử và bằng chứng kiểm tra cần thiết; không thêm các đoạn mục tiêu chung hay lời hứa đầu ra học tập lặp lại.
+
+Ví dụ: kế thừa tách quyền truy cập, constructor/destructor, thay thế lớp cha và ranh giới với đa hình; Dijkstra có khởi tạo, bản ghi heap cũ, relax, điều kiện chốt/dừng, truy vết và chi phí theo cách cài; database có lịch hai session tái hiện cạnh tranh và kiểm tra trạng thái cuối; ML có đơn vị chia dữ liệu và fit tiền xử lý chỉ trên train. Các ô project/nghề nghiệp cũng bổ sung đầu vào, phạm vi, ca kiểm tra và tài liệu/bằng chứng thực tế riêng.
 
 Khung đối chiếu: [roadmap.sh Computer Science](https://roadmap.sh/computer-science), [OSSU](https://github.com/ossu/computer-science), [CS2023](https://csed.acm.org/knowledge-areas/). Thứ tự và bài tập được biên soạn riêng, không phải bản chép hay tuyên bố tương đương chương trình của trường. Học sâu một chuyên ngành sau khi chọn hướng; không yêu cầu thành chuyên gia mọi lĩnh vực.
 

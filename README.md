@@ -1,6 +1,8 @@
-# Lộ trình KHMT · Chí Tường — 1.0
+# Lộ trình KHMT · Chí Tường — 1.1
 
 Website React + React Flow, **339 nhiệm vụ trong 27 chặng**, từ củng cố C++/OOP qua toán, DSA, hệ thống, phần mềm, AI đến chọn hướng, đồ án và thực tập. Toàn bộ nhiệm vụ nối thành một chuỗi dọc, bấm mở chi tiết.
+
+Phiên bản 1.1 viết sâu hơn phần Việc cần làm của cả 339 nhiệm vụ: bước thực hiện, dữ liệu thử, ca biên, điều kiện áp dụng và cách kiểm tra tương ứng từng chủ đề. Số ý tùy nội dung, không có giới hạn ba gạch đầu dòng.
 
 Đây là lộ trình tự học bổ trợ, không thay thế chương trình và yêu cầu tốt nghiệp chính thức của HCMUS. Phạm vi và đối chiếu nguồn ở `docs/CURRICULUM.md`. Bản văn bản toàn bộ nội dung ở `public/ROADMAP.md`, được cập nhật tự động khi build.
 
@@ -37,6 +39,8 @@ Cấu hình dùng đường dẫn tương đối nên hỗ trợ địa chỉ `h
 ## Sửa nội dung
 
 Nội dung ở `src/curriculum/`: `initial.js` giữ 32 ID bản thử, các nhóm mới nằm trong `foundations.js`, `systems.js`, `engineering.js`, `future.js`. `index.js` ghép và đánh số lại; `format.js` đọc định dạng nhiệm vụ và khai báo nguồn.
+
+Chi tiết bổ sung theo từng ID nằm trong `src/curriculum/details/`. Khi thêm nhiệm vụ mới, bổ sung nội dung tương ứng ở đây; quá trình xuất/build sẽ báo lỗi nếu một ô chưa được rà hoặc có gạch đầu dòng trùng hoàn toàn. Đây là nội dung biên soạn riêng từng nhiệm vụ, không phải phần chèn mẫu giống nhau.
 
 Giữ nguyên ID nhiệm vụ cũ để tiến độ không mất. Số thứ tự có thể đổi khi chèn phần nền còn thiếu. Mỗi nhiệm vụ có tên, loại (Học/Luyện/Áp dụng), danh sách việc cần làm, ghi chú và nguồn tùy chọn. Build lại sau khi sửa nội dung để bản văn bản và website khớp nhau.
 

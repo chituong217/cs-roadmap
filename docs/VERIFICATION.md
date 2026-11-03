@@ -1,5 +1,16 @@
 # Kiểm tra bản thử — 2026-11-03
 
+## Viết sâu phần Việc cần làm — 1.1
+
+- Đã thêm phần biên soạn riêng cho đủ 339 ID. Bộ ghép báo lỗi nếu thiếu nhiệm vụ, dùng ID lạ, lặp ID hoặc lặp hoàn toàn một gạch trong ô.
+- Số gạch theo nội dung: 3–9, tổng 1.654; đây là kết quả biên soạn, không phải giới hạn bắt buộc. Ý khái quát và bước cụ thể được ghép khi cùng một yêu cầu để tránh tách lặp chỉ làm dài danh sách.
+- Giữ 27 chặng, 339 ID/số thứ tự và định dạng sao lưu cũ; không sửa trạng thái đã học của người dùng.
+- 8 nhóm test hiện có đều qua. Build thành công: nội dung/ứng dụng khoảng 346 kB và thư viện khoảng 407 kB, không có cảnh báo chunk quá lớn.
+- Browser desktop: Dijkstra 119 có 9 việc, đọc được gạch cuối; detail-scroll có nội dung cao 1.230px trong khung cao 494px và cuộn tới cuối được.
+- Browser ở khung 493px: mở và cuộn tới gạch cuối của kế thừa 020 (6 ý), cạnh tranh database 207 (6 ý), chia tập ML 282 (6 ý), CV 332 (5 ý). Console warn/error rỗng.
+- Máy chủ preview cũ không còn chạy lúc mở kiểm tra; đã khởi động lại bằng tiến trình Node nền, cửa sổ ẩn, localhost:4178. Không thay đổi cấu hình tường lửa hay mạng.
+- public/ROADMAP.md và dist/ROADMAP.md được xuất từ cùng dữ liệu 1.1; chưa đăng lên GitHub Pages.
+
 ## Mở rộng lộ trình 1.0
 
 - 339 nhiệm vụ / 27 chặng, ID của 32 nhiệm vụ cũ giữ nguyên. Tự kiểm tra 8 nhóm test: thêm thứ tự tiên quyết, chương liên tiếp và khả năng nhận bản sao lưu của bản thử.

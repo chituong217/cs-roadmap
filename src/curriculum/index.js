@@ -3,6 +3,7 @@ import { cppBasics, cppAdvanced, gitExtra, foundationSections } from './foundati
 import { systemSections } from './systems.js';
 import { engineeringSections } from './engineering.js';
 import { futureSections } from './future.js';
+import { expandTasks } from './details/index.js';
 
 const old = initialTasks.map(t => ({ ...t }));
 // Giữ ID của 32 nhiệm vụ cũ để mọi bản sao lưu tiếp tục dùng được.
@@ -36,5 +37,5 @@ const sections = [
   byId.get('professional'), byId.get('direction'), byId.get('capstone'), byId.get('career'),
 ];
 export const chapters = sections.map(({ chapter }, i) => ({ ...chapter, number: String(i + 1).padStart(2, '0') }));
-export const tasks = sections.flatMap(s => s.tasks).map((t, i) => ({ ...t, number: String(i + 1).padStart(3, '0') }));
-export const edition = { version: '1.0', title: 'Nền tảng KHMT → project → thực tập', scope: 'Lộ trình tự học bổ trợ cho sinh viên HCMUS; không thay thế chương trình và yêu cầu tốt nghiệp chính thức.' };
+export const tasks = expandTasks(sections.flatMap(s => s.tasks)).map((t, i) => ({ ...t, number: String(i + 1).padStart(3, '0') }));
+export const edition = { version: '1.1', title: 'Nền tảng KHMT → project → thực tập', scope: 'Lộ trình tự học bổ trợ cho sinh viên HCMUS; không thay thế chương trình và yêu cầu tốt nghiệp chính thức.' };
