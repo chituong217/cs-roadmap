@@ -1,8 +1,8 @@
-# Lộ trình KHMT · Chí Tường — 1.1
+# Lộ trình KHMT · Chí Tường — 1.2
 
-Website React + React Flow, **339 nhiệm vụ trong 27 chặng**, từ củng cố C++/OOP qua toán, DSA, hệ thống, phần mềm, AI đến chọn hướng, đồ án và thực tập. Toàn bộ nhiệm vụ nối thành một chuỗi dọc, bấm mở chi tiết.
+Website React + React Flow, **355 nhiệm vụ trong 27 chặng**, gồm **321 ô bắt buộc và 34 ô nâng cao**. Toàn bộ nhiệm vụ nối thành một chuỗi dọc, bấm mở chi tiết. Bản công khai: [chituong217.github.io/cs-roadmap](https://chituong217.github.io/cs-roadmap/).
 
-Phiên bản 1.1 viết sâu hơn phần Việc cần làm của cả 339 nhiệm vụ: bước thực hiện, dữ liệu thử, ca biên, điều kiện áp dụng và cách kiểm tra tương ứng từng chủ đề. Số ý tùy nội dung, không có giới hạn ba gạch đầu dòng.
+Phiên bản 1.2 thêm bài kiểm tra đầu vào, tách các ô quá lớn, chỉ rõ phạm vi đọc tài liệu miễn phí và nút Prompt điền sẵn nội dung node. Ô nâng cao có nền vàng, nhãn rõ và trạng thái Để học sau. Vẫn giữ độ chi tiết của 1.1 và không giới hạn số gạch đầu dòng.
 
 Đây là lộ trình tự học bổ trợ, không thay thế chương trình và yêu cầu tốt nghiệp chính thức của HCMUS. Phạm vi và đối chiếu nguồn ở `docs/CURRICULUM.md`. Bản văn bản toàn bộ nội dung ở `public/ROADMAP.md`, được cập nhật tự động khi build.
 
@@ -33,6 +33,10 @@ Cấu hình dùng đường dẫn tương đối nên hỗ trợ địa chỉ `h
 - Bấm một ô để xem nhiệm vụ. Đường nối là thứ tự học đề xuất.
 - Chọn chặng hoặc tìm kiếm để chuyển tới nhiệm vụ; bấm Tiếp tục học để về nhiệm vụ đang học, hoặc nhiệm vụ chưa hoàn thành đầu tiên.
 - Đánh dấu Chưa học / Đang học / Hoàn thành trong bảng chi tiết.
+- Ô vàng là nâng cao có thể để học sau trong roadmap; chọn Để học sau không có nghĩa đã hoàn thành. Tiến độ phần bắt buộc được tính riêng và chỉ phản ánh số ô, không phải điểm năng lực.
+- Nút Prompt trên thanh đầu trang mở mẫu đã điền số/tên/việc cần làm/nguồn của node đang chọn, hoặc mẫu trống. Có nút sao chép prompt và tên chat; lời nhắc `@chituongedu` không bảo đảm tự kích hoạt plugin, và tên chat có thể cần đổi thủ công.
+- Bài kiểm tra đầu vào có liên kết tới ô cần ôn; đây là bài tự làm/trao đổi với gia sư, chưa có chấm tự động.
+- Nguồn được chọn có bản đọc miễn phí hợp pháp và phạm vi chương/mục. Không yêu cầu mua bản in, gói học, chấm bài, API hay GPU. Chính sách và cách tham khảo OSSU ở `docs/OSSU-AND-FREE-RESOURCES.md`.
 - Tiến độ được lưu trong trình duyệt theo địa chỉ website. Xóa dữ liệu trình duyệt, đổi trình duyệt hoặc chuyển từ localhost lên Pages sẽ không tự chuyển tiến độ: xuất tệp JSON trước, rồi nhập ở địa chỉ mới.
 - Nhập sao lưu sẽ cập nhật trạng thái những nhiệm vụ có trong tệp; các nhiệm vụ khác vẫn giữ nguyên. Tệp sai định dạng bị từ chối.
 
@@ -43,5 +47,7 @@ Nội dung ở `src/curriculum/`: `initial.js` giữ 32 ID bản thử, các nh�
 Chi tiết bổ sung theo từng ID nằm trong `src/curriculum/details/`. Khi thêm nhiệm vụ mới, bổ sung nội dung tương ứng ở đây; quá trình xuất/build sẽ báo lỗi nếu một ô chưa được rà hoặc có gạch đầu dòng trùng hoàn toàn. Đây là nội dung biên soạn riêng từng nhiệm vụ, không phải phần chèn mẫu giống nhau.
 
 Giữ nguyên ID nhiệm vụ cũ để tiến độ không mất. Số thứ tự có thể đổi khi chèn phần nền còn thiếu. Mỗi nhiệm vụ có tên, loại (Học/Luyện/Áp dụng), danh sách việc cần làm, ghi chú và nguồn tùy chọn. Build lại sau khi sửa nội dung để bản văn bản và website khớp nhau.
+
+Bản 1.2 áp dụng phần chia nhỏ, nhãn nâng cao, kiểm tra đầu vào và bằng chứng thực hành trong `src/curriculum/revision.js`; tài nguyên và phạm vi đọc trong `src/curriculum/readings.js`. Bản 1.1 có 339 ID đều được giữ. Ô mới chưa hoàn thành; ô cũ đã chia nhỏ vẫn giữ trạng thái của ID cũ, người học nên kiểm tra thêm các ô mới liên quan.
 
 Không có tài khoản, đồng bộ trực tuyến hay chấm bài tự động. Trang dùng Google Fonts; khi không kết nối mạng, chữ chuyển sang phông hệ thống.

@@ -1,0 +1,269 @@
+{
+  "checkedAt": "2026-11-03T12:54:28.881Z",
+  "note": "HTTP reachability only; free-access policy is reviewed separately from author/publisher pages.",
+  "result": [
+    {
+      "key": "actions",
+      "url": "https://docs.github.com/en/actions",
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/actions"
+    },
+    {
+      "key": "algorithms",
+      "url": "https://jeffe.cs.illinois.edu/teaching/algorithms/",
+      "status": 200,
+      "finalUrl": "https://jeffe.cs.illinois.edu/teaching/algorithms/"
+    },
+    {
+      "key": "calculus",
+      "url": "https://openstax.org/details/books/calculus-volume-1",
+      "status": 200,
+      "finalUrl": "https://openstax.org/details/books/calculus-volume-1"
+    },
+    {
+      "key": "composing",
+      "url": "https://composingprograms.com/pages/",
+      "status": 200,
+      "finalUrl": "https://composingprograms.com/pages/"
+    },
+    {
+      "key": "cph",
+      "url": "https://cses.fi/book/book.pdf",
+      "status": 200,
+      "finalUrl": "https://cses.fi/book/book.pdf"
+    },
+    {
+      "key": "cpp",
+      "url": "https://www.learncpp.com/",
+      "status": 200,
+      "finalUrl": "https://www.learncpp.com/"
+    },
+    {
+      "key": "d2l",
+      "url": "https://d2l.ai/",
+      "status": 200,
+      "finalUrl": "https://d2l.ai/"
+    },
+    {
+      "key": "discrete",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/pages/readings/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/pages/readings/"
+    },
+    {
+      "key": "distributed",
+      "url": "https://pdos.csail.mit.edu/6.824/",
+      "status": 200,
+      "finalUrl": "https://pdos.csail.mit.edu/6.824/"
+    },
+    {
+      "key": "docker",
+      "url": "https://docs.docker.com/get-started/",
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/get-started/"
+    },
+    {
+      "key": "ethics",
+      "url": "https://www.acm.org/binaries/content/assets/about/acm-code-of-ethics-and-professional-conduct.pdf",
+      "status": 200,
+      "finalUrl": "https://www.acm.org/binaries/content/assets/about/acm-code-of-ethics-and-professional-conduct.pdf"
+    },
+    {
+      "key": "fastapi",
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "status": 200,
+      "finalUrl": "https://fastapi.tiangolo.com/tutorial/"
+    },
+    {
+      "key": "git",
+      "url": "https://git-scm.com/book/en/v2",
+      "status": 200,
+      "finalUrl": "https://git-scm.com/book/en/v2"
+    },
+    {
+      "key": "graphics",
+      "url": "https://learnopengl.com/",
+      "status": 200,
+      "finalUrl": "https://learnopengl.com/"
+    },
+    {
+      "key": "kmp",
+      "url": "https://cp-algorithms.com/string/prefix-function.html",
+      "status": 200,
+      "finalUrl": "https://cp-algorithms.com/string/prefix-function.html"
+    },
+    {
+      "key": "linear",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+    },
+    {
+      "key": "matplotlib",
+      "url": "https://matplotlib.org/stable/tutorials/index.html",
+      "status": 200,
+      "finalUrl": "https://matplotlib.org/stable/tutorials/index.html"
+    },
+    {
+      "key": "mitAlgo",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/"
+    },
+    {
+      "key": "ml",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "status": 200,
+      "finalUrl": "https://scikit-learn.org/stable/user_guide.html"
+    },
+    {
+      "key": "multi",
+      "url": "https://openstax.org/details/books/calculus-volume-3",
+      "status": 200,
+      "finalUrl": "https://openstax.org/details/books/calculus-volume-3"
+    },
+    {
+      "key": "nand",
+      "url": "https://www.nand2tetris.org/course",
+      "status": 200,
+      "finalUrl": "https://www.nand2tetris.org/course"
+    },
+    {
+      "key": "network",
+      "url": "https://intronetworks.cs.luc.edu/current/html/index.html",
+      "status": 200,
+      "finalUrl": "https://intronetworks.cs.luc.edu/current/html/index.html"
+    },
+    {
+      "key": "numpy",
+      "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+      "status": 200,
+      "finalUrl": "https://numpy.org/doc/stable/user/absolute_beginners.html"
+    },
+    {
+      "key": "ods",
+      "url": "https://opendatastructures.org/",
+      "status": 200,
+      "finalUrl": "https://opendatastructures.org/"
+    },
+    {
+      "key": "os",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "status": 200,
+      "finalUrl": "https://pages.cs.wisc.edu/~remzi/OSTEP/"
+    },
+    {
+      "key": "ossu",
+      "url": "https://github.com/ossu/computer-science",
+      "status": 200,
+      "finalUrl": "https://github.com/ossu/computer-science"
+    },
+    {
+      "key": "pandas",
+      "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/",
+      "status": 200,
+      "finalUrl": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/"
+    },
+    {
+      "key": "paper",
+      "url": "https://svr-sk818-web.cl.cam.ac.uk/keshav/publications/htrap.html",
+      "status": 200,
+      "finalUrl": "https://svr-sk818-web.cl.cam.ac.uk/keshav/publications/htrap.html"
+    },
+    {
+      "key": "patterns",
+      "url": "https://gameprogrammingpatterns.com/contents.html",
+      "status": 200,
+      "finalUrl": "https://gameprogrammingpatterns.com/contents.html"
+    },
+    {
+      "key": "postgres",
+      "url": "https://www.postgresql.org/docs/current/",
+      "status": 200,
+      "finalUrl": "https://www.postgresql.org/docs/current/"
+    },
+    {
+      "key": "pytest",
+      "url": "https://docs.pytest.org/en/stable/how-to/index.html",
+      "status": 200,
+      "finalUrl": "https://docs.pytest.org/en/stable/how-to/index.html"
+    },
+    {
+      "key": "python",
+      "url": "https://docs.python.org/3/tutorial/",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/"
+    },
+    {
+      "key": "react",
+      "url": "https://react.dev/learn",
+      "status": 200,
+      "finalUrl": "https://react.dev/learn"
+    },
+    {
+      "key": "search",
+      "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/"
+    },
+    {
+      "key": "security",
+      "url": "https://cheatsheetseries.owasp.org/",
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/"
+    },
+    {
+      "key": "sre",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "status": 200,
+      "finalUrl": "https://sre.google/sre-book/table-of-contents/"
+    },
+    {
+      "key": "stats",
+      "url": "https://www.openintro.org/book/os/",
+      "status": 200,
+      "finalUrl": "https://www.openintro.org/book/os/"
+    },
+    {
+      "key": "swe",
+      "url": "https://abseil.io/resources/swe-book/html/toc.html",
+      "status": 200,
+      "finalUrl": "https://abseil.io/resources/swe-book/html/toc.html"
+    },
+    {
+      "key": "systems",
+      "url": "https://diveintosystems.org/book/",
+      "error": "fetch failed"
+    },
+    {
+      "key": "theory",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/"
+    },
+    {
+      "key": "tools",
+      "url": "https://missing.csail.mit.edu/2020/",
+      "status": 200,
+      "finalUrl": "https://missing.csail.mit.edu/2020/"
+    },
+    {
+      "key": "torch",
+      "url": "https://docs.pytorch.org/tutorials/",
+      "status": 200,
+      "finalUrl": "https://docs.pytorch.org/tutorials/"
+    },
+    {
+      "key": "wai",
+      "url": "https://www.w3.org/WAI/tutorials/",
+      "status": 200,
+      "finalUrl": "https://www.w3.org/WAI/tutorials/"
+    },
+    {
+      "key": "web",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+    }
+  ]
+}

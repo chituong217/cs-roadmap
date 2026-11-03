@@ -1,5 +1,16 @@
 # Kiểm tra bản thử — 2026-11-03
 
+## Nền/nâng cao, nguồn mở và Prompt — 1.2
+
+- 355 ô, 27 chặng; 321 bắt buộc, 34 nâng cao. Giữ cả 339 ID của 1.1, thêm 9 kiểm tra đầu vào và 7 ô tách mới. Tất cả liên kết ô cần ôn trỏ tới nhiệm vụ tồn tại.
+- 14 nhóm kiểm tra dữ liệu, thứ tự, sao lưu toàn bộ ID cũ, trạng thái Để học sau, nguồn đọc và prompt đều đạt. Kiểm tra sao lưu xác nhận Để học sau không biến thành Hoàn thành và không khiến bỏ qua nhầm ô bắt buộc.
+- Đã xem giao diện desktop 1280px: ô Fenwick và Segment tree có nền vàng, nhãn nâng cao; modal nguồn có chương/phần cần đọc và đường đọc miễn phí. Trạng thái Để học sau giữ sau reload; đưa lại về Chưa học trong bản thử.
+- Đã mở Prompt, đổi mẫu trống và mẫu node; kiểm tra nội dung điền đúng tên/số/nhiệm vụ/nguồn/plugin. Bấm sao chép tên và prompt rồi dán lại vào trường nhập của chính bản thử: tên đúng Node 140: Fenwick tree, nội dung có mention plugin và nhiệm vụ. Không chỉ dựa vào toast thành công; Clipboard API của cầu nối đọc rỗng nên dùng thao tác dán UI để đối chiếu.
+- Đã xem modal Prompt ở 320px và desktop; kiểm tra thêm 768/1024/1440px: không tràn chiều ngang, nút sao chép còn trong viewport. Đã bấm liên kết ô ôn tập từ bài đầu vào sang Prefix sum đúng nhiệm vụ. Console warn/error rỗng trong lượt kiểm tra.
+- Kiểm tra HTTP 44 nguồn: lần cuối 43 phản hồi thành công; Dive Into Systems không qua fetch của Node nhưng nội dung sách/giấy phép đọc được bằng công cụ web. Không tắt kiểm tra TLS. ACM đã chuyển PDF chính thức; W3C WAI qua được ở lượt kiểm tra cuối. HTTP reachability không thay kiểm tra chính sách miễn phí.
+- Các nguồn hiện hành do readings.js chọn; nguồn mạng chính là sách mở của Dordal. Sách miễn phí có bản in/tùy chọn trả phí được chỉ rõ cách đọc toàn bộ bản điện tử miễn phí. Không cần khóa Coursera/edX, trial hoặc gói chấm bài.
+- Prompt chỉ yêu cầu tên chat và nhắc plugin; chưa tuyên bố tự đổi được tên sidebar hoặc tự kích hoạt plugin khi dán văn bản.
+
 ## Viết sâu phần Việc cần làm — 1.1
 
 - Đã thêm phần biên soạn riêng cho đủ 339 ID. Bộ ghép báo lỗi nếu thiếu nhiệm vụ, dùng ID lạ, lặp ID hoặc lặp hoàn toàn một gạch trong ô.

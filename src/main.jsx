@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
-import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Check, ChevronRight, Circle, Download, ExternalLink, Focus, GitBranch, Minus, Plus, Search, Upload, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Check, ChevronRight, Circle, Download, ExternalLink, Focus, GitBranch, Minus, Plus, Search, Upload, X, MessageSquare, Clock } from 'lucide-react';
+import PromptDialog from './PromptDialog';
 import { chapters, tasks, edition } from './curriculum';
 import { emptyProgress, labels, nextTask, STORAGE_KEY, validateProgress } from './progress.mjs';
 import '@xyflow/react/dist/style.css';
@@ -9,14 +10,14 @@ import './style.css';
 
 const ids = tasks.map(t => t.id);
 const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
-const statusIcon = { todo: Circle, learning: BookOpen, done: Check };
+const statusIcon = { todo: Circle, learning: BookOpen, done: Check, deferred: Clock };
 function TaskNode({ data }) {
   const Icon = statusIcon[data.status];
   return <>
     <Handle type="target" position={Position.Top} />
-    <button className={`task-node nodrag nopan ${data.active ? 'active' : ''} ${data.status}`} onClick={event => { event.stopPropagation(); data.open(data.task.id); }} aria-label={`${data.task.number} · ${data.task.title}`} aria-pressed={data.active}>
+    <button className={`task-node nodrag nopan ${data.task.optional ? 'optional' : ''} ${data.active ? 'active' : ''} ${data.status}`} onClick={event => { event.stopPropagation(); data.open(data.task.id); }} aria-label={`${data.task.number} · ${data.task.title}`} aria-pressed={data.active}>
       <span className="node-meta"><span>{data.task.number} <span className="meta-divider">/</span> {data.chapter.number}</span><span className={`kind kind-${data.task.kind}`}>{data.task.kind}</span></span>
-      <span className="node-chapter">{data.chapter.title}</span>
+      <span className="node-chapter">{data.task.optional ? 'NÂNG CAO · CÓ THỂ BỎ QUA' : data.chapter.title}</span>
       <strong>{data.task.title}</strong>
       <span className="node-bottom"><span className="node-status"><Icon size={13}/>{labels[data.status]}</span><span className="open-node">Chi tiết <ArrowRight size={14}/></span></span>
     </button>
@@ -39,6 +40,7 @@ function Roadmap() {
   const [notice, setNotice] = useState(loaded.error);
   const [storageError, setStorageError] = useState('');
   const [helpOpen, setHelpOpen] = useState(false);
+  const [promptOpen, setPromptOpen] = useState(false);
   const [smallScreen, setSmallScreen] = useState(() => window.matchMedia('(max-width: 999px)').matches);
   const importRef = useRef(null);
   const detailRef = useRef(null);
@@ -49,7 +51,10 @@ function Roadmap() {
   const index = tasks.indexOf(current);
   const chapter = chapters.find(c => c.id === current.chapter);
   const done = tasks.filter(t => progress.statuses[t.id] === 'done').length;
-  const percent = Math.round(done / tasks.length * 100);
+  const required = tasks.filter(t => !t.optional);
+  const requiredDone = required.filter(t => progress.statuses[t.id] === 'done').length;
+  const optionalDone = done - requiredDone;
+  const percent = Math.round(requiredDone / required.length * 100);
   const results = tasks.filter(t => normalize(`${t.number} ${t.title} ${t.todos.join(' ')}`).includes(normalize(query)));
 
   useEffect(() => {
@@ -115,29 +120,32 @@ function Roadmap() {
     <div className="detail-scroll" ref={detailRef}>
       <div className="detail-eyebrow"><span className={`kind kind-${current.kind}`}>{current.kind}</span><span>{chapter.title}</span></div>
       <h2>{current.title}</h2>
-      <div className="status-select" role="group" aria-label="Trạng thái nhiệm vụ">{Object.entries(labels).map(([status, label]) => { const Icon = statusIcon[status]; return <button key={status} aria-pressed={(progress.statuses[selected] || 'todo') === status} className={(progress.statuses[selected] || 'todo') === status ? `chosen ${status}` : ''} onClick={() => setStatus(status)}><Icon size={14}/>{label}</button>; })}</div>
+      {current.optional && <div className="optional-note"><strong>Nâng cao · Có thể bỏ qua trong vòng nền</strong><p>{current.optionalReason}</p></div>}
+      <div className="status-select" role="group" aria-label="Trạng thái nhiệm vụ">{Object.entries(labels).filter(([status]) => status !== 'deferred' || current.optional).map(([status, label]) => { const Icon = statusIcon[status]; return <button key={status} aria-pressed={(progress.statuses[selected] || 'todo') === status} className={(progress.statuses[selected] || 'todo') === status ? `chosen ${status}` : ''} onClick={() => setStatus(status)}><Icon size={14}/>{label}</button>; })}</div>
       <h3>Việc cần làm</h3>
       <ul className="todo-list">{current.todos.map(text => <li key={text}><span className="bullet-plus">+</span><span>{text}</span></li>)}</ul>
+      {current.reviewTargets?.length > 0 && <section className="review-targets"><h3>Ô cần ôn theo bài làm</h3><p>Chỉ mở phần tương ứng với mục chưa tự làm được.</p>{current.reviewTargets.map(id => { const target = tasks.find(t => t.id === id); return <button key={id} onClick={() => open(id)}>{target.number} · {target.title}<ArrowRight size={14}/></button>; })}</section>}
       {current.extra && <section className="extra"><h3>Thông tin thêm</h3><p>{current.extra}</p></section>}
-      {current.sources?.length > 0 && <section className="sources"><h3>Nguồn tham khảo thêm</h3>{current.sources.map(([label, url]) => <a href={url} key={url} target="_blank" rel="noreferrer">{label}<ExternalLink size={14}/></a>)}</section>}
+      {current.sources?.length > 0 && <section className="sources"><h3>Nguồn tham khảo miễn phí</h3>{current.sources.map(([label, url, scope, access]) => <div className="reading" key={url}><a href={url} target="_blank" rel="noreferrer">{label}<ExternalLink size={14}/></a>{scope && <p><b>Phần cần đọc:</b> {scope}</p>}{access && <small>{access}</small>}</div>)}</section>}
     </div>
     <div className="detail-footer"><button className="icon-button" aria-label="Nhiệm vụ trước" disabled={index === 0} onClick={() => open(tasks[index - 1].id)}><ArrowLeft size={18}/></button><button className="next-button" disabled={index === tasks.length - 1} onClick={() => open(tasks[index + 1].id)}>{index === tasks.length - 1 ? 'Đã tới cuối lộ trình' : 'Nhiệm vụ tiếp theo'}<ArrowRight size={17}/></button></div>
   </>;
 
   return <div className="app-shell">
-    <header className="app-header"><a className="brand" href="#" onClick={e => { e.preventDefault(); open(tasks[0].id); }}><span className="brand-icon"><GitBranch size={21}/></span><span>Lộ trình <b>KHMT</b><small>DÀNH CHO CHÍ TƯỜNG</small></span></a><span className="prototype-tag">Lộ trình · {edition.version}</span><div className="header-actions"><button aria-label="Xuất tiến độ" onClick={exportProgress} title="Tải tệp sao lưu"><Download size={16}/><span>Xuất tiến độ</span></button><button aria-label="Nhập tiến độ" onClick={() => importRef.current.click()}><Upload size={16}/><span>Nhập tiến độ</span></button><input ref={importRef} type="file" accept=".json,application/json" onChange={importProgress} hidden/></div></header>
+    <header className="app-header"><a className="brand" href="#" onClick={e => { e.preventDefault(); open(tasks[0].id); }}><span className="brand-icon"><GitBranch size={21}/></span><span>Lộ trình <b>KHMT</b><small>DÀNH CHO CHÍ TƯỜNG</small></span></a><span className="prototype-tag">Lộ trình · {edition.version}</span><div className="header-actions"><button className="prompt-trigger" aria-label="Prompt" onClick={() => setPromptOpen(true)}><MessageSquare size={16}/><span>Prompt</span></button><button aria-label="Xuất tiến độ" onClick={exportProgress} title="Tải tệp sao lưu"><Download size={16}/><span>Xuất tiến độ</span></button><button aria-label="Nhập tiến độ" onClick={() => importRef.current.click()}><Upload size={16}/><span>Nhập tiến độ</span></button><input ref={importRef} type="file" accept=".json,application/json" onChange={importProgress} hidden/></div></header>
     <div className="workspace">
       <aside className="sidebar"><div className="sidebar-top"><span className="eyebrow">ĐƯỜNG ĐI CỦA EM</span><h1>Từng bước,<br/>vững nền.</h1><p>{edition.title}</p></div>
-        <div className="progress-box"><div><span>Tiến độ lộ trình</span><strong>{percent}%</strong></div><progress value={done} max={tasks.length} aria-label="Tiến độ lộ trình"/><small>{done} / {tasks.length} nhiệm vụ hoàn thành</small></div>
+        <div className="progress-box"><div><span>Phần bắt buộc</span><strong>{percent}%</strong></div><progress value={requiredDone} max={required.length} aria-label="Tiến độ phần bắt buộc"/><small>{requiredDone} / {required.length} ô hoàn thành<br/>Nâng cao: {optionalDone} / {tasks.length - required.length} ô hoàn thành</small></div>
         <label className="search-box"><Search size={16}/><input type="search" aria-label="Tìm nhiệm vụ" placeholder="Tìm nhiệm vụ…" value={query} onChange={e => setQuery(e.target.value)}/></label>
         <nav className="chapter-nav" aria-label="Mục lục lộ trình">{query ? <><p className="search-count">{results.length} nhiệm vụ tìm thấy</p>{results.map(t => <button className="search-result" key={t.id} onClick={() => open(t.id)}><span>{t.number}</span>{t.title}</button>)}{!results.length && <p className="empty">Thử tên khác, ví dụ “kế thừa” hoặc “tệp”.</p>}</> : chapters.map(c => { const group = tasks.filter(t => t.chapter === c.id); const count = group.filter(t => progress.statuses[t.id] === 'done').length; return <button className={`chapter-link ${c.id === current.chapter ? 'selected' : ''}`} key={c.id} onClick={() => open(group[0].id)}><span className="chapter-number">{c.number}</span><span><strong>{c.title}</strong><small>{count}/{group.length} hoàn thành</small></span><ChevronRight size={15}/></button>; })}</nav>
         <div className="sidebar-bottom"><span className="local-dot"/><span>Lưu trên trình duyệt này<br/><small>Xuất tiến độ để sao lưu.</small></span></div>
       </aside>
       <main className="map-main"><div className="map-heading"><div><span className="eyebrow">LỘ TRÌNH CÁ NHÂN</span><h2>Nền tảng trước. Đi xa sau.</h2></div><button className="resume-button" onClick={() => open(nextTask(tasks, progress.statuses).id)}>Tiếp tục học<ArrowRight size={15}/></button></div>
         <div className="map-subheading"><span><ArrowDown size={14}/> Học theo thứ tự từ trên xuống</span><button onClick={() => setHelpOpen(v => !v)} aria-expanded={helpOpen}>Cách dùng</button></div>
+        <div className="map-legend"><span><i className="legend-required"/>Bắt buộc</span><span><i className="legend-optional"/>Vàng: nâng cao, có thể học sau</span></div>
         <div className="mobile-search"><label className="search-box"><Search size={16}/><input aria-label="Tìm nhiệm vụ trên điện thoại" placeholder="Tìm nhiệm vụ…" value={query} onChange={e => setQuery(e.target.value)}/></label>{query ? <div className="mobile-results">{results.length ? results.map(t => <button key={t.id} onClick={() => { open(t.id); setQuery(''); }}>{t.number} · {t.title}</button>) : <p>Không tìm thấy nhiệm vụ.</p>}</div> : <select aria-label="Chọn chặng" value={current.chapter} onChange={e => open(tasks.find(t => t.chapter === e.target.value).id)}>{chapters.map(c => <option value={c.id} key={c.id}>{c.number} · {c.title}</option>)}</select>}</div>
         <div className="map-canvas"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onlyRenderVisibleElements onNodeClick={(_, node) => open(node.id)} onInit={() => center(selected, 0)} minZoom={0.35} maxZoom={1.3} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false} edgesFocusable={false} zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling><Background color="#d9ddd6" gap={22} size={1}/></ReactFlow>
-          {helpOpen && <div className="help-card"><button className="icon-button" aria-label="Đóng hướng dẫn" onClick={() => setHelpOpen(false)}><X size={16}/></button><strong>Một nhiệm vụ mỗi bước.</strong><p>Bấm một ô để xem việc cần làm. Cuộn để đi dọc lộ trình, kéo để di chuyển, dùng +/− để phóng to hoặc thu nhỏ. Tìm kiếm và mục lục giúp nhảy tới chặng cần học.</p><p>Đường nối là thứ tự đề xuất. Phần đã biết hãy tự làm bài kiểm tra rồi đi tiếp. Có thể ứng tuyển thực tập khi đã đủ năng lực phù hợp, không cần đợi học hết.</p><small>{edition.scope}</small><a href="./ROADMAP.md" target="_blank" rel="noreferrer">Xem toàn bộ nội dung dạng văn bản ↗</a></div>}
+          {helpOpen && <div className="help-card"><button className="icon-button" aria-label="Đóng hướng dẫn" onClick={() => setHelpOpen(false)}><X size={16}/></button><strong>Một nhiệm vụ mỗi bước.</strong><p>Bấm một ô để xem việc cần làm. Cuộn để đi dọc lộ trình, kéo để di chuyển, dùng +/− để phóng to hoặc thu nhỏ. Tìm kiếm và mục lục giúp nhảy tới chặng cần học.</p><p>Ô vàng là phần nâng cao: có thể chọn Để học sau, không tính thành đã hoàn thành. Tiến độ phần bắt buộc được tính riêng; đây là số ô, không phải điểm năng lực.</p><p>Bài tự kiểm tra giúp chọn phần cần ôn, không tự chấm hay tự bỏ qua cả chặng. Nút Prompt trên cùng điền sẵn nội dung ô đang chọn để học cùng ChatGPT. Có thể ứng tuyển khi đủ năng lực phù hợp, không cần đợi học hết.</p><small>{edition.scope}</small><a href="./ROADMAP.md" target="_blank" rel="noreferrer">Xem toàn bộ nội dung dạng văn bản ↗</a></div>}
           <div className="canvas-controls"><button aria-label="Thu nhỏ" onClick={() => flow.zoomOut()}><Minus size={17}/></button><button aria-label="Phóng to" onClick={() => flow.zoomIn()}><Plus size={17}/></button><span/><button aria-label="Về nhiệm vụ đang chọn" onClick={() => center(selected)}><Focus size={17}/></button></div><div className="canvas-caption">Bấm vào ô để mở nhiệm vụ</div>
         </div>
         <footer className="map-footer"><span className="sample-pill">LỘ TRÌNH {edition.version}</span><span>{chapters.length} chặng · {tasks.length} nhiệm vụ · Học, luyện và làm project</span></footer>
@@ -145,6 +153,7 @@ function Roadmap() {
       <aside className="details desktop-details" aria-label="Chi tiết nhiệm vụ">{!smallScreen && details}</aside>
     </div>
     <dialog ref={dialogRef} className="details mobile-details" aria-labelledby="mobile-task-title" onCancel={closeDetail} onClose={() => setDetailOpen(false)}><div id="mobile-task-title" className="sr-only">Chi tiết nhiệm vụ {current.title}</div>{smallScreen && details}</dialog>
+    <PromptDialog open={promptOpen} onClose={() => setPromptOpen(false)} task={current} tasks={tasks}/>
     {(notice || storageError) && <div className="notice" role="status"><span>{storageError || notice}</span>{!storageError && <button className="icon-button" aria-label="Đóng thông báo" onClick={() => setNotice('')}><X size={16}/></button>}</div>}
   </div>;
 }
