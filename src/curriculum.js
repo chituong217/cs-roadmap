@@ -1,1 +1,1 @@
-export { chapters, tasks, edition } from './curriculum/index.js';
+export { tracks, chapters, tasks, edition, capstoneProjects, chapterToTrackId, baselineTaskIds } from './curriculum/index.js';
