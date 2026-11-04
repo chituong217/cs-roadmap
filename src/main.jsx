@@ -105,6 +105,12 @@ function TrackHeaderNode({ data }) {
       className="track-header-node nodrag nopan"
       style={{ '--track-accent': data.track.colorAccent }}
       onClick={data.onSelectTrack}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          data.onSelectTrack?.();
+        }
+      }}
       role="button"
       tabIndex={0}
       title="Bấm để lọc theo riêng Track này"
@@ -202,6 +208,9 @@ function Roadmap() {
 
   useEffect(() => {
     const onKeyDown = e => {
+      const tag = e.target?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable) return;
+      if (promptOpen || capstoneOpen) return;
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
         e.preventDefault();
         toggleLeftSidebar();
@@ -212,7 +221,7 @@ function Roadmap() {
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [toggleLeftSidebar, toggleRightSidebar]);
+  }, [toggleLeftSidebar, toggleRightSidebar, promptOpen, capstoneOpen]);
 
   const importRef = useRef(null);
   const detailRef = useRef(null);
@@ -314,6 +323,10 @@ function Roadmap() {
               setActiveTrackId(track.id);
               setProgress(p => ({ ...p, activeTrackId: track.id }));
               window.history.replaceState(null, '', `#track-${track.id}`);
+              const firstInTrack = tasks.find(t => t.trackId === track.id);
+              if (firstInTrack) {
+                setSelected(firstInTrack.id);
+              }
             },
           },
         });
@@ -432,10 +445,13 @@ function Roadmap() {
     return { nodes: nodeList, edges: edgeList };
   }, [activeTrackId, visibleTasks, selected, progress.statuses]);
 
-  // Center canvas on target node
+  // Center canvas on target node (or fallback to first visible task/header node)
   const centerNode = useCallback(
     (id, duration = 350) => {
-      const node = nodes.find(n => n.id === id);
+      const node =
+        nodes.find(n => n.id === id) ||
+        nodes.find(n => n.type === 'task') ||
+        nodes[0];
       const el = document.querySelector('.map-canvas');
       const width = el?.clientWidth || 600;
       if (node) {
@@ -484,10 +500,10 @@ function Roadmap() {
           setTimeout(() => centerNode(firstInTrack.id, 350), 50);
         }
       } else {
-        setTimeout(() => flow.fitView({ duration: 350, padding: 0.15 }), 50);
+        setTimeout(() => centerNode(selected, 350), 50);
       }
     },
-    [centerNode, flow]
+    [centerNode, selected]
   );
 
   // Hash deep linking initial load and listener
@@ -500,9 +516,11 @@ function Roadmap() {
         if (target) {
           setSelected(taskId);
           setDetailOpen(true);
-          if (activeTrackId !== 'all' && target.trackId !== activeTrackId) {
-            setActiveTrackId(target.trackId);
-          }
+          setRightOpen(true);
+          try {
+            localStorage.setItem('khmt-roadmap.ui.right', '1');
+          } catch {}
+          setActiveTrackId(prev => (prev !== 'all' && target.trackId !== prev ? target.trackId : prev));
           setTimeout(() => centerNode(taskId, 0), 100);
         }
       } else if (hash.startsWith('#track-')) {
@@ -554,7 +572,7 @@ function Roadmap() {
     setActiveTrackId('all');
     setProgress(p => ({ ...p, filterStatus: 'all', activeTrackId: 'all' }));
     window.history.replaceState(null, '', '#');
-    setTimeout(() => flow.fitView({ duration: 350, padding: 0.15 }), 50);
+    setTimeout(() => centerNode(selected, 350), 50);
   };
 
   const toggleTodo = (taskId, todoIdx) => {

@@ -199,6 +199,18 @@ test('CHALLENGER 2: Verify main.jsx source code implements exact layout contract
   assert.ok(code.includes('toggleLeftSidebar'), 'Must define toggleLeftSidebar handler');
   assert.ok(code.includes('toggleRightSidebar'), 'Must define toggleRightSidebar handler');
 
+  // Verify keyboard shortcut guard against inputs/textareas/dialogs
+  assert.ok(
+    code.includes("tag === 'INPUT' || tag === 'TEXTAREA'"),
+    'Keyboard shortcuts must ignore events inside INPUT/TEXTAREA elements'
+  );
+
+  // Verify centerNode fallback when selected node is filtered out
+  assert.ok(
+    code.includes("nodes.find(n => n.type === 'task')"),
+    'centerNode must fall back to first visible task node when selected node is filtered out'
+  );
+
   // Verify no duplicate Capstone button and no bulky map-heading banner
   const capstoneBtnMatches = code.match(/<span>5 Đồ án Capstone<\/span>/g) || [];
   assert.equal(capstoneBtnMatches.length, 1, 'Must have exactly 1 "5 Đồ án Capstone" button in the UI (no duplicate)');

@@ -98,12 +98,14 @@
 ## 5. CẬP NHẬT GIAO DIỆN MỚI NHẤT (V2.0.1 UI CANVAS & SIDEBAR OPTIMIZATION)
 
 1. **Nút Ẩn/Hiện 2 Thanh bên kiểu Antigravity (`PanelLeft` / `PanelRight`)**:
-   - Thêm nút `PanelLeft` ở góc trái thanh header trên cùng và góc trên của sidebar trái (phím tắt `Ctrl+B`), cùng nút `PanelRight` ở góc phải thanh header trên cùng và góc trên của panel chi tiết phải (phím tắt `Ctrl+\`).
-   - Lưu trạng thái ẩn/hiện vào `localStorage` (`khmt-roadmap.ui.left`, `khmt-roadmap.ui.right`) và tự động mở lại panel chi tiết bên phải khi bấm vào một node trên bản đồ.
+   - Thêm nút `PanelLeft` ở góc trái thanh header trên cùng và góc trên của sidebar trái (phím tắt `Ctrl+B`), cùng nút `PanelRight` ở góc phải thanh header trên cùng và góc trên của panel chi tiết phải (phím tắt `Ctrl+\`), có chặn kích hoạt nhầm khi đang gõ trong `input`/`textarea` hoặc mở hộp thoại.
+   - Lưu trạng thái ẩn/hiện vào `localStorage` (`khmt-roadmap.ui.left`, `khmt-roadmap.ui.right`) và tự động mở lại panel chi tiết bên phải khi bấm vào một node trên bản đồ hoặc điều hướng qua URL hash `#task-...`.
    - Bổ sung nút phóng to toàn màn hình bản đồ (`Maximize2` / `Minimize2`) ngay tại cụm điều khiển góc dưới trái của canvas để ẩn/hiện đồng thời cả 2 thanh bên.
 2. **Rút gọn Tên các Tab Track trên Thanh chuyển đổi**:
    - Bổ sung trường `tabLabel` ngắn gọn trong `src/curriculum/tracks.js` (`Tất cả`, `T0 C++ & Bộ nhớ`, `T1 OOP`, `T2 DSA`, `T3 Mạng & OS`, `T4 Toán & XS`, `T5 Công cụ`, `T6 Chuyên ngành`) để toàn bộ 8 tab vừa khít trên một hàng ngang mà không bị tràn thanh cuộn ngang, vẫn giữ đầy đủ tiêu đề và mô tả trong `title` tooltip khi di chuột.
-3. **Loại bỏ Nút trùng lặp & Thu gọn Các thanh Header chiếm diện tích**:
+3. **Loại bỏ Nút trùng lặp, Thu gọn Header & Giữ Tỷ lệ Phóng to Đọc được**:
    - Xóa bỏ nút `5 Đồ án Capstone` bị trùng lặp ở thanh filter (chỉ giữ 1 nút duy nhất trên thanh header trên cùng).
-   - Loại bỏ khối banner chữ khổng lồ `.map-heading` (từng chiếm 5-6 dòng khi chọn từng Track) và gộp `.map-subheading`, `.map-legend`, nút `Cách dùng` và `Tiếp tục học` vào chung một thanh công cụ `.filter-bar` siêu gọn (cao 1 dòng), giúp mở rộng tối đa diện tích chiều cao và chiều rộng cho `.map-canvas`.
+   - Loại bỏ khối banner chữ khổng lồ `.map-heading` (từng chiếm 5-6 dòng khi chọn từng Track) và gộp `.map-subheading`, `.map-legend`, nút `Cách dùng` và `Tiếp tục học` vào chung một thanh công cụ `.filter-bar` siêu gọn (cao 1 dòng).
+   - Giữ mức zoom đọc rõ (`centerNode` ở tỷ lệ `0.65–1.0`) khi bấm tab `Tất cả`, nút `Đặt lại` hoặc `TrackHeaderNode`, tránh việc `fitView()` thu nhỏ 362 node cao 24,000px về mức `minZoom: 0.25` làm các ô bị nhỏ li ti; đồng thời tự động fallback căn giữa về node hiển thị đầu tiên khi node đang chọn bị ẩn bởi bộ lọc.
+
 
