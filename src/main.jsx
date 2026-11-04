@@ -25,6 +25,10 @@ import {
   FolderGit2,
   RotateCcw,
   Layers,
+  PanelLeft,
+  PanelRight,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
 import PromptDialog from './PromptDialog';
 import { tracks, chapters, tasks, edition, capstoneProjects, chapterToTrackId } from './curriculum';
@@ -149,7 +153,66 @@ function Roadmap() {
   const [helpOpen, setHelpOpen] = useState(false);
   const [promptOpen, setPromptOpen] = useState(false);
   const [capstoneOpen, setCapstoneOpen] = useState(false);
+  const [leftOpen, setLeftOpen] = useState(() => {
+    try {
+      return typeof localStorage !== 'undefined' && localStorage.getItem('khmt-roadmap.ui.left') === '0' ? false : true;
+    } catch {
+      return true;
+    }
+  });
+  const [rightOpen, setRightOpen] = useState(() => {
+    try {
+      return typeof localStorage !== 'undefined' && localStorage.getItem('khmt-roadmap.ui.right') === '0' ? false : true;
+    } catch {
+      return true;
+    }
+  });
   const [smallScreen, setSmallScreen] = useState(() => (typeof window !== 'undefined' ? window.matchMedia('(max-width: 999px)').matches : false));
+
+  const toggleLeftSidebar = useCallback(() => {
+    setLeftOpen(prev => {
+      const next = !prev;
+      try {
+        localStorage.setItem('khmt-roadmap.ui.left', next ? '1' : '0');
+      } catch {}
+      return next;
+    });
+  }, []);
+
+  const toggleRightSidebar = useCallback(() => {
+    setRightOpen(prev => {
+      const next = !prev;
+      try {
+        localStorage.setItem('khmt-roadmap.ui.right', next ? '1' : '0');
+      } catch {}
+      return next;
+    });
+  }, []);
+
+  const toggleFocusCanvas = useCallback(() => {
+    const anyOpen = leftOpen || rightOpen;
+    const next = !anyOpen;
+    setLeftOpen(next);
+    setRightOpen(next);
+    try {
+      localStorage.setItem('khmt-roadmap.ui.left', next ? '1' : '0');
+      localStorage.setItem('khmt-roadmap.ui.right', next ? '1' : '0');
+    } catch {}
+  }, [leftOpen, rightOpen]);
+
+  useEffect(() => {
+    const onKeyDown = e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
+        e.preventDefault();
+        toggleLeftSidebar();
+      } else if ((e.ctrlKey || e.metaKey) && e.key === '\\') {
+        e.preventDefault();
+        toggleRightSidebar();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [toggleLeftSidebar, toggleRightSidebar]);
 
   const importRef = useRef(null);
   const detailRef = useRef(null);
@@ -390,6 +453,10 @@ function Roadmap() {
       lastFocus.current = document.activeElement;
       setSelected(id);
       setDetailOpen(true);
+      setRightOpen(true);
+      try {
+        localStorage.setItem('khmt-roadmap.ui.right', '1');
+      } catch {}
       setHelpOpen(false);
 
       if (!keepTrack && activeTrackId !== 'all' && targetTask.trackId !== activeTrackId) {
@@ -561,12 +628,22 @@ function Roadmap() {
         <span>
           NHIỆM VỤ {current.number} · {currentTrack.shortTitle}
         </span>
-        <button className="icon-button mobile-close" aria-label="Đóng chi tiết" onClick={closeDetail}>
-          <X size={20} />
-        </button>
-        <span className="desktop-detail-count">
-          {index + 1} / {tasks.length}
-        </span>
+        <div className="detail-top-actions">
+          <span className="desktop-detail-count">
+            {index + 1} / {tasks.length}
+          </span>
+          <button
+            className="icon-button desktop-panel-close"
+            aria-label="Ẩn thanh chi tiết bên phải"
+            title="Ẩn thanh chi tiết bên phải (Ctrl+\)"
+            onClick={toggleRightSidebar}
+          >
+            <PanelRight size={16} />
+          </button>
+          <button className="icon-button mobile-close" aria-label="Đóng chi tiết" onClick={closeDetail}>
+            <X size={20} />
+          </button>
+        </div>
       </div>
       <div className="detail-scroll" ref={detailRef}>
         <div className="detail-eyebrow">
@@ -697,6 +774,15 @@ function Roadmap() {
   return (
     <div className="app-shell">
       <header className="app-header">
+        <button
+          className={`panel-toggle-btn desktop-only-btn ${leftOpen ? 'active' : ''}`}
+          onClick={toggleLeftSidebar}
+          aria-label={leftOpen ? 'Ẩn thanh bên trái' : 'Hiện thanh bên trái'}
+          aria-pressed={leftOpen}
+          title={leftOpen ? 'Ẩn thanh mục lục bên trái (Ctrl+B)' : 'Hiện thanh mục lục bên trái (Ctrl+B)'}
+        >
+          <PanelLeft size={17} />
+        </button>
         <a
           className="brand"
           href="#"
@@ -706,7 +792,7 @@ function Roadmap() {
           }}
         >
           <span className="brand-icon">
-            <GitBranch size={21} />
+            <GitBranch size={20} />
           </span>
           <span>
             Lộ trình <b>KHMT</b>
@@ -716,39 +802,54 @@ function Roadmap() {
         <span className="prototype-tag">Lộ trình · {edition.version}</span>
         <div className="header-actions">
           <button
-            className="capstone-header-btn"
+            className={`capstone-header-btn ${capstoneOpen ? 'active' : ''}`}
             aria-label="Xem 5 Đồ án Capstone"
-            onClick={() => setCapstoneOpen(true)}
+            onClick={() => setCapstoneOpen(v => !v)}
             title="5 Đồ án thực chiến Capstone"
           >
-            <FolderGit2 size={16} />
+            <FolderGit2 size={15} />
             <span>5 Đồ án Capstone</span>
           </button>
           <button className="prompt-trigger" aria-label="Prompt" onClick={() => setPromptOpen(true)}>
-            <MessageSquare size={16} />
+            <MessageSquare size={15} />
             <span>Prompt</span>
           </button>
           <button aria-label="Xuất tiến độ" onClick={exportProgress} title="Tải tệp sao lưu v2">
-            <Download size={16} />
+            <Download size={15} />
             <span>Xuất tiến độ</span>
           </button>
           <button aria-label="Nhập tiến độ" onClick={() => importRef.current.click()}>
-            <Upload size={16} />
+            <Upload size={15} />
             <span>Nhập tiến độ</span>
           </button>
           <input ref={importRef} type="file" accept=".json,application/json" onChange={importProgress} hidden />
+          <button
+            className={`panel-toggle-btn desktop-only-btn ${rightOpen ? 'active' : ''}`}
+            onClick={toggleRightSidebar}
+            aria-label={rightOpen ? 'Ẩn thanh chi tiết bên phải' : 'Hiện thanh chi tiết bên phải'}
+            aria-pressed={rightOpen}
+            title={rightOpen ? 'Ẩn thanh chi tiết bên phải (Ctrl+\\)' : 'Hiện thanh chi tiết bên phải (Ctrl+\\)'}
+          >
+            <PanelRight size={17} />
+          </button>
         </div>
       </header>
 
-      <div className="workspace">
-        <aside className="sidebar">
+      <div className={`workspace ${!leftOpen ? 'left-collapsed' : ''} ${!rightOpen ? 'right-collapsed' : ''}`}>
+        <aside className="sidebar" aria-hidden={!leftOpen && !smallScreen}>
           <div className="sidebar-top">
-            <span className="eyebrow">ĐƯỜNG ĐI CỦA EM</span>
-            <h1>
-              Từng bước,
-              <br />
-              vững nền.
-            </h1>
+            <div className="sidebar-top-row">
+              <span className="eyebrow">ĐƯỜNG ĐI CỦA EM</span>
+              <button
+                className="icon-button desktop-panel-close"
+                aria-label="Ẩn thanh mục lục bên trái"
+                title="Ẩn thanh mục lục bên trái (Ctrl+B)"
+                onClick={toggleLeftSidebar}
+              >
+                <PanelLeft size={16} />
+              </button>
+            </div>
+            <h1>Từng bước, vững nền.</h1>
             <p>{edition.title}</p>
           </div>
           <div className="progress-box">
@@ -758,13 +859,11 @@ function Roadmap() {
             </div>
             <progress value={requiredDone} max={required.length} aria-label="Tiến độ phần bắt buộc" />
             <small>
-              {requiredDone} / {required.length} ô hoàn thành
-              <br />
-              Nâng cao: {optionalDone} / {tasks.length - required.length} ô hoàn thành
+              {requiredDone}/{required.length} bắt buộc · {optionalDone}/{tasks.length - required.length} nâng cao
             </small>
           </div>
           <label className="search-box">
-            <Search size={16} />
+            <Search size={15} />
             <input
               type="search"
               aria-label="Tìm nhiệm vụ"
@@ -834,9 +933,10 @@ function Roadmap() {
               aria-selected={activeTrackId === 'all'}
               className={`track-tab ${activeTrackId === 'all' ? 'active' : ''}`}
               onClick={() => handleSelectTrack('all')}
+              title="Xem toàn cảnh tất cả 7 Tracks"
             >
-              <Layers size={14} />
-              <span className="track-tab-name">Tất cả các Track</span>
+              <Layers size={13} />
+              <span className="track-tab-name">Tất cả</span>
               <span className="track-tab-badge">{tasks.length}</span>
             </button>
             {tracks.map(track => {
@@ -851,11 +951,12 @@ function Roadmap() {
                   className={`track-tab ${isSelected ? 'active' : ''}`}
                   style={{ '--track-accent': track.colorAccent }}
                   onClick={() => handleSelectTrack(track.id)}
+                  title={`${track.title} — ${track.description}`}
                 >
                   <span className="track-tab-pill" style={{ backgroundColor: track.colorAccent }}>
                     T{track.trackNumber}
                   </span>
-                  <span className="track-tab-name">{track.shortTitle}</span>
+                  <span className="track-tab-name">{track.tabLabel || track.shortTitle}</span>
                   <span className="track-tab-badge">
                     {trackDone}/{trackTasks.length}
                   </span>
@@ -864,7 +965,7 @@ function Roadmap() {
             })}
           </div>
 
-          {/* Filter Bar */}
+          {/* Compact Consolidated Filter & Toolbar */}
           <div className="filter-bar">
             <div className="filter-group" role="group" aria-label="Lọc theo trạng thái">
               <span className="filter-label">Trạng thái:</span>
@@ -891,6 +992,8 @@ function Roadmap() {
               })}
             </div>
 
+            <span className="filter-divider" />
+
             <div className="filter-group" role="group" aria-label="Lọc theo loại">
               <span className="filter-label">Loại:</span>
               {['all', 'Học', 'Luyện', 'Áp dụng'].map(kindKey => (
@@ -905,64 +1008,31 @@ function Roadmap() {
             </div>
 
             <div className="filter-actions">
-              <button
-                className={`capstone-trigger ${capstoneOpen ? 'active' : ''}`}
-                onClick={() => setCapstoneOpen(v => !v)}
-                aria-label="Xem 5 Capstone Mini-Projects"
-              >
-                <FolderGit2 size={14} />
-                <span>5 Đồ án Capstone</span>
-              </button>
+              <div className="inline-legend" aria-label="Chú giải">
+                <span title="Nhiệm vụ bắt buộc">
+                  <i className="legend-required" /> Bắt buộc
+                </span>
+                <span title="Nhiệm vụ nâng cao, có thể học sau">
+                  <i className="legend-optional" /> Nâng cao
+                </span>
+              </div>
+              <span className="visible-count-chip" title="Số nhiệm vụ đang hiển thị trên bản đồ">
+                {visibleTasks.length}/{tasks.length} ô
+              </span>
               {(filterStatus !== 'all' || filterKind !== 'all' || activeTrackId !== 'all') && (
                 <button className="filter-reset-btn" onClick={resetFilters} title="Xóa toàn bộ bộ lọc">
                   <RotateCcw size={12} />
-                  <span>Đặt lại bộ lọc</span>
+                  <span>Đặt lại</span>
                 </button>
               )}
+              <button className="help-inline-btn" onClick={() => setHelpOpen(v => !v)} aria-expanded={helpOpen}>
+                Cách dùng
+              </button>
+              <button className="resume-button" onClick={() => openTask(nextTask(tasks, progress.statuses).id)}>
+                Tiếp tục học
+                <ArrowRight size={14} />
+              </button>
             </div>
-          </div>
-
-          <div className="map-heading">
-            <div>
-              <span className="eyebrow">
-                {activeTrackId === 'all'
-                  ? 'TOÀN CẢNH LỘ TRÌNH 7 TRACKS'
-                  : tracks.find(t => t.id === activeTrackId)?.title}
-              </span>
-              <h2>
-                {activeTrackId === 'all'
-                  ? '7 Cây Tiến Trình · Từ Nền Tảng Đến Chuyên Ngành KHMT'
-                  : tracks.find(t => t.id === activeTrackId)?.description}
-              </h2>
-            </div>
-            <button className="resume-button" onClick={() => openTask(nextTask(tasks, progress.statuses).id)}>
-              Tiếp tục học
-              <ArrowRight size={15} />
-            </button>
-          </div>
-
-          <div className="map-subheading">
-            <span>
-              <ArrowDown size={14} /> Hiển thị {visibleTasks.length} / {tasks.length} nhiệm vụ
-            </span>
-            <button onClick={() => setHelpOpen(v => !v)} aria-expanded={helpOpen}>
-              Cách dùng
-            </button>
-          </div>
-
-          <div className="map-legend">
-            <span>
-              <i className="legend-required" />
-              Bắt buộc
-            </span>
-            <span>
-              <i className="legend-optional" />
-              Vàng: nâng cao, có thể học sau
-            </span>
-            <span>
-              <i className="legend-track" />
-              Mũi tên theo màu nhận diện của từng Track
-            </span>
           </div>
 
           <div className="mobile-search">
@@ -1041,16 +1111,13 @@ function Roadmap() {
                 </button>
                 <strong>Khám phá Lộ trình 7 Tracks & 5 Đồ án Capstone</strong>
                 <p>
-                  <b>1. Track Switcher:</b> Bấm vào từng tab Track (Track 0..6) để tập trung ôn luyện một chủ đề cụ thể (như C++, OOP, DSA, Mạng), hoặc chọn “Tất cả các Track” để xem đồ thị đa làn tổng thể.
+                  <b>1. Ẩn/hiện 2 thanh bên (Mới):</b> Bấm nút biểu tượng thanh bên ở góc trái/phải trên cùng (hoặc phím tắt <code>Ctrl+B</code> và <code>Ctrl+\</code>) để thu gọn mục lục trái hoặc chi tiết phải, mở rộng tối đa không gian bản đồ.
                 </p>
                 <p>
-                  <b>2. Bộ lọc & Đánh dấu:</b> Dùng thanh lọc trạng thái (Đang học, Hoàn thành, Để học sau) và loại nhiệm vụ (Học, Luyện, Áp dụng). Trong chi tiết nhiệm vụ, em có thể tích vào từng mục việc cần làm (checkbox) để lưu tiến độ chi tiết.
+                  <b>2. Track Switcher & Bộ lọc:</b> Bấm vào từng tab Track (T0..T6) để tập trung một chủ đề hoặc chọn “Tất cả các Track” để xem đồ thị 7 làn.
                 </p>
                 <p>
-                  <b>3. 5 Đồ án Capstone:</b> Bấm nút “5 Đồ án Capstone” ở trên cùng để xem các dự án thực chiến chuẩn HCMUS và bấm vào các nhiệm vụ liên quan để nhảy tới node tương ứng trên bản đồ.
-                </p>
-                <p>
-                  <b>4. Chia sẻ Deep Link:</b> URL tự động đồng bộ mã hash (ví dụ <code>#task-t0-cpp-pointers</code> hoặc <code>#track-track-1</code>). Em có thể lưu bookmark hoặc chia sẻ trực tiếp.
+                  <b>3. 5 Đồ án Capstone:</b> Bấm nút “5 Đồ án Capstone” ở thanh trên cùng để xem các dự án thực chiến chuẩn HCMUS và nhảy tới node tương ứng.
                 </p>
                 <small>{edition.scope}</small>
                 <a href="./ROADMAP.md" target="_blank" rel="noreferrer">
@@ -1060,25 +1127,34 @@ function Roadmap() {
             )}
 
             <div className="canvas-controls">
-              <button aria-label="Thu nhỏ" onClick={() => flow.zoomOut()}>
-                <Minus size={17} />
+              <button aria-label="Thu nhỏ" onClick={() => flow.zoomOut()} title="Thu nhỏ">
+                <Minus size={16} />
               </button>
-              <button aria-label="Phóng to" onClick={() => flow.zoomIn()}>
-                <Plus size={17} />
+              <button aria-label="Phóng to" onClick={() => flow.zoomIn()} title="Phóng to">
+                <Plus size={16} />
               </button>
               <span />
-              <button aria-label="Về nhiệm vụ đang chọn" onClick={() => centerNode(selected)}>
-                <Focus size={17} />
+              <button aria-label="Về nhiệm vụ đang chọn" onClick={() => centerNode(selected)} title="Về nhiệm vụ đang chọn">
+                <Focus size={16} />
               </button>
               <button
                 aria-label="Toàn cảnh"
                 onClick={() => flow.fitView({ duration: 350, padding: 0.15 })}
                 title="Xem toàn cảnh đồ thị"
               >
-                <Layers size={17} />
+                <Layers size={16} />
+              </button>
+              <span className="desktop-only-sep" />
+              <button
+                className="desktop-only-btn"
+                aria-label={leftOpen || rightOpen ? 'Mở rộng toàn màn hình bản đồ' : 'Khôi phục 2 thanh bên'}
+                onClick={toggleFocusCanvas}
+                title={leftOpen || rightOpen ? 'Ẩn cả 2 thanh bên để mở rộng bản đồ' : 'Hiện lại 2 thanh bên'}
+              >
+                {leftOpen || rightOpen ? <Maximize2 size={15} /> : <Minimize2 size={15} />}
               </button>
             </div>
-            <div className="canvas-caption">Bấm vào ô để mở chi tiết nhiệm vụ · Cuộn để phóng to/thu nhỏ</div>
+            <div className="canvas-caption">Bấm vào ô để mở chi tiết · Cuộn để phóng to/thu nhỏ</div>
           </div>
 
           <footer className="map-footer">
@@ -1089,7 +1165,7 @@ function Roadmap() {
           </footer>
         </main>
 
-        <aside className="details desktop-details" aria-label="Chi tiết nhiệm vụ">
+        <aside className="details desktop-details" aria-label="Chi tiết nhiệm vụ" aria-hidden={!rightOpen}>
           {!smallScreen && details}
         </aside>
       </div>

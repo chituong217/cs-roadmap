@@ -88,66 +88,22 @@
 
 | Lệnh Kiểm chứng | Mục tiêu Kiểm tra | Kết quả Thực nghiệm Thực tế | Trạng thái |
 |---|---|---|:---:|
-| `npm test` | Toàn bộ 106 bài kiểm thử tự động thuộc 19 test suites | `ℹ tests 106, pass 106, fail 0, skipped 0, duration: 252ms` | ✅ PASS 100% |
-| `npm run build` | Biên dịch `ROADMAP.md` và đóng gói Vite production | `Đã xuất 355 nhiệm vụ / 27 chặng. ✓ 1768 modules transformed. built in 2.21s` | ✅ PASS 100% |
-| `git status` | Rà soát trạng thái các tệp sửa đổi | Kiểm soát chặt chẽ các file thuộc quyền sở hữu M3 | ✅ CLEAN |
+| `npm test` | Toàn bộ 106 bài kiểm thử tự động thuộc 19 test suites | `ℹ tests 106, pass 106, fail 0, skipped 0, duration: ~258ms` | ✅ PASS 100% |
+| `npm run build` | Biên dịch `ROADMAP.md` và đóng gói Vite production | `Đã xuất 355 nhiệm vụ / 27 chặng. ✓ 1768 modules transformed. built in 2.23s` | ✅ PASS 100% |
+| `git status` | Rà soát trạng thái các tệp sửa đổi | Kiểm soát chặt chẽ các file đã commit và push lên `origin/main` | ✅ CLEAN |
 | SHA-256 Idempotency | Tính tất định của tài liệu Markdown | Hai lần chạy liên tiếp cho cùng mã băm SHA-256 | ✅ VERIFIED |
 
 ---
 
-## 5. GIAO THỨC LUÂN CHUYỂN MÔ HÌNH TOÀN NĂNG (UNIVERSAL MODEL SUCCESSION PROTOCOL)
+## 5. CẬP NHẬT GIAO DIỆN MỚI NHẤT (V2.0.1 UI CANVAS & SIDEBAR OPTIMIZATION)
 
-Khi chuyển giao phiên làm việc giữa các mô hình AI khác nhau (ví dụ: từ **Gemini 4 Argon** sang **Gemini 3.8 Flash High**, hoặc giữa **Codex / ChatGPT / Antigravity**) khi hết token context, mô hình kế nhiệm **BẮT BUỘC** thực hiện theo 4 bước chuẩn tắc sau để tiếp quản công việc mà không làm mất dù chỉ 1 bit ngữ cảnh:
+1. **Nút Ẩn/Hiện 2 Thanh bên kiểu Antigravity (`PanelLeft` / `PanelRight`)**:
+   - Thêm nút `PanelLeft` ở góc trái thanh header trên cùng và góc trên của sidebar trái (phím tắt `Ctrl+B`), cùng nút `PanelRight` ở góc phải thanh header trên cùng và góc trên của panel chi tiết phải (phím tắt `Ctrl+\`).
+   - Lưu trạng thái ẩn/hiện vào `localStorage` (`khmt-roadmap.ui.left`, `khmt-roadmap.ui.right`) và tự động mở lại panel chi tiết bên phải khi bấm vào một node trên bản đồ.
+   - Bổ sung nút phóng to toàn màn hình bản đồ (`Maximize2` / `Minimize2`) ngay tại cụm điều khiển góc dưới trái của canvas để ẩn/hiện đồng thời cả 2 thanh bên.
+2. **Rút gọn Tên các Tab Track trên Thanh chuyển đổi**:
+   - Bổ sung trường `tabLabel` ngắn gọn trong `src/curriculum/tracks.js` (`Tất cả`, `T0 C++ & Bộ nhớ`, `T1 OOP`, `T2 DSA`, `T3 Mạng & OS`, `T4 Toán & XS`, `T5 Công cụ`, `T6 Chuyên ngành`) để toàn bộ 8 tab vừa khít trên một hàng ngang mà không bị tràn thanh cuộn ngang, vẫn giữ đầy đủ tiêu đề và mô tả trong `title` tooltip khi di chuột.
+3. **Loại bỏ Nút trùng lặp & Thu gọn Các thanh Header chiếm diện tích**:
+   - Xóa bỏ nút `5 Đồ án Capstone` bị trùng lặp ở thanh filter (chỉ giữ 1 nút duy nhất trên thanh header trên cùng).
+   - Loại bỏ khối banner chữ khổng lồ `.map-heading` (từng chiếm 5-6 dòng khi chọn từng Track) và gộp `.map-subheading`, `.map-legend`, nút `Cách dùng` và `Tiếp tục học` vào chung một thanh công cụ `.filter-bar` siêu gọn (cao 1 dòng), giúp mở rộng tối đa diện tích chiều cao và chiều rộng cho `.map-canvas`.
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
-│             QUY TRÌNH TIẾP QUẢN MÔ HÌNH (MODEL SUCCESSION STEPS)         │
-├──────────────────────────────────────────────────────────────────────────┤
-│ Bước 1: Nạp Checkpoint (.antigravity-memory/STATE.md & notes/)           │
-│ Bước 2: Kiểm chứng Thực địa (Chạy npm test & npm run build)              │
-│ Bước 3: Đối soát Bất biến Cấu trúc (7 Tracks, 27 Chapters, 355 Tasks)    │
-│ Bước 4: Khởi động Nhiệm vụ Tiếp theo (Milestone 4 - Git Push)            │
-└──────────────────────────────────────────────────────────────────────────┘
-```
-
-### Bước 1: Đọc & Phục hồi Ngữ cảnh Tức thì
-1. Mô hình kế nhiệm đọc ngay tệp `.antigravity-memory/STATE.md` (tệp này) và tệp `notes/codex.md` hoặc `notes/antigravity.md` tương ứng với ứng dụng đang chạy.
-2. Nắm vững:
-   - Thư mục làm việc: `C:\Users\XAOXIN\Documents\Codex\cs-roadmap-prototype`.
-   - Tiến độ hiện tại: Milestone 1, 2, 3 đã hoàn thành xuất sắc 100%. Nhiệm vụ duy nhất còn lại là **Milestone 4** (Tự động hóa Git và Push remote `origin`).
-
-### Bước 2: Chạy Kiểm chứng Thực nghiệm Xác thực Thực địa (Ground Truth Check)
-Trước khi chỉnh sửa bất kỳ tệp nào, mô hình kế nhiệm phải chạy ngay hai lệnh kiểm chứng thực tế:
-```powershell
-cd C:\Users\XAOXIN\Documents\Codex\cs-roadmap-prototype
-npm test
-npm run build
-```
-- Xác nhận: `106 tests passed` và `built in ~2s`. Nếu có bất kỳ test nào fail, đó là dấu hiệu bất thường cần cô lập trước.
-
-### Bước 3: Đối soát Các Bất biến Cốt lõi (Invariant Assertions)
-Chạy script kiểm tra nhanh tính toàn vẹn của đồ thị và dữ liệu:
-```powershell
-node -e "import('./src/curriculum.js').then(({ tracks, chapters, tasks, capstoneProjects }) => { console.log('Tracks:', tracks.length, '| Chapters:', chapters.length, '| Tasks:', tasks.length, '| Capstones:', capstoneProjects.length); if (tracks.length !== 7 || chapters.length !== 27 || tasks.length !== 355 || capstoneProjects.length !== 5) process.exit(1); })"
-```
-- Kết quả bắt buộc: `Tracks: 7 | Chapters: 27 | Tasks: 355 | Capstones: 5` và exit code 0.
-
-### Bước 4: Thực thi Nhiệm vụ Kế tiếp (Milestone 4 Execution)
-Mô hình kế nhiệm chuyển thẳng sang thực hiện Milestone 4:
-1. Kiểm tra trạng thái Git qua `git status` và `git diff`.
-2. Tạo commit cục bộ chỉn chu với Conventional Commits:
-   `git add .`
-   `git commit -m "feat: complete comprehensive CS roadmap v2.0.0 (7-track, web canvas, multi-agent review, state persistence)"`
-3. Kiểm tra kết nối remote: `git remote -v`.
-4. Nếu có quyền push, thực hiện `git push origin main`. Nếu môi trường chưa có quyền push, lưu lại commit an toàn tại local và hướng dẫn người dùng lệnh push thủ công.
-
----
-
-## 6. TRẠNG THÁI HIỆN TẠI & HÀNH ĐỘNG TIẾP THEO
-
-- **Hiện tại**: Worker M3 đã hoàn tất xuất sắc toàn bộ nhiệm vụ của Milestone 3:
-  - Soạn thảo biên bản phản biện mở `docs/MULTI-AGENT-REVIEW.md`.
-  - Thiết lập checkpoint luân chuyển mô hình `.antigravity-memory/STATE.md`.
-  - Thiết lập ghi chú đồng bộ `notes/codex.md` và `notes/antigravity.md`.
-  - Kiểm chứng độc lập 106/106 tests và build thành công.
-- **Tiếp theo**: Chuyển giao điều khiển cho Orchestrator để kích hoạt **Milestone 4** (Worker M4 / Sentinel) thực hiện cam kết Git và hoàn tất dự án.

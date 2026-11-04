@@ -190,6 +190,25 @@ test('CHALLENGER 2: Verify main.jsx source code implements exact layout contract
   assert.ok(code.includes('y: -90'), 'Header nodes must be placed at y: -90');
   assert.ok(code.includes("activeTrackId === 'all'"), 'Must handle activeTrackId === all');
   assert.ok(code.includes('STORAGE_KEY_V2'), 'Must reference STORAGE_KEY_V2');
+
+  // Verify Antigravity-style left & right sidebar collapse toggles
+  assert.ok(code.includes('PanelLeft'), 'Must include PanelLeft toggle icon');
+  assert.ok(code.includes('PanelRight'), 'Must include PanelRight toggle icon');
+  assert.ok(code.includes('left-collapsed'), 'Must support left-collapsed workspace class');
+  assert.ok(code.includes('right-collapsed'), 'Must support right-collapsed workspace class');
+  assert.ok(code.includes('toggleLeftSidebar'), 'Must define toggleLeftSidebar handler');
+  assert.ok(code.includes('toggleRightSidebar'), 'Must define toggleRightSidebar handler');
+
+  // Verify no duplicate Capstone button and no bulky map-heading banner
+  const capstoneBtnMatches = code.match(/<span>5 Đồ án Capstone<\/span>/g) || [];
+  assert.equal(capstoneBtnMatches.length, 1, 'Must have exactly 1 "5 Đồ án Capstone" button in the UI (no duplicate)');
+  assert.ok(!code.includes('className="map-heading"'), 'Must not render bulky map-heading banner that crushes canvas');
+  assert.ok(!code.includes('className="capstone-trigger"'), 'Must not render duplicate capstone-trigger in filter bar');
+
+  // Verify concise track tab labels
+  for (const track of tracks) {
+    assert.ok(track.tabLabel && track.tabLabel.length <= 15, `Track ${track.id} must have a concise tabLabel <= 15 chars`);
+  }
 });
 
 test('CHALLENGER 2: 7-column layout has distinct X coordinates and strictly monotonic Y coordinates', () => {
