@@ -308,6 +308,27 @@
   background: linear-gradient(135deg, #0284c7, #8b5cf6, #10b981);
 }
 
+/* Header Diagnostic Test Link */
+.diagnostic-btn-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #0284c7 !important;
+  background: #f0f9ff !important;
+  color: #0369a1 !important;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.diagnostic-btn-link:hover {
+  background: #e0f2fe !important;
+  color: #0284c7 !important;
+}
+
 /* Header Capstone Button */
 .capstone-header-btn {
   display: flex;
