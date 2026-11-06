@@ -505,10 +505,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Chuyển struct Sach thành class với dữ liệu private. Liệt kê dữ liệu và thao tác gắn với một cuốn sách; phân biệt điều thuộc bản thân sách với điều chỉ thư viện mới biết.
-- [ ] Phân biệt lớp với hai đối tượng sách có dữ liệu khác nhau. Giữ bất biến như mã không rỗng ở trong lớp; phương thức thay đổi phải bảo vệ điều đó ở mọi đường gọi.
-- [ ] Viết phương thức xem thông tin và thay đổi dữ liệu có kiểm tra. Viết ví dụ hai đối tượng có cùng kiểu nhưng khác trạng thái; gọi phương thức trên một đối tượng và kiểm tra đối tượng còn lại.
-- [ ] Giải thích vì sao không để mọi nơi tùy ý sửa mã sách. Phân biệt đóng gói dữ liệu với việc máy móc viết getter/setter cho mọi thành viên.
+- [ ] Chuyển struct Sach thành class với dữ liệu private. Tư duy Đóng gói (Encapsulation): Bảo vệ Bất biến Trạng thái (Class Invariant) bên trong lớp, không cho thế giới bên ngoài tự ý thay đổi dữ liệu trái quy tắc.
+- [ ] Phân biệt lớp với hai đối tượng sách có dữ liệu khác nhau. Phân biệt rõ ràng: Trừu tượng hóa Dữ liệu (Dữ liệu nào thuộc bản chất đối tượng) vs Dịch vụ Điều phối (Thao tác nào thuộc hệ thống quản lý).
+- [ ] Viết phương thức xem thông tin và thay đổi dữ liệu có kiểm tra. Phân biệt Đóng gói thực chất với việc máy móc viết Getter/Setter làm thủng màng bảo vệ dữ liệu (Tell, Don't Ask principle).
+- [ ] Giải thích vì sao không để mọi nơi tùy ý sửa mã sách. Hiểu ranh giới giao diện công khai (Public Interface): Chỉ công khai những hành vi đối tượng cam kết phục vụ, giấu kín 100% chi tiết cài đặt và cấu trúc lưu trữ nội bộ.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -526,10 +526,10 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
 
 **Việc cần làm:**
 
-- [ ] Tạo hai đối tượng Sach và kiểm tra chúng không dùng chung dữ liệu ngoài ý muốn. Phác giao diện công khai gồm constructor, xem mã, xem tên và đổi tên có kiểm tra; chỉ thêm thao tác thực sự cần.
-- [ ] Chỉ cho đổi tên thành chuỗi không rỗng. Thử chuỗi rỗng, chỉ có khoảng trắng và tên hợp lệ theo quy tắc đã chọn, không chỉ thử một tên đẹp.
-- [ ] Viết hàm in thông tin một sách qua giao diện công khai. Để hàm in nhận const Sach& khi đã học const; trước đó phân biệt rõ hàm chỉ đọc với hàm sửa trạng thái.
-- [ ] Thử sửa trực tiếp dữ liệu private và đọc thông báo của trình biên dịch. Đọc thông báo truy cập private để hiểu ranh giới lớp, sau đó bỏ dòng gây lỗi ra khỏi bản chạy chính.
+- [ ] Tạo hai đối tượng Sach và kiểm tra chúng không dùng chung dữ liệu ngoài ý muốn. Thiết kế Hợp đồng Giao diện Lớp (Class Interface Design): Chỉ thêm các phương thức thực sự phục vụ ca sử dụng nghiệp vụ, loại bỏ các hàm dư thừa làm rò rỉ trạng thái.
+- [ ] Chỉ cho đổi tên thành chuỗi không rỗng. Bảo vệ bất biến ngay từ đầu vào: Kiểm tra tính hợp lệ của tham số trong mọi phương thức thay đổi trạng thái (Mutators).
+- [ ] Viết hàm in thông tin một sách qua giao diện công khai. Áp dụng nguyên tắc Bất biến chỉ đọc (Const-Correctness): Đánh dấu const cho mọi phương thức không làm thay đổi trạng thái đối tượng, cho phép dùng an toàn với tham chiếu hằng.
+- [ ] Thử sửa trực tiếp dữ liệu private và đọc thông báo của trình biên dịch. Thực hành ranh giới kiểm thử: Kiểm chứng việc truy cập trực tiếp dữ liệu private bị trình biên dịch từ chối ngay tại compile-time.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -543,10 +543,10 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
 
 **Việc cần làm:**
 
-- [ ] Phân biệt khởi tạo thành viên với gán giá trị trong thân constructor. Kiểm tra đối tượng luôn ở trạng thái dùng được ngay sau khởi tạo; tránh yêu cầu bên gọi nhớ gọi một hàm init riêng.
-- [ ] Viết constructor có tham số và dùng danh sách khởi tạo. Dùng danh sách khởi tạo cho thành viên là đối tượng, tham chiếu hoặc const khi phù hợp.
-- [ ] Xác định dữ liệu hợp lệ tối thiểu để một cuốn sách được tạo. Quan sát thứ tự khởi tạo theo thứ tự khai báo thành viên, không theo thứ tự mình tùy ý viết trong danh sách.
-- [ ] So sánh một đối tượng được khởi tạo đầy đủ với đối tượng phải gọi nhiều setter mới dùng được. Thử constructor mặc định và có tham số, giải thích constructor nào cần thiết thay vì tạo đủ mọi biến thể.
+- [ ] Phân biệt khởi tạo thành viên với gán giá trị trong thân constructor. Tư duy Khởi tạo Toàn vẹn (Complete Initialization Invariant): Đảm bảo đối tượng luôn ở trạng thái hoàn toàn hợp lệ ngay sau khi rời khỏi Constructor; cấm tuyệt đối mô hình nửa vời bắt người gọi phải tự gọi thêm hàm init().
+- [ ] Viết constructor có tham số và dùng danh sách khởi tạo. Bản chất Danh sách Khởi tạo (Member Initializer List): Khởi tạo trực tiếp ô nhớ của thuộc tính thay vì tạo mặc định rồi gán đè trong thân hàm constructor (tối ưu hiệu năng và bắt buộc đối với hằng số, tham chiếu).
+- [ ] Xác định dữ liệu hợp lệ tối thiểu để một cuốn sách được tạo. Thứ tự khởi tạo thực tế của phần cứng: Luôn theo thứ tự khai báo biến trong định nghĩa class, không phụ thuộc vào thứ tự viết trong initializer list.
+- [ ] So sánh một đối tượng được khởi tạo đầy đủ với đối tượng phải gọi nhiều setter mới dùng được. Thiết kế Constructor tối giản: Chỉ cung cấp các constructor thực sự có ý nghĩa nghiệp vụ, tránh tạo quá nhiều biến thể gây nhập nhằng.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -560,10 +560,10 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
 
 **Việc cần làm:**
 
-- [ ] Viết lớp Ngay với ngày, tháng, năm và phương thức kiểm tra hợp lệ. Viết riêng kiểm tra năm nhuận, số ngày của tháng và ngày hợp lệ để mỗi quy tắc có thể thử độc lập.
-- [ ] Xét số ngày từng tháng và năm nhuận. Dùng các mốc 1900, 2000, một năm chia hết cho 4 và một năm thường để kiểm tra quy tắc năm nhuận.
-- [ ] Thử ngày 29/2 ở năm nhuận và năm không nhuận, ngày 0 và tháng 13. Chọn cách nhận dữ liệu: kiểm tra trước khi tạo hoặc biểu diễn rõ việc tạo thất bại; không để đối tượng Ngay nửa hợp lệ.
-- [ ] Quy định rõ cách chương trình phản hồi khi đầu vào không hợp lệ. Thử ngày cuối tháng rồi ngày ngay sau nó ở tháng 2, 4 và 12; giữ bảng mong đợi để dùng lại.
+- [ ] Viết lớp Ngay với ngày, tháng, năm và phương thức kiểm tra hợp lệ. Tư duy Thiết kế Trạng thái Bất biến (State Validation & Invariant Enforcement): Ngăn chặn triệt để việc tạo ra một đối tượng mang trạng thái bất hợp lệ (Invalid State).
+- [ ] Xét số ngày từng tháng và năm nhuận. Mô hình hóa Miền Giá trị Hợp lệ: Thiết kế các luật kiểm tra biên độc lập, phân tách logic kiểm tra ràng buộc thành các vị từ (Predicates) có thể kiểm thử tự động.
+- [ ] Thử ngày 29/2 ở năm nhuận và năm không nhuận, ngày 0 và tháng 13. Chiến lược Xử lý khi Khởi tạo Thất bại: Ném ngoại lệ có ý nghĩa hoặc sử dụng Factory Pattern trả về kiểu Optional/Result để người gọi nhận diện lỗi tường minh.
+- [ ] Quy định rõ cách chương trình phản hồi khi đầu vào không hợp lệ. Xây dựng bộ kiểm thử ca biên toàn diện: Thử nghiệm các giá trị biên, giá trị ngoài miền và xác nhận đối tượng không bao giờ rơi vào trạng thái không xác định.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -577,10 +577,10 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
 
 **Việc cần làm:**
 
-- [ ] Đánh dấu phương thức chỉ đọc bằng const. Đặt const sau khai báo phương thức thành viên chỉ đọc và đồng bộ cả khai báo lẫn định nghĩa ở tệp cpp.
-- [ ] Truyền đối tượng sách vào hàm bằng const Sach&. Phân biệt const ở đối tượng, ở tham số tham chiếu và ở giá trị trả về; không thêm const ngẫu nhiên để hết lỗi.
-- [ ] Thử gọi phương thức thay đổi dữ liệu trên đối tượng const và giải thích lỗi. Tạo một const Sach rồi gọi từng phương thức công khai; phương thức đọc phải dùng được, phương thức sửa phải bị từ chối.
-- [ ] Rà lại giao diện lớp: thao tác nào chỉ đọc, thao tác nào thay đổi trạng thái. Không trả tham chiếu không const tới dữ liệu private từ một thao tác được gọi là chỉ đọc.
+- [ ] Đánh dấu phương thức chỉ đọc bằng const. Nguyên lý Hợp đồng Bất biến (Const Contract): Đặt const sau phương thức để cam kết với trình biên dịch và người gọi rằng phương thức này chỉ đọc, không làm thay đổi bất kỳ byte nào của đối tượng.
+- [ ] Truyền đối tượng sách vào hàm bằng const Sach&. Truyền tham chiếu hằng (const T&): Tiêu chuẩn vàng để truyền đối tượng trong C++ — không tốn chi phí sao chép bộ nhớ và đảm bảo an toàn tuyệt đối cho dữ liệu gốc.
+- [ ] Thử gọi phương thức thay đổi dữ liệu trên đối tượng const và giải thích lỗi. Kiểm tra tính nhất quán Const (Const-Correctness): Đảm bảo phương thức const không được phép trả về tham chiếu hoặc con trỏ không-const trỏ vào dữ liệu nội bộ của lớp.
+- [ ] Rà lại giao diện lớp: thao tác nào chỉ đọc, thao tác nào thay đổi trạng thái. Kiểm chứng tại thời điểm biên dịch: Cố ý gọi thao tác sửa đổi trên một đối tượng const để xác nhận trình biên dịch phát hiện và chặn đứng lỗi.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -594,11 +594,10 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
 
 **Việc cần làm:**
 
-- [ ] Tạo lớp ThuVien chứa vector<Sach>. Vẽ quan hệ ThuVien sở hữu danh sách Sach và xác định ai chịu trách nhiệm thêm, xóa, giữ mã không trùng.
-- [ ] Đưa việc kiểm tra mã sách trùng vào ThuVien. Phân biệt ràng buộc của một sách như tên hợp lệ với ràng buộc trên nhiều sách như mã duy nhất.
-- [ ] Phân biệt ThuVien chứa Sach với Sach là một loại ThuVien. Chọn truyền sách bằng giá trị, tham chiếu hay mã định danh theo nhu cầu; ghi hậu quả khi vector thay đổi hoặc sách bị xóa.
-- [ ] Vẽ sơ đồ lớp đơn giản, ghi rõ đối tượng nào sở hữu danh sách sách. Hiểu sâu nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) thay vì lạm dụng Is-A (kế thừa), ngăn chặn lỗi thiết kế Fragile Base Class và giảm độ kết dính (loose coupling).
-- [ ] Giải thích vì sao ThuVien không phải một loại Sach bằng thử thay thế đối tượng trong một hàm nhận Sach.
+- [ ] Tạo lớp ThuVien chứa vector<Sach>. Nguyên lý Thiết kế Hợp thành (Composition over Inheritance): Ưu tiên quan hệ Has-A (Chứa/Hợp thành) thay vì lạm dụng Is-A (Kế thừa); ngăn chặn lỗi thiết kế Lớp Cơ sở Dễ vỡ (Fragile Base Class).
+- [ ] Đưa việc kiểm tra mã sách trùng vào ThuVien. Phân định ranh giới trách nhiệm: Đối tượng chứa quản lý vòng đời và giữ bất biến trên tập hợp; đối tượng thành phần chỉ chịu trách nhiệm về tính toàn vẹn của chính nó.
+- [ ] Phân biệt ThuVien chứa Sach với Sach là một loại ThuVien. Thiết kế liên kết lỏng (Loose Coupling): Các thành phần giao tiếp qua định danh hoặc hợp đồng giao diện, giảm thiểu tối đa sự phụ thuộc trực tiếp vào kiểu dữ liệu cụ thể.
+- [ ] Vẽ sơ đồ lớp đơn giản, ghi rõ đối tượng nào sở hữu danh sách sách. Vẽ sơ đồ cấu trúc lớp (Class Diagram) làm rõ mối quan hệ sở hữu và trách nhiệm điều phối dòng dữ liệu giữa các thành phần.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -616,10 +615,10 @@ Nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) tha
 
 **Việc cần làm:**
 
-- [ ] Thêm phương thức themSach, timSach và hienThiDanhSach. Viết chữ ký và kết quả từng thao tác trước khi cài, đặc biệt trường hợp thêm trùng hoặc tìm không thấy.
-- [ ] Quy định kết quả khi không tìm thấy mã sách. Không để bên gọi sửa trực tiếp vector nội bộ rồi phá mã duy nhất; cung cấp thao tác qua giao diện nhỏ.
-- [ ] Thử thư viện rỗng, thêm trùng mã và tìm sách sau khi thêm. Nếu trả con trỏ/tham chiếu tới sách, ghi thời điểm có thể mất hiệu lực; có thể trả mã hoặc bản sao khi đơn giản hơn.
-- [ ] Giữ thao tác nhập từ bàn phím ở ngoài lớp dữ liệu. Dùng dữ liệu cố định để test lớp; menu chỉ đọc đầu vào, gọi phương thức và hiển thị kết quả.
+- [ ] Thêm phương thức themSach, timSach và hienThiDanhSach. Thiết kế Giao diện Điều phối Bộ nhớ: Định nghĩa chữ ký và kiểu trả về rõ ràng cho các thao tác quản lý (Thêm, Tìm kiếm, Xóa), đặc biệt xử lý an toàn ca không tìm thấy.
+- [ ] Quy định kết quả khi không tìm thấy mã sách. Bảo vệ toàn vẹn dữ liệu nội bộ: Không bao giờ trả về tham chiếu trực tiếp tới container nội bộ để bên ngoài tùy ý sửa đổi làm phá vỡ bất biến danh sách.
+- [ ] Thử thư viện rỗng, thêm trùng mã và tìm sách sau khi thêm. Tách biệt hoàn toàn Tầng Logic Nghiệp vụ khỏi Tầng Nhập/Xuất (I/O): Lớp nghiệp vụ nhận dữ liệu thuần túy và trả kết quả, không chứa mã nhập xuất bàn phím hay giao diện.
+- [ ] Giữ thao tác nhập từ bàn phím ở ngoài lớp dữ liệu. Xây dựng bộ test kiểm thử tự động: Kiểm tra hoạt động của lớp nghiệp vụ với dữ liệu cố định trong bộ nhớ RAM mà không cần tương tác người dùng.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -633,12 +632,12 @@ Nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) tha
 
 **Việc cần làm:**
 
-- [ ] Bắt đầu từ vấn đề nhiều loại người dùng có phần thông tin và hành vi chung, rồi so với cách chứa một đối tượng Nguoi bên trong.
-- [ ] Xét khi nào SinhVien có thể được xem là một Nguoi. Thử đưa SinhVien vào hàm cần Nguoi để kiểm tra quan hệ là-một có hợp lý; không dùng kế thừa chỉ để tránh chép vài thuộc tính.
-- [ ] Viết cú pháp class SinhVien : public Nguoi, chỉ rõ thành viên nào được kế thừa và thành viên private nào lớp con không được truy cập trực tiếp.
-- [ ] Lập bảng truy cập từ bên ngoài, trong lớp cha và trong lớp con đối với public/protected/private; thử từng trường hợp bằng mã ngắn.
-- [ ] In thông báo để quan sát thứ tự chạy constructor và destructor của lớp cha, lớp con. Gọi constructor lớp cha từ danh sách khởi tạo của lớp con; theo dõi lớp cha được tạo trước và bị hủy sau lớp con.
-- [ ] Giữ ví dụ này chưa có virtual; phần chọn hành vi lúc chạy sẽ được tách ở nhiệm vụ đa hình tiếp theo.
+- [ ] Bản chất Kế thừa trong Thiết kế: Kế thừa thực chất là quan hệ chuyên biệt hóa (Specialization / Is-A) và chia sẻ giao diện, TUYỆT ĐỐI KHÔNG dùng kế thừa chỉ để tái sử dụng lại vài dòng mã.
+- [ ] Xét khi nào SinhVien có thể được xem là một Nguoi. undefined
+- [ ] Nguyên lý Thay thế Liskov (LSP - Liskov Substitution Principle): Đối tượng của lớp con phải có thể thay thế hoàn hảo cho đối tượng của lớp cha mà không làm thay đổi tính đúng đắn của chương trình.
+- [ ] Cơ chế Khởi tạo và Phân hủy theo tầng: Constructor của lớp cha luôn thực thi trước lớp con để dựng nền tảng; Destructor của lớp con luôn thực thi trước lớp cha để dọn dẹp phần mở rộng.
+- [ ] In thông báo để quan sát thứ tự chạy constructor và destructor của lớp cha, lớp con. Phân định quyền truy cập 3 mức: Public (giao diện chung), Protected (chỉ dành cho lớp dẫn xuất kế thừa), Private (đóng gói tuyệt đối bên trong lớp).
+- [ ] undefined
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -656,11 +655,10 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
 
 **Việc cần làm:**
 
-- [ ] Viết Nguoi chứa họ tên; SinhVien bổ sung mã số và điểm. Tự viết constructor nhận họ tên, mã số và điểm, chuyển đúng phần tên cho constructor Nguoi.
-- [ ] Khởi tạo phần Nguoi bằng constructor của lớp cha. Viết một thao tác đọc thông tin chung qua giao diện lớp cha mà không cần công khai dữ liệu private.
-- [ ] Thử truy cập các thành viên có quyền khác nhau; giải thích những dòng không biên dịch. Đặt một đoạn thử cho mỗi mức truy cập, dự đoán dòng nào hợp lệ trước khi biên dịch.
-- [ ] So sánh với LopHoc chứa danh sách SinhVien và giải thích vì sao đây là quan hệ chứa. Đặt cạnh nhau SinhVien–Nguoi và LopHoc–SinhVien, ghi vì sao quan hệ thứ hai cần chứa danh sách thay vì kế thừa.
-- [ ] Thử sửa thông tin trên một sinh viên rồi kiểm tra sinh viên khác không bị đổi ngoài ý muốn.
+- [ ] Viết Nguoi chứa họ tên; SinhVien bổ sung mã số và điểm. Cài đặt Kế thừa Chuẩn mực: Lớp con gọi tường minh constructor của lớp cha trong danh sách khởi tạo để truyền dữ liệu nền tảng.
+- [ ] Khởi tạo phần Nguoi bằng constructor của lớp cha. Khai thác Giao diện dùng chung: Viết các hàm xử lý nhận tham chiếu tới lớp cha, cho phép dùng chung cho mọi lớp con mà không cần biết kiểu cụ thể.
+- [ ] Thử truy cập các thành viên có quyền khác nhau; giải thích những dòng không biên dịch. Phân tích ranh giới: So sánh sự khác biệt giữa quan hệ Kế thừa (SinhVien kế thừa Nguoi) vs quan hệ Chứa (LopHoc chứa danh sách SinhVien) để tránh lỗi thiết kế kinh điển.
+- [ ] So sánh với LopHoc chứa danh sách SinhVien và giải thích vì sao đây là quan hệ chứa. Kiểm tra tính độc lập: Đảm bảo việc sửa đổi thuộc tính riêng của một đối tượng con không gây ra bất kỳ tác dụng phụ nào tới các đối tượng khác.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -674,10 +672,10 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
 
 **Việc cần làm:**
 
-- [ ] Tạo lớp NhanVien và hai lớp con có cách tính lương khác nhau. Làm chủ cơ chế Dynamic Dispatch: Trình biên dịch chèn con trỏ bảng ảo vptr (8 bytes) vào đầu mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo trong phân vùng dữ liệu chỉ đọc (.rodata); lời gọi ptr->method() thực thi qua 3 bước tra cứu gián tiếp.
+- [ ] Tạo lớp NhanVien và hai lớp con có cách tính lương khác nhau. Làm chủ cơ chế Dynamic Dispatch: Trình biên dịch chèn con trỏ bảng ảo vptr (8 bytes) vào đầu mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo trong phân vùng dữ liệu chỉ đọc (.rodata); lời gọi ptr->method() thực thi qua tra cứu gián tiếp lúc chạy.
 - [ ] Gọi tinhLuong qua tham chiếu NhanVien khi có và khi không có virtual. Bắt buộc khai báo virtual destructor (virtual
 - [ ] Dùng override và thử cố ý viết sai chữ ký để đọc lỗi biên dịch. Base()) ở mọi lớp cơ sở đa hình để ngăn chặn lỗi rò rỉ bộ nhớ thảm họa khi giải phóng đối tượng con qua con trỏ lớp cha.
-- [ ] Tìm hiểu vì sao lớp cha cần destructor ảo khi xóa đối tượng con qua con trỏ lớp cha. Tạo ví dụ truyền đối tượng con theo giá trị để quan sát hiện tượng cắt cụt đối tượng (object slicing) làm mất sạch phần dữ liệu riêng của lớp con, rồi chuyển sang dùng tham chiếu const Base& hoặc std::unique_ptr<Base>.
+- [ ] Tìm hiểu vì sao lớp cha cần destructor ảo khi xóa đối tượng con qua con trỏ lớp cha. Tạo ví dụ truyền đối tượng con theo giá trị để quan sát hiện tượng cắt cụt đối tượng (object slicing) làm mất sạch phần dữ liệu riêng của lớp con, rồi chuyển sang dùng tham chiếu const Base& hoặc con trỏ.
 - [ ] Phân biệt override đúng chữ ký với tạo hàm nạp chồng do sai tham số/const; dùng từ khóa override để compiler kiểm tra tại thời điểm biên dịch.
 - [ ] Tham khảo cẩm nang cơ chế đa hình động và thiết kế phần mềm sạch tại docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md.
 
@@ -700,10 +698,10 @@ Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu 
 
 **Việc cần làm:**
 
-- [ ] Viết NhanVienToanThoiGian và NhanVienTheoGio. Quy định công thức lương, đơn vị tiền và cách xử lý số giờ trước khi cài từng lớp con.
-- [ ] Viết một hàm nhận const NhanVien& và in lương, không kiểm tra loại nhân viên. Cho tinhLuong là phương thức const nếu không đổi trạng thái, để hàm nhận const NhanVien& gọi được.
-- [ ] Truyền từng đối tượng con vào cùng hàm và kiểm tra kết quả. Dùng cùng một hàm in lương với hai đối tượng con và một tập số liệu tính tay được.
-- [ ] Thử số giờ bằng 0 và dữ liệu âm; quy định dữ liệu nào bị từ chối. Kiểm tra kết quả khi gọi qua lớp cha, không chỉ gọi trực tiếp tên lớp con rồi kết luận đã có đa hình.
+- [ ] Viết NhanVienToanThoiGian và NhanVienTheoGio. Tư duy Đa hình Động trong Thiết kế: Viết các hàm nghiệp vụ chỉ làm việc với Hợp đồng Giao diện Lớp cha (Base Contract), hoàn toàn độc lập với các lớp con cụ thể.
+- [ ] Viết một hàm nhận const NhanVien& và in lương, không kiểm tra loại nhân viên. Mở rộng không cần sửa đổi (Open/Closed Principle): Khi thêm một lớp con mới với thuật toán xử lý riêng, toàn bộ mã điều phối cũ không cần phải sửa đổi hay thêm chuỗi if-else kiểm tra loại đối tượng.
+- [ ] Truyền từng đối tượng con vào cùng hàm và kiểm tra kết quả. Kiểm chứng Đa hình Thực tế: Truyền các đối tượng con khác nhau qua con trỏ hoặc tham chiếu lớp cha, đối chiếu kết quả thực thi lúc chạy để thấy cơ chế dynamic dispatch hoạt động.
+- [ ] Thử số giờ bằng 0 và dữ liệu âm; quy định dữ liệu nào bị từ chối. Thiết kế phương thức hằng (const virtual method) cho các thao tác tính toán không làm thay đổi trạng thái đối tượng.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -717,10 +715,10 @@ Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu 
 
 **Việc cần làm:**
 
-- [ ] Đổi tinhLuong thành hàm thuần ảo. Viết cú pháp virtual double tinhLuong() const = 0 và phân biệt hàm thuần ảo với một hàm bình thường có thân rỗng.
-- [ ] Quan sát vì sao không thể tạo trực tiếp đối tượng lớp trừu tượng. Tạo một lớp con chưa cài đủ giao diện để đọc lỗi vẫn còn trừu tượng, rồi bổ sung cài đặt còn thiếu.
-- [ ] Phân biệt giao diện chung với cách cài đặt riêng của từng lớp con. Giữ destructor của lớp cha phù hợp với cách hủy đối tượng; giao diện trừu tượng vẫn có thể có constructor hoặc phương thức đã cài.
-- [ ] Chỉ thêm một lớp con mới và kiểm tra hàm in lương chung vẫn dùng được. Thêm loại nhân viên thứ ba, kiểm tra không phải sửa hàm nhận giao diện chung hoặc thêm chuỗi if theo loại.
+- [ ] Đổi tinhLuong thành hàm thuần ảo. Bản chất Lớp Trừu tượng (Abstract Class): Đóng vai trò là một Bản Đặc tả Giao diện (Pure Interface Contract), định nghĩa những hành vi mà mọi lớp con bắt buộc phải cam kết thực hiện.
+- [ ] Quan sát vì sao không thể tạo trực tiếp đối tượng lớp trừu tượng. Khai báo Phương thức Thuần ảo (Pure Virtual Function: virtual Ret method() = 0;): Ngăn chặn việc khởi tạo trực tiếp đối tượng của lớp trừu tượng, chỉ cho phép dùng làm kiểu con trỏ/tham chiếu điều phối.
+- [ ] Phân biệt giao diện chung với cách cài đặt riêng của từng lớp con. Tách rời Bản hợp đồng khỏi Cài đặt cụ thể: Người gọi chỉ phụ thuộc vào giao diện trừu tượng, cho phép hoán đổi các bộ cài đặt khác nhau (ví dụ: bộ lưu trữ RAM vs File vs Database) một cách liền mạch.
+- [ ] Chỉ thêm một lớp con mới và kiểm tra hàm in lương chung vẫn dùng được. Kiểm chứng Liskov Substitution: Đảm bảo mọi lớp con thực thi đầy đủ giao diện và tuân thủ đúng các ràng buộc của lớp trừu tượng cơ sở.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -741,10 +739,10 @@ Lớp trừu tượng (Abstract Base Class) & Giao diện thuần ảo (= 0): Đ
 
 **Việc cần làm:**
 
-- [ ] Theo dõi constructor và destructor khi đối tượng rời khỏi phạm vi. Vẽ thời gian sống của một đối tượng trong khối lệnh, trong hàm và bên trong vector.
-- [ ] Tìm hiểu RAII: gắn việc giải phóng tài nguyên với thời gian sống của đối tượng. So tự cấp phát mảng với dùng vector; xác định mỗi tài nguyên được giải phóng ở đâu và khi nào.
-- [ ] Dùng string và vector để lớp tự quản lý dữ liệu mà không tự new/delete. Quan sát destructor chạy khi thoát phạm vi bình thường; sau khi học ngoại lệ, quay lại kiểm tra lúc thoát do lỗi.
-- [ ] Thử sao chép một Sach chỉ chứa string và số; thay đổi bản sao rồi kiểm tra bản gốc. Với lớp chỉ chứa string và vector, thử copy rồi sửa bản sao để thấy các thành viên này đã quản lý giá trị của chúng.
+- [ ] Theo dõi constructor và destructor khi đối tượng rời khỏi phạm vi. Tư duy Vòng đời Đối tượng và Thu hồi Tài nguyên: Theo dõi chính xác thời điểm Constructor được kích hoạt (cấp phát) và Destructor được gọi (thu hồi) khi đối tượng rời khỏi phạm vi (Scope).
+- [ ] Tìm hiểu RAII: gắn việc giải phóng tài nguyên với thời gian sống của đối tượng. Nguyên lý Tự quản lý Tài nguyên: Ưu tiên thiết kế các lớp tự quản lý dữ liệu thông qua các cấu trúc dữ liệu chuẩn (std::vector, std::string) thay vì tự rải con trỏ thô new/delete rải rác.
+- [ ] Dùng string và vector để lớp tự quản lý dữ liệu mà không tự new/delete. Mô hình Quản lý Tài nguyên An toàn khi có Ngoại lệ: Đảm bảo khi một thao tác gặp sự cố giữa chừng, toàn bộ các đối tượng đã khởi tạo trên stack đều được giải phóng sạch sẽ qua cơ chế Stack Unwinding.
+- [ ] Thử sao chép một Sach chỉ chứa string và số; thay đổi bản sao rồi kiểm tra bản gốc. Kiểm chứng hành vi sao chép: Đảm bảo việc sao chép đối tượng tạo ra vùng dữ liệu độc lập, tránh hiện tượng sửa đổi dữ liệu chéo ngoài ý muốn.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -787,11 +785,11 @@ Hiểu rõ Stack vs Heap: sao chép nông khiến hai con trỏ trỏ cùng ô n
 
 **Việc cần làm:**
 
-- [ ] Tạo đối tượng bằng std::make_unique và quan sát cơ chế tự hủy giải phóng ô nhớ Heap khi ra khỏi scope. Làm chủ tư duy quản lý tài nguyên bằng RAII: vùng nhớ Heap gắn liền với vòng đời của đối tượng quản lý, tự động giải phóng khi ra khỏi scope.
-- [ ] Sử dụng std::unique_ptr để quản lý độc quyền tài nguyên mà không cần gọi delete thủ công. Sử dụng std::unique_ptr biểu diễn quyền sở hữu độc quyền (exclusive ownership): dùng std::make_unique để khởi tạo, loại bỏ hoàn toàn việc gọi delete thủ công rải rác.
-- [ ] Dùng vector<unique_ptr<NhanVien>> để quản lý danh sách đa hình; lớp cha bắt buộc có virtual destructor. Tránh lỗi nhận thức: tuyệt đối không tạo hai unique_ptr từ cùng một địa chỉ con trỏ thô vì sẽ gây Double-Free.
-- [ ] Tổ chức mảng động đa hình an toàn với std::vector<std::unique_ptr<LopCha>>: lớp cha bắt buộc có virtual destructor để destructor lớp con được gọi đúng khi hủy.
-- [ ] Tham khảo hướng dẫn thực hành con trỏ thông minh và RAII tại docs/guides/01-MEMORY-POINTERS-RAII.md.
+- [ ] Tạo đối tượng bằng std::make_unique và quan sát cơ chế tự hủy giải phóng ô nhớ Heap khi ra khỏi scope. Tư duy Quản lý Quyền sở hữu Tài nguyên (Ownership Mental Model): Vùng nhớ Heap phải có một chủ sở hữu duy nhất, rõ ràng chịu trách nhiệm thu hồi khi hoàn thành nhiệm vụ.
+- [ ] Sử dụng std::unique_ptr để quản lý độc quyền tài nguyên mà không cần gọi delete thủ công. Sử dụng con trỏ sở hữu độc quyền (std::unique_ptr): Khởi tạo an toàn bằng std::make_unique, loại bỏ hoàn toàn việc gọi delete thủ công rải rác trong mã nguồn.
+- [ ] Dùng vector<unique_ptr<NhanVien>> để quản lý danh sách đa hình; lớp cha bắt buộc có virtual destructor. Tránh lỗi nhận thức kinh điển: Tuyệt đối không tạo hai con trỏ quản lý độc quyền từ cùng một địa chỉ ô nhớ thô vì sẽ gây thảm họa Double-Free.
+- [ ] Quản lý mảng đa hình an toàn với std::vector<std::unique_ptr<LopCha>>: Lớp cha bắt buộc có virtual destructor để destructor của lớp con được kích hoạt đúng khi đối tượng bị giải phóng.
+- [ ] Tham khảo hướng dẫn thực hành tại docs/guides/01-MEMORY-POINTERS-RAII.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -809,10 +807,10 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
 
 **Việc cần làm:**
 
-- [ ] Tìm hiểu Euclid: thay cặp số bằng số thứ hai và số dư đến khi số dư bằng 0 để tìm UCLN. Quy định mẫu số khác 0 và dấu nằm ở tử, dùng UCLN của độ lớn để đưa về biểu diễn chuẩn.
-- [ ] Viết lớp PhanSo chuẩn hóa dấu và rút gọn. Viết phép cộng mà không sửa hai toán hạng đầu vào, xác định kiểu trả về.
-- [ ] Cài + và ==; thử mẫu bằng 0, phân số âm, hai biểu diễn bằng nhau và giới hạn tránh tràn. Kiểm tra 1/2==2/4, số âm và tổng bằng 0; không so hai trường thô nếu đối tượng chưa chuẩn hóa.
-- [ ] Xét miền số có thể nhân chéo an toàn; nếu không hỗ trợ số lớn, ghi giới hạn thay vì để tràn im lặng.
+- [ ] Tìm hiểu Euclid: thay cặp số bằng số thứ hai và số dư đến khi số dư bằng 0 để tìm UCLN. Tư duy Đại số Kiểu Dữ liệu (Value Semantics & Operator Invariants): Nạp chồng toán tử nhằm mục đích giúp kiểu dữ liệu tự định nghĩa hoạt động trực quan và tự nhiên như kiểu dữ liệu nguyên thủy.
+- [ ] Viết lớp PhanSo chuẩn hóa dấu và rút gọn. Bảo toàn Tính chất Đại số: Toán tử số học (+) không được làm thay đổi toán hạng đầu vào; toán tử so sánh (==) phải thỏa mãn tính phản xạ, đối xứng và bắc cầu.
+- [ ] Cài + và ==; thử mẫu bằng 0, phân số âm, hai biểu diễn bằng nhau và giới hạn tránh tràn. Phân biệt Toán tử Thành viên vs Toán tử Tự do Đối xứng: Toán tử thay đổi trạng thái (+=, -=) là phương thức thành viên; toán tử hai ngôi đối xứng (+, -) nên là hàm tự do để hỗ trợ chuyển đổi kiểu ngầm định ở cả hai vế.
+- [ ] Phòng chống lỗi tràn số trong các phép tính toán tử: Đưa dữ liệu về dạng chuẩn tắc (Canonical Form) trước khi so sánh hoặc tính toán.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -826,10 +824,10 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
 
 **Việc cần làm:**
 
-- [ ] Viết hàm template tìm phần tử lớn hơn trong hai giá trị. Tìm hiểu tham số kiểu và cách compiler suy ra kiểu từ đối số, thử gọi cùng hàm với int và double.
-- [ ] Dùng sort với comparator đúng; không dùng <= làm điều kiện so sánh nghiêm ngặt. Viết comparator theo thứ tự tăng của năm rồi mã sách; với phần tử bằng nhau phải trả false cho cả hai chiều.
-- [ ] Dùng iterator, find và lambda đơn giản trên vector sách. Quan sát iterator bị vô hiệu sau thao tác trên container, không giữ iterator cũ rồi tiếp tục dùng.
-- [ ] Dùng lambda bắt dữ liệu theo giá trị hoặc tham chiếu trong một ví dụ ngắn và kiểm tra dữ liệu được bắt còn sống.
+- [ ] Viết hàm template tìm phần tử lớn hơn trong hai giá trị. Đa hình Thời gian Biên dịch (Compile-time Polymorphism): Sử dụng Template để xây dựng các giải thuật và cấu trúc dữ liệu tổng quát, hoạt động trên mọi kiểu dữ liệu thỏa mãn điều kiện mà không tốn chi phí vtable lúc chạy.
+- [ ] Dùng sort với comparator đúng; không dùng <= làm điều kiện so sánh nghiêm ngặt. Cơ chế Khởi tạo Mẫu (Template Instantiation): Trình biên dịch tự động sinh mã máy chuyên biệt hóa (Specialized Code) cho từng kiểu dữ liệu được sử dụng trong chương trình.
+- [ ] Dùng iterator, find và lambda đơn giản trên vector sách. Thiết kế Hàm So sánh Tùy biến (Custom Comparators): Xây dựng hàm so sánh theo quan hệ Thứ tự Bộ phận Nghiêm ngặt (Strict Weak Ordering: f(a, a) luôn bằng false) để tránh lỗi lặp vô tận trong các hàm sắp xếp.
+- [ ] Khai thác Thư viện Thuật toán Chuẩn: Kết hợp các thuật toán tổng quát (std::sort, std::find) với biểu thức Lambda để viết mã nguồn ngắn gọn, tối ưu và biểu đạt trực tiếp ý định thuật toán.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -843,10 +841,10 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
 
 **Việc cần làm:**
 
-- [ ] So sánh trả mã lỗi với ném ngoại lệ ở thao tác đọc tệp. Xác định nơi phát hiện lỗi, nơi có đủ ngữ cảnh để xử lý và thông tin cần gửi ngược cho bên gọi.
-- [ ] Bắt ngoại lệ ở lớp giao tiếp, không bỏ qua mọi lỗi bằng catch rỗng. Khi dùng exception, ném kiểu có ý nghĩa và bắt bằng const tham chiếu khi phù hợp.
-- [ ] Thử lỗi giữa một thao tác cập nhật; tránh để dữ liệu thay đổi một nửa. Đọc dữ liệu mới vào cấu trúc tạm rồi chỉ cập nhật trạng thái chính khi đã kiểm tra xong.
-- [ ] Tạo ca đọc được nửa tệp rồi gặp lỗi; xác nhận danh sách cũ vẫn nhất quán, không bị ghi đè một phần.
+- [ ] So sánh trả mã lỗi với ném ngoại lệ ở thao tác đọc tệp. Chiến lược Xử lý Sự cố & Đảm bảo An toàn Trạng thái (Exception Safety Guarantees): Phân biệt 3 mức cam kết an toàn: Cam kết Cơ bản (không rò rỉ tài nguyên), Cam kết Mạnh (hoàn tác trạng thái nguyên vẹn như trước khi gọi nếu thất bại - Commit or Rollback), và Cam kết Không Ném (Nothrow guarantee).
+- [ ] Bắt ngoại lệ ở lớp giao tiếp, không bỏ qua mọi lỗi bằng catch rỗng. Xử lý lỗi có phương pháp: Ném ngoại lệ khi và chỉ khi một hàm không thể hoàn thành được nhiệm vụ đã cam kết trong hợp đồng giao diện.
+- [ ] Thử lỗi giữa một thao tác cập nhật; tránh để dữ liệu thay đổi một nửa. Mô hình Cập nhật Nguyên tử (Atomic Update Pattern): Đọc và tính toán trên cấu trúc tạm thời, chỉ ghi đè vào trạng thái chính của hệ thống khi mọi bước kiểm tra đều thành công.
+- [ ] Phân định ranh giới xử lý lỗi: Bắt và xử lý ngoại lệ ở tầng có đủ ngữ cảnh (Tầng Giao tiếp / Điều phối), không dùng khối catch rỗng làm nuốt chửng lỗi hệ thống.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1323,10 +1321,10 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
 
 **Việc cần làm:**
 
-- [ ] Cài cách chèn phần tử tiếp theo vào đoạn đầu đã sắp xếp. Tại lượt i, giữ giá trị cần chèn trước khi dịch các phần tử lớn hơn sang phải.
-- [ ] Viết bất biến của đoạn đã sắp, đếm phép dịch khi mảng tăng và giảm. Dùng điều kiện lớn hơn nghiêm ngặt để phần tử khóa bằng nhau giữ thứ tự ban đầu.
-- [ ] Kiểm tra tính ổn định bằng các bản ghi có khóa bằng nhau. Thử mảng tăng, giảm và toàn bằng nhau, đếm riêng phép so sánh với phép dịch.
-- [ ] Giải thích vì sao đoạn [0,i) đã sắp và có đúng các phần tử cần có trước khi bước sang lượt tiếp.
+- [ ] Cài cách chèn phần tử tiếp theo vào đoạn đầu đã sắp xếp. Mô hình nhận thức Sắp xếp Chèn (Insertion Sort): Duy trì bất biến đoạn tiền tố a[0..i-1] luôn luôn được sắp xếp có thứ tự; phần tử a[i] được chèn vào đúng vị trí của nó bằng cách dịch chuyển các phần tử lớn hơn sang phải.
+- [ ] Viết bất biến của đoạn đã sắp, đếm phép dịch khi mảng tăng và giảm. Bảo toàn Tính ổn định (Stability): Sử dụng điều kiện so sánh nghiêm ngặt (a[j] > key) để các phần tử có khóa bằng nhau giữ nguyên thứ tự ban đầu.
+- [ ] Kiểm tra tính ổn định bằng các bản ghi có khóa bằng nhau. Phân tích độ phức tạp theo Nghịch thế (Inversions): Số phép dịch chuyển bằng chính xác số cặp nghịch thế trong mảng; chạy cực nhanh O(N) trên mảng gần như đã sắp xếp.
+- [ ] Hiểu giới hạn chặn dưới của các thuật toán đổi chỗ kề nhau: Bất kỳ thuật toán nào chỉ so sánh 2 phần tử cạnh nhau đều bị chặn dưới bởi Omega(N^2) trong trường hợp trung bình.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1340,10 +1338,10 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
 
 **Việc cần làm:**
 
-- [ ] Mỗi lượt chọn phần tử nhỏ nhất của đoạn chưa sắp và đưa về đầu. Tách tìm vị trí nhỏ nhất khỏi bước đổi chỗ sau khi kết thúc quét đoạn còn lại.
-- [ ] Đếm số so sánh, hoán đổi rồi so với insertion sort. Tránh hoán đổi ngay mỗi lần gặp một phần tử nhỏ hơn nếu đang muốn cài đúng phiên bản selection sort chuẩn.
-- [ ] Tự tạo ví dụ làm thay đổi thứ tự hai bản ghi cùng khóa để xét tính ổn định. Gắn nhãn A/B cho hai bản ghi cùng khóa rồi tìm ca làm thứ tự A,B bị đảo.
-- [ ] Tính tổng (n−1)+(n−2)+…+1, đối chiếu tính bậc hai ngay cả khi mảng đã sắp.
+- [ ] Mỗi lượt chọn phần tử nhỏ nhất của đoạn chưa sắp và đưa về đầu. Mô hình nhận thức Sắp xếp Chọn (Selection Sort): Tại lượt i, quét tìm phần tử nhỏ nhất trong đoạn chưa sắp xếp a[i..n-1] rồi hoán đổi về vị trí a[i].
+- [ ] Đếm số so sánh, hoán đổi rồi so với insertion sort. Bất biến giải thuật: Đoạn a[0..i] không chỉ có thứ tự mà còn chứa đúng i phần tử nhỏ nhất của toàn bộ mảng ban đầu.
+- [ ] Tự tạo ví dụ làm thay đổi thứ tự hai bản ghi cùng khóa để xét tính ổn định. Bản chất Không Ổn định: Phép hoán đổi từ xa qua nhiều phần tử làm đảo lộn thứ tự tương đối của các phần tử có khóa bằng nhau.
+- [ ] Đặc điểm tài nguyên: Số phép hoán đổi luôn là tối thiểu O(N) dù số phép so sánh luôn là bậc hai O(N^2); phù hợp khi chi phí ghi ô nhớ (flash memory write) đắt đỏ.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1357,10 +1355,10 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
 
 **Việc cần làm:**
 
-- [ ] Cài so sánh hai phần tử kề nhau và đổi chỗ khi sai thứ tự. Giới hạn phần quét giảm sau mỗi lượt vì một phần tử đã về đúng cuối đoạn.
-- [ ] Thêm cờ dừng sớm nếu cả lượt không đổi chỗ. Chỉ đổi khi phần tử trái lớn hơn phần tử phải để giữ tính ổn định.
-- [ ] Chứng minh sau một lượt phần tử lớn nhất của đoạn chưa xử lý về cuối; so trường hợp tốt và xấu. Đặt lại cờ đã-đổi ở đầu mỗi lượt, thử mảng đã tăng để kiểm tra dừng sớm.
-- [ ] So số lượt ở dãy giảm với dãy chỉ có một cặp sai vị trí; không suy ra mọi dãy gần sắp đều cần một lượt.
+- [ ] Cài so sánh hai phần tử kề nhau và đổi chỗ khi sai thứ tự. Mô hình nhận thức Sắp xếp Nổi bọt (Bubble Sort): Quét liên tục các cặp phần tử kề nhau, phần tử lớn hơn nổi dần về cuối mảng như bọt khí.
+- [ ] Thêm cờ dừng sớm nếu cả lượt không đổi chỗ. Tối ưu Dừng sớm (Early Exit Optimization): Dùng cờ swapped để nhận diện mảng đã có thứ tự sau 1 lượt duyệt, đưa thời gian trường hợp tốt nhất về O(N).
+- [ ] Chứng minh sau một lượt phần tử lớn nhất của đoạn chưa xử lý về cuối; so trường hợp tốt và xấu. Chứng minh tính ổn định: Chỉ hoán đổi khi a[j] > a[j+1] (không hoán đổi khi bằng nhau), bảo toàn tuyệt đối thứ tự tương đối.
+- [ ] Đối chiếu với Insertion Sort để thấy Insertion Sort luôn tối ưu hơn về hằng số phép gán và số bước duyệt.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1424,10 +1422,10 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
 
 **Việc cần làm:**
 
-- [ ] Xây max-heap rồi lần lượt đưa phần tử lớn nhất về cuối mảng. Phân biệt đoạn đang là heap với đoạn cuối đã được chốt, cập nhật kích thước heap đúng sau mỗi lần lấy gốc.
-- [ ] Thu nhỏ vùng heap và phục hồi bất biến sau mỗi lần lấy. Xây heap từ các nút còn có con, không sift-down một cách vô ích từ mọi vị trí.
-- [ ] So tính ổn định, bộ nhớ và thời gian với merge sort, quicksort. Thử rỗng, một phần tử, toàn khóa bằng nhau và dãy giảm.
-- [ ] Giải thích vì sao max-heap cho thứ tự tăng khi liên tục đưa gốc về cuối; theo dõi một ví dụ 5 phần tử.
+- [ ] Xây max-heap rồi lần lượt đưa phần tử lớn nhất về cuối mảng. Mô hình nhận thức Sắp xếp Vun đống (Heap Sort): Tận dụng cấu trúc dữ liệu Max-Heap để liên tục trích xuất phần tử lớn nhất về cuối mảng.
+- [ ] Thu nhỏ vùng heap và phục hồi bất biến sau mỗi lần lấy. Bản chất thuật toán 2 pha: Pha 1 xây Max-Heap O(N) bằng sift-down từ dưới lên; Pha 2 liên tục hoán đổi gốc a[0] với a[i], giảm kích thước heap và sift-down gốc mới mất O(N log N).
+- [ ] So tính ổn định, bộ nhớ và thời gian với merge sort, quicksort. Ưu thế Tuyệt đối về Bộ nhớ: Hoàn toàn in-place với bộ nhớ phụ O(1), không tốn mảng đệm như Merge Sort và không có nguy cơ suy biến O(N^2) như Quicksort.
+- [ ] Đánh đổi: Heap Sort không ổn định và không thân thiện với CPU Cache do các bước nhảy chỉ số 2i+1, 2i+2 cách xa nhau trên RAM.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1441,11 +1439,10 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
 
 **Việc cần làm:**
 
-- [ ] Sinh dữ liệu nhỏ, so kết quả từng cách với std::sort. Ngoài so thứ tự, kiểm tra không mất hoặc thêm phần tử bằng cách đối chiếu đa tập giá trị với bản gốc.
-- [ ] Thử rỗng, tăng, giảm, trùng và giá trị cực biên. Sinh nhiều mảng ngắn có miền giá trị nhỏ để thường xuyên gặp trùng.
-- [ ] Giải CSES Distinct Numbers; tách lỗi thuật toán khỏi lỗi nhập xuất. Nếu cần kiểm tra ổn định, dùng bản ghi có khóa và thứ tự gốc, không chỉ dùng số nguyên.
-- [ ] Lưu đầu vào nhỏ nhất tìm được gây sai và xác định thuật toán/hàm partition/merge nào chịu trách nhiệm.
-- [ ] Chỉ đo tốc độ sau khi tất cả phiên bản đã cho kết quả đúng trên cùng bộ dữ liệu.
+- [ ] Sinh dữ liệu nhỏ, so kết quả từng cách với std::sort. Phương pháp Kiểm chứng Thuật toán Sắp xếp Toàn diện: Đối chiếu kết quả với thư viện chuẩn (std::sort) trên các tập dữ liệu cực trị.
+- [ ] Thử rỗng, tăng, giảm, trùng và giá trị cực biên. Kiểm tra Bảo toàn Đa tập (Multiset Invariant): Thuật toán không chỉ sắp xếp tăng dần mà phải chứng minh không làm rơi rụng hoặc nhân đôi bất kỳ phần tử nào.
+- [ ] Giải CSES Distinct Numbers; tách lỗi thuật toán khỏi lỗi nhập xuất. Thiết kế bộ kiểm thử chuyên biệt: Mảng rỗng, mảng 1 phần tử, mảng đã tăng dần, mảng giảm dần, mảng toàn giá trị trùng, và mảng có kích thước lũy thừa của 2.
+- [ ] Đo lường thời gian thực thi (Benchmarking): Phân biệt chi phí thuật toán với chi phí Nhập/Xuất dữ liệu (I/O).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1462,11 +1459,10 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
 
 **Việc cần làm:**
 
-- [ ] Xây tổng tiền tố để trả lời tổng một đoạn. Chọn prefix dài n+1, định nghĩa prefix[0]=0 và prefix[i] là tổng i phần tử đầu.
-- [ ] Dùng mảng hiệu cho nhiều cập nhật đoạn rồi khôi phục giá trị. Từ định nghĩa tự suy ra tổng đoạn, tránh học thuộc công thức l/r nhưng dùng sai chỉ số.
-- [ ] Viết rõ chỉ số 0 hay 1; thử đoạn một phần tử và toàn mảng. Với mảng hiệu, ghi cập nhật ở đầu đoạn và ngay sau cuối đoạn nếu vị trí đó tồn tại.
-- [ ] Dùng kiểu số chứa được tổng toàn mảng, thử cả giá trị âm và đoạn phủ toàn bộ.
-- [ ] Đối chiếu mỗi truy vấn/cập nhật với vòng lặp đơn giản trên n nhỏ.
+- [ ] Xây tổng tiền tố để trả lời tổng một đoạn. Mô hình nhận thức Mảng Cộng dồn (Prefix Sum): Tích phân rời rạc trên mảng, tiền xử lý trong O(N) để trả lời truy vấn tổng đoạn con [L, R] trong O(1): sum(L..R) = prefix[R+1] - prefix[L].
+- [ ] Dùng mảng hiệu cho nhiều cập nhật đoạn rồi khôi phục giá trị. Mô hình Mảng Hiệu (Difference Array): Vi phân rời rạc trên mảng, cho phép thực hiện thao tác cộng giá trị V vào đoạn [L, R] trong O(1) bằng cách diff[L] += V và diff[R+1] -= V.
+- [ ] Viết rõ chỉ số 0 hay 1; thử đoạn một phần tử và toàn mảng. Khôi phục Mảng Gốc: Lấy tổng tiền tố của mảng hiệu để khôi phục toàn bộ mảng ban đầu sau hàng loạt truy vấn cập nhật đoạn.
+- [ ] Lưu ý kiểu dữ liệu: Sử dụng kiểu 64-bit (long long) cho mảng prefix sum để chống tràn số khi tổng các phần tử vượt quá 2*10^9.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1532,11 +1528,10 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
 
 **Việc cần làm:**
 
-- [ ] Sinh tập con, hoán vị và lời giải n quân hậu với n nhỏ. Mô tả trạng thái gồm phần đã chọn, vị trí tiếp theo và dữ liệu phụ dùng kiểm tra điều kiện.
-- [ ] Phân biệt trạng thái hiện tại với lựa chọn tiếp theo. Viết rõ thứ tự chọn → cập nhật → đệ quy → hoàn tác, không để nhánh trước làm bẩn nhánh sau.
-- [ ] Hoàn tác đúng sau mỗi nhánh; chỉ cắt khi có lý do không thể tạo lời giải hợp lệ. Với quân hậu, theo dõi cột và hai đường chéo để kiểm tra xung đột, tự giải thích cách ánh xạ chỉ số.
-- [ ] So cắt tỉa vì vi phạm điều kiện với cắt theo một cận có chứng minh; không loại nhánh chỉ vì trông ít hứa hẹn nếu cần đủ lời giải.
-- [ ] Tách lưu/in lời giải khỏi hàm tìm kiếm để kiểm tra số lượng và nội dung độc lập.
+- [ ] Sinh tập con, hoán vị và lời giải n quân hậu với n nhỏ. Mô hình nhận thức Quay lui (Backtracking): Khám phá Không gian Trạng thái (State Space Tree) theo chiều sâu kết hợp Cắt tỉa (Pruning).
+- [ ] Phân biệt trạng thái hiện tại với lựa chọn tiếp theo. Quy trình 4 pha bất biến: (1) Kiểm tra trạng thái đích -> (2) Lựa chọn ứng viên hợp lệ -> (3) Đệ quy tiến sang trạng thái kế tiếp -> (4) Hoàn tác lựa chọn (Backtrack) để làm sạch không gian cho nhánh kế tiếp.
+- [ ] Hoàn tác đúng sau mỗi nhánh; chỉ cắt khi có lý do không thể tạo lời giải hợp lệ. Kỹ thuật Cắt tỉa nhánh cận (Branch and Bound): Loại bỏ ngay lập tức toàn bộ cây con đệ quy khi nhận thấy nhánh hiện tại không thể dẫn tới lời giải hợp lệ hoặc tối ưu.
+- [ ] Mô hình hóa bài toán N-Queens: Quản lý xung đột hàng, cột, đường chéo chính (r - c) và đường chéo phụ (r + c) bằng mảng boolean O(1).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1550,10 +1545,10 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Creating Strings và Chessboard and Queens. Với ký tự trùng, chọn một quy tắc tránh lặp như đếm tần suất hoặc bỏ lựa chọn trùng tại cùng độ sâu.
-- [ ] Tránh sinh lặp khi đầu vào có ký tự trùng. So số chuỗi khác nhau với công thức đa tập ở đầu vào nhỏ.
-- [ ] So số lời giải với bộ kiểm thử nhỏ tự liệt kê. Với bàn cờ có ô cấm, kiểm tra cả cột/chéo và ô được phép, không chỉ giải bản n-queens không có ràng buộc thêm.
-- [ ] Dùng một bộ liệt kê đơn giản cho n rất nhỏ để kiểm chứng cách cắt tỉa không bỏ lời giải.
+- [ ] Giải CSES Creating Strings và Chessboard and Queens. Tư duy Khử trùng lặp trong Không gian Tìm kiếm: Sắp xếp các phần tử ban đầu và bỏ qua các lựa chọn trùng lặp ở cùng độ sâu đệ quy (if (i > start && a[i] == a[i-1]) continue).
+- [ ] Tránh sinh lặp khi đầu vào có ký tự trùng. Kỹ thuật sinh tổ hợp, hoán vị và tập con: Hiểu bản chất nhị phân của tập con (mỗi phần tử có 2 lựa chọn: chọn hoặc không chọn).
+- [ ] So số lời giải với bộ kiểm thử nhỏ tự liệt kê. Phân tích độ phức tạp thời gian cấp số nhân: Hiểu vì sao quay lui chỉ áp dụng được cho N nhỏ (N <= 20 với 2^N, N <= 12 với N!).
+- [ ] Viết bộ sinh dữ liệu kiểm thử nhỏ để xác nhận giải thuật quay lui tìm đủ và không sót bất kỳ nghiệm nào.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1567,11 +1562,10 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
 
 **Việc cần làm:**
 
-- [ ] Giải bài chọn nhiều khoảng không giao nhau bằng sắp theo thời điểm kết thúc. Tách phát biểu lựa chọn cục bộ khỏi điều cần tối ưu toàn cục.
-- [ ] Viết lập luận trao đổi cho lựa chọn đầu tiên. Với chọn khoảng, sắp theo thời điểm kết thúc và quy định hai khoảng chạm đầu/cuối có được xem là không giao hay không.
-- [ ] Tạo phản ví dụ cho chọn khoảng bắt đầu sớm nhất và chọn khoảng ngắn nhất. Trong lập luận trao đổi, chỉ ra thay lựa chọn đầu của một lời giải tối ưu bằng lựa chọn tham lam không làm giảm số khoảng còn có thể chọn.
-- [ ] Tìm ví dụ nhỏ làm hai chiến lược sai cho kết quả ít khoảng hơn.
-- [ ] Không dùng việc đã chạy đúng nhiều test thay cho chứng minh tính chất lựa chọn tham lam.
+- [ ] Giải bài chọn nhiều khoảng không giao nhau bằng sắp theo thời điểm kết thúc. Mô hình nhận thức Giải thuật Tham lam (Greedy Algorithm): Luôn đưa ra lựa chọn có vẻ tốt nhất ở thời điểm hiện tại (cục bộ) với hy vọng dẫn tới kết quả tối ưu toàn cục.
+- [ ] Viết lập luận trao đổi cho lựa chọn đầu tiên. Hai điều kiện tiên quyết: Tính chất Lựa chọn Tham lam (Greedy Choice Property) và Cấu trúc con Tối ưu (Optimal Substructure).
+- [ ] Tạo phản ví dụ cho chọn khoảng bắt đầu sớm nhất và chọn khoảng ngắn nhất. Kỹ thuật Chứng minh bằng Lập luận Trao đổi (Exchange Argument): Giả sử tồn tại một lời giải tối ưu khác, chứng minh rằng việc hoán đổi bước đầu tiên của nó thành lựa chọn tham lam không làm giảm chất lượng lời giải.
+- [ ] Nhận diện ranh giới thất bại: Phân biệt bài toán đổi tiền có hệ tiền tệ chính quy (Canonical Coin System giải được bằng tham lam) vs hệ tiền tệ bất kỳ (bắt buộc dùng Quy hoạch động).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1585,10 +1579,10 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Movie Festival và Ferris Wheel. Với Movie Festival, kiểm tra nhiều khoảng cùng thời điểm kết thúc và một khoảng phủ gần hết thời gian.
-- [ ] Thử bài đổi tiền với hệ đồng 1,3,4 để thấy tham lam có thể sai. Với Ferris Wheel, giải thích ghép người nhẹ nhất với nặng nhất còn lại khi đủ tải; nếu không đủ thì người nặng nhất không ghép được với ai khác.
-- [ ] Giải thích lựa chọn và chứng minh, không chỉ ghi mã được chấp nhận. Với đổi tiền 1,3,4 và tổng 6, so kết quả chọn lớn trước với phương án tối ưu để chỉ ra giới hạn.
-- [ ] Ghi rõ mỗi chứng minh dựa vào tính chất nào của bài, không chuyển nguyên chiến lược sang bài gần giống nhưng khác điều kiện.
+- [ ] Giải CSES Movie Festival và Ferris Wheel. Tư duy Bài toán Xếp lịch Khoảng (Interval Scheduling): Sắp xếp các công việc tăng dần theo THỜI ĐIỂM KẾ THÚC (End Time), luôn chọn công việc kết thúc sớm nhất để giải phóng tài nguyên cho các việc sau.
+- [ ] Thử bài đổi tiền với hệ đồng 1,3,4 để thấy tham lam có thể sai. Bài toán Thuyền cứu hộ (Ferris Wheel / Two Sum Greedy): Sắp xếp mảng và dùng 2 con trỏ ghép người nặng nhất với người nhẹ nhất có thể chở cùng.
+- [ ] Giải thích lựa chọn và chứng minh, không chỉ ghi mã được chấp nhận. Tự tìm phản ví dụ (Counter-examples): Rèn luyện phản xạ luôn tìm ca biên phản chứng trước khi tin vào một chiến lược tham lam trực giác.
+- [ ] Đo lường độ phức tạp: Phần lớn thuật toán tham lam tốn thời gian ở bước sắp xếp O(N log N), bước duyệt tham lam chỉ tốn O(N).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1627,11 +1621,10 @@ Quy hoạch động (Dynamic Programming): Khung tư duy 6 bước SRTBOT (Subpr
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Minimizing Coins và Coin Combinations I, II. Phân biệt mục tiêu ít đồng nhất với đếm số cách, do giá trị dp và phép kết hợp khác nhau.
-- [ ] Phân biệt đếm thứ tự chọn với đếm tổ hợp. Ghi cơ sở cho tổng 0 và giá trị biểu diễn không thể đạt; không cộng từ trạng thái vô cực.
-- [ ] Thử tổng bằng 0 và trường hợp không ghép được; dùng modulo khi đề yêu cầu. Trong bài đếm, thay đổi thứ tự hai vòng lặp và dùng tổng nhỏ để thấy cách đếm thứ tự khác đếm tổ hợp.
-- [ ] Thử bộ đồng không có 1, đồng lớn hơn tổng và nhiều lời giải cùng tối ưu.
-- [ ] Dùng phép modulo trong từng phép cộng nếu đề yêu cầu, đồng thời chọn kiểu số an toàn cho giá trị trung gian.
+- [ ] Giải CSES Minimizing Coins và Coin Combinations I, II. Mô hình Đổi tiền (Coin Change): Phân biệt rõ hai bài toán: (1) Tìm số đồng xu ít nhất (Min Coins) vs (2) Đếm số cách đổi tiền (Count Ways).
+- [ ] Phân biệt đếm thứ tự chọn với đếm tổ hợp. Bản chất Thứ tự Vòng lặp: Duyệt đồng xu ở vòng ngoài -> đếm số TỔ HỢP (không phân biệt thứ tự); Duyệt đồng xu ở vòng trong -> đếm số HOÁN VỊ (phân biệt thứ tự đồng xu rút ra).
+- [ ] Thử tổng bằng 0 và trường hợp không ghép được; dùng modulo khi đề yêu cầu. Xử lý trạng thái cơ sở và giá trị vô cực (INF): Khởi tạo dp[0] = 0, các trạng thái khác = INF; kiểm tra dp[w - coin] != INF trước khi cập nhật để tránh cộng tràn số.
+- [ ] Tối ưu không gian bộ nhớ: Nén bảng trạng thái về mảng 1D duyệt xuôi (cho phép dùng lại một đồng xu nhiều lần - Unbounded Knapsack).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1694,11 +1687,10 @@ Dãy con chung dài nhất (LCS): Lưới trạng thái 2D dp[i][j] trên tiền
 
 **Việc cần làm:**
 
-- [ ] Viết DP cho chèn, xóa và thay ký tự với chi phí đã chọn. Ghi chi phí chèn/xóa/thay đã chọn, không trộn bài chi phí đồng nhất với bài có trọng số khác nhau.
-- [ ] Giải thích mỗi nhánh chuyển và ý nghĩa hàng/cột cơ sở. Khởi tạo đổi chuỗi dài i sang rỗng cần i lần xóa và ngược lại với chèn.
-- [ ] Truy vết một chuỗi thao tác, áp dụng thật để kiểm tra ra đúng chuỗi đích. Mỗi ô lưu giá trị nhỏ nhất từ các thao tác hợp lệ, giữ đường truy vết nếu cần xuất thao tác.
-- [ ] Thực hiện chuỗi thao tác được truy vết trên một bản sao để xác nhận thật sự ra đích.
-- [ ] Thử chuỗi rỗng, hai chuỗi bằng nhau và trường hợp thêm/xóa tốt hơn thay liên tiếp.
+- [ ] Viết DP cho chèn, xóa và thay ký tự với chi phí đã chọn. Mô hình Khoảng cách Soạn thảo Levenshtein (Edit Distance): Độ dài biến đổi tối thiểu giữa hai chuỗi thông qua 3 thao tác: Chèn, Xóa, Thay thế.
+- [ ] Giải thích mỗi nhánh chuyển và ý nghĩa hàng/cột cơ sở. Đồ thị DAG trên lưới 2D: Mỗi ô (i, j) nhận chuyển tiếp từ 3 ô lân cận: (i-1, j) là phép Xóa, (i, j-1) là phép Chèn, (i-1, j-1) là phép Thay thế (nếu ký tự khác nhau).
+- [ ] Truy vết một chuỗi thao tác, áp dụng thật để kiểm tra ra đúng chuỗi đích. Cơ sở khởi tạo: dp[i][0] = i (xóa i ký tự để thành rỗng), dp[0][j] = j (chèn j ký tự từ rỗng).
+- [ ] Ứng dụng thực tế: Cơ chế diff của Git, thuật toán kiểm tra chính tả (Spell Checker) và gióng hàng chuỗi sinh học (Bioinformatics DNA Alignment).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1737,11 +1729,10 @@ Dãy con tăng dài nhất (LIS): Từ O(N²) cơ bản tối ưu lên O(N log N
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Grid Paths I, Edit Distance và Increasing Subsequence. Với đường đi lưới, xử lý ô bị chặn ở nguồn/đích và quy định số cách cho lưới một ô.
-- [ ] Tự viết mô tả trạng thái trước khi code. Với Edit Distance và LIS, tự ghi trạng thái và chuyển tiếp vào nháp trước khi mở mã mẫu.
-- [ ] Đối chiếu với vét cạn cho dữ liệu nhỏ và giải thích hai bài không dùng chung một trạng thái. Giữ bộ giải vét cạn cho kích thước nhỏ để làm bộ tham chiếu khi chỉnh công thức.
-- [ ] Sau khi giải đúng, thử đổi yêu cầu từ tính giá trị sang truy vết hoặc đếm số lời giải để thấy phần cần thay.
-- [ ] Nếu nén bộ nhớ, chứng minh thứ tự cập nhật không phá dữ liệu cũ còn cần dùng.
+- [ ] Giải CSES Grid Paths I, Edit Distance và Increasing Subsequence. Tư duy Quy hoạch động trên Lưới và Đồ thị DAG: Định nghĩa trạng thái theo tọa độ (r, c); thứ tự tính toán tự nhiên theo dòng và cột.
+- [ ] Tự viết mô tả trạng thái trước khi code. Kỹ thuật Tối ưu Không gian Bộ nhớ (Rolling Array / State Compression): Nhận diện trạng thái hiện tại chỉ phụ thuộc vào dòng trước đó để nén ma trận 2D về 2 dòng O(N).
+- [ ] Đối chiếu với vét cạn cho dữ liệu nhỏ và giải thích hai bài không dùng chung một trạng thái. Phương pháp Truy vết Nghiệm Tối ưu (Reconstruction): Sử dụng mảng cha hoặc đi ngược từ đích về nguồn theo đúng các bước chuyển tối ưu để in ra chuỗi hành động.
+- [ ] Kiểm chứng tính đúng đắn: So sánh kết quả của thuật toán Quy hoạch động với thuật toán Đệ quy vét cạn trên các ca kiểm thử kích thước nhỏ.
 - [ ] Làm một bài DP mới không được cho sẵn tên trạng thái; viết trạng thái, điều kiện đầu, chuyển tiếp và thứ tự tính, rồi so với vét cạn trên dữ liệu nhỏ.
 
 **Nguồn tham khảo miễn phí:**
@@ -1786,11 +1777,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Cài danh sách kề và ma trận kề. Chốt nhãn đỉnh bắt đầu từ 0 hay 1 và cấp phát đủ cho mọi nhãn hợp lệ.
-- [ ] Đọc đúng cạnh vô hướng hai chiều và cạnh có hướng một chiều. Lưu cả đỉnh tới và trọng số cho mỗi cạnh khi cần; với vô hướng thêm hai chiều nhưng giữ một ID cạnh nếu thuật toán cần phân biệt cạnh.
-- [ ] So chi phí bộ nhớ trên đồ thị thưa, dày; thử đỉnh cô lập và cạnh trùng. Thử đỉnh không có cạnh, hai cạnh cùng cặp đỉnh và cạnh tự khuyên nếu cho phép.
-- [ ] Tính bộ nhớ ma trận theo V² phần tử, danh sách kề theo V+E, kể cả hai bản ghi mỗi cạnh vô hướng.
-- [ ] Viết hàm in lại danh sách kề từ một tệp nhỏ để phát hiện lỗi đọc trước khi gắn thuật toán.
+- [ ] Cài danh sách kề và ma trận kề. Mô hình nhận thức: Biểu diễn đồ thị là chọn cấu trúc dữ liệu lưu trữ quan hệ giữa các đỉnh. Đánh đổi: Ma trận kề (Adjacency Matrix) tốn O(V²) bộ nhớ, kiểm tra cạnh trong O(1); Danh sách kề (Adjacency List) tốn O(V + E) bộ nhớ, duyệt đỉnh kề trong O(deg(u)).
+- [ ] Đọc đúng cạnh vô hướng hai chiều và cạnh có hướng một chiều. Logic cốt lõi: Với đồ thị thưa (E << V²), luôn ưu tiên danh sách kề vector<vector<pair<int, int>>> để triệt tiêu lãng phí RAM.
+- [ ] So chi phí bộ nhớ trên đồ thị thưa, dày; thử đỉnh cô lập và cạnh trùng. C++ chuẩn mực: Cấp phát mảng danh sách kề với kích thước n + 1 để dùng trực tiếp nhãn đỉnh 1-based index; xử lý đồ thị vô hướng bằng cách thêm hai cạnh đối xứng (u->v và v->u) với cùng trọng số.
+- [ ] Tham khảo cẩm nang đồ thị tại docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1828,11 +1818,10 @@ Duyệt đồ thị theo chiều sâu (DFS): Sử dụng Call Stack khám phá c
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Counting Rooms và Building Roads. Trong Counting Rooms, định nghĩa ô đi được và kiểm tra biên hàng/cột trước khi truy cập.
-- [ ] Biến ô lưới hợp lệ thành đỉnh, tự xác định các hướng kề. Thử lưới 1×1 là tường, 1×1 đi được và hai vùng bị ngăn bởi một hàng tường.
-- [ ] Kiểm tra lưới toàn tường, một phòng và nhiều vùng tách rời. Trong Building Roads, lấy một đỉnh đại diện mỗi thành phần và nối các đại diện để đủ liên thông.
-- [ ] Giải thích cần ít nhất k−1 cạnh để nối k thành phần và cách mình thêm đạt đúng số đó.
-- [ ] Nếu dữ liệu có thể tạo đường rất dài, dùng bản duyệt tránh vượt giới hạn stack.
+- [ ] Giải CSES Counting Rooms và Building Roads. Mô hình Loang trên Lưới 2D (Flood Fill / Matrix DFS): Coi mỗi ô (r, c) là một đỉnh, các ô chung cạnh đi được là các cạnh đồ thị.
+- [ ] Biến ô lưới hợp lệ thành đỉnh, tự xác định các hướng kề. Logic cốt lõi (CSES Counting Rooms): Dùng mảng dịch hướng dx[] = {-1, 1, 0, 0}, dy[] = {0, 0, -1, 1} để duyệt 4 ô kề gọn gàng; kiểm tra biên 0 <= nr < N và 0 <= nc < M trước khi gọi đệ quy.
+- [ ] Kiểm tra lưới toàn tường, một phòng và nhiều vùng tách rời. Đếm Thành phần Liên thông (CSES Building Roads): Duyệt DFS từ từng đỉnh chưa thăm để đếm số thành phần liên thông C; nối đại diện của C thành phần bằng đúng C - 1 cạnh để đồ thị liên thông hoàn toàn.
+- [ ] Phân tích độ phức tạp: Mỗi ô/đỉnh được thăm đúng 1 lần, chi phí O(N*M) hoặc O(V + E).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1873,11 +1862,10 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Message Route và Labyrinth. Với Message Route, phân biệt số cạnh của đường đi với số đỉnh cần in theo yêu cầu.
-- [ ] Báo không có đường khi đích chưa được thăm. Với Labyrinth, lưu hướng di chuyển hoặc ô cha để khôi phục chuỗi bước, không chỉ in khoảng cách.
-- [ ] Thử nguồn trùng đích và nhiều đường ngắn nhất. Cho chạy lại chuỗi bước trên lưới và xác nhận không đi qua tường hoặc ra ngoài.
-- [ ] Thử nguồn cạnh đích, đường độc nhất, nhiều đường tối ưu và không có đường.
-- [ ] Không dùng visited còn sót từ ca trước nếu chương trình xử lý nhiều đồ thị.
+- [ ] Giải CSES Message Route và Labyrinth. Mô hình Truy vết Đường đi Ngắn nhất (Path Reconstruction): Mảng parent[v] = u ghi lại đỉnh cha trực tiếp dẫn tới v trong cây BFS.
+- [ ] Báo không có đường khi đích chưa được thăm. Logic cốt lõi (CSES Message Route): Khi BFS chạm tới đỉnh đích, dùng vòng lặp while (curr != source) { path.push_back(curr); curr = parent[curr]; } để khôi phục chuỗi đỉnh, sau đó đảo ngược vector.
+- [ ] Thử nguồn trùng đích và nhiều đường ngắn nhất. BFS trên Lưới (CSES Labyrinth): Lưu ký tự hướng di chuyển ('U', 'D', 'L', 'R') tại mỗi ô để in ra chuỗi bước đi ngắn nhất; kiểm tra an toàn ca không có đường đi (dist[dest] == -1).
+- [ ] Đảm bảo dọn sạch cấu trúc visited và queue giữa các lần chạy kiểm thử.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1894,11 +1882,10 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
 
 **Việc cần làm:**
 
-- [ ] Dùng DFS, bỏ đúng cạnh cha khi xét cạnh quay về đỉnh đã thăm. Bỏ đúng ID cạnh đã dùng để đi từ cha tới con, không bỏ mọi cạnh tới đỉnh cha trong đồ thị đa cạnh.
-- [ ] Lưu ID cạnh để không bỏ nhầm cạnh song song. Phân biệt đỉnh đã thăm với cạnh chưa xét, đặc biệt hai cạnh song song có thể tạo một chu trình theo quy ước đa đồ thị.
-- [ ] Truy vết một chu trình; thử cây, tam giác và đồ thị nhiều thành phần. Lưu cha để dựng chu trình, kiểm tra chu trình xuất ra thực sự nối được và quay về điểm đầu.
-- [ ] Chạy DFS từ mọi thành phần, không chỉ nguồn 1.
-- [ ] Nêu rõ nếu đề chỉ có đồ thị đơn thì điều kiện xử lý được đơn giản hóa ở đâu.
+- [ ] Dùng DFS, bỏ đúng cạnh cha khi xét cạnh quay về đỉnh đã thăm. Phát hiện Chu trình trên Đồ thị Vô hướng: Chu trình tồn tại khi và chỉ khi duyệt tới một đỉnh kề v đã được thăm (visited[v] == true) và v KHÔNG PHẢI LÀ CHA TRỰC TIẾP (v != parent) của đỉnh hiện tại.
+- [ ] Lưu ID cạnh để không bỏ nhầm cạnh song song. Logic cốt lõi: Trong hàm DFS(u, p), duyệt đỉnh kề v: nếu v == p thì bỏ qua; nếu visited[v] thì phát hiện chu trình! Ngược lại gọi đệ quy DFS(v, u).
+- [ ] Truy vết một chu trình; thử cây, tam giác và đồ thị nhiều thành phần. Xử lý Đồ thị Rời rạc: Bắt buộc lặp vòng for từ đỉnh 1 đến V để chạy DFS trên mọi thành phần liên thông, tránh bỏ sót chu trình nằm ở các cụm tách biệt.
+- [ ] Truy vết chu trình: Lưu mảng parent để lần ngược từ u về v và in ra toàn bộ các đỉnh tạo nên chu trình.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1912,11 +1899,10 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
 
 **Việc cần làm:**
 
-- [ ] Dùng ba trạng thái chưa thăm, đang trên đường DFS và đã kết thúc. Đánh dấu đang xử lý khi vào DFS và hoàn tất chỉ sau khi mọi cạnh ra đã được xét.
-- [ ] Giải thích vì sao cạnh tới đỉnh đã kết thúc không đủ kết luận có chu trình. Chỉ cạnh về một đỉnh còn đang xử lý mới chứng minh có chu trình theo đường DFS hiện tại.
-- [ ] Truy vết chu trình qua cạnh về đỉnh đang trên đường DFS. Tạo một đồ thị hình thoi không chu trình nhưng có đỉnh tới lại từ nhánh khác để kiểm tra không báo sai.
-- [ ] Lưu đỉnh đầu/cuối của cạnh ngược, truy parent rồi khép chu trình.
-- [ ] Dọn trạng thái theo từng đồ thị và kiểm tra cả phần không đi tới từ nguồn đầu.
+- [ ] Dùng ba trạng thái chưa thăm, đang trên đường DFS và đã kết thúc. Phát hiện Chu trình trên Đồ thị Có hướng bằng DFS 3 Trạng thái (3-Coloring Algorithm): Trạng thái 0 (Trắng - chưa thăm), 1 (Xám - đang trong call stack đệ quy), 2 (Đen - đã duyệt xong hoàn tất toàn bộ con).
+- [ ] Giải thích vì sao cạnh tới đỉnh đã kết thúc không đủ kết luận có chu trình. Logic cốt lõi: Gặp cạnh u -> v với color[v] == 1 chứng minh tồn tại cạnh ngược (Back-edge), tức v là tổ tiên của u trong cây DFS -> có chu trình! Gặp color[v] == 2 là cạnh chéo (Cross-edge) an toàn, không tạo chu trình.
+- [ ] Truy vết chu trình qua cạnh về đỉnh đang trên đường DFS. Truy vết chu trình: Dùng mảng parent, khi gặp cạnh ngược u -> v, truy ngược từ u về v để xuất chuỗi đỉnh tạo chu trình.
+- [ ] So sánh với đồ thị vô hướng: Khẳng định vì sao mảng boolean 2 trạng thái là không đủ trên đồ thị có hướng.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1930,11 +1916,10 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
 
 **Việc cần làm:**
 
-- [ ] Tô hai màu bằng BFS trên mọi thành phần. Gán màu cho một đỉnh chưa thăm của mỗi thành phần rồi lan màu đối lập qua từng cạnh.
-- [ ] Phát hiện cạnh nối hai đỉnh cùng màu, thử tam giác và chu trình chẵn. Nếu gặp cạnh cùng màu, lưu lại mâu thuẫn và kết luận không chia hai phía được.
-- [ ] Giải thích quan hệ với chu trình lẻ; cài bài chia nhóm không có hai người xung đột cùng nhóm. Thử đồ thị không cạnh, nhiều thành phần, chu trình chẵn và tam giác.
-- [ ] Kiểm tra cạnh tự khuyên khiến bài tô hai màu thất bại.
-- [ ] Phân biệt chia hai phía theo ràng buộc cạnh với chia hai nhóm có số lượng bằng nhau, vì đây là hai yêu cầu khác nhau.
+- [ ] Tô hai màu bằng BFS trên mọi thành phần. Mô hình Đồ thị Hai phía (Bipartite Graph) & Bài toán Tô 2 màu (2-Coloring): Đồ thị có thể chia tập đỉnh thành 2 tập độc lập sao cho mọi cạnh chỉ nối giữa hai tập khác nhau.
+- [ ] Phát hiện cạnh nối hai đỉnh cùng màu, thử tam giác và chu trình chẵn. Định lý Cốt lõi: Một đồ thị là hai phía khi và chỉ khi nó KHÔNG CHỨA BẤT KỲ CHU TRÌNH ĐỘ DÀI LẺ NÀO.
+- [ ] Giải thích quan hệ với chu trình lẻ; cài bài chia nhóm không có hai người xung đột cùng nhóm. Logic thuật toán: Dùng BFS hoặc DFS tô màu xen kẽ (màu 1 và màu 2). Nếu đỉnh kề v đã tô màu và có cùng màu với đỉnh hiện tại u (color[v] == color[u]) -> Mâu thuẫn! Kết luận đồ thị không thể chia hai phía.
+- [ ] Ứng dụng thực tế: Phân bổ tài nguyên xung đột, bài toán ghép cặp cực đại (Bipartite Matching).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1972,11 +1957,10 @@ Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ t
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Course Schedule. Chuyển mỗi quan hệ học A trước B thành cạnh A→B; kiểm tra chiều trước khi chạy.
-- [ ] Tạo ví dụ kế hoạch môn học và chỉ ra chu trình yêu cầu lẫn nhau. Thử hai môn yêu cầu lẫn nhau, một môn độc lập và nhiều thứ tự hợp lệ.
-- [ ] Tính đường dài nhất trên DAG theo thứ tự topo, không áp dụng tùy tiện cho đồ thị có chu trình. Với DP trên DAG, xác định bài hỏi đường từ nguồn cụ thể hay từ bất cứ đâu để khởi tạo đúng.
-- [ ] Chỉ cập nhật từ trạng thái đi tới được, lưu cha nếu phải xuất đường.
-- [ ] Không dùng kết quả topo thiếu đỉnh để tiếp tục tính như thể đồ thị vẫn là DAG.
+- [ ] Giải CSES Course Schedule. Quy hoạch động trên Đồ thị DAG (DP on DAG): Mọi bài toán Quy hoạch động thực chất là tìm đường đi trên một DAG bài toán con.
+- [ ] Tạo ví dụ kế hoạch môn học và chỉ ra chu trình yêu cầu lẫn nhau. Logic cốt lõi (CSES Longest Flight Route): Sắp xếp topo các đỉnh trước, sau đó duyệt theo thứ tự topo để tính dp[v] = max(dp[v], dp[u] + 1) đảm bảo khi tính v thì mọi đỉnh u trỏ tới v đã được tối ưu hoàn toàn.
+- [ ] Tính đường dài nhất trên DAG theo thứ tự topo, không áp dụng tùy tiện cho đồ thị có chu trình. Ưu thế vượt trội: Giải bài toán Đường đi Dài nhất (Longest Path) trong thời gian tuyến tính O(V + E) trên DAG (trong khi trên đồ thị tổng quát bài toán này là NP-hard).
+- [ ] Khởi tạo cơ sở an toàn: Gán dp[source] = 0, các đỉnh khác = -INF; chỉ chuyển trạng thái từ các đỉnh đi tới được (dp[u] != -INF).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1990,11 +1974,10 @@ Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ t
 
 **Việc cần làm:**
 
-- [ ] Khởi tạo nguồn bằng 0, đỉnh chưa tới bằng vô cực. Viết ý nghĩa dist[v] là độ dài đường tốt nhất đang biết, chưa mặc định đã là tối ưu cuối cùng.
-- [ ] Theo dõi thao tác thử đi qua một cạnh để cải thiện khoảng cách. Thử cạnh u→v và chỉ cập nhật nếu u tới được và dist[u]+w<dist[v].
-- [ ] Lưu cha khi cập nhật; tránh cộng vào giá trị vô cực gây tràn. Chọn kiểu và giá trị INF dựa vào giới hạn tổng trọng số, kiểm tra phép cộng không tràn.
-- [ ] Khi cập nhật khoảng cách, cập nhật parent đồng thời để đường truy vết khớp giá trị mới.
-- [ ] Theo dõi một cạnh giúp cải thiện và một cạnh không cải thiện trên đồ thị tính tay được.
+- [ ] Khởi tạo nguồn bằng 0, đỉnh chưa tới bằng vô cực. Bản chất Phép Thư giãn Cạnh (Edge Relaxation): Bất đẳng thức tam giác dist[v] <= dist[u] + weight(u, v). Nếu dist[u] + w < dist[v], ta tìm thấy đường đi ngắn hơn tới v qua u -> cập nhật dist[v] = dist[u] + w.
+- [ ] Theo dõi thao tác thử đi qua một cạnh để cải thiện khoảng cách. Điều kiện tiên quyết: Chỉ thực hiện relax khi đỉnh xuất phát u đã đi tới được từ nguồn (dist[u] != INF).
+- [ ] Lưu cha khi cập nhật; tránh cộng vào giá trị vô cực gây tràn. Bảo vệ chống tràn số nguyên: Khi khởi tạo dist với vô cực (INF = 1e18), kiểm tra dist[u] != INF trước khi cộng w để tránh tràn số long long sang số âm.
+- [ ] Đồng bộ mảng cha: Luôn cập nhật parent[v] = u đồng thời với dist[v] để cây đường đi ngắn nhất luôn phản ánh chính xác khoảng cách tối ưu mới.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2034,11 +2017,10 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Shortest Routes I. Đọc giới hạn số đỉnh/cạnh và trọng số, chọn kiểu số chứa được đường đi dài nhất có thể xét.
-- [ ] Khôi phục đường đi trong phiên bản tự đặt của bài. Nộp phiên bản chỉ tính khoảng cách theo yêu cầu CSES, sau đó tách một bài tự đặt có truy vết để không làm lẫn định dạng đầu ra.
-- [ ] Thử cạnh trọng số 0, cạnh song song và đỉnh không tới được; so với vét cạn trên đồ thị rất nhỏ. Dùng đồ thị nhỏ không âm, so với Floyd–Warshall hoặc bộ duyệt đường đơn rất nhỏ đã kiểm tra.
-- [ ] Thử cạnh nặng trực tiếp nhưng đường vòng nhẹ hơn, nhiều bản ghi heap cho cùng đỉnh và nguồn trùng đích.
-- [ ] Ghi rõ số đỉnh/cạnh, thời gian và bộ nhớ khi thử lớn; không đổi thuật toán chỉ vì một test sai mà chưa đọc nguyên nhân.
+- [ ] Giải CSES Shortest Routes I. Cài đặt Thực chiến Dijkstra (CSES Shortest Routes I): Sử dụng kiểu 64-bit (long long) cho mảng khoảng cách dist[] để chứa đường đi lên tới 10^14; khởi tạo dist[source] = 0, các đỉnh khác = 1e18.
+- [ ] Khôi phục đường đi trong phiên bản tự đặt của bài. Kỹ thuật Tỉa Bản ghi Cũ (Lazy Deletion Invariant): Khi pop cặp {d, u} từ priority_queue, kiểm tra ngay: if (d > dist[u]) continue; triệt tiêu hoàn toàn chi phí duyệt lại các đường đi kém hơn đã bị đè.
+- [ ] Thử cạnh trọng số 0, cạnh song song và đỉnh không tới được; so với vét cạn trên đồ thị rất nhỏ. Truy vết đường đi (CSES Shortest Routes with Path): Khôi phục dãy đỉnh từ mảng parent và kiểm tra tính liên thông trước khi xuất kết quả.
+- [ ] Phân tích độ phức tạp: Heap chứa tối đa E phần tử, mỗi thao tác push/pop tốn O(log E) = O(log V) -> tổng thời gian O(E log V).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2055,11 +2037,10 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 
 **Việc cần làm:**
 
-- [ ] Lặp relax các cạnh tối đa n−1 lượt cho đường đi đơn. Theo dõi sau k lượt relax, các đường dùng không quá k cạnh đã có thể được cải thiện theo lập luận chuẩn.
-- [ ] Dùng lượt bổ sung phát hiện chu trình âm đi tới được từ nguồn. Khởi tạo và chỉ relax từ đỉnh tới được để chu trình âm tách nguồn không bị hiểu nhầm là ảnh hưởng mọi đỉnh.
-- [ ] Phân biệt chu trình âm bất kỳ với chu trình ảnh hưởng đến bài toán đang hỏi. Trong lượt thứ V, ghi những đỉnh còn cải thiện; phân biệt phát hiện tồn tại với xác định mọi đỉnh bị ảnh hưởng.
-- [ ] Nếu bài yêu cầu đường đi tới một đích, xét chu trình âm còn phải có đường đi tới đích đó mới làm giá trị không có cận dưới.
-- [ ] Nếu cần xuất chu trình âm, học cách lần parent đủ bước để vào trong chu trình, không in một đường tùy ý từ đỉnh vừa cập nhật.
+- [ ] Lặp relax các cạnh tối đa n−1 lượt cho đường đi đơn. Thuật toán Bellman-Ford: Tìm đường đi ngắn nhất từ nguồn trên đồ thị có thể chứa CẠNH MANG TRỌNG SỐ ÂM.
+- [ ] Dùng lượt bổ sung phát hiện chu trình âm đi tới được từ nguồn. Nguyên lý cốt lõi: Một đường đi đơn ngắn nhất chứa tối đa V - 1 cạnh. Do đó, lặp đúng V - 1 vòng, mỗi vòng quét qua toàn bộ E cạnh và thực hiện relax: if (dist[u] + w < dist[v]) dist[v] = dist[u] + w.
+- [ ] Phân biệt chu trình âm bất kỳ với chu trình ảnh hưởng đến bài toán đang hỏi. Phát hiện Chu trình Âm (Negative Cycle Detection): Thực hiện thêm lượt relax thứ V; nếu vẫn còn ít nhất một cạnh có thể giảm dist[v], chứng minh đồ thị chứa chu trình âm!
+- [ ] Độ phức tạp: O(V * E). Phù hợp khi E nhỏ hoặc khi bắt buộc phải xử lý trọng số âm mà Dijkstra bất lực.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2073,11 +2054,10 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 
 **Việc cần làm:**
 
-- [ ] Cài thuật toán, dừng sớm khi một lượt không còn cập nhật. Viết bộ nhập cạnh phẳng và cài một phiên bản rõ ràng trước khi tối ưu dừng sớm.
-- [ ] Thử cạnh âm không có chu trình âm, chu trình âm tới được và chu trình âm tách khỏi nguồn. Tạo ba dữ liệu khác nhau để kiểm tra: cạnh âm không chu trình âm, chu trình âm từ nguồn, chu trình âm ở thành phần tách biệt.
-- [ ] So với Dijkstra trên đồ thị không âm, chỉ so khi cả hai cùng có điều kiện áp dụng. Với trường hợp không có chu trình âm ảnh hưởng, đối chiếu khoảng cách và truy vết đường.
-- [ ] Giữ điều kiện INF khi cộng trọng số, thử số âm đủ lớn để phát hiện chọn kiểu hoặc INF không phù hợp.
-- [ ] Phân biệt kết quả không có đường với đường đi có độ dài không bị chặn dưới.
+- [ ] Cài thuật toán, dừng sớm khi một lượt không còn cập nhật. Cài đặt và Truy vết Chu trình Âm (CSES Cycle Finding): Lưu mảng parent trong quá trình relax. Nếu ở lượt thứ V có đỉnh v được cập nhật, ta tìm thấy chu trình âm!
+- [ ] Thử cạnh âm không có chu trình âm, chu trình âm tới được và chu trình âm tách khỏi nguồn. Kỹ thuật bước vào chu trình: Đi lùi V bước theo con trỏ parent từ đỉnh v (for (int i = 0; i < n; i++) v = parent[v];) để đảm bảo chắc chắn con trỏ đã nằm bên trong chu trình âm.
+- [ ] So với Dijkstra trên đồ thị không âm, chỉ so khi cả hai cùng có điều kiện áp dụng. Truy vết và in chu trình: Lần theo parent từ v cho đến khi gặp lại chính v, lưu các đỉnh và đảo ngược vector để in đúng chiều chu trình.
+- [ ] Xử lý trường hợp chu trình âm không chạm tới được từ nguồn xuất phát: Khởi tạo dist của tất cả các đỉnh bằng 0 để phát hiện chu trình âm ở mọi thành phần liên thông.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2091,12 +2071,10 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 
 **Việc cần làm:**
 
-- [ ] Viết DP theo tập đỉnh trung gian đã được phép dùng. Định nghĩa dp ở lượt k chỉ dùng các đỉnh trung gian trong tập đã xét, từ đó giải thích vòng k phải ở ngoài.
-- [ ] Cài ba vòng lặp đúng thứ tự, khởi tạo đường chéo và cạnh trùng. Khởi tạo đường chéo 0 và mỗi cặp bằng cạnh nhỏ nhất nếu có nhiều cạnh; INF nếu chưa có đường.
-- [ ] Giải CSES Shortest Routes II với giới hạn n phù hợp O(n³). Chỉ cộng hai nửa đường khi cả hai hữu hạn, tránh overflow.
-- [ ] Kiểm tra một đường ngắn hơn xuất hiện nhờ đi qua hai đỉnh trung gian, không chỉ trường hợp một cạnh.
-- [ ] Thử V nhỏ để so với Dijkstra chạy từ mọi nguồn trên đồ thị không âm.
-- [ ] Nhận diện dist[v][v]<0 báo chu trình âm nếu mở rộng sang bài có cạnh âm; không coi mọi khoảng cách khi đó đều là số tối ưu hữu hạn.
+- [ ] Viết DP theo tập đỉnh trung gian đã được phép dùng. Thuật toán Floyd-Warshall: Tìm đường đi ngắn nhất giữa TẤT CẢ các cặp đỉnh (All-Pairs Shortest Paths) trên đồ thị không có chu trình âm.
+- [ ] Cài ba vòng lặp đúng thứ tự, khởi tạo đường chéo và cạnh trùng. Bản chất Quy hoạch động: Trạng thái dp[k][i][j] là khoảng cách ngắn nhất từ i tới j chỉ sử dụng các đỉnh trung gian trong tập {1..k}. Truy hồi: dp[k][i][j] = min(dp[k-1][i][j], dp[k-1][i][k] + dp[k-1][k][j]).
+- [ ] Giải CSES Shortest Routes II với giới hạn n phù hợp O(n³). Thứ tự vòng lặp BẮT BUỘC: Vòng lặp đỉnh trung gian k PHẢI nằm ở ngoài cùng (for k: for i: for j:). Nén không gian bộ nhớ về ma trận 2D d[i][j].
+- [ ] Phát hiện chu trình âm: Sau khi chạy xong, nếu tồn tại đỉnh i có d[i][i] < 0, đồ thị chứa chu trình âm. Độ phức tạp O(V³), áp dụng tối ưu khi V <= 500.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2110,11 +2088,12 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 
 **Việc cần làm:**
 
-- [ ] Tự lập bốn dữ liệu: không trọng số, không âm, có cạnh âm, hỏi mọi cặp. Tự điền bảng theo có hướng/vô hướng, trọng số, số đỉnh, số cạnh và một nguồn hay mọi cặp.
-- [ ] Chọn BFS, Dijkstra, Bellman–Ford hoặc Floyd theo điều kiện và kích thước. Với mỗi lựa chọn, viết điều kiện đủ để dùng và chi phí dự kiến trên cấu trúc đã cài.
-- [ ] Đối chiếu kết quả các thuật toán trên những dữ liệu mà chúng cùng áp dụng. Tạo một trường hợp BFS cho ít cạnh hơn nhưng tổng trọng số lớn hơn để tránh dùng sai.
-- [ ] Tạo trường hợp Dijkstra gặp cạnh âm, giải thích vì sao đổi sang Bellman–Ford chứ không chỉ sửa heap.
-- [ ] Kiểm chứng trên phần giao điều kiện, ví dụ mọi cạnh bằng 1 thì BFS và Dijkstra phải cho cùng khoảng cách.
+- [ ] Tự lập bốn dữ liệu: không trọng số, không âm, có cạnh âm, hỏi mọi cặp. Ma trận So sánh và Ra quyết định Lựa chọn Giải thuật Đường đi Ngắn nhất:
+- [ ] Chọn BFS, Dijkstra, Bellman–Ford hoặc Floyd theo điều kiện và kích thước. 1. Đồ thị không trọng số: BFS O(V + E) — Đơn giản nhất, nhanh nhất.
+- [ ] Đối chiếu kết quả các thuật toán trên những dữ liệu mà chúng cùng áp dụng. 2. Đồ thị có hướng không chu trình (DAG): DP theo Topological Sort O(V + E) — Nhanh nhất, hỗ trợ cả cạnh âm và tìm đường dài nhất.
+- [ ] 3. Trọng số không âm, một nguồn: Dijkstra với Min-Heap O(E log V) — Tiêu chuẩn vàng thực tế.
+- [ ] 4. Trọng số có thể âm, một nguồn: Bellman-Ford O(V * E) — Bắt buộc khi có cạnh âm hoặc cần tìm chu trình âm.
+- [ ] 5. Mọi cặp đỉnh, V nhỏ (V <= 500): Floyd-Warshall O(V³) — 3 vòng lặp siêu gọn gàng.
 - [ ] Tự chọn BFS,Dijkstra hoặc Bellman–Ford cho ba đề không có nhãn thuật toán; nêu dữ kiện quyết định lựa chọn và dựng một phản ví dụ cho cách chọn sai.
 
 **Nguồn tham khảo miễn phí:**
@@ -2153,11 +2132,10 @@ Tập hợp rời rạc Disjoint Set Union (DSU): Quản lý phân hoạch các 
 
 **Việc cần làm:**
 
-- [ ] Phân biệt cây khung nhỏ nhất với cây đường đi ngắn nhất từ một nguồn. Xác định cần nối mọi đỉnh với tổng chi phí thấp nhất, chứ không tối thiểu khoảng cách từ một nguồn tới từng nơi.
-- [ ] Trên đồ thị vô hướng có trọng số, tự liệt kê vài cây khung để so tổng cạnh. Tự dựng ví dụ MST và cây đường đi ngắn nhất khác tập cạnh hoặc mục tiêu.
-- [ ] Hiểu tính chất lát cắt và trường hợp đồ thị không liên thông. Đọc tính chất lát cắt với một tập đỉnh và các cạnh băng qua nó, xét trường hợp nhiều cạnh cùng nhỏ nhất.
-- [ ] Kiểm tra số cạnh, liên thông và không chu trình cho cây được xuất.
-- [ ] Thử trọng số âm: MST vẫn có nghĩa trên đồ thị vô hướng, không dùng điều kiện không âm của Dijkstra cho MST.
+- [ ] Phân biệt cây khung nhỏ nhất với cây đường đi ngắn nhất từ một nguồn. Khái niệm Cây khung Nhỏ nhất (Minimum Spanning Tree - MST): Cây con chứa toàn bộ V đỉnh của đồ thị vô hướng liên thông sao cho tổng trọng số của V - 1 cạnh là nhỏ nhất có thể.
+- [ ] Trên đồ thị vô hướng có trọng số, tự liệt kê vài cây khung để so tổng cạnh. Định lý Lát cắt (Cut Property): Với mọi lát cắt phân hoạch tập đỉnh thành hai tập (S và V - S), cạnh có trọng số nhỏ nhất nối qua lát cắt luôn luôn thuộc về ít nhất một cây khung nhỏ nhất.
+- [ ] Hiểu tính chất lát cắt và trường hợp đồ thị không liên thông. Phân biệt bản chất: Cây khung nhỏ nhất (tối ưu hóa tổng chi phí toàn mạng) KHÔNG PHẢI là Cây đường đi ngắn nhất (Shortest Path Tree - tối ưu khoảng cách từ một nguồn).
+- [ ] Trọng số âm trên MST: Thuật toán MST hoàn toàn hoạt động bình thường với cạnh âm trên đồ thị vô hướng (khác với Dijkstra).
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -2196,12 +2174,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Mở rộng tập đỉnh đã thuộc cây bằng cạnh ra ngoài rẻ nhất. Chọn một đỉnh bắt đầu, duy trì tập đã vào cây và các cạnh nối ra ngoài.
-- [ ] Cài bằng min-heap và danh sách kề. Heap lưu chi phí của cạnh nối tốt nhất, không lưu tổng khoảng cách từ nguồn như Dijkstra.
-- [ ] So sánh điều đang được tối thiểu hóa với Dijkstra để tránh dùng nhầm. Bỏ cạnh/đỉnh heap đã lỗi thời theo cách cài, chỉ tăng số đỉnh vào cây một lần.
-- [ ] Lưu cạnh cha được chọn để tính lại tổng và vẽ cây, không chỉ trả tổng số.
-- [ ] Nếu heap rỗng khi còn đỉnh chưa vào cây, kết luận không liên thông.
-- [ ] Thử nhiều đỉnh bắt đầu, tổng tối ưu phải như nhau khi có MST dù tập cạnh có thể khác.
+- [ ] Mở rộng tập đỉnh đã thuộc cây bằng cạnh ra ngoài rẻ nhất. Thuật toán Prim tìm Cây khung Nhỏ nhất (MST): Xuất phát từ một đỉnh tùy ý, duy trì cây khung đang lớn dần và liên tục kết nạp cạnh có trọng số nhỏ nhất nối từ cây ra một đỉnh chưa thuộc cây.
+- [ ] Cài bằng min-heap và danh sách kề. Cài đặt bằng Min-Heap: Lưu các cặp {trọng số cạnh, đỉnh đích}. Khi lấy đỉnh u ra khỏi heap, nếu u chưa vào cây thì đánh dấu vào cây, cộng trọng số và nạp toàn bộ các cạnh kề từ u sang các đỉnh chưa vào cây vào heap.
+- [ ] So sánh điều đang được tối thiểu hóa với Dijkstra để tránh dùng nhầm. Độ phức tạp: O(E log V) với nhị phân heap. So sánh Prim vs Kruskal: Prim ưu thế trên đồ thị dày (Dense Graph: E xấp xỉ V²), Kruskal ưu thế trên đồ thị thưa (Sparse Graph: E xấp xỉ V).
+- [ ] Xử lý an toàn: Nếu số đỉnh được kết nạp vào cây < V khi heap đã rỗng, kết luận đồ thị không liên thông.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2215,11 +2191,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Road Reparation bằng cả hai cách. Dùng cùng một bộ đọc đồ thị cho hai phiên bản và giữ bản dữ liệu không bị sort/ghi đè làm ảnh hưởng bản còn lại.
-- [ ] Kiểm tra tổng trọng số bằng nhau, dù tập cạnh có thể khác khi không duy nhất. Kiểm tra không chỉ tổng mà cả V−1 cạnh, không chu trình và phủ mọi đỉnh.
-- [ ] Thử đồ thị không liên thông, cạnh âm và chỉ một đỉnh. Nếu trọng số trùng, chấp nhận hai cây khác nhau nhưng cùng tổng thay vì yêu cầu danh sách cạnh giống hệt.
-- [ ] Thử một đỉnh, đồ thị tách rời, cạnh âm, cạnh song song và một cạnh rất nặng không nên chọn.
-- [ ] Với V rất nhỏ, liệt kê tập cạnh kích thước V−1 để tạo bộ kiểm chứng độc lập.
+- [ ] Giải CSES Road Reparation bằng cả hai cách. Thực hành So sánh và Đánh giá Giải thuật MST (CSES Road Reparation): Cài đặt cả hai phương pháp Kruskal (DSU) và Prim (Priority Queue) trên cùng một bộ dữ liệu.
+- [ ] Kiểm tra tổng trọng số bằng nhau, dù tập cạnh có thể khác khi không duy nhất. Kiểm chứng Tính đúng đắn: Hai thuật toán có thể chọn các tập cạnh khác nhau nếu đồ thị có các cạnh cùng trọng số, nhưng tổng trọng số của cây khung nhỏ nhất BẮT BUỘC phải bằng nhau.
+- [ ] Thử đồ thị không liên thông, cạnh âm và chỉ một đỉnh. Đo lường thời gian thực thi: Đánh giá chi phí sắp xếp E cạnh trong Kruskal so với chi phí đẩy/lấy từ Priority Queue trong Prim trên đồ thị thưa vs đồ thị dày.
+- [ ] Xử lý ca biên: Đồ thị không liên thông, đồ thị 1 đỉnh, đồ thị có đa cạnh và khuyên.
 - [ ] Tự tính MST trên một đồ thị có trọng số bằng nhau và thành phần tách rời; giải thích lúc nào trả về cây, lúc nào chỉ có rừng khung, rồi đối chiếu hai cách cài.
 
 **Nguồn tham khảo miễn phí:**
@@ -2237,11 +2212,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Phân biệt đi tới được một chiều với hai chiều. Phân biệt thành phần liên thông vô hướng với SCC cần đi được hai chiều theo cạnh có hướng.
-- [ ] Cài Kosaraju bằng hai lượt DFS và đồ thị đảo. Ở lượt DFS đầu, ghi thứ tự kết thúc, không nhầm với thứ tự bắt đầu.
-- [ ] Co mỗi SCC thành một đỉnh và kiểm tra đồ thị thu được không có chu trình. Duyệt đồ thị đảo theo thứ tự kết thúc giảm dần để gán nhãn SCC.
-- [ ] Kiểm tra mọi cặp đỉnh trong một SCC bằng reachability trên đồ thị rất nhỏ.
-- [ ] Khi co thành đồ thị mới, bỏ cạnh nội bộ và xử lý cạnh trùng theo nhu cầu; xác nhận có thứ tự topo.
+- [ ] Phân biệt đi tới được một chiều với hai chiều. Thành phần Liên thông Mạnh (Strongly Connected Components - SCC) trên Đồ thị Có hướng: Tập con đỉnh cực đại sao cho giữa hai đỉnh bất kỳ luôn có đường đi hai chiều tới nhau.
+- [ ] Cài Kosaraju bằng hai lượt DFS và đồ thị đảo. Thuật toán Kosaraju 2 pha DFS O(V + E): Pha 1 chạy DFS trên đồ thị gốc để ghi lại thứ tự hoàn thành (Finish Time) trên stack; Pha 2 đảo ngược toàn bộ các cạnh (Transpose Graph G^T) và chạy DFS theo thứ tự đỉnh trên stack để trích xuất từng SCC.
+- [ ] Co mỗi SCC thành một đỉnh và kiểm tra đồ thị thu được không có chu trình. Thuật toán Tarjan: Chỉ dùng 1 lượt DFS duy nhất kết hợp 2 mảng đánh số num[] và low[] cùng một ngăn xếp stack để tìm các đỉnh gốc của SCC trong O(V + E).
+- [ ] Co Đồ thị (Condensation Graph): Co mỗi SCC thành một siêu đỉnh; đồ thị mới tạo thành BẮT BUỘC là một đồ thị DAG, cho phép áp dụng Quy hoạch động hoặc Sắp xếp Topo.
 
 **Khi nào quay lại:** Quay lại khi đi sâu thuật toán, thi lập trình hoặc bài toán thực tế cần kỹ thuật này; không cần để học tiếp mạng hay cơ sở dữ liệu.
 
@@ -2257,11 +2231,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Phân biệt đi qua mỗi cạnh một lần với đi qua mỗi đỉnh một lần. Chốt đang làm đường hay chu trình Euler trên đồ thị vô hướng, xác định số đỉnh bậc lẻ phải là 0 hoặc 2 cho đường không rỗng.
-- [ ] Xét điều kiện bậc và liên thông cho đồ thị vô hướng có cạnh. Chỉ xét liên thông trên các đỉnh có cạnh, tránh từ chối vì một đỉnh cô lập không liên quan.
-- [ ] Cài Hierholzer với ID cạnh riêng để xử lý cạnh song song. Chọn đỉnh bắt đầu phù hợp, mỗi ID cạnh chỉ được dùng một lần dù lưu hai chiều.
-- [ ] Truy vết bằng stack Hierholzer và đảo kết quả theo cách cài.
-- [ ] Sau chạy, số cạnh đã đi phải bằng E và dãy đỉnh dài E+1; phân biệt với yêu cầu Hamilton đi qua mỗi đỉnh.
+- [ ] Phân biệt đi qua mỗi cạnh một lần với đi qua mỗi đỉnh một lần. Đường đi và Chu trình Euler: Đường đi qua mỗi CẠNH của đồ thị đúng 1 lần.
+- [ ] Xét điều kiện bậc và liên thông cho đồ thị vô hướng có cạnh. Điều kiện Euler trên Đồ thị Vô hướng: Đồ thị liên thông (bỏ qua các đỉnh cô lập) và có đúng 0 đỉnh bậc lẻ (Chu trình Euler) hoặc đúng 2 đỉnh bậc lẻ (Đường đi Euler bắt đầu từ 1 đỉnh lẻ và kết thúc ở đỉnh lẻ còn lại).
+- [ ] Cài Hierholzer với ID cạnh riêng để xử lý cạnh song song. Thuật toán Hierholzer O(V + E): Dùng ngăn xếp duyệt đệ quy/vòng lặp, đi dọc theo các cạnh chưa thăm cho đến khi kẹt, sau đó đẩy đỉnh kẹt vào danh sách kết quả; đảo ngược danh sách để thu được chu trình Euler.
+- [ ] Phân biệt rõ ràng: Chu trình Euler (đi qua mọi CẠNH đúng 1 lần, giải trong O(E)) vs Chu trình Hamilton (đi qua mọi ĐỈNH đúng 1 lần, bài toán NP-đầy đủ).
 
 **Khi nào quay lại:** Quay lại khi đi sâu thuật toán, thi lập trình hoặc bài toán thực tế cần kỹ thuật này; không cần để học tiếp mạng hay cơ sở dữ liệu.
 
@@ -2277,12 +2250,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Vẽ luồng, sức chứa và cạnh ngược trong một mạng nhỏ. Định nghĩa đỉnh nguồn/đích, sức chứa không âm, bảo toàn luồng ở đỉnh trung gian và giá trị luồng.
-- [ ] Cài Edmonds–Karp cho kích thước nhỏ; cập nhật cả cạnh thuận và ngược. Tạo cạnh dư ngược có sức chứa ban đầu phù hợp để cho phép rút lại một phần lựa chọn trước.
-- [ ] Kiểm tra bảo toàn luồng, giới hạn sức chứa và giá trị lát cắt cuối. Mỗi lượt BFS tìm đường tăng, lấy bottleneck nhỏ nhất trên đường rồi cập nhật cả hai chiều.
-- [ ] Thử một mạng cần dùng cạnh ngược để sửa luồng cũ, không chỉ các đường song song đơn giản.
-- [ ] Khi không còn đường tăng, tìm tập tới được trong mạng dư và so giá trị luồng với dung lượng lát cắt.
-- [ ] Chỉ dùng Edmonds–Karp trong kích thước phù hợp chi phí O(VE²); không coi cài đúng trên mạng nhỏ là đáp ứng mọi giới hạn.
+- [ ] Vẽ luồng, sức chứa và cạnh ngược trong một mạng nhỏ. Mạng Luồng Cực đại (Maximum Flow): Đồ thị có hướng với sức chứa dung lượng (Capacity) trên mỗi cạnh, tìm giá trị luồng lớn nhất từ nguồn S tới đích T.
+- [ ] Cài Edmonds–Karp cho kích thước nhỏ; cập nhật cả cạnh thuận và ngược. Định lý Lát cắt Cực tiểu - Luồng Cực đại (Max-Flow Min-Cut Theorem): Giá trị luồng cực đại từ S tới T luôn luôn bằng dung lượng của lát cắt hẹp nhất phân tách S và T.
+- [ ] Kiểm tra bảo toàn luồng, giới hạn sức chứa và giá trị lát cắt cuối. Thuật toán Edmonds-Karp O(V * E²): Sử dụng BFS để liên tục tìm đường tăng luồng (Augmenting Path) ngắn nhất trên Đồ thị Dư (Residual Graph); tăng luồng dọc theo đường và bổ sung cạnh dư ngược để cho phép giải thuật rút lại lựa chọn cũ.
+- [ ] Thuật toán Dinic O(V² * E): Sử dụng BFS phân tầng (Level Graph) kết hợp DFS tìm luồng chặn (Blocking Flow) tăng tốc độ giải quyết trên các mạng luồng lớn.
 
 **Khi nào quay lại:** Quay lại khi đi sâu thuật toán, thi lập trình hoặc bài toán thực tế cần kỹ thuật này; không cần để học tiếp mạng hay cơ sở dữ liệu.
 
@@ -2298,11 +2269,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Tính kích thước cây con và đường kính cây không trọng số. Chọn gốc, tạo parent/thứ tự duyệt rồi tính cây con từ dưới lên để mọi con đã có kết quả.
-- [ ] Giải CSES Subordinates và Tree Diameter. Trong Subordinates, phân biệt số nút cây con với số cấp dưới không tính bản thân.
-- [ ] Chọn gốc rõ ràng, tránh đi ngược về cha; thử cây dây và cây hình sao. Với đường kính cây không trọng số, dùng hai lượt tìm xa nhất và kiểm tra đường phục hồi có đúng số cạnh.
-- [ ] Thử cây một đỉnh, dây dài và hình sao; nếu dùng đệ quy, xét giới hạn stack.
-- [ ] Phân biệt kỹ thuật đúng trên cây với đồ thị chung có chu trình.
+- [ ] Tính kích thước cây con và đường kính cây không trọng số. Quy hoạch động trên Cây (Tree DP): Cây có cấu trúc đệ quy tự nhiên (gốc và các cây con không chu trình), cho phép tính toán bài toán con từ lá lên gốc (Bottom-up).
+- [ ] Giải CSES Subordinates và Tree Diameter. Bài toán Cây con Độc lập (CSES Subordinates): Dùng 1 lượt DFS tính kích thước cây con sz[u] = 1 + sum(sz[v]) với v là con của u.
+- [ ] Chọn gốc rõ ràng, tránh đi ngược về cha; thử cây dây và cây hình sao. Bài toán Đường kính Cây (Tree Diameter): Tìm khoảng cách lớn nhất giữa 2 đỉnh bất kỳ trên cây: Phương pháp 1 dùng 2 lượt BFS (BFS từ đỉnh bất kỳ tìm đỉnh xa nhất X, BFS từ X tìm đỉnh xa nhất Y); Phương pháp 2 dùng Tree DP tính 2 nhánh con sâu nhất tại mỗi đỉnh.
+- [ ] Kỹ thuật Rerooting (Đổi gốc quy hoạch động): Chuyển gốc từ cha sang con trong O(1) để tính đáp án cho toàn bộ V đỉnh làm gốc trong tổng thời gian O(V).
 
 **Khi nào quay lại:** Quay lại khi đi sâu thuật toán, thi lập trình hoặc bài toán thực tế cần kỹ thuật này; không cần để học tiếp mạng hay cơ sở dữ liệu.
 
@@ -2318,12 +2288,10 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Việc cần làm:**
 
-- [ ] Đọc một đồ thị từ tệp và cho chọn nguồn, đích. Ghi định dạng tệp, có hướng/vô hướng và đơn vị trọng số; từ chối dữ liệu trái điều kiện thuật toán đang chọn.
-- [ ] Hiển thị đường ngắn nhất bằng Dijkstra khi trọng số không âm. Tách thuật toán khỏi menu để có thể kiểm thử bằng dữ liệu cố định.
-- [ ] Thêm chế độ nối tất cả địa điểm bằng MST; giải thích vì sao kết quả phục vụ yêu cầu khác tìm đường. Ở chế độ tìm đường, xuất nguồn, đích, đường và tổng; ở chế độ MST xuất các cạnh nối và tổng toàn mạng.
-- [ ] Thêm thông báo rõ cho không có đường, không liên thông và trọng số không hợp lệ với Dijkstra.
-- [ ] Dùng các bộ dữ liệu đã luyện làm regression test, kiểm tra kết quả menu khớp hàm thuật toán.
-- [ ] README cần một ví dụ cho thấy hai chế độ trả kết quả khác nhau vì giải hai yêu cầu khác nhau.
+- [ ] Đọc một đồ thị từ tệp và cho chọn nguồn, đích. Xây dựng Hệ thống Định tuyến & Phân tích Đồ thị Thực tế (Graph Routing Engine Capstone): Tích hợp toàn diện các thuật toán đồ thị cốt lõi vào một ứng dụng hoàn chỉnh.
+- [ ] Hiển thị đường ngắn nhất bằng Dijkstra khi trọng số không âm. Kiến trúc mô-đun hóa: Tách biệt Bộ đọc dữ liệu (Parser) <-> Động cơ thuật toán (Dijkstra, A*, Kruskal, Kahn Topo) <-> Tầng giao tiếp kết quả.
+- [ ] Thêm chế độ nối tất cả địa điểm bằng MST; giải thích vì sao kết quả phục vụ yêu cầu khác tìm đường. Hỗ trợ đa chế độ: Tìm đường ngắn nhất giữa 2 địa điểm, tối ưu hóa mạng lưới liên kết với chi phí thấp nhất (MST), và kiểm tra tính hợp lệ của luồng công việc phụ thuộc (DAG).
+- [ ] Kiểm thử tự động với dữ liệu quy mô lớn: Benchmark thời gian thực thi trên đồ thị giao thông thực tế có hàng chục nghìn đỉnh và cạnh.
 
 ## 10. Truy vấn, chuỗi và tổng hợp DSA
 
