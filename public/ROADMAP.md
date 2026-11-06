@@ -18,7 +18,7 @@ Khung tham chiếu: Khoa CNTT ĐH KHTN (HCMUS), [roadmap.sh Computer Science](ht
 
 | Track | Tên tiến trình | Trọng tâm sư phạm | Môn học HCMUS tương ứng | Số chặng | Số nhiệm vụ | Thời lượng ước tính |
 |---|---|---|---|---|---|---|
-| **TRACK-0** | **Vá nền C++ & Bộ nhớ** | Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ Stack vs Heap, cấp phát động new/delete, triết lý RAII, Rule of 0/3/5, Smart Pointers (unique_ptr, shared_ptr, weak_ptr) và C++ STL hiện đại. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 2 chặng | 19 nhiệm vụ | ~60h |
+| **TRACK-0** | **Vá nền C++ & Bộ nhớ** | Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ vật lý Stack vs Heap, địa chỉ ô nhớ, quản lý vòng đời tài nguyên, tránh rò rỉ bộ nhớ và Double-Free, triết lý Rule of Zero với std::vector/std::string, và làm chủ C++ STL cơ bản. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 2 chặng | 19 nhiệm vụ | ~60h |
 | **TRACK-1** | **OOP & Thiết kế Phần mềm** | Nắm chắc điểm 10 môn OOP (CSC10003) HK1 Năm 2: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton). | Lập trình hướng đối tượng (CSC10003) | 1 chặng | 20 nhiệm vụ | ~70h |
 | **TRACK-2** | **DSA Cốt lõi & Giải thuật** | Lấp dứt điểm lỗ hổng thuật toán sắp xếp (Quicksort phân hoạch Hoare/Lomuto, Mergesort, Heapsort), Cây (BST, AVL với 4 phép xoay LL/RR/LR/RL, Binary Heap), Đồ thị (BFS/DFS, Topological sort, Dijkstra với Priority Queue, Bellman-Ford, Floyd-Warshall, Kruskal với DSU nén đường đi, Prim), và Quy hoạch động (Knapsack, LIS O(n log n), LCS). | Cấu trúc dữ liệu và giải thuật (CSC10004) | 4 chặng | 82 nhiệm vụ | ~110h |
 | **TRACK-3** | **Kiến trúc & Mạng Máy tính** | Hoàn thành xuất sắc môn Mạng máy tính (CSC10008) HK1 Năm 2: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark. | Kiến trúc máy tính (CSC10007), Hệ điều hành (CSC10005), Mạng máy tính (CSC10008) | 3 chặng | 38 nhiệm vụ | ~85h |
@@ -40,7 +40,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 
 **Phạm vi kỹ thuật:**
 - Phân cấp lớp thực thể: Base class Entity với các phương thức thuần ảo update(float dt) = 0, render() = 0; các lớp con kế thừa Ship, Alien, Bullet, Obstacle.
-- Quản lý vòng đời và bộ nhớ: 100% đối tượng trong game được lưu trữ bằng std::vector<std::unique_ptr<Entity>>. Áp dụng triệt để RAII, rule of 0/3/5 và virtual destructor.
+- Quản lý vòng đời và bộ nhớ: Lưu trữ danh sách thực thể bằng std::vector<std::unique_ptr<Entity>> để tự động thu hồi tài nguyên, áp dụng Rule of Zero và virtual destructor ở lớp cha để ngăn rò rỉ vùng nhớ.
 - Mẫu thiết kế (Design Patterns): Factory Pattern (AlienFactory sinh biến thể quái vật theo wave), Strategy Pattern (MovementStrategy: di chuyển zig-zag, di chuyển săn đuổi), Observer Pattern (ScoreManager & SoundManager lắng nghe sự kiện OnAlienDestroyed).
 - Xử lý va chạm (Collision Detection) giữa Bullet và Alien/Obstacle dựa trên hình hộp bao AABB (Axis-Aligned Bounding Box).
 
@@ -169,7 +169,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 
 # Track 0: Nền tảng Lập trình & Bổ khuyết Lỗ hổng (Foundations & Gap Remediation)
 
-> **Mục tiêu:** Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ Stack vs Heap, cấp phát động new/delete, triết lý RAII, Rule of 0/3/5, Smart Pointers (unique_ptr, shared_ptr, weak_ptr) và C++ STL hiện đại.
+> **Mục tiêu:** Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ vật lý Stack vs Heap, địa chỉ ô nhớ, quản lý vòng đời tài nguyên, tránh rò rỉ bộ nhớ và Double-Free, triết lý Rule of Zero với std::vector/std::string, và làm chủ C++ STL cơ bản.
 > **Môn học HCMUS:** Nhập môn lập trình (CSC10001) · Kỹ thuật lập trình (CSC10002) | **Thời lượng ước tính:** ~60 giờ
 
 ## 01. Củng cố C++
@@ -334,6 +334,9 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [LearnCpp](https://www.learncpp.com/)
   - **Phần cần đọc:** Chương 12: references,pointers,null và dangling pointers; chưa học cả pointer arithmetic ở vòng này.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
+- [Offline Guide: Bản chất Vùng nhớ, Con trỏ & RAII](./docs/guides/01-MEMORY-POINTERS-RAII.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 010 · Tìm lỗi bằng debugger
 
@@ -506,6 +509,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [ ] Viết phương thức xem thông tin và thay đổi dữ liệu có kiểm tra. Viết ví dụ hai đối tượng có cùng kiểu nhưng khác trạng thái; gọi phương thức trên một đối tượng và kiểm tra đối tượng còn lại.
 - [ ] Giải thích vì sao không để mọi nơi tùy ý sửa mã sách. Phân biệt đóng gói dữ liệu với việc máy móc viết getter/setter cho mọi thành viên.
 
+**Thông tin thêm & Lưu ý bản chất:**
+
+Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) của đối tượng bằng cách ẩn giấu trạng thái nội bộ trong phân vùng private. Chỉ cung cấp các phương thức thao tác nghiệp vụ có kiểm tra tính hợp lệ qua giao diện công khai (public interface), triệt tiêu thói quen xấu viết getter/setter cơ học làm lộ dữ liệu nội bộ.
+
 **Nguồn tham khảo miễn phí:**
 
 - [LearnCpp](https://www.learncpp.com/)
@@ -589,7 +596,12 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [ ] Tạo lớp ThuVien chứa vector<Sach>. Vẽ quan hệ ThuVien sở hữu danh sách Sach và xác định ai chịu trách nhiệm thêm, xóa, giữ mã không trùng.
 - [ ] Đưa việc kiểm tra mã sách trùng vào ThuVien. Phân biệt ràng buộc của một sách như tên hợp lệ với ràng buộc trên nhiều sách như mã duy nhất.
 - [ ] Phân biệt ThuVien chứa Sach với Sach là một loại ThuVien. Chọn truyền sách bằng giá trị, tham chiếu hay mã định danh theo nhu cầu; ghi hậu quả khi vector thay đổi hoặc sách bị xóa.
-- [ ] Vẽ sơ đồ lớp đơn giản, ghi rõ đối tượng nào sở hữu danh sách sách. Giải thích vì sao ThuVien không phải một loại Sach bằng thử thay thế đối tượng trong một hàm nhận Sach.
+- [ ] Vẽ sơ đồ lớp đơn giản, ghi rõ đối tượng nào sở hữu danh sách sách. Hiểu sâu nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) thay vì lạm dụng Is-A (kế thừa), ngăn chặn lỗi thiết kế Fragile Base Class và giảm độ kết dính (loose coupling).
+- [ ] Giải thích vì sao ThuVien không phải một loại Sach bằng thử thay thế đối tượng trong một hàm nhận Sach.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) thay vì lạm dụng Is-A (kế thừa). Đóng gói các đối tượng con vào lớp cha giúp giảm độ kết dính (loose coupling), ngăn chặn lỗi thiết kế Lớp cơ sở mong manh (Fragile Base Class problem) và cho phép linh hoạt thay đổi thành phần lúc chạy.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -629,7 +641,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét xem đối tượng lớp con có thể dùng hợp lý ở nơi cần lớp cha hay không.
+Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét xem đối tượng lớp con có thể dùng hợp lý ở nơi cần lớp cha hay không. Bản chất Kế thừa (Inheritance): Xây dựng phân cấp kiểu dữ liệu IS-A chân chính. Phân định rõ 3 mức truy cập public, protected, private; thứ tự thực thi constructor (lớp cha trước con sau) và destructor (lớp con trước cha sau). Cảnh báo: truyền đối tượng con theo giá trị vào hàm nhận lớp cha sẽ gây hiện tượng cắt cụt đối tượng (Object Slicing).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -661,21 +673,25 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
 
 **Việc cần làm:**
 
-- [ ] Tạo lớp NhanVien và hai lớp con có cách tính lương khác nhau. Viết hai phiên bản phương thức cùng tên: một bản không virtual và một bản virtual; gọi qua đối tượng, tham chiếu và con trỏ lớp cha để so.
-- [ ] Gọi tinhLuong qua tham chiếu NhanVien khi có và khi không có virtual. Phân biệt override đúng chữ ký với tạo một hàm khác do sai tham số hoặc const; để compiler kiểm tra bằng override.
-- [ ] Dùng override và thử cố ý viết sai chữ ký để đọc lỗi biên dịch. Tạo ví dụ truyền đối tượng con theo giá trị để quan sát object slicing rồi đổi sang const tham chiếu.
-- [ ] Tìm hiểu vì sao lớp cha cần destructor ảo khi xóa đối tượng con qua con trỏ lớp cha. Xác định trường hợp thật sự xóa đối tượng con qua con trỏ lớp cha, từ đó kiểm tra destructor ảo.
-- [ ] Tách thông tin cần hiểu về cơ chế dispatch khỏi yêu cầu biết chi tiết vtable của từng trình biên dịch; chưa cần học tối ưu hóa cấp thấp ở ô này.
+- [ ] Tạo lớp NhanVien và hai lớp con có cách tính lương khác nhau. Làm chủ cơ chế Dynamic Dispatch: Trình biên dịch chèn con trỏ bảng ảo vptr (8 bytes) vào đầu mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo trong phân vùng dữ liệu chỉ đọc (.rodata); lời gọi ptr->method() thực thi qua 3 bước tra cứu gián tiếp.
+- [ ] Gọi tinhLuong qua tham chiếu NhanVien khi có và khi không có virtual. Bắt buộc khai báo virtual destructor (virtual
+- [ ] Dùng override và thử cố ý viết sai chữ ký để đọc lỗi biên dịch. Base()) ở mọi lớp cơ sở đa hình để ngăn chặn lỗi rò rỉ bộ nhớ thảm họa khi giải phóng đối tượng con qua con trỏ lớp cha.
+- [ ] Tìm hiểu vì sao lớp cha cần destructor ảo khi xóa đối tượng con qua con trỏ lớp cha. Tạo ví dụ truyền đối tượng con theo giá trị để quan sát hiện tượng cắt cụt đối tượng (object slicing) làm mất sạch phần dữ liệu riêng của lớp con, rồi chuyển sang dùng tham chiếu const Base& hoặc std::unique_ptr<Base>.
+- [ ] Phân biệt override đúng chữ ký với tạo hàm nạp chồng do sai tham số/const; dùng từ khóa override để compiler kiểm tra tại thời điểm biên dịch.
+- [ ] Tham khảo cẩm nang cơ chế đa hình động và thiết kế phần mềm sạch tại docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu lớp cha. Sao chép đối tượng con thành đối tượng lớp cha có thể làm mất phần dữ liệu riêng của lớp con. Cơ chế Đa hình Động (Dynamic Polymorphism): Trình biên dịch chèn con trỏ bảng ảo vptr vào mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo. Khi xóa đối tượng lớp con qua con trỏ lớp cha, nếu lớp cha KHÔNG có virtual destructor, destructor của lớp con sẽ không được gọi -> dẫn đến rò rỉ tài nguyên nghiêm trọng. Gắn liền với Mini-Project 1: Space Invaders C++ (phân cấp Entity -> Alien/Ship).
+Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu lớp cha. Sao chép đối tượng con thành đối tượng lớp cha có thể làm mất phần dữ liệu riêng của lớp con. Cơ chế Đa hình Động (Dynamic Polymorphism Under The Hood): Trình biên dịch chèn con trỏ bảng ảo vptr (8 bytes) vào đầu mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo trong phân vùng dữ liệu chỉ đọc (.rodata); CPU gọi hàm qua 3 bước tra cứu gián tiếp. BẮT BUỘC khai báo virtual destructor (virtual ~Base()) ở mọi lớp cơ sở đa hình để ngăn chặn lỗi rò rỉ bộ nhớ thảm họa khi giải phóng đối tượng con qua con trỏ lớp cha. Gắn liền với Mini-Project 1: Space Invaders C++ (phân cấp Entity -> Alien/Ship). Tài liệu: docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md và docs/projects/01-SPACE-INVADERS-CPP.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [LearnCpp](https://www.learncpp.com/)
   - **Phần cần đọc:** Chương 25 Virtual Functions: virtual dispatch, override, abstract classes và virtual destructor.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
+- [Offline Guide: Cơ chế Đa hình Động vptr/vtable & 5 Nguyên lý SOLID](./docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cơ chế đa hình động vptr/vtable và 5 nguyên lý SOLID.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 024 · Tính lương bằng đa hình
 
@@ -705,11 +721,18 @@ Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu 
 - [ ] Phân biệt giao diện chung với cách cài đặt riêng của từng lớp con. Giữ destructor của lớp cha phù hợp với cách hủy đối tượng; giao diện trừu tượng vẫn có thể có constructor hoặc phương thức đã cài.
 - [ ] Chỉ thêm một lớp con mới và kiểm tra hàm in lương chung vẫn dùng được. Thêm loại nhân viên thứ ba, kiểm tra không phải sửa hàm nhận giao diện chung hoặc thêm chuỗi if theo loại.
 
+**Thông tin thêm & Lưu ý bản chất:**
+
+Lớp trừu tượng (Abstract Base Class) & Giao diện thuần ảo (= 0): Định nghĩa hợp đồng hành vi bắt buộc mà mọi lớp con phải tuân thủ. Không thể khởi tạo trực tiếp đối tượng từ lớp trừu tượng; trình biên dịch cưỡng chế kiểm tra tính đầy đủ của các hàm ảo tại thời điểm biên dịch, bảo đảm nguyên lý đa hình an toàn.
+
 **Nguồn tham khảo miễn phí:**
 
 - [LearnCpp](https://www.learncpp.com/)
   - **Phần cần đọc:** Chương 25 Virtual Functions: virtual dispatch, override, abstract classes và virtual destructor.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
+- [Offline Guide: Cơ chế Đa hình Động vptr/vtable & 5 Nguyên lý SOLID](./docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cơ chế đa hình động vptr/vtable và 5 nguyên lý SOLID.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 026 · Quản lý tài nguyên an toàn
 
@@ -731,22 +754,25 @@ Khi lớp tự sở hữu con trỏ cấp phát động, sao chép mặc định
 - [LearnCpp](https://www.learncpp.com/)
   - **Phần cần đọc:** Chương 22 Move Semantics and Smart Pointers: RAII, resource ownership và std::unique_ptr.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
+- [Offline Guide: Bản chất Vùng nhớ, Con trỏ & RAII](./docs/guides/01-MEMORY-POINTERS-RAII.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 027 · Sao chép và sở hữu dữ liệu
+### 027 · Bản chất bộ nhớ và cơ chế sao chép
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
 **Việc cần làm:**
 
-- [ ] So sánh sao chép một lớp chứa vector với lớp chứa con trỏ tự cấp phát. Viết lớp thử sở hữu một mảng động, vẽ hai con trỏ sau copy mặc định và chỉ ra nguy cơ double delete hoặc sửa chung dữ liệu.
-- [ ] Vẽ hai đối tượng sau phép sao chép mặc định để nhận ra trường hợp cùng trỏ một vùng nhớ. Phân biệt copy constructor tạo đối tượng mới với copy assignment thay nội dung đối tượng đang tồn tại.
-- [ ] Tìm hiểu Rule of Zero; ưu tiên thành viên tự quản lý tài nguyên. Nếu luyện tự quản lý, cài bản sao sâu, giải phóng đúng dữ liệu cũ và xét tự gán; dùng công cụ kiểm tra bộ nhớ.
-- [ ] Sau khi hiểu vấn đề, viết lại bằng vector để giảm mã quản lý tài nguyên, giải thích vì sao Rule of Zero là lựa chọn mặc định tốt hơn.
-- [ ] Đọc thêm vai trò move constructor/move assignment khi thực sự cần; không nhầm std::move tự chuyển dữ liệu trong mọi trường hợp.
+- [ ] Phân biệt phân vùng Stack vs Heap, cơ chế lưu địa chỉ ô nhớ của con trỏ và mảng động. Vẽ phân vùng bộ nhớ Stack vs Heap: biến con trỏ 8 bytes nằm trên Stack lưu địa chỉ ô nhớ Heap được cấp phát.
+- [ ] Vẽ hai đối tượng sau phép gán mặc định để thấy nguy cơ sao chép nông (shallow copy) gây lỗi Double-Free thảm họa. Minh họa hiểm họa sao chép nông (shallow copy): hai con trỏ trỏ chung một địa chỉ Heap, khi đối tượng thứ nhất bị hủy thì đối tượng thứ hai bị lỗi Double-Free thảm họa hoặc giải tham chiếu con trỏ treo.
+- [ ] Hiểu triết lý Rule of Zero: ưu tiên dùng std::vector và std::string tự quản lý bộ nhớ để sao chép an toàn tuyệt đối. Thực hành cài đặt sao chép sâu (deep copy) thủ công: cấp phát vùng nhớ Heap mới độc lập và sao chép từng phần tử dữ liệu.
+- [ ] Áp dụng triết lý Rule of Zero: thay vì viết thủ công destructor và copy constructor dễ gây rò rỉ, sử dụng std::vector và std::string tự động quản lý vòng đời tài nguyên an toàn tuyệt đối.
+- [ ] Đọc cẩm nang bộ nhớ và con trỏ ngoại tuyến tại docs/guides/01-MEMORY-POINTERS-RAII.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Nếu tự sở hữu vùng nhớ, phải xét destructor, copy constructor và copy assignment cùng nhau; không chỉ thêm destructor. Quy tắc Rule of Zero / Rule of Three / Rule of Five: Khi một lớp tự sở hữu tài nguyên động (heap memory, file descriptor), mặc định phép gán nông (shallow copy) sẽ dẫn đến lỗi Double-Free thảm họa. Bắt buộc triển khai đầy đủ Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor và Move Assignment Operator; hoặc tốt nhất là áp dụng Rule of Zero bằng cách sử dụng std::unique_ptr và std::vector.
+Hiểu rõ Stack vs Heap: sao chép nông khiến hai con trỏ trỏ cùng ô nhớ Heap; dùng Rule of Zero với container chuẩn để triệt tiêu lỗi bộ nhớ. Mô hình nhận thức bộ nhớ vật lý: Biến con trỏ trên Stack lưu địa chỉ vùng nhớ Heap. Khi sao chép nông (shallow copy), hai con trỏ trỏ chung một ô nhớ Heap, dẫn tới lỗi Double-Free thảm họa hoặc con trỏ treo (dangling pointer) khi đối tượng bị hủy. Giải pháp bản chất: Triệt để áp dụng Rule of Zero bằng cách sử dụng các container chuẩn như std::vector và std::string tự động quản lý vòng đời bộ nhớ, thay vì tự viết destructor/copy constructor thủ công dễ rò rỉ. Đọc cẩm nang tại docs/guides/01-MEMORY-POINTERS-RAII.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -754,21 +780,21 @@ Nếu tự sở hữu vùng nhớ, phải xét destructor, copy constructor và 
   - **Phần cần đọc:** Chương 14/21: copy constructor, assignment, shallow/deep copying; đối chiếu quyền sở hữu trước khi tự cấp phát.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 028 · unique_ptr và quyền sở hữu
+### 028 · unique_ptr và tự động giải phóng vùng nhớ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
 **Việc cần làm:**
 
-- [ ] Tạo đối tượng bằng make_unique và quan sát tự hủy khi ra khỏi phạm vi. Phân biệt unique_ptr sở hữu độc quyền với con trỏ thường chỉ quan sát; không tạo hai unique_ptr từ cùng một địa chỉ.
-- [ ] Chuyển quyền sở hữu bằng move; không truy cập con trỏ sau khi đã chuyển. Dùng make_unique thay vì rải new và delete trong nhiều nhánh.
-- [ ] Dùng vector<unique_ptr<NhanVien>> để lưu nhiều loại nhân viên; lớp cha có destructor ảo. Thử chuyển một unique_ptr sang nơi khác, kiểm tra bên nguồn rỗng và không giải tham chiếu nó.
-- [ ] Duyệt vector<unique_ptr<NhanVien>> để gọi giao diện chung; xác nhận hủy qua lớp cha đúng.
-- [ ] Chỉ tìm hiểu shared_ptr/weak_ptr ở mức nhận diện khi có sở hữu chung thật sự, không thay mọi con trỏ bằng shared_ptr.
+- [ ] Tạo đối tượng bằng std::make_unique và quan sát cơ chế tự hủy giải phóng ô nhớ Heap khi ra khỏi scope. Làm chủ tư duy quản lý tài nguyên bằng RAII: vùng nhớ Heap gắn liền với vòng đời của đối tượng quản lý, tự động giải phóng khi ra khỏi scope.
+- [ ] Sử dụng std::unique_ptr để quản lý độc quyền tài nguyên mà không cần gọi delete thủ công. Sử dụng std::unique_ptr biểu diễn quyền sở hữu độc quyền (exclusive ownership): dùng std::make_unique để khởi tạo, loại bỏ hoàn toàn việc gọi delete thủ công rải rác.
+- [ ] Dùng vector<unique_ptr<NhanVien>> để quản lý danh sách đa hình; lớp cha bắt buộc có virtual destructor. Tránh lỗi nhận thức: tuyệt đối không tạo hai unique_ptr từ cùng một địa chỉ con trỏ thô vì sẽ gây Double-Free.
+- [ ] Tổ chức mảng động đa hình an toàn với std::vector<std::unique_ptr<LopCha>>: lớp cha bắt buộc có virtual destructor để destructor lớp con được gọi đúng khi hủy.
+- [ ] Tham khảo hướng dẫn thực hành con trỏ thông minh và RAII tại docs/guides/01-MEMORY-POINTERS-RAII.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Quản lý tài nguyên hiện đại RAII: std::unique_ptr biểu diễn quyền sở hữu độc quyền (move-only semantics), tự động giải phóng vùng nhớ khi ra khỏi phạm vi. std::shared_ptr đồng sở hữu qua biến đếm tham chiếu (Reference Counting). Dùng std::weak_ptr để phá vỡ hiện tượng tham chiếu vòng (Circular Reference) gây rò rỉ bộ nhớ giữa các shared_ptr.
+unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đời rõ ràng mà không cần rải delete thủ công. Quản lý tài nguyên hiện đại RAII: std::unique_ptr biểu diễn quyền sở hữu độc quyền (exclusive ownership), tự động giải phóng vùng nhớ Heap khi đối tượng ra khỏi phạm vi (scope) mà không cần gọi delete thủ công. Sử dụng std::make_unique để khởi tạo an toàn. Tuyệt đối không tạo hai unique_ptr từ cùng một địa chỉ con trỏ thô. Đọc cẩm nang tại docs/guides/01-MEMORY-POINTERS-RAII.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -833,15 +859,15 @@ Quản lý tài nguyên hiện đại RAII: std::unique_ptr biểu diễn quyề
 
 **Việc cần làm:**
 
-- [ ] Rà các lớp Sach, ThuVien và NhanVien: dữ liệu nào đang được bảo vệ đúng chỗ? Đối chiếu từng lớp với một trách nhiệm rõ, loại bỏ phương thức chỉ tồn tại để menu truy cập tùy ý nội bộ.
-- [ ] Tìm một quan hệ kế thừa không hợp lý và đổi thành quan hệ chứa nếu cần. Kiểm tra const, quyền sở hữu, giá trị trả về khi thất bại và quan hệ chứa/kế thừa.
-- [ ] Tách khai báo lớp vào tệp .h và định nghĩa phương thức vào tệp .cpp. Thử biên dịch từ thư mục sạch để phát hiện thiếu include hoặc phụ thuộc tình cờ giữa các tệp.
-- [ ] Biên dịch toàn bộ chương trình; kiểm tra mỗi tệp có thể được hiểu qua giao diện công khai. Viết một thay đổi nhỏ qua giao diện công khai để tự kiểm chứng thiết kế dễ dùng, không chỉ đánh giá bằng số lớp hoặc số dòng.
+- [ ] Rà các lớp Sach, ThuVien và NhanVien: dữ liệu nào đang được bảo vệ đúng chỗ? Rà soát chuẩn mực thiết kế OOP và 5 nguyên lý SOLID: Single Responsibility (mỗi lớp 1 lý do thay đổi), Open/Closed (mở rộng qua đa hình, đóng sửa đổi), Liskov Substitution (lớp con thay thế hoàn hảo lớp cha), Interface Segregation (chia nhỏ giao diện), Dependency Inversion (phụ thuộc vào abstraction).
+- [ ] Tìm một quan hệ kế thừa không hợp lý và đổi thành quan hệ chứa nếu cần. Áp dụng GoF Design Patterns thực chiến: Factory Pattern đóng gói khởi tạo, Strategy Pattern hoán đổi thuật toán lúc chạy, Observer Pattern phân tách liên kết giữa các thành phần.
+- [ ] Tách khai báo lớp vào tệp .h và định nghĩa phương thức vào tệp .cpp. Kiểm tra const-correctness, quyền sở hữu bộ nhớ, giá trị trả về khi thất bại và loại bỏ các getter/setter làm phá vỡ tính đóng gói.
+- [ ] Biên dịch toàn bộ chương trình; kiểm tra mỗi tệp có thể được hiểu qua giao diện công khai. Thử biên dịch từ thư mục sạch để phát hiện thiếu include hoặc phụ thuộc vòng; tham khảo cẩm nang tại docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md.
 - [ ] Nhận một yêu cầu thêm loại người dùng mới: chỉ ra phần nào dùng chứa, phần nào thật sự cần đa hình, sửa mã và chạy lại test cũ; tự giải thích thứ tự khởi tạo/hủy và quyền sở hữu.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Rà soát chuẩn mực OOP và 5 nguyên lý SOLID: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. Áp dụng GoF Design Patterns: Factory Pattern sinh đối tượng, Strategy Pattern thay đổi thuật toán lúc chạy, Observer Pattern thông báo sự kiện giữa các module.
+Rà soát chuẩn mực OOP và 5 nguyên lý SOLID: Single Responsibility (mỗi lớp 1 lý do thay đổi), Open/Closed (mở rộng qua đa hình, đóng sửa đổi), Liskov Substitution (lớp con thay thế hoàn hảo lớp cha), Interface Segregation (chia nhỏ giao diện), Dependency Inversion (phụ thuộc vào abstraction). Áp dụng GoF Design Patterns: Factory Pattern đóng gói khởi tạo, Strategy Pattern thay đổi thuật toán lúc chạy, Observer Pattern phân tách liên kết. Tài liệu: docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1231,7 +1257,7 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
 
 - [ ] 088 · Tìm kiếm tuyến tính và nhị phân (`algo-search`)
 - [ ] 097 · Prefix sum và mảng hiệu (`algo-prefix`)
-- [ ] 104 · Trạng thái và chuyển tiếp quy hoạch động (`algo-dp`)
+- [ ] 104 · Khung tư duy quy hoạch động (SRTBOT) (`algo-dp`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -1243,35 +1269,52 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Viết tìm tuyến tính rồi tìm nhị phân trên mảng đã sắp xếp. Viết riêng yêu cầu tìm một vị trí bằng x với yêu cầu tìm vị trí đầu tiên không nhỏ hơn x; kết quả khi không tìm thấy có thể khác.
-- [ ] Chọn một quy ước đoạn tìm kiếm và giữ nhất quán. Với nhị phân, chọn đoạn đóng hoặc nửa mở, ghi ý nghĩa lo/hi và điều kiện vòng lặp trước khi viết mã.
-- [ ] Tìm phần tử đầu >=x, thử mảng rỗng và mọi phần tử bằng nhau. Dùng cách tính mid tránh cộng hai biên lớn trực tiếp; kiểm tra mọi nhánh đều làm đoạn tìm kiếm nhỏ đi.
-- [ ] Thử x nhỏ hơn mọi phần tử, lớn hơn mọi phần tử, nằm giữa hai giá trị và xuất hiện nhiều lần.
-- [ ] Đối chiếu vị trí trả về với std::lower_bound cho bài tìm phần tử đầu >=x.
+- [ ] Cắt bỏ 50% không gian tìm kiếm trong O(1) nhờ tính đơn điệu của mảng đã sắp xếp. Mô hình nhận thức: Mảng tăng dần có tính đơn điệu, cho phép cắt bỏ 50% không gian tìm kiếm trong O(1). Bất biến: target luôn nằm trong đoạn [low, high].
+- [ ] Cài đặt chuẩn lower_bound (vị trí đầu tiên >= x) và upper_bound (vị trí đầu tiên > x). Logic cốt lõi: Cài đặt chuẩn lower_bound (vị trí đầu tiên >= target) và upper_bound (vị trí đầu tiên > target). Tính mid = low + (high - low) / 2 chống tràn số nguyên.
+- [ ] Dùng mid = low + (high - low) / 2 tránh tràn số; xử lý mảng rỗng và phần tử trùng lặp. C++ chuẩn mực: Vòng lặp while (low <= high), khi a[mid] >= target thì lưu ans = mid và thu hẹp high = mid - 1; ngược lại low = mid + 1.
+- [ ] Xử lý chuẩn xác mảng rỗng, phần tử trùng lặp và giá trị ngoài biên.
+- [ ] Đọc cẩm nang tìm kiếm nhị phân tại docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và bài tập tại docs/exercises/02-BINARY-SEARCH-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Tìm kiếm nhị phân trên mảng đã sắp xếp: Dựa trên tính đơn điệu để cắt bỏ 50% không gian tìm kiếm trong O(1). Bất biến: target luôn nằm trong [low, high]. Tính mid = low + (high - low) / 2 chống tràn số. Cài đặt chuẩn lower_bound (vị trí đầu tiên >= target) và upper_bound (vị trí đầu tiên > target). Tài liệu: docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và docs/exercises/02-BINARY-SEARCH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** §3.3 Binary search: vị trí,điều kiện đơn điệu và tìm trên đáp án.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Sắp xếp Quicksort/Merge Sort & Tìm kiếm Nhị phân trên tập kết quả](./docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 089 · Tìm kiếm nhị phân trên đáp án
+### 089 · Chặt nhị phân trên kết quả (Binary Search on Answer)
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Factory Machines bằng hàm kiểm tra đơn điệu. Viết hàm can(T) tính xem thời gian T sản xuất đủ số lượng yêu cầu hay không; dừng cộng khi đã đủ để tránh tràn.
-- [ ] Chứng minh vì sao thời gian lớn hơn không làm điều kiện đang đúng thành sai. Chứng minh can(T) đúng thì can(T+1) cũng đúng, xác định cần tìm giá trị đúng đầu tiên.
-- [ ] Chọn giới hạn trên, tránh tràn tổng sản lượng và thử đáp án ở biên. Chọn kiểu số cho thời gian và sản lượng, xây một giới hạn trên chắc chắn đủ hoặc tăng gấp đôi có kiểm tra giới hạn.
-- [ ] Tự liệt kê đáp án cho vài máy ít, kiểm tra can(answer) đúng và nếu answer>0 thì can(answer−1) sai.
-- [ ] Phân biệt tìm kiếm trên đáp án với sắp xếp thời gian máy rồi lấy một giá trị có sẵn.
+- [ ] Chuyển bài toán tối ưu thành bài toán kiểm tra tính khả thi can(mid) có tính đơn điệu FFFF...TTTT. Mô hình nhận thức: Khuôn mẫu Chặt nhị phân kết quả (Binary Search on Answer) chuyển bài toán tối ưu thành bài toán kiểm tra tính khả thi can(mid) có tính đơn điệu FFFF...TTTT hoặc TTTT...FFFF.
+- [ ] Dùng phạm vi long long tới 10^18 và dừng cộng sớm chống tràn số trong CSES Factory Machines. Logic cốt lõi: Trong CSES Factory Machines, hàm can(T) tính tổng sản lượng sum(T / k). Nếu tổng >= target, lưu T và tìm tiếp bên trái (high = mid - 1); ngược lại low = mid + 1.
+- [ ] Xác định đúng cận low, high và điều kiện cập nhật để tìm giá trị khả thi nhỏ nhất/lớn nhất. C++ chuẩn mực: Sử dụng long long cho low, high, mid với miền giá trị lên tới 10^18; dừng sớm trong vòng lặp can() ngay khi total >= target để chống tràn số long long.
+- [ ] Tự liệt kê bảng kiểm thử cho vài máy nhỏ để xác nhận can(ans) đúng và can(ans - 1) sai.
+- [ ] Tham khảo docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và bài tập tại docs/exercises/02-BINARY-SEARCH-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài toán tối ưu thành bài toán kiểm tra tính khả thi can(mid) có tính đơn điệu (FFFF...TTTT hoặc TTTT...FFFF). Trong CSES Factory Machines, hàm can(T) tính tổng sản lượng sum(T/k) với phạm vi long long tới 10^18 và dừng sớm chống tràn số. Tài liệu: docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và docs/exercises/02-BINARY-SEARCH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** §3.3 Binary search: vị trí,điều kiện đơn điệu và tìm trên đáp án.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Sắp xếp Quicksort/Merge Sort & Tìm kiếm Nhị phân trên tập kết quả](./docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
+- [Offline Exercises: Tuyển tập bài tập Tìm kiếm nhị phân CSES & LeetCode](./docs/exercises/02-BINARY-SEARCH-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về tìm kiếm nhị phân trên tập kết quả CSES và LeetCode.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 090 · Insertion sort
 
@@ -1324,41 +1367,55 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 093 · Merge sort và chia để trị
+### 093 · Merge sort và chia để trị (Divide and Conquer)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Viết bước trộn hai đoạn đã sắp xếp trước khi ghép toàn thuật toán. Tách hàm merge nhận hai đoạn đã tăng, dùng hai con trỏ và chép nốt phần còn lại khi một bên hết.
-- [ ] Giải thích tính đúng qua hai nửa và bước trộn. Quy định rõ khi hai khóa bằng nhau chọn bên trái trước nếu cần tính ổn định.
-- [ ] Tính thời gian, bộ nhớ phụ; thử n lẻ và nhiều phần tử trùng. Dùng vùng đệm được cấp phát có kế hoạch, tính cả bộ nhớ phụ và độ sâu đệ quy.
-- [ ] Vẽ quá trình tách và trộn trên mảng 5 phần tử để kiểm tra n lẻ.
-- [ ] Sau mỗi merge, kiểm tra đoạn kết quả có thứ tự và có đủ phần tử của hai đoạn ban đầu.
+- [ ] Chia đôi bài toán độc lập với hệ thức truy hồi T(N) = 2T(N/2) + O(N) đạt O(N log N) trong mọi trường hợp. Mô hình nhận thức: Chia để trị (Divide and Conquer). Hệ thức truy hồi T(N) = 2T(N/2) + O(N) chứng minh thời gian O(N log N) trong mọi trường hợp.
+- [ ] Bảo toàn bất biến ổn định (Stable Sort): khi hai khóa bằng nhau a[i] <= a[j], luôn nhặt phần tử bên trái trước. Bất biến ổn định (Stable Sort): khi hai phần tử bằng nhau (a[i] <= a[j]), luôn ưu tiên nhặt phần tử bên trái vào mảng đệm để bảo toàn thứ tự ban đầu.
+- [ ] Sử dụng mảng đệm truyền tham chiếu để tránh cấp phát lặp lại trong đệ quy. Logic cốt lõi: Hàm merge(a, left, mid, right, temp) dùng hai con trỏ i = left, j = mid + 1 quét đồng thời hai nửa đã sắp xếp, sau đó chép ngược từ temp về a.
+- [ ] C++ chuẩn mực: Cấp phát mảng đệm temp một lần từ ngoài rồi truyền tham chiếu (vector<int>& temp) để triệt tiêu chi phí cấp phát lặp lại trong đệ quy.
+- [ ] Tham khảo cẩm nang sắp xếp tại docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và bài tập tại docs/exercises/01-SORTING-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Merge Sort & Chia để trị (Divide and Conquer): Hệ thức truy hồi T(N) = 2T(N/2) + O(N) chứng minh thời gian O(N log N) trong mọi trường hợp. Bất biến ổn định (Stable Sort): khi a[i] <= a[j], luôn nhặt phần tử bên trái trước để bảo toàn thứ tự ban đầu. Sử dụng mảng đệm temp truyền tham chiếu vector<int>& để tránh cấp phát lặp lại trong đệ quy. Tài liệu: docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và docs/exercises/01-SORTING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [MIT 6.006 — lecture notes, Spring 2020](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/)
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
+- [Offline Guide: Sắp xếp Quicksort/Merge Sort & Tìm kiếm Nhị phân trên tập kết quả](./docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 094 · Quicksort
+### 094 · Quicksort và cơ chế phân hoạch
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Cài partition, kiểm tra chỉ số và điều kiện dừng. Chọn một kiểu partition cụ thể như Lomuto hoặc Hoare, hiểu giá trị trả về của nó trước khi chọn khoảng đệ quy.
-- [ ] Tạo dữ liệu làm chọn pivot kém hiệu quả; xét chọn pivot ngẫu nhiên. Thử mảng toàn phần tử bằng nhau để phát hiện vòng lặp không tiến hoặc phân hoạch quá lệch.
-- [ ] Giải thích vì sao thời gian xấu nhất có thể là O(n²), không chỉ ghi mức trung bình O(n log n). Kiểm tra chỉ số có dấu/không dấu để tránh trừ 1 từ 0, và không gọi lại đúng đoạn cũ.
-- [ ] Vẽ cây chia của pivot luôn nhỏ nhất để thấy tổng chi phí bậc hai.
-- [ ] Nếu chọn pivot ngẫu nhiên, ghi seed khi so sánh hoặc tái hiện lỗi.
+- [ ] Hiểu bản chất phân hoạch: Lomuto (con trỏ chậm/nhanh) vs Hoare (hai con trỏ dồn vào giữa). Mô hình nhận thức: Phân hoạch (Partitioning) chia mảng quanh pivot: bên trái <= pivot, bên phải >= pivot, đưa pivot về vị trí tuyệt đối mà không cần mảng đệm (in-place).
+- [ ] Chọn pivot ngẫu nhiên (Randomized Pivot) hoặc Median-of-Three để triệt tiêu nguy cơ O(N²) khi mảng đã sắp sẵn. So sánh Hoare vs Lomuto: Hoare dùng hai con trỏ dồn từ hai đầu vào giữa, tối ưu gấp 3 lần số phép đổi chỗ so với Lomuto.
+- [ ] Sắp xếp tại chỗ (in-place) với chi phí trung bình O(N log N) và ngăn xếp O(log N). Chống suy biến O(N²): Chọn pivot ngẫu nhiên (Randomized Pivot) bằng cách đổi chỗ phần tử ngẫu nhiên với a[left] trước khi phân hoạch để ngăn trường hợp xấu nhất trên mảng đã sắp.
+- [ ] C++ chuẩn mực: Cài đặt Hoare partition cẩn thận với vòng lặp do-while, điều kiện dừng đệ quy left >= right, chi phí ngăn xếp O(log N).
+- [ ] Tham khảo docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và bài tập tại docs/exercises/01-SORTING-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhanh) vs Hoare (hai con trỏ dồn từ hai đầu vào giữa, tối ưu gấp 3 lần số phép đổi chỗ). Khắc phục suy biến O(N²) bằng Randomized Pivot (chọn ngẫu nhiên một phần tử đổi chỗ với a[left]). Sắp xếp tại chỗ (in-place) với ngăn xếp O(log N). Tài liệu: docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md và docs/exercises/01-SORTING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [MIT 6.006 — lecture notes, Spring 2020](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/)
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
+- [Offline Guide: Sắp xếp Quicksort/Merge Sort & Tìm kiếm Nhị phân trên tập kết quả](./docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 095 · Heapsort
 
@@ -1394,6 +1451,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [MIT 6.006 — lecture notes, Spring 2020](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/)
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
+- [Offline Exercises: Tuyển tập bài tập Sắp xếp CSES & VNOI](./docs/exercises/01-SORTING-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về thuật toán sắp xếp trên CSES và VNOI kèm phân tích chi tiết.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 097 · Prefix sum và mảng hiệu
 
@@ -1413,40 +1473,57 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 9 Range queries: prefix sums,binary indexed tree và segment tree; chỉ đọc cấu trúc tương ứng ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 098 · Hai con trỏ và cửa sổ trượt
+### 098 · Kỹ thuật hai con trỏ và cửa sổ trượt
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Giải bài hai số có tổng cho trước trên mảng đã sắp xếp. Nêu rõ bất biến trước khi dịch con trỏ, chẳng hạn đoạn hiện tại không có giá trị lặp hoặc tổng đã được tính đúng.
-- [ ] Theo dõi một cửa sổ không có phần tử lặp. Với hai số trên mảng tăng, giải thích vì sao tổng quá nhỏ thì bỏ trái, quá lớn thì bỏ phải không làm mất đáp án.
-- [ ] Nêu điều kiện khiến con trỏ chỉ cần đi một chiều; không dùng cửa sổ tổng dương cho dữ liệu âm tùy tiện. Với cửa sổ không lặp, cập nhật bảng đếm hoặc vị trí xuất hiện gần nhất theo đúng phần tử vừa thêm/bỏ.
-- [ ] Tạo phản ví dụ có số âm để thấy cửa sổ theo tổng không còn đơn điệu.
-- [ ] Tính số lần mỗi con trỏ tiến để lập luận O(n), không nhân hai vòng while thành O(n²) một cách máy móc.
+- [ ] Hai con trỏ ngược chiều trên mảng sắp xếp: tăng L khi tổng nhỏ, giảm R khi tổng lớn, chi phí đúng O(N). Mô hình nhận thức: Kỹ thuật hai con trỏ ngược chiều (Opposite Direction) trên mảng đã sắp xếp: L = 0, R = N - 1. Nếu a[L] + a[R] < target thì tăng L, nếu > target thì giảm R; mỗi bước loại bỏ 1 ứng viên mà không bao giờ quay lui -> chi phí đúng O(N).
+- [ ] Phân biệt hai con trỏ ngược chiều với cửa sổ trượt (Sliding Window) cùng chiều co giãn. Logic cốt lõi: Phân biệt với Cửa sổ trượt (Sliding Window) cùng chiều: mở rộng biên phải (right++) nạp trạng thái, co biên trái (left++) khi vi phạm ràng buộc.
+- [ ] Nhận diện bẫy số âm: cửa sổ trượt theo tổng chỉ bảo toàn tính đơn điệu khi mảng toàn số không âm. C++ chuẩn mực & Cảnh báo bẫy: Cửa sổ trượt theo tổng chỉ bảo toàn tính đơn điệu khi mảng toàn số không âm; với dữ liệu có số âm, bài toán tổng đoạn bắt buộc giải bằng Prefix Sum kết hợp Hash Map O(N).
+- [ ] Tham khảo cẩm nang tại docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md và bài tập tại docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Kỹ thuật hai con trỏ (Two Pointers): Con trỏ ngược chiều trên mảng sắp xếp (L = 0, R = N - 1) loại bỏ 1 ứng viên mỗi bước trong O(N). Phân biệt với Cửa sổ trượt (Sliding Window) cùng chiều: mở rộng right++ và co left++ khi vi phạm ràng buộc. Cảnh báo: cửa sổ trượt theo tổng chỉ bảo toàn đơn điệu khi mảng toàn số không âm; có số âm phải dùng Prefix Sum + Hash Map. Tài liệu: docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md và docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 8 Amortized analysis: two pointers và sliding window.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Hai Con Trỏ & Cửa Sổ Trượt (Two Pointers & Sliding Window)](./docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về kỹ thuật hai con trỏ, cửa sổ trượt và bẫy số âm.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 099 · Bài tập tổng và cửa sổ
+### 099 · Thực hành hai con trỏ và cửa sổ trượt
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Giải CSES Sum of Two Values, Playlist và Static Range Sum Queries. Trong Sum of Two Values, giữ chỉ số gốc nếu đã sắp dữ liệu, không trả nhầm vị trí sau sort.
-- [ ] Viết vét cạn cho n nhỏ để đối chiếu. Trong Playlist, kiểm tra dãy toàn khác, toàn giống và một giá trị lặp lại sau khoảng dài.
-- [ ] Với mỗi bài, ghi bất biến và lý do độ phức tạp giảm. Trong truy vấn tổng, tự tạo l=1,r=n và l=r theo đúng quy ước đề.
-- [ ] Với mỗi bài, chạy vét cạn trên dữ liệu ngắn rồi mới tăng kích thước để kiểm tra giới hạn.
+- [ ] Giải CSES Sum of Two Values (hai con trỏ kẹp) và Playlist (cửa sổ trượt dãy con không lặp). Mô hình nhận thức: Đoạn con liên tiếp hợp lệ dài nhất/ngắn nhất. Mỗi phần tử được thêm đúng 1 lần và loại tối đa 1 lần -> tổng số thao tác <= 2N, đạt O(N) thời gian khấu hao (amortized).
+- [ ] Chứng minh mỗi con trỏ chỉ đi một chiều từ 0 đến N, tổng số thao tác <= 2N đạt O(N) khấu hao. Logic cốt lõi: Trong CSES Playlist (dãy con không lặp), dùng map/unordered_map lưu vị trí xuất hiện gần nhất lastPos[val]. Khi gặp phần tử lặp, co con trỏ trái left = max(left, lastPos[val] + 1) và cập nhật maxLen = max(maxLen, right - left + 1).
+- [ ] Xử lý dữ liệu trùng lặp và giữ chỉ số gốc khi cần xuất kết quả. C++ chuẩn mực: Trong CSES Sum of Two Values, lưu cặp {giá trị, chỉ số ban đầu} trước khi sort để xuất đúng vị trí 1-based index theo yêu cầu đề bài.
+- [ ] Đối chiếu với vét cạn O(N²) trên dữ liệu nhỏ.
+- [ ] Tham khảo docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md và bài tập tại docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con không lặp), dùng map/unordered_map lưu vị trí xuất hiện gần nhất lastPos[val], co left = max(left, lastPos[val] + 1) đạt O(N) khấu hao (mỗi phần tử thêm/bỏ tối đa 1 lần). Trong CSES Sum of Two Values, lưu cặp {giá trị, chỉ số gốc} trước khi sort. Tài liệu: docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md và docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 8 Amortized analysis: two pointers và sliding window.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Hai Con Trỏ & Cửa Sổ Trượt (Two Pointers & Sliding Window)](./docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về kỹ thuật hai con trỏ, cửa sổ trượt và bẫy số âm.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
+- [Offline Exercises: Tuyển tập bài tập Hai con trỏ & Cửa sổ trượt CSES](./docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về hai con trỏ và cửa sổ trượt trên CSES kèm hướng dẫn.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 100 · Quay lui và cắt tỉa
 
@@ -1521,22 +1598,21 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Đọc chương Greedy Algorithms hoặc Dynamic Programming theo ô đang luyện; chọn một bài cần tự lập luận. Đây là nguồn đào sâu sau khi đã học khái niệm, không thay bài nhập môn.
   - **Truy cập:** Toàn bộ sách và từng chương PDF miễn phí; dùng sau nền đệ quy, cấu trúc dữ liệu và chứng minh.
 
-### 104 · Trạng thái và chuyển tiếp quy hoạch động
+### 104 · Khung tư duy quy hoạch động (SRTBOT)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Từ Fibonacci, phân biệt lời giải đệ quy lặp việc với ghi nhớ kết quả. Bắt đầu từ định nghĩa một trạng thái biểu diễn kết quả của bài toán con nào, không chọn mảng dp trước rồi đoán công thức.
-- [ ] Viết trạng thái, cơ sở và quan hệ chuyển cho bài số cách đi cầu thang. Xác định trạng thái bất khả thi, giá trị cơ sở và mọi cách tới một trạng thái.
-- [ ] So top-down với bottom-up và vẽ thứ tự phụ thuộc. Vẽ quan hệ phụ thuộc để chọn thứ tự duyệt mà các trạng thái cần dùng đã được tính.
-- [ ] So memoization chỉ tính trạng thái được gọi với bottom-up duyệt theo thứ tự định sẵn.
-- [ ] Tính thời gian bằng số trạng thái nhân số chuyển tiếp, tính bộ nhớ trước và sau khi nén.
-- [ ] Với bài cầu thang, liệt kê tay n nhỏ và kiểm tra trường hợp n=0 theo quy ước số cách.
+- [ ] Áp dụng khung SRTBOT: Subproblems, Relate (truy hồi), Topo order trên DAG, Base cases, Original problem, Time. Mô hình nhận thức: Khung tư duy 6 bước SRTBOT (MIT 6.006): Subproblems (định nghĩa trạng thái), Relate (truy hồi), Topological order (thứ tự tính trên DAG bài toán con), Base cases (cơ sở), Original problem (lấy đáp án), Time complexity (số trạng thái x chi phí chuyển).
+- [ ] Phân biệt Đệ quy có nhớ (Top-down) với Lập bảng có thứ tự (Bottom-up). Logic cốt lõi: Xác định 2 điều kiện tiên quyết: Cấu trúc con tối ưu (Optimal Substructure) và Bài toán con gối nhau (Overlapping Subproblems).
+- [ ] Xác định 2 điều kiện tiên quyết: Cấu trúc con tối ưu và Bài toán con gối nhau. C++ chuẩn mực: Phân biệt Top-down Memoization (đệ quy có nhớ) vs Bottom-up Tabulation (lập bảng theo thứ tự topo thân thiện cache CPU).
+- [ ] Tính bộ nhớ trước và sau khi tối ưu; với bài cầu thang, đối chiếu với Fibonacci.
+- [ ] Tham khảo cẩm nang quy hoạch động tại docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và bài tập tại docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Quy hoạch động (Dynamic Programming): Xác định 2 điều kiện tiên quyết: Cấu trúc con tối ưu (Optimal Substructure) và Bài toán con gối nhau (Overlapping Subproblems). Quy trình 5 bước: Định nghĩa trạng thái dp[i], tìm hệ thức truy hồi chuyển trạng thái, xác định bài toán cơ sở (base cases), xác định thứ tự tính toán (Topo order), và tối ưu không gian bộ nhớ (ví dụ: nén mảng 1 chiều trong bài toán Ba lô 0/1 Knapsack).
+Quy hoạch động (Dynamic Programming): Khung tư duy 6 bước SRTBOT (Subproblems, Relate, Topo order trên DAG, Base cases, Original problem, Time). 2 điều kiện tiên quyết: Cấu trúc con tối ưu và Bài toán con gối nhau. So sánh Top-down Memoization vs Bottom-up Tabulation. Tài liệu: docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -1562,41 +1638,54 @@ Quy hoạch động (Dynamic Programming): Xác định 2 điều kiện tiên q
   - **Phần cần đọc:** Chương 7 Dynamic programming: coin change,LIS,knapsack và trạng thái; chỉ làm chủ đề tương ứng ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 106 · Knapsack 0/1 và nén bộ nhớ
+### 106 · Ba lô 0/1 (Knapsack) và kỹ thuật nén mảng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Viết DP hai chiều theo số vật và sức chứa. Định nghĩa dp[i][w] là giá trị tốt nhất khi xét i vật với sức chứa tối đa w, hoặc chọn biến thể đúng trọng lượng và ghi rõ.
-- [ ] Chuyển sang một chiều, giải thích vì sao duyệt sức chứa giảm cho 0/1. Tách hai nhánh không lấy/lấy vật, chỉ lấy khi đủ sức chứa và trạng thái trước hợp lệ.
-- [ ] Giải CSES Book Shop và thử dữ liệu làm duyệt tăng dùng lại một vật. Khi nén một chiều cho 0/1, vẽ ví dụ một vật để giải thích duyệt giảm ngăn dùng lại vật đó.
-- [ ] So với bài được lấy vô hạn để hiểu vì sao hướng duyệt khác.
-- [ ] Thử sức chứa 0, không vật nào vừa và hai vật cạnh tranh cùng sức chứa; nếu cần truy vết, giữ thông tin lựa chọn phù hợp.
+- [ ] Thiết lập trạng thái 2D dp[i][w] biểu diễn giá trị lớn nhất khi xét i vật với sức chứa tối đa w. Mô hình nhận thức: Ba lô 0/1 (0/1 Knapsack): trạng thái 2D dp[i][w] là giá trị lớn nhất khi xét i vật với sức chứa tối đa w. Truy hồi: dp[i][w] = max(dp[i-1][w], dp[i-1][w - weight[i]] + value[i]).
+- [ ] Bản chất nén mảng 1D: bắt buộc duyệt ngược w từ W về weight[i] để ngăn vật i bị chọn lặp lại nhiều lần. Logic cốt lõi & Bản chất nén mảng 1D: BẮT BUỘC cho w chạy giảm dần từ W về weight[i]. Lý do vật lý: nếu duyệt tăng dần, dp[w - weight[i]] đã bị cập nhật bởi chính vật i ở vòng lặp hiện tại khiến vật i bị dùng vô hạn lần (thành Unbounded Knapsack)!
+- [ ] Giải CSES Book Shop và phân biệt với Unbounded Knapsack (duyệt xuôi). C++ chuẩn mực: Cài đặt CSES Book Shop với vector<int> dp(W + 1, 0), lặp vật i từ 0..n-1, lặp lùi w từ W về price[i] cập nhật dp[w] = max(dp[w], dp[w - price[i]] + pages[i]).
+- [ ] Tham khảo docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và bài tập tại docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Ba lô 0/1 (Knapsack): Trạng thái dp[i][w] = max(dp[i-1][w], dp[i-1][w - weight[i]] + value[i]). Bản chất nén mảng 1D: BẮT BUỘC duyệt ngược w từ W về weight[i] để ngăn vật i bị chọn lặp lại trong cùng lượt (khác Unbounded Knapsack duyệt xuôi). CSES Book Shop. Tài liệu: docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 7 Dynamic programming: coin change,LIS,knapsack và trạng thái; chỉ làm chủ đề tương ứng ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Khung tư duy Quy hoạch động SRTBOT, Ba lô 0/1, LIS & LCS](./docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 107 · Dãy con chung dài nhất LCS
+### 107 · Dãy con chung dài nhất (LCS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Định nghĩa trạng thái theo hai tiền tố chuỗi. Lập bảng (n+1)×(m+1), hàng/cột 0 ứng với tiền tố rỗng.
-- [ ] Cài chuyển tiếp khi ký tự cuối giống hoặc khác, khởi tạo chuỗi rỗng. Nếu hai ký tự cuối bằng nhau xét ghép vào kết quả hai tiền tố ngắn hơn; nếu khác xét bỏ một phía.
-- [ ] Truy vết một dãy con chung; phân biệt subsequence không cần liền nhau với substring liền nhau. Truy ngược bảng với quy tắc xử lý khi hai lựa chọn bằng nhau, biết có thể có nhiều LCS hợp lệ.
-- [ ] Kiểm tra chuỗi trả về là dãy con của cả hai và có độ dài bằng dp[n][m].
-- [ ] Thử hai chuỗi không có ký tự chung, bằng nhau và có nhiều ký tự lặp.
+- [ ] Xây dựng lưới trạng thái 2D dp[i][j] trên tiền tố chuỗi: ghép chéo khi ký tự khớp, lấy max hai nhánh khi khác. Mô hình nhận thức: Dãy con chung dài nhất (LCS). Lưới trạng thái 2D dp[i][j] biểu diễn độ dài LCS của hai tiền tố S[0..i-1] và T[0..j-1]. Cơ sở: dp[0][j] = dp[i][0] = 0.
+- [ ] Truy vết ngược từ ô (N, M) về (0, 0) để khôi phục chuỗi con chung thực tế. Logic cốt lõi: Nếu S[i-1] == T[j-1] thì dp[i][j] = dp[i-1][j-1] + 1; ngược lại dp[i][j] = max(dp[i-1][j], dp[i][j-1]). Thời gian O(N*M), không gian O(N*M).
+- [ ] Phân biệt dãy con (subsequence không cần liền) với chuỗi con liên tiếp (substring). C++ chuẩn mực & Truy vết: Khôi phục chuỗi con chung bằng cách đi lùi từ ô (N, M) về (0, 0); nếu hai ký tự bằng nhau thì đưa ký tự vào kết quả và lùi chéo (i-1, j-1), ngược lại lùi về ô lớn hơn. Đảo ngược chuỗi kết quả.
+- [ ] Phân biệt subsequence (không cần liền) với substring (liên tiếp).
+- [ ] Tham khảo docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và bài tập tại docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Dãy con chung dài nhất (LCS): Lưới trạng thái 2D dp[i][j] trên tiền tố chuỗi: nếu S[i-1] == T[j-1] thì dp[i][j] = dp[i-1][j-1] + 1; ngược lại max(dp[i-1][j], dp[i][j-1]). Truy vết từ ô (N, M) về (0, 0) để khôi phục chuỗi. Tài liệu: docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [MIT 6.006 — lecture notes, Spring 2020](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/)
   - **Phần cần đọc:** Các lecture Dynamic Programming về LCS và edit distance; làm ví dụ bảng nhỏ trước bài tập tổng hợp.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
+- [Offline Guide: Khung tư duy Quy hoạch động SRTBOT, Ba lô 0/1, LIS & LCS](./docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 108 · Edit distance
 
@@ -1616,23 +1705,30 @@ Quy hoạch động (Dynamic Programming): Xác định 2 điều kiện tiên q
   - **Phần cần đọc:** Các lecture Dynamic Programming về LCS và edit distance; làm ví dụ bảng nhỏ trước bài tập tổng hợp.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 109 · Dãy con tăng dài nhất LIS
+### 109 · Dãy con tăng dài nhất (LIS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Cài DP O(n²), truy vết một dãy con tăng. Với O(n²), dp[i] là độ dài dãy tăng kết thúc tại i; lưu cha để truy vết.
-- [ ] Sau đó dùng mảng đuôi nhỏ nhất và tìm kiếm nhị phân để đạt O(n log n). Với O(n log n), tails[len] đại diện đuôi nhỏ nhất có thể của một độ dài, không mặc định toàn mảng tails là lời giải theo chỉ số gốc.
-- [ ] Thử phần tử trùng, phân biệt tăng nghiêm ngặt với không giảm bằng cách chọn lower_bound/upper_bound đúng. Chọn lower_bound cho tăng nghiêm ngặt, kiểm tra dãy toàn giá trị bằng nhau.
-- [ ] Nếu xuất dãy ở bản nhanh, bổ sung vị trí kết thúc và liên kết trước thay vì chỉ in tails.
-- [ ] Đối chiếu hai độ dài trên mảng ngắn sinh ngẫu nhiên rồi kiểm tra tính tăng và thứ tự chỉ số của dãy truy vết.
+- [ ] So sánh giải pháp cơ bản O(N²) với giải pháp tối ưu O(N log N). Mô hình nhận thức: Dãy con tăng dài nhất (LIS). Thuật toán cơ bản O(N²) dùng dp[i] = 1 + max({dp[j] | j < i, a[j] < a[i]}).
+- [ ] Mô hình mảng tails: tails[len] lưu phần tử kết thúc nhỏ nhất của dãy con tăng độ dài len. Logic cốt lõi tối ưu O(N log N): Duy trì mảng tails, trong đó tails[len] lưu phần tử kết thúc nhỏ nhất của một dãy con tăng độ dài len. Bất biến: mảng tails luôn tăng nghiêm ngặt.
+- [ ] Dùng std::lower_bound tìm vị trí cập nhật trong tails; độ dài LIS chính là tails.size(). C++ chuẩn mực: Với mỗi phần tử x, dùng std::lower_bound tìm vị trí đầu tiên trong tails có giá trị >= x. Nếu tìm thấy thì ghi đè *it = x (tối ưu đuôi); nếu không thì tails.push_back(x). Độ dài LIS chính là tails.size().
+- [ ] Đối chiếu hai phương pháp trên dữ liệu nhỏ.
+- [ ] Tham khảo docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và bài tập tại docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Dãy con tăng dài nhất (LIS): Từ O(N²) cơ bản tối ưu lên O(N log N) bằng mảng tails. Invariant: mảng tails luôn tăng nghiêm ngặt, tails[len] lưu đuôi nhỏ nhất của dãy tăng độ dài len. Với mỗi phần tử, dùng std::lower_bound tìm vị trí cập nhật trong tails. Độ dài LIS là tails.size(). Tài liệu: docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md và docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 7 Dynamic programming: coin change,LIS,knapsack và trạng thái; chỉ làm chủ đề tương ứng ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Khung tư duy Quy hoạch động SRTBOT, Ba lô 0/1, LIS & LCS](./docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 110 · Tự dựng trạng thái DP
 
@@ -1655,6 +1751,9 @@ Quy hoạch động (Dynamic Programming): Xác định 2 điều kiện tiên q
 - [Algorithms — Jeff Erickson](https://jeffe.cs.illinois.edu/teaching/algorithms/)
   - **Phần cần đọc:** Đọc chương Greedy Algorithms hoặc Dynamic Programming theo ô đang luyện; chọn một bài cần tự lập luận. Đây là nguồn đào sâu sau khi đã học khái niệm, không thay bài nhập môn.
   - **Truy cập:** Toàn bộ sách và từng chương PDF miễn phí; dùng sau nền đệ quy, cấu trúc dữ liệu và chứng minh.
+- [Offline Exercises: Tuyển tập bài tập Quy hoạch động kinh điển CSES](./docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về quy hoạch động ba lô, dãy con tăng và khoảng cách biến đổi chuỗi CSES.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ## 09. Đồ thị và đường đi
 
@@ -1673,8 +1772,8 @@ Quy hoạch động (Dynamic Programming): Xác định 2 điều kiện tiên q
 **Ô cần ôn theo kết quả kiểm tra:**
 
 - [ ] 112 · Biểu diễn đồ thị trong chương trình (`graph-represent`)
-- [ ] 115 · BFS và đường đi ít cạnh nhất (`graph-bfs`)
-- [ ] 123 · Dijkstra (`graph-dijkstra`)
+- [ ] 115 · Duyệt đồ thị theo chiều rộng (BFS) (`graph-bfs`)
+- [ ] 123 · Thuật toán Dijkstra với Min-Heap (`graph-dijkstra`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -1698,23 +1797,29 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 11 Basics of graphs: biểu diễn và thuật ngữ.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 113 · DFS và thành phần liên thông
+### 113 · Duyệt đồ thị theo chiều sâu (DFS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Viết DFS đệ quy rồi phiên bản dùng stack. Phân biệt thăm một thành phần từ nguồn với duyệt toàn bộ đồ thị bằng vòng lặp qua mọi đỉnh chưa thăm.
-- [ ] Đánh dấu đỉnh đã thăm để tránh lặp trên chu trình. Đánh dấu đỉnh ở thời điểm hợp lý để không đưa cùng đỉnh vào xử lý vô hạn.
-- [ ] Đếm thành phần liên thông; xét nguy cơ tràn ngăn xếp với đường rất dài. Theo dõi stack đệ quy trên đường dài và chu trình, giải thích điều kiện kết thúc.
-- [ ] Ở bản stack tường minh, xác định có cần giữ thứ tự vào/ra hay chỉ cần thăm tới được, vì hai yêu cầu có cách lưu trạng thái khác nhau.
-- [ ] Tính thời gian O(V+E) cho danh sách kề khi mỗi đỉnh/cạnh được xét số lần hữu hạn phù hợp.
+- [ ] Duyệt theo chiều sâu bằng Call Stack, đánh dấu visited trên danh sách kề đạt O(V + E). Mô hình nhận thức: Khám phá không gian trạng thái theo chiều sâu qua ngăn xếp (Call Stack) trên danh sách kề O(V + E). Kỹ thuật tô 3 màu phát hiện chu trình có hướng: 0 (chưa thăm), 1 (đang trong nhánh đệ quy hiện tại), 2 (đã duyệt xong hoàn tất).
+- [ ] Phát hiện chu trình có hướng bằng kỹ thuật tô 3 màu (0: chưa thăm, 1: đang duyệt, 2: hoàn tất). Logic cốt lõi: Gặp cạnh nối tới đỉnh màu 1 chính là cạnh ngược (Back-edge) chứng minh có chu trình; cạnh tới đỉnh màu 2 là Forward/Cross-edge không tạo chu trình.
+- [ ] Đếm thành phần liên thông và phòng chống tràn ngăn xếp (Stack Overflow) trên đồ thị sâu. C++ chuẩn mực: Cài đặt vector<int> color(n + 1, 0), phòng chống tràn bộ nhớ ngăn xếp (Stack Overflow) trên đồ thị sâu bằng cách tăng kích thước stack hoặc dùng ngăn xếp tường minh.
+- [ ] Tham khảo cẩm nang tại docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và bài tập tại docs/exercises/05-GRAPH-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Duyệt đồ thị theo chiều sâu (DFS): Sử dụng Call Stack khám phá các nhánh đồ thị đạt O(V + E). Kỹ thuật tô 3 màu phát hiện chu trình có hướng: 0 (chưa thăm), 1 (đang trong ngăn xếp đệ quy), 2 (hoàn tất). Gặp cạnh nối tới đỉnh màu 1 chính là cạnh ngược (back-edge) chứng minh có chu trình! Tài liệu: docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và docs/exercises/05-GRAPH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Thuật toán Đồ thị BFS/DFS, Tô màu 3 trạng thái & Dijkstra Min-Heap](./docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 114 · Duyệt vùng và nối các thành phần
 
@@ -1733,25 +1838,33 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Exercises: Tuyển tập bài tập Đồ thị BFS/DFS & Dijkstra CSES](./docs/exercises/05-GRAPH-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 115 · BFS và đường đi ít cạnh nhất
+### 115 · Duyệt đồ thị theo chiều rộng (BFS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Dùng queue duyệt theo từng lớp khoảng cách. Khởi tạo dist nguồn bằng 0, đỉnh chưa thăm bằng một dấu riêng và đưa nguồn vào queue.
-- [ ] Lưu đỉnh cha và khôi phục một đường đi. Đánh dấu khi đưa vào queue, không đợi tới lúc lấy ra để tránh thêm cùng đỉnh nhiều lần.
-- [ ] Giải thích vì sao đúng khi mỗi cạnh có cùng chi phí, không suy rộng sang trọng số bất kỳ. Khi thăm lần đầu qua u, đặt dist[v]=dist[u]+1 và parent[v]=u.
-- [ ] Vẽ các lớp khoảng cách để lập luận queue lấy lớp trước rồi mới tới lớp sau.
-- [ ] Truy vết từ đích qua parent về nguồn, đảo đường đi rồi kiểm tra từng cặp liên tiếp là cạnh hợp lệ.
-- [ ] Thử trường hợp không tới được thay vì suy ra từ parent chưa được khởi tạo.
+- [ ] Dùng std::queue duyệt theo từng lớp khoảng cách, tìm đường đi ngắn nhất trên đồ thị không trọng số. Mô hình nhận thức: Duyệt theo từng lớp sóng khoảng cách bằng hàng đợi queue<int>. Tính chất: Tìm đường đi ngắn nhất tính theo số cạnh trên đồ thị không trọng số.
+- [ ] Quy tắc vàng: đánh dấu visited[v] = true ngay khi PUSH vào queue, không chờ pop để tránh MLE/TLE. Logic cốt lõi & Quy tắc vàng: BẮT BUỘC đánh dấu visited[v] = true ngay khi PUSH vào queue; tuyệt đối không chờ tới lúc pop mới đánh dấu để tránh đẩy một đỉnh nhiều lần gây tràn bộ nhớ (MLE) và TLE!
+- [ ] Lưu vết qua mảng parent để khôi phục đường đi ngắn nhất thực tế. C++ chuẩn mực & Truy vết: Khởi tạo dist nguồn bằng 0, các đỉnh khác bằng -1 hoặc INF. Cập nhật dist[v] = dist[u] + 1 và parent[v] = u khi relax. Truy ngược parent từ đích về nguồn và đảo ngược mảng để in đường đi.
+- [ ] Tham khảo docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và bài tập tại docs/exercises/05-GRAPH-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo từng lớp khoảng cách, tìm đường đi ngắn nhất trên đồ thị không trọng số. Quy tắc vàng: BẮT BUỘC đánh dấu visited[v] = true ngay khi PUSH vào queue (không chờ pop) để tránh MLE/TLE. Lưu vết qua mảng parent. Tài liệu: docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và docs/exercises/05-GRAPH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Thuật toán Đồ thị BFS/DFS, Tô màu 3 trạng thái & Dijkstra Min-Heap](./docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 116 · Tìm đường trên đồ thị không trọng số
 
@@ -1770,6 +1883,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Exercises: Tuyển tập bài tập Đồ thị BFS/DFS & Dijkstra CSES](./docs/exercises/05-GRAPH-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 117 · Phát hiện chu trình vô hướng
 
@@ -1825,23 +1941,29 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 120 · Sắp xếp topo trên DAG
+### 120 · Sắp xếp Topo (Topological Sort) trên DAG
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Dùng bậc vào và queue cài thuật toán Kahn. Tính indegree đúng từ toàn bộ cạnh có hướng, đưa tất cả đỉnh indegree 0 vào queue.
-- [ ] Phân biệt một thứ tự hợp lệ với thứ tự duy nhất. Mỗi lần bỏ một đỉnh, giảm indegree các đỉnh kề và chỉ đưa vào khi vừa về 0.
-- [ ] Phát hiện đồ thị có chu trình nếu không lấy ra được đủ đỉnh. Sau cùng so số đỉnh lấy ra với V để phát hiện không có thứ tự topo do chu trình.
-- [ ] Với một kết quả, kiểm tra pos[u]<pos[v] cho mọi cạnh u→v.
-- [ ] Nếu cần thứ tự từ điển nhỏ nhất, xác định vì sao phải thay queue thường bằng cấu trúc chọn đỉnh nhỏ nhất.
+- [ ] Mô hình hóa thứ tự phụ thuộc và môn học tiên quyết thành thứ tự topo trên DAG. Mô hình nhận thức: Sắp xếp các đỉnh trên đồ thị có hướng không chu trình (DAG) thành hàng ngang sao cho mọi cạnh u -> v đều có chiều từ trái sang phải. Ứng dụng: lập lịch tác vụ, thứ tự môn học tiên quyết.
+- [ ] Thuật toán Kahn: tính bán bậc vào (indegree), dùng queue thu nạp các đỉnh có indegree = 0. Logic cốt lõi (Thuật toán Kahn): Tính bán bậc vào inDegree của mọi đỉnh. Đẩy tất cả đỉnh có inDegree == 0 vào queue. Khi lấy đỉnh u ra, duyệt đỉnh kề v, giảm inDegree[v]--; nếu inDegree[v] == 0 thì nạp v vào queue.
+- [ ] Phát hiện chu trình nếu số đỉnh được sắp xếp nhỏ hơn tổng số đỉnh V. C++ chuẩn mực & Phát hiện chu trình: Đếm số đỉnh đã lấy ra; nếu số đỉnh < V thì đồ thị có chu trình, trả về rỗng báo lỗi! So sánh với cách sắp topo bằng DFS (ngược thứ tự thời điểm kết thúc finish time).
+- [ ] Tham khảo docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và bài tập tại docs/exercises/05-GRAPH-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ thuộc và môn học tiên quyết. Thuật toán Kahn (BFS theo indegree): nạp các đỉnh có indegree == 0 vào queue, giảm indegree đỉnh kề khi duyệt. Nếu số đỉnh lấy ra < V, phát hiện đồ thị có chu trình. Tài liệu: docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và docs/exercises/05-GRAPH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 16 Directed graphs: topological sorting và xử lý DAG.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Thuật toán Đồ thị BFS/DFS, Tô màu 3 trạng thái & Dijkstra Min-Heap](./docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 121 · Lập lịch phụ thuộc
 
@@ -1879,31 +2001,31 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 123 · Dijkstra
+### 123 · Thuật toán Dijkstra với Min-Heap
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
 - [ ] Xác định bài toán đường đi ngắn nhất từ một nguồn trên đồ thị có trọng số không âm; phân biệt khoảng cách đang biết với khoảng cách đã được chốt tối ưu.
-- [ ] Chuẩn bị đồ thị khoảng 5 đỉnh có cạnh trọng số 0, cạnh song song và một đỉnh không tới được; tính tay đáp án trước.
-- [ ] Lập bảng dist và parent, khởi tạo nguồn 0 còn lại INF; chưa coi đỉnh được phát hiện đầu tiên là đã tối ưu.
-- [ ] Cài danh sách kề. Dùng heap chứa cặp (khoảng cách,đỉnh), kiểm tra đang dùng min-heap và lấy đúng phần tử nhỏ nhất.
-- [ ] Khi lấy một cặp có khoảng cách khác dist hiện tại, bỏ bản ghi cũ; khi relax thành công mới đưa giá trị mới vào heap.
-- [ ] Giải thích bước chốt khoảng cách dựa vào trọng số không âm; tự vẽ một cạnh âm làm lập luận thất bại.
-- [ ] Nếu chỉ cần một đích, chỉ dừng khi đích được lấy ra với khoảng cách hợp lệ nhỏ nhất, không dừng ngay khi vừa nhìn thấy đích.
-- [ ] Truy parent, đảo đường đi và cộng lại trọng số các cạnh được chọn để kiểm tra; nếu có cạnh song song, lưu thông tin cạnh đủ để đối chiếu.
-- [ ] Tính thời gian và bộ nhớ theo số đỉnh/cạnh cho đúng cách cài dùng heap, so với bản chọn đỉnh bằng quét O(V²); không ghi chi phí của một phiên bản khác mã mình viết.
+- [ ] Mô hình nhận thức & Bất biến tham lam: Tìm đường đi ngắn nhất từ một nguồn trên đồ thị có trọng số KHÔNG ÂM. Nhãn dist[u] nhỏ nhất lấy ra từ Min-Heap được chốt vĩnh viễn (permanently finalized) vì không có đường vòng qua đỉnh chưa xét nào có tổng trọng số nhỏ hơn.
+- [ ] Logic cốt lõi & Tỉa bản ghi cũ: Dùng priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<...>> lưu {khoảng cách, đỉnh}. Kỹ thuật Lazy Deletion: if (d > dist[u]) continue; để bỏ qua các bản ghi lỗi thời đã có đường tốt hơn.
+- [ ] Cài danh sách kề. C++ chuẩn mực: Khởi tạo dist bằng INF (1e18 với long long), cập nhật dist[v] = dist[u] + w và đẩy vào heap khi relax thành công. Độ phức tạp O((V + E) log V). Cảnh báo: khi có cạnh âm, Dijkstra thất bại hoàn toàn, bắt buộc dùng Bellman-Ford O(V*E).
+- [ ] Tham khảo docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và bài tập tại docs/exercises/05-GRAPH-EXERCISES.md.
+- [ ] undefined
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm hỏng lập luận chốt khoảng cách. Thuật toán Dijkstra tìm đường đi ngắn nhất từ một nguồn: Sử dụng hàng đợi ưu tiên Min-Heap (std::priority_queue) với độ phức tạp O((V + E) log V). Điều kiện tiên quyết: Trọng số cạnh phải KHÔNG ÂM. Nếu có trọng số âm, Dijkstra có thể chốt nhãn sai; khi đó bắt buộc dùng Bellman-Ford O(V*E) để phát hiện chu trình âm. Gắn liền với Mini-Project 3: Graph Routing Engine.
+Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm hỏng lập luận chốt khoảng cách. Thuật toán Dijkstra tìm đường đi ngắn nhất từ một nguồn: Sử dụng hàng đợi ưu tiên Min-Heap (std::priority_queue) với độ phức tạp O((V + E) log V). Điều kiện tiên quyết: Trọng số cạnh phải KHÔNG ÂM (nhãn nhỏ nhất lấy ra được chốt vĩnh viễn). Kỹ thuật tỉa bản ghi lỗi thời: if (d > dist[u]) continue. Gắn liền với Mini-Project 3: Graph Routing Engine. Tài liệu: docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md và docs/exercises/05-GRAPH-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Thuật toán Đồ thị BFS/DFS, Tô màu 3 trạng thái & Dijkstra Min-Heap](./docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 124 · Đường đi ngắn nhất với Dijkstra
 
@@ -1922,6 +2044,9 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Exercises: Tuyển tập bài tập Đồ thị BFS/DFS & Dijkstra CSES](./docs/exercises/05-GRAPH-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 125 · Bellman–Ford và chu trình âm
 
@@ -1997,23 +2122,29 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 129 · Disjoint Set Union
+### 129 · Tập hợp rời rạc Disjoint Set Union (DSU)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Cài find và union, nén đường đi và gộp theo kích thước. Ban đầu mỗi đỉnh là một đại diện, size bằng 1 và số thành phần bằng V.
-- [ ] Duy trì số thành phần liên thông khi thêm cạnh. Trong union, tìm hai gốc trước, nếu cùng gốc thì không giảm số thành phần.
-- [ ] Thử gộp hai đỉnh vốn đã cùng tập; phân biệt DSU với cấu trúc lưu đường đi. Gộp cây nhỏ vào cây lớn, cập nhật size ở gốc mới, không dùng size của nút bất kỳ.
-- [ ] Theo dõi tác động nén đường đi trên một cây cha nhỏ rồi kiểm tra mọi đỉnh vẫn thuộc đúng tập.
-- [ ] Dùng DSU để biết có cùng thành phần, không cố lấy đường đi giữa hai đỉnh từ cây cha DSU.
+- [ ] Mô hình hóa các lớp tương đương và thành phần liên thông động bằng cấu trúc rừng cây DSU. Mô hình nhận thức: Rừng cây Disjoint Set Union quản lý phân hoạch các lớp tương đương và thành phần liên thông động. Mỗi tập hợp có một đỉnh gốc đại diện (Representative).
+- [ ] Kỹ thuật Nén đường đi (Path Compression) làm phẳng cây trực tiếp về gốc đại diện. Logic cốt lõi (2 kỹ thuật tối ưu): (1) Nén đường đi (Path Compression: parent[u] = find(parent[u])) làm phẳng cây về chiều cao xấp xỉ 1; (2) Gộp theo kích thước (Union by Size): luôn treo cây có số phần tử ít hơn vào gốc cây lớn hơn.
+- [ ] Kỹ thuật Gộp theo kích thước (Union by Size) đưa chi phí thao tác về gần O(1) nghịch đảo Ackermann alpha(N). C++ chuẩn mực: Đóng gói struct DSU gồm vector<int> parent, sz và các hàm find(u), unite(u, v), same(u, v). Chi phí mỗi thao tác đạt O(alpha(N)) xấp xỉ O(1) khấu hao.
+- [ ] Tham khảo cẩm nang tại docs/guides/05-DISJOINT-SET-UNION-DSU.md và bài tập tại docs/exercises/04-DSU-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Tập hợp rời rạc Disjoint Set Union (DSU): Quản lý phân hoạch các lớp tương đương và thành phần liên thông động. Hai kỹ thuật tối ưu bắt buộc: Path Compression (parent[u] = find(parent[u])) và Union by Size/Rank, đưa chi phí mỗi thao tác về O(alpha(N)) gần như O(1) khấu hao. Tài liệu: docs/guides/05-DISJOINT-SET-UNION-DSU.md và docs/exercises/04-DSU-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Guide: Cấu trúc Tập hợp Rời rạc (DSU) & Cây khung nhỏ nhất Kruskal](./docs/guides/05-DISJOINT-SET-UNION-DSU.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cấu trúc DSU, chứng minh chiều cao log N và Kruskal.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 130 · Cây khung nhỏ nhất MST
 
@@ -2037,18 +2168,20 @@ Bài MST tiêu chuẩn ở đây dùng đồ thị vô hướng. Không liên th
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 131 · Kruskal
+### 131 · Cây khung nhỏ nhất (MST) và Thuật toán Kruskal
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
-- [ ] Sắp cạnh theo trọng số rồi dùng DSU tránh tạo chu trình. Chuẩn bị danh sách cạnh lưu u,v,w và sắp tăng theo w; giữ mỗi cạnh vô hướng một lần trong danh sách chọn.
-- [ ] Dừng khi có n−1 cạnh hoặc hết cạnh. Với mỗi cạnh, gọi find hai đầu; chỉ chọn khi hai thành phần khác nhau rồi union.
-- [ ] Giải thích tính đúng dựa trên tính chất lát cắt; xét cạnh có cùng trọng số. Duy trì tổng chi phí bằng kiểu đủ lớn và bộ đếm cạnh đã chọn.
-- [ ] Theo dõi bằng tay các cạnh bị bỏ vì tạo chu trình, không bỏ chỉ vì một đầu đã từng xuất hiện.
-- [ ] Nếu hết cạnh mà chưa đủ V−1, báo không có cây khung toàn bộ thay vì in tổng một rừng như thể thành công.
-- [ ] Giải thích lựa chọn cạnh an toàn qua một lát cắt hoặc tính chất chu trình, không chỉ nhắc tên chiến lược tham lam.
+- [ ] Dựa trên tính chất lát cắt (Cut Property): sắp xếp E cạnh tăng dần theo trọng số. Mô hình nhận thức & Tính chất lát cắt: Tìm cây khung nhỏ nhất (MST) trên đồ thị vô hướng. Tính chất lát cắt (Cut Property) chứng minh cạnh nhỏ nhất nối qua một lát cắt an toàn luôn thuộc về một MST nào đó.
+- [ ] Dùng DSU để kiểm tra và kết nạp cạnh an toàn không tạo chu trình trong O(E log E). Logic cốt lõi: Sắp xếp toàn bộ E cạnh theo trọng số tăng dần trong O(E log E). Duyệt tuần tự từng cạnh (u, v, w): dùng DSU kiểm tra find(u) != find(v); nếu khác thành phần thì kết nạp cạnh vào MST và gọi unite(u, v).
+- [ ] Dừng thuật toán ngay khi đã chọn đủ V - 1 cạnh hoặc phát hiện đồ thị không liên thông. C++ chuẩn mực: Dừng thuật toán ngay khi đã chọn đủ V - 1 cạnh. Nếu duyệt hết cạnh mà số cạnh chọn < V - 1, kết luận đồ thị không liên thông (chỉ có rừng khung). Tổng chi phí O(E log E).
+- [ ] Tham khảo docs/guides/05-DISJOINT-SET-UNION-DSU.md và bài tập tại docs/exercises/04-DSU-EXERCISES.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Property). Sắp xếp E cạnh tăng dần trong O(E log E), duyệt từng cạnh và dùng DSU kết nạp nếu không tạo chu trình (find(u) != find(v)). Dừng khi đủ V - 1 cạnh hoặc báo đồ thị không liên thông. Tài liệu: docs/guides/05-DISJOINT-SET-UNION-DSU.md và docs/exercises/04-DSU-EXERCISES.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2093,6 +2226,9 @@ Bài MST tiêu chuẩn ở đây dùng đồ thị vô hướng. Không liên th
 - [Competitive Programmer’s Handbook — Antti Laaksonen](https://cses.fi/book/book.pdf)
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
+- [Offline Exercises: Tuyển tập bài tập DSU & Cây khung CSES](./docs/exercises/04-DSU-EXERCISES.md)
+  - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về DSU và cây khung nhỏ nhất trên hệ thống CSES.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 134 · Thành phần liên thông mạnh
 
@@ -2656,11 +2792,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Chạy hai bản cùng chương trình và quan sát PID, bộ nhớ riêng. Ghi PID/PPID khi mở hai tiến trình và kiểm tra biến ở tiến trình này không tự thay đổi biến bên kia.
-- [ ] Phân biệt chương trình trên đĩa với tiến trình đang chạy. Phân biệt tạo tiến trình mới với thay chương trình thực thi bên trong một tiến trình.
-- [ ] Tìm hiểu tạo tiến trình, exec và wait trong môi trường POSIX. Theo dõi vòng đời tạo → chạy/chờ → kết thúc → thu hồi trạng thái.
-- [ ] Nhận diện tiến trình con đã kết thúc nhưng chưa được wait trong bài thử.
-- [ ] Không dùng việc hai tiến trình có địa chỉ ảo giống nhau để suy ra chúng dùng chung một biến vật lý.
+- [ ] Chạy hai bản cùng chương trình và quan sát PID, bộ nhớ riêng. Mô hình nhận thức Tiến trình vs Luồng (Process vs Thread): Tiến trình sở hữu không gian địa chỉ ảo độc lập (Page Directory/Page Tables) và PID riêng, phân lập hoàn toàn bộ nhớ; Luồng (Thread) chia sẻ chung không gian địa chỉ và Heap nhưng có Call Stack và tập thanh ghi riêng.
+- [ ] Phân biệt chương trình trên đĩa với tiến trình đang chạy. Đo lường chi phí chuyển ngữ cảnh (Context Switching Overhead): CPU phải lưu/khôi phục toàn bộ thanh ghi, chuyển đổi con trỏ bảng trang và xả bộ đệm TLB (Translation Lookaside Buffer), dẫn tới hiện tượng ô nhiễm cache CPU.
+- [ ] Tìm hiểu tạo tiến trình, exec và wait trong môi trường POSIX. Theo dõi vòng đời tiến trình: tạo (fork/clone) → sẵn sàng (ready) → thực thi (running) → chờ (blocked/waiting) → kết thúc (terminated).
+- [ ] Nhận diện và xử lý triệt để tiến trình Zombie (con đã kết thúc nhưng cha chưa wait) và Orphan (cha kết thúc trước con).
+- [ ] Không suy diễn việc hai tiến trình in ra cùng một địa chỉ con trỏ ảo có nghĩa là chúng trỏ chung một ô nhớ vật lý trong RAM.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Tiến trình vs Luồng (Process vs Thread): Mỗi tiến trình có không gian địa chỉ ảo độc lập (Page Directory/Tables) và PID riêng, cách ly bộ nhớ hoàn toàn; Luồng (Thread) chia sẻ chung không gian địa chỉ và Heap nhưng có Call Stack và tập thanh ghi riêng. Chi phí chuyển ngữ cảnh (Context Switching Overhead): CPU phải lưu/khôi phục thanh ghi, chuyển con trỏ bảng trang và xả bộ đệm TLB (Translation Lookaside Buffer).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2710,11 +2850,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Dịch địa chỉ ảo sang trang và offset trên ví dụ số nhỏ. Tách địa chỉ ảo thành số trang và offset theo kích thước trang đã cho.
-- [ ] Phân biệt page table, TLB và page fault. Dùng bảng ánh xạ trang→frame nhỏ để tính địa chỉ vật lý, xét trang chưa hiện diện.
-- [ ] Mô phỏng một chính sách thay trang; không đồng nhất cache miss với page fault. Phân biệt page fault cần OS xử lý với lỗi truy cập trái phép, và với TLB/cache miss.
-- [ ] Mô phỏng FIFO hoặc LRU trên chuỗi tham chiếu, ghi số frame và số lần fault.
-- [ ] Liên hệ không gian địa chỉ riêng của tiến trình với việc cùng địa chỉ ảo không đồng nghĩa cùng ô dữ liệu.
+- [ ] Dịch địa chỉ ảo sang trang và offset trên ví dụ số nhỏ. Bản chất Bộ nhớ ảo (Virtual Memory) & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm số hiệu trang (VPN) và độ dịch (Offset); MMU dịch sang địa chỉ khung trang vật lý (PFN) qua bảng trang đa cấp (Multi-level Page Tables).
+- [ ] Phân biệt page table, TLB và page fault. Hiểu vai trò của bộ đệm dịch địa chỉ siêu tốc TLB (Translation Lookaside Buffer): giảm số lần truy xuất RAM khi dịch địa chỉ từ nhiều lần xuống còn 1 chu kỳ clock nếu TLB Hit.
+- [ ] Mô phỏng một chính sách thay trang; không đồng nhất cache miss với page fault. Phân tích cơ chế ngắt thiếu trang (Page Fault Interrupt): Khi bit Present = 0, CPU kích hoạt trap chuyển sang Kernel Mode để nạp trang từ đĩa (Swap space) vào RAM và cập nhật lại Page Table.
+- [ ] So sánh chính sách thay thế trang FIFO, LRU (Least Recently Used) và Clock Algorithm; nhận diện hiện tượng suy biến tráo trang liên tục (Thrashing) khi RAM không đủ cho Working Set.
+- [ ] Phân biệt rõ phân quyền trang nhớ (Read/Write/Execute bit) giúp bảo vệ bộ nhớ và ngăn chặn tấn công thực thi mã độc trên Stack.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm số hiệu trang (VPN) và độ dịch (Offset); MMU dịch sang địa chỉ vật lý (PFN) qua bảng trang đa cấp. Bộ đệm TLB (Translation Lookaside Buffer) rút ngắn thời gian dịch địa chỉ còn 1 chu kỳ clock. Cơ chế ngắt thiếu trang (Page Fault) khi trang bị swap ra đĩa.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2728,11 +2872,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Tạo hai std::thread, join trước khi kết thúc chương trình. Truyền dữ liệu vào hàm luồng có thời gian sống đủ dài; không để luồng giữ tham chiếu tới biến đã hết phạm vi.
-- [ ] Phân biệt vùng dữ liệu chung với stack riêng của mỗi luồng. Hiểu join chờ hoàn tất, phân biệt với detach và trách nhiệm giữ dữ liệu khi không join.
-- [ ] Giải thích vì sao đa luồng không mặc nhiên làm chương trình nhanh hơn. In ID luồng và theo dõi dữ liệu riêng/chung trên một ví dụ có thể kiểm soát.
-- [ ] Chỉ tăng số luồng khi có phần việc tách được, xét chi phí đồng bộ, tạo luồng và phần tuần tự.
-- [ ] Không dựa vào thứ tự dòng log ở một lần chạy để suy ra một bảo đảm thứ tự của chương trình.
+- [ ] Tạo hai std::thread, join trước khi kết thúc chương trình. Bản chất đồng thời đa luồng: Các luồng dùng chung vùng dữ liệu tĩnh và Heap nhưng sở hữu Call Stack riêng biệt; tuyệt đối không truyền tham chiếu biến cục bộ Stack sang luồng khác có vòng đời dài hơn.
+- [ ] Phân biệt vùng dữ liệu chung với stack riêng của mỗi luồng. Hiểu rõ cơ chế join() chặn luồng cha chờ luồng con hoàn tất, và detach() tách luồng chạy ngầm độc lập.
+- [ ] Giải thích vì sao đa luồng không mặc nhiên làm chương trình nhanh hơn. Phân biệt Race Condition (lỗi logic thứ tự thực thi) vs Data Race (lỗi truy cập đồng thời vào ô nhớ không đồng bộ dẫn tới Undefined Behavior).
+- [ ] Nhận thức đúng về hiệu năng: Đa luồng chỉ tăng tốc khi bài toán có thể song song hóa (Định luật Amdahl); số lượng luồng vượt quá số nhân CPU vật lý sẽ phản tác dụng do Context Switching Overhead.
+- [ ] Sử dụng ThreadSanitizer (TSan) với cờ -fsanitize=thread -g để phát hiện tự động các điểm tranh chấp dữ liệu lúc chạy.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Đồng thời đa luồng & An toàn bộ nhớ: Các luồng chia sẻ Heap chung nhưng có ngăn xếp riêng. Ngăn chặn Race Condition và Data Race bằng std::mutex, std::lock_guard (RAII) và phát hiện tự động bằng ThreadSanitizer (TSan: -fsanitize=thread -g).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -2886,6 +3034,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [ ] Chỉ ra địa chỉ nguồn/đích ở tầng IP và cổng ở tầng vận chuyển, không gọi chúng là cùng một địa chỉ.
 - [ ] Giữ sơ đồ ở mức mô hình; chi tiết phần cứng hoặc giao thức cụ thể sẽ được đi vào ở các ô tiếp theo.
 
+**Thông tin thêm & Lưu ý bản chất:**
+
+Mô hình 5 tầng TCP/IP & Đóng gói dữ liệu: Ứng dụng (Application: HTTP/DNS) -> Vận chuyển (Transport: TCP/UDP Segment) -> Mạng (Network: IP Packet) -> Liên kết dữ liệu (Data Link: Ethernet Frame) -> Vật lý (Physical: Bits).
+
 **Nguồn tham khảo miễn phí:**
 
 - [An Introduction to Computer Networks — Peter L. Dordal](https://intronetworks.cs.luc.edu/current/html/index.html)
@@ -2956,21 +3108,24 @@ Tầng Mạng & Kỹ thuật chia mạng con (CIDR Subnetting): Tính toán chí
 
 **Việc cần làm:**
 
-- [ ] Phân biệt datagram với luồng byte. Với TCP, tự chia một thông điệp thành nhiều lần send và kiểm tra phía nhận có thể nhận theo các nhóm byte khác.
-- [ ] Theo dõi bắt tay, số thứ tự, ACK, truyền lại và điều khiển luồng. Với UDP, phân biệt ranh giới datagram và các bảo đảm không được giao thức cung cấp như giao đủ/đúng thứ tự.
-- [ ] Tự tạo ví dụ dữ liệu đến nhiều lần đọc dù phía gửi chỉ gọi send một lần. Theo dõi sequence và ACK trong một ví dụ mất đoạn rồi truyền lại.
-- [ ] Phân biệt flow control theo năng lực bên nhận với congestion control theo trạng thái mạng.
-- [ ] Chọn giao thức từ yêu cầu về độ tin cậy, độ trễ và cách ứng dụng xử lý mất dữ liệu, không chỉ từ câu UDP nhanh hơn.
+- [ ] Phân biệt datagram với luồng byte. Bản chất Tầng Giao vận (Transport Layer): Phân biệt ranh giới UDP (phi kết nối, truyền datagram độc lập nhanh không đảm bảo) vs TCP (hướng kết nối, dòng byte tin cậy tuyệt đối).
+- [ ] Theo dõi bắt tay, số thứ tự, ACK, truyền lại và điều khiển luồng. Làm chủ quy trình bắt tay 3 bước (3-way handshake: SYN -> SYN-ACK -> ACK) và đóng kết nối 4 bước (FIN -> ACK -> FIN -> ACK); theo dõi số thứ tự Sequence Number và ACK Number khi truyền lại gói mất.
+- [ ] Tự tạo ví dụ dữ liệu đến nhiều lần đọc dù phía gửi chỉ gọi send một lần. Hiểu sâu cơ chế điều khiển luồng (Flow Control) qua Cửa sổ trượt (Sliding Window do bên nhận quảng bá để bảo vệ bộ đệm máy nhận).
+- [ ] Làm chủ cơ chế điều khiển tắc nghẽn (Congestion Control) bảo vệ toàn mạng: Khởi động chậm (Slow Start), Tránh tắc nghẽn (AIMD - Additive Increase Multiplicative Decrease), Truyền lại nhanh (Fast Retransmit/Fast Recovery).
+- [ ] Tham khảo cẩm nang socket và mạng mức thấp tại docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nhanh không đảm bảo) vs TCP (hướng kết nối, tin cậy). Nắm vững cơ chế bắt tay 3 bước (3-way handshake: SYN -> SYN-ACK -> ACK), ngắt kết nối 4 bước (FIN -> ACK -> FIN -> ACK), Sequence/ACK numbers, Điều khiển luồng qua Sliding Window, và Điều khiển tắc nghẽn (AIMD, Slow Start, Congestion Avoidance, Fast Retransmit).
+Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nhanh không đảm bảo) vs TCP (hướng kết nối, tin cậy). Nắm vững cơ chế bắt tay 3 bước (3-way handshake: SYN -> SYN-ACK -> ACK), ngắt kết nối 4 bước (FIN -> ACK -> FIN -> ACK), Sequence/ACK numbers, Điều khiển luồng qua Sliding Window, và Điều khiển tắc nghẽn (AIMD, Slow Start, Congestion Avoidance, Fast Retransmit). Tài liệu: docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [An Introduction to Computer Networks — Peter L. Dordal](https://intronetworks.cs.luc.edu/current/html/index.html)
   - **Phần cần đọc:** Các chương UDP Transport và TCP Transport; so reliability,ordering và message/byte stream.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
+- [Offline Guide: Mạng mức thấp, Socket TCP & Định khung thông điệp HTTP/1.1](./docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 202 · Độ trễ, băng thông và nghẽn
 
@@ -3002,11 +3157,18 @@ Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nha
 - [ ] Quan sát header cache và cookie trong một ví dụ, không coi chúng là dữ liệu được TCP tự hiểu.
 - [ ] Ghi HTTP là giao thức ứng dụng; phiên bản cụ thể có cơ chế truyền khác, không suy rằng tất cả luôn nằm trên TCP.
 
+**Thông tin thêm & Lưu ý bản chất:**
+
+Giao thức HTTP & Kiến trúc Web: Cấu trúc Request/Response (Request Line, Headers, Body), mã trạng thái (200 OK, 301/302 Redirect, 400 Bad Request, 401/403 Auth, 404 Not Found, 500 Internal Error). Message Framing trong HTTP qua Content-Length header hoặc Chunked Transfer Encoding. Tài liệu: docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md.
+
 **Nguồn tham khảo miễn phí:**
 
 - [MDN — Learn web development](https://developer.mozilla.org/en-US/docs/Learn_web_development)
   - **Phần cần đọc:** Mục HTTP và Web security: request/response,HTTPS/TLS; bài quan sát gói tin thực hiện trên kết nối của mình.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
+- [Offline Guide: Mạng mức thấp, Socket TCP & Định khung thông điệp HTTP/1.1](./docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 204 · TLS, HTTPS và chứng chỉ
 
@@ -3050,21 +3212,24 @@ Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nha
 
 **Việc cần làm:**
 
-- [ ] Viết TCP echo client và server cục bộ bằng C++ trong môi trường phù hợp. Chốt địa chỉ cục bộ và cổng thử, xử lý lỗi bind/listen/connect rõ ràng.
-- [ ] Xử lý đọc/ghi một phần và kết nối bị đóng. Viết vòng gửi/nhận đủ số byte cần thiết, không coi một lời gọi luôn xử lý trọn buffer.
-- [ ] Quy định thông điệp kết thúc bằng ký tự phân tách hoặc độ dài; không coi recv là một thông điệp hoàn chỉnh. Dùng protocol đơn giản như độ dài thông điệp rồi payload hoặc một dòng kết thúc bằng newline với giới hạn rõ.
-- [ ] Bộ nhận phải giữ phần dư giữa các lần đọc và xử lý nhiều thông điệp có thể tới trong một lần.
-- [ ] Thử client đóng giữa thông điệp, server không chạy và thông điệp vượt giới hạn; đóng socket ở mọi đường thoát.
+- [ ] Viết TCP echo client và server cục bộ bằng C++ trong môi trường phù hợp. Vòng đời chuẩn mực Socket API: Máy chủ thực thi socket() -> bind(port) -> listen() -> accept() -> recv()/send() -> close(); máy khách thực thi socket() -> connect() -> send()/recv() -> close().
+- [ ] Xử lý đọc/ghi một phần và kết nối bị đóng. Bản chất cốt tử: TCP là dòng byte (byte stream) KHÔNG bảo toàn ranh giới thông điệp của tầng ứng dụng; một lệnh send() không tương ứng với một lệnh recv().
+- [ ] Quy định thông điệp kết thúc bằng ký tự phân tách hoặc độ dài; không coi recv là một thông điệp hoàn chỉnh. Triệt tiêu lỗi dính gói (Packet Coalescing) và phân mảnh (Fragmentation) bằng kỹ thuật Định khung thông điệp (Message Framing): Phân tách bằng ký tự đặc biệt (Delimiter-based: \r\n\r\n) hoặc Gắn tiền tố độ dài (Length-prefix: uint32_t payload_length).
+- [ ] Kiến trúc máy chủ mạng đa luồng: Dùng Thread Pool tiếp nhận các socket client từ accept() hoặc Non-blocking I/O để phục vụ đồng thời hàng nghìn kết nối.
+- [ ] Đọc cẩm nang chuyên sâu socket và HTTP Server tại docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind(), listen(), accept(), connect(), send(), recv(), close(). Lưu ý cốt tử: TCP là giao thức byte stream, không bảo toàn ranh giới thông điệp -> bắt buộc tự cài đặt Message Framing (phân tách ký tự delimiter hoặc thêm header độ dài uint32_t payload_length) để tránh hiện tượng dính gói/phân mảnh gói tin (Packet Coalescing/Fragmentation). Gắn liền với Mini-Project 2: Multi-threaded Web Server.
+Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind(), listen(), accept(), connect(), send(), recv(), close(). Lưu ý cốt tử: TCP là giao thức byte stream, không bảo toàn ranh giới thông điệp -> bắt buộc tự cài đặt Message Framing (phân tách ký tự delimiter hoặc thêm header độ dài uint32_t payload_length) để tránh hiện tượng dính gói/phân mảnh gói tin (Packet Coalescing/Fragmentation). Gắn liền với Mini-Project 2: Multi-threaded Web Server. Tài liệu: docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md và docs/projects/02-MULTITHREADED-WEB-SERVER.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [An Introduction to Computer Networks — Peter L. Dordal](https://intronetworks.cs.luc.edu/current/html/index.html)
   - **Phần cần đọc:** Các chương UDP Transport và TCP Transport: socket examples,read/write và message framing.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
+- [Offline Guide: Mạng mức thấp, Socket TCP & Định khung thông điệp HTTP/1.1](./docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 207 · Dịch vụ tra cứu sách qua mạng
 
@@ -3117,9 +3282,9 @@ Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind()
 
 **Việc cần làm:**
 
-- [ ] Lập bảng chân trị cho AND, OR, NOT và kéo theo. Với hai mệnh đề p,q, điền đủ bốn khả năng và tính từng phép trước khi xét biểu thức dài.
-- [ ] Phân biệt mệnh đề đảo, phản đảo và tương đương. So kéo theo p→q với mệnh đề q→p và phản đảo ¬q→¬p bằng bảng, nêu một ví dụ khiến mệnh đề đảo sai.
-- [ ] Biến một điều kiện kiểm tra dữ liệu thành biểu thức logic rồi thử phản ví dụ. Thử rút gọn điều kiện chương trình bằng De Morgan và đối chiếu mọi đầu vào bool thay vì chỉ nhìn công thức.
+- [ ] Lập bảng chân trị cho AND, OR, NOT và kéo theo. Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, kéo theo p→q tương đương ¬p v q, mệnh đề đảo và phản đảo ¬q→¬p.
+- [ ] Phân biệt mệnh đề đảo, phản đảo và tương đương. Logic vị từ với lượng từ với mọi và tồn tại; dịch điều kiện kiểm tra dữ liệu thành biểu thức logic rồi tìm phản ví dụ.
+- [ ] Biến một điều kiện kiểm tra dữ liệu thành biểu thức logic rồi thử phản ví dụ. Kỹ thuật chứng minh: chứng minh trực tiếp, chứng minh bằng phản đảo, và chứng minh bằng phản chứng (giả sử điều ngược lại rồi suy ra mâu thuẫn).
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -3188,14 +3353,14 @@ Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, luật k�
 
 **Việc cần làm:**
 
-- [ ] Chứng minh tổng các số từ 1 đến n bằng quy nạp. Chọn rõ mốc bắt đầu n=0 hay n=1 và kiểm tra mệnh đề thực sự đúng ở mốc đó.
-- [ ] Viết rõ cơ sở, giả thiết và bước chuyển. Trong bước chuyển, chỉ được giả sử trường hợp đang có trong giả thiết quy nạp, không được tự dùng luôn n+1.
-- [ ] Áp dụng quy nạp mạnh để chứng minh một tính chất của cách phân rã số nguyên. Với quy nạp mạnh, ghi chính xác khoảng các trường hợp nhỏ hơn được phép dùng.
-- [ ] Thử viết một lời giải thiếu bước cơ sở hoặc giả sử quá mạnh, chỉ ra vì sao lập luận chưa đủ.
+- [ ] Chứng minh tổng các số từ 1 đến n bằng quy nạp. Quy nạp toán học 3 bước chuẩn mực: Bước cơ sở (Base case tại n=0 hoặc n=1), Giả thiết quy nạp (Inductive Hypothesis giả sử đúng với n=k), và Bước chuyển quy nạp (Inductive Step chứng minh đúng với n=k+1).
+- [ ] Viết rõ cơ sở, giả thiết và bước chuyển. Phân biệt Quy nạp toán học thông thường với Quy nạp mạnh (Strong Induction): được phép sử dụng giả thiết đúng cho toàn bộ các giá trị từ 1 đến k.
+- [ ] Áp dụng quy nạp mạnh để chứng minh một tính chất của cách phân rã số nguyên. Áp dụng quy nạp cấu trúc để chứng minh tính chất bất biến trên Cây nhị phân và đồ thị có hướng không chu trình (DAG).
+- [ ] Nối trực tiếp chứng minh quy nạp với tính đúng của các hàm đệ quy và giải thuật chia để trị.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Quy nạp toán học: Ba bước nền tảng: Bước cơ sở (Base case), Giả thiết quy nạp (Inductive hypothesis), và Bước quy nạp (Inductive step). Áp dụng quy nạp mạnh và quy nạp cấu trúc để chứng minh tính đúng của thuật toán (Algorithm Correctness) và bất biến vòng lặp (Loop Invariants).
+Quy nạp toán học 3 bước chuẩn mực: Bước cơ sở (Base case), Giả thiết quy nạp (Inductive hypothesis), và Bước quy nạp (Inductive step). Áp dụng quy nạp mạnh và quy nạp cấu trúc để chứng minh tính đúng của thuật toán (Algorithm Correctness) và bất biến vòng lặp (Loop Invariants).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3209,10 +3374,10 @@ Quy nạp toán học: Ba bước nền tảng: Bước cơ sở (Base case), Gi
 
 **Việc cần làm:**
 
-- [ ] Xác định điều luôn đúng trước mỗi vòng của thuật toán tìm max. Viết bất biến sao cho nó vừa đúng ở vòng đầu vừa đủ suy ra kết quả khi vòng lặp dừng.
-- [ ] Kiểm tra khởi đầu, bảo toàn và kết thúc. Với tìm max, mô tả max của đoạn đã duyệt, không nói chung là max đang đúng.
-- [ ] Viết bất biến cho thao tác chèn vào đoạn đã sắp xếp; nối nó với tính đúng thuật toán. Tách tính đúng khi kết thúc khỏi việc vòng lặp có kết thúc; theo dõi đại lượng giảm hoặc giới hạn tăng.
-- [ ] Áp dụng cho insertion sort bằng đoạn đầu đã có thứ tự và cùng tập phần tử như ban đầu.
+- [ ] Xác định điều luôn đúng trước mỗi vòng của thuật toán tìm max. Bất biến vòng lặp (Loop Invariants): Công cụ chứng minh tính đúng của thuật toán qua 3 tính chất bắt buộc.
+- [ ] Kiểm tra khởi đầu, bảo toàn và kết thúc. 1. Khởi đầu (Initialization): Bất biến luôn đúng trước khi vòng lặp bắt đầu lượt đầu tiên.
+- [ ] Viết bất biến cho thao tác chèn vào đoạn đã sắp xếp; nối nó với tính đúng thuật toán. 2. Bảo toàn (Maintenance): Nếu bất biến đúng trước một vòng lặp, nó tiếp tục đúng trước vòng lặp kế tiếp.
+- [ ] 3. Kết thúc (Termination): Khi vòng lặp dừng, bất biến cung cấp tính chất hữu ích để chứng minh kết quả thuật toán hoàn toàn chính xác.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3243,10 +3408,14 @@ Quy nạp toán học: Ba bước nền tảng: Bước cơ sở (Base case), Gi
 
 **Việc cần làm:**
 
-- [ ] Chứng minh một bài trùng số dư bằng nguyên lý bồ câu. Chỉ rõ đối tượng là bồ câu, nhóm là chuồng và số lượng từng bên; không chỉ nhắc tên nguyên lý.
-- [ ] Đếm hợp của hai rồi ba tập có phần giao. Với bài số dư, xác định đúng có bao nhiêu lớp dư trước khi kết luận có hai phần tử chung lớp.
-- [ ] Tự tạo ví dụ cho thấy cộng số lượng từng tập sẽ đếm trùng. Vẽ các phần giao của ba tập để thấy vì sao phải trừ giao đôi rồi cộng giao ba.
-- [ ] Kiểm tra bằng một bộ tập hữu hạn cụ thể, tính kết quả theo liệt kê độc lập.
+- [ ] Chứng minh một bài trùng số dư bằng nguyên lý bồ câu. Nguyên lý Bồ câu (Pigeonhole Principle - Dirichlet): Dạng cơ bản (n+1 bồ câu vào n chuồng -> tồn tại chuồng chứa ít nhất 2 bồ câu) và dạng tổng quát ceil(N/k).
+- [ ] Đếm hợp của hai rồi ba tập có phần giao. Ứng dụng nguyên lý Dirichlet chứng minh sự trùng lặp số dư modulo, sự va chạm trong hàm băm (Hash Collision) và sự tồn tại dãy con đơn điệu (Định lý Erdős–Szekeres).
+- [ ] Tự tạo ví dụ cho thấy cộng số lượng từng tập sẽ đếm trùng. Nguyên lý Bao hàm - Loại trừ (Inclusion-Exclusion Principle): Đếm hợp của hai, ba và nhiều tập hợp có phần giao nhau.
+- [ ] Kiểm tra bằng tập hữu hạn cụ thể để đối chiếu trực tiếp giữa công thức giải tích và phép đếm liệt kê độc lập.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Nguyên lý Bồ câu (Pigeonhole Principle - Dirichlet): Dạng cơ bản (n+1 bồ câu vào n chuồng) và dạng tổng quát ceil(N/k). Ứng dụng chứng minh sự trùng lặp số dư modulo, sự va chạm trong hàm băm (Hash Collision). Nguyên lý Bao hàm - Loại trừ (Inclusion-Exclusion Principle).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3277,10 +3446,14 @@ Quy nạp toán học: Ba bước nền tảng: Bước cơ sở (Base case), Gi
 
 **Việc cần làm:**
 
-- [ ] Tính tổng cấp số cộng, cấp số nhân và tổng log đơn giản. Viết vài số hạng và trường hợp cơ sở để chắc quan hệ truy hồi mô tả đúng bài toán.
-- [ ] Vẽ cây truy hồi cho T(n)=2T(n/2)+n ở kích thước là lũy thừa của 2. Đếm số nút, chi phí mỗi mức và số mức trong cây truy hồi của merge sort.
-- [ ] So sánh với đếm thao tác thực tế; ghi điều kiện khi dùng một công thức truy hồi. Phân biệt log đổi cơ số chỉ khác hệ số với hàm mũ thay đổi tốc độ tăng rất lớn.
-- [ ] Nếu dùng một định lý giải truy hồi, ghi dạng bài và điều kiện áp dụng rồi kiểm tra bài đang xét có khớp.
+- [ ] Tính tổng cấp số cộng, cấp số nhân và tổng log đơn giản. Hệ thức truy hồi và Phân tích độ phức tạp: Vẽ cây đệ quy (Recursion Tree) xác định số lượng nút ở mỗi tầng, chi phí tại mỗi nút và chiều cao của cây.
+- [ ] Vẽ cây truy hồi cho T(n)=2T(n/2)+n ở kích thước là lũy thừa của 2. Nắm chắc Định lý Thợ (Master Theorem) giải các phương trình truy hồi dạng T(N) = aT(N/b) + O(N^d) cho thuật toán chia để trị (như Merge Sort: T(N) = 2T(N/2) + O(N) -> O(N log N)).
+- [ ] So sánh với đếm thao tác thực tế; ghi điều kiện khi dùng một công thức truy hồi. Phân biệt 3 trường hợp của Master Theorem dựa trên sự so sánh giữa a và b^d.
+- [ ] Phương pháp thế (Substitution Method) và chứng minh bằng quy nạp để chốt chặn trên chặt chẽ (Tight Upper Bound).
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Hệ thức truy hồi & Phân tích thuật toán: Định lý Thợ (Master Theorem) T(N) = aT(N/b) + O(N^d) giải các phương trình truy hồi chia để trị. Phương pháp cây đệ quy (Recursion Tree) và phương pháp thế (Substitution Method).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3571,15 +3744,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Giải bài kiểm tra dương tính với số người thực có tình trạng hiếm được cho trước. Chọn số cụ thể như 10.000 người, tỷ lệ nền 1%, sensitivity 90% và specificity 95%, dựng đủ bốn ô thật/dự đoán.
-- [ ] Dựng bảng số lượng thay vì chỉ thay công thức. Tính số dương tính thật và giả rồi lấy đúng mẫu số tất cả kết quả dương tính.
-- [ ] Đổi tỷ lệ nền và quan sát vì sao xác suất sau khi có kết quả thay đổi. Giữ sensitivity/specificity, thay tỷ lệ nền để thấy kết quả sau quan sát thay đổi.
-- [ ] Phân biệt P(dương tính|có bệnh) với P(có bệnh|dương tính), viết tên từng xác suất trước khi thế số.
-- [ ] Đây là bài xác suất giả định để hiểu công thức, không dùng để tự diễn giải một xét nghiệm y tế thật.
+- [ ] Giải bài kiểm tra dương tính với số người thực có tình trạng hiếm được cho trước. Định lý Bayes và Suy diễn xác suất: P(A|B) = P(B|A)*P(A) / P(B). Phân biệt rõ Tiền nghiệm (Prior P(A)), Khả năng hợp lý (Likelihood P(B|A)), Bằng chứng biên (Marginal Evidence P(B)), và Hậu nghiệm (Posterior P(A|B)).
+- [ ] Dựng bảng số lượng thay vì chỉ thay công thức. Chọn số liệu cụ thể như 10.000 người, tỷ lệ nền 1%, sensitivity 90% và specificity 95%, dựng đủ bảng bốn ô thật/dự đoán để tính xác suất dương tính thật.
+- [ ] Đổi tỷ lệ nền và quan sát vì sao xác suất sau khi có kết quả thay đổi. Quan sát trực giác: Khi tỷ lệ nền rất thấp, một xét nghiệm có độ chính xác cao vẫn cho ra tỷ lệ dương tính giả đáng kinh ngạc do mẫu số P(B) bị chi phối bởi người không có bệnh.
+- [ ] Là nền tảng toán học trực tiếp cho thuật toán phân loại Naive Bayes (Multinomial Naive Bayes Spam Classifier).
+- [ ] Đọc tài liệu đặc tả đồ án toán và phân loại xác suất tại docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Định lý Bayes và Suy diễn xác suất: P(A|B) = P(B|A)*P(A) / P(B). Phân biệt rõ Prior (tiền nghiệm P(A)), Likelihood (hợp lý P(B|A)), và Posterior (hậu nghiệm P(A|B)). Là cơ sở toán học trực tiếp cho thuật toán phân lớp Naive Bayes Classifier và các thuật toán học máy xác suất. Gắn liền với Mini-Project 4: Naive Bayes Spam Classifier.
+Định lý Bayes và Suy diễn xác suất: P(A|B) = P(B|A)*P(A) / P(B). Phân biệt rõ Prior (tiền nghiệm P(A)), Likelihood (hợp lý P(B|A)), và Posterior (hậu nghiệm P(A|B)). Là cơ sở toán học trực tiếp cho thuật toán phân lớp Naive Bayes Classifier và các thuật toán học máy xác suất. Gắn liền với Mini-Project 4: Naive Bayes Spam Classifier. Tài liệu: docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3593,11 +3766,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Viết phân phối của tổng hai xúc xắc. Viết bảng giá trị có thể có và xác suất tương ứng, kiểm tra tổng xác suất bằng 1.
-- [ ] Tính kỳ vọng, phương sai và phân biệt biến rời rạc với liên tục. Tính E[X],E[X²] rồi Var(X)=E[X²]−E[X]² trên cùng một ví dụ.
-- [ ] Làm ví dụ tuyến tính của kỳ vọng; kiểm tra điều kiện khi cộng phương sai. Phân biệt kỳ vọng với giá trị nhất thiết xuất hiện ở một lần thử.
-- [ ] Với biến liên tục, phân biệt mật độ với xác suất của một điểm; xác suất trên khoảng được tính bằng tích phân.
-- [ ] Khi xét tổng hai biến, kiểm tra covariance/độc lập trước khi cộng phương sai như thể không có liên hệ.
+- [ ] Viết phân phối của tổng hai xúc xắc. Biến ngẫu nhiên (Random Variables): Phân biệt biến rời rạc với hàm khối xác suất (PMF) vs biến liên tục với hàm mật độ xác suất (PDF) và hàm phân phối tích lũy (CDF).
+- [ ] Tính kỳ vọng, phương sai và phân biệt biến rời rạc với liên tục. Tính chất Tuyến tính của Kỳ vọng (Linearity of Expectation): E[X + Y] = E[X] + E[Y] luôn đúng với mọi biến ngẫu nhiên, kể cả khi X và Y phụ thuộc lẫn nhau!
+- [ ] Làm ví dụ tuyến tính của kỳ vọng; kiểm tra điều kiện khi cộng phương sai. Tính kỳ vọng E[X], mô-men bậc hai E[X²], và phương sai Var(X) = E[X²] - (E[X])² trên cùng một phân phối cụ thể.
+- [ ] Điều kiện cộng phương sai: Var(X + Y) = Var(X) + Var(Y) + 2Cov(X, Y); chỉ được cộng trực tiếp khi Cov(X, Y) = 0 (độc lập hoặc không tương quan).
+- [ ] Tính kỳ vọng và phương sai của các trò chơi xác suất để xác định giá trị kỳ vọng âm/dương trong lý thuyết quyết định.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/CDF). Tính chất Tuyến tính của Kỳ vọng (Linearity of Expectation): E[X + Y] = E[X] + E[Y] luôn đúng với mọi biến ngẫu nhiên, kể cả khi X và Y phụ thuộc lẫn nhau! Phương sai Var(X) = E[X^2] - (E[X])^2.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3662,15 +3839,15 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Phân biệt tổng thể, mẫu, tham số và thống kê mẫu. Chọn một tổng thể mô phỏng biết trung bình thật, lấy nhiều mẫu cùng kích thước và tính khoảng tin cậy theo một phương pháp có điều kiện rõ.
-- [ ] Mô phỏng nhiều mẫu để thấy trung bình mẫu dao động. Đếm tỷ lệ khoảng chứa tham số qua nhiều lần, liên hệ với mức tin cậy của quy trình.
-- [ ] Giải thích khoảng tin cậy theo quy trình lấy mẫu lặp lại, không diễn giải sai một tham số cố định. So lấy mẫu thuận tiện với ngẫu nhiên để thấy tăng n không tự sửa mọi thiên lệch chọn mẫu.
-- [ ] Ghi rõ công thức cần giả định gì về phân phối, độc lập hoặc cỡ mẫu.
-- [ ] Phân biệt khoảng tin cậy cho trung bình với khoảng dự đoán cho một quan sát mới.
+- [ ] Phân biệt tổng thể, mẫu, tham số và thống kê mẫu. Định lý Giới hạn Trung tâm (Central Limit Theorem - CLT): Trung bình của n biến ngẫu nhiên độc lập cùng phân phối (i.i.d) có kỳ vọng mu và phương sai hữu hạn sigma² sẽ hội tụ về phân phối chuẩn Gaussian N(mu, sigma²/n) khi n đủ lớn, bất kể phân phối gốc là gì.
+- [ ] Mô phỏng nhiều mẫu để thấy trung bình mẫu dao động. Mô phỏng lấy mẫu lặp lại nhiều lần để trực quan hóa hình chuông Gauss của trung bình mẫu và khoảng tin cậy 95%.
+- [ ] Giải thích khoảng tin cậy theo quy trình lấy mẫu lặp lại, không diễn giải sai một tham số cố định. Ước lượng Hợp lý Cực đại (Maximum Likelihood Estimation - MLE): Phương pháp tìm bộ tham số theta tối đa hóa xác suất quan sát được dữ liệu L(theta) = prod P(x_i | theta).
+- [ ] Chuyển sang Log-Likelihood: biến tích thành tổng sum log P(x_i | theta), là nền tảng toán học trực tiếp để tối ưu hóa hàm mất mát (Negative Log-Likelihood / Cross-Entropy Loss) trong Machine Learning.
+- [ ] Tham khảo ứng dụng trong đồ án phân loại văn bản tại docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Định lý Giới hạn Trung tâm (CLT) & Suy diễn thống kê: Trung bình của một số lượng lớn biến ngẫu nhiên độc lập cùng phân phối (i.i.d) sẽ hội tụ về phân phối chuẩn Gaussian N(mu, sigma^2/n). Ước lượng hợp lý cực đại (MLE - Maximum Likelihood Estimation) là nền tảng tối ưu hóa hàm mất mát (Loss Function) trong Machine Learning.
+Định lý Giới hạn Trung tâm (CLT) & Suy diễn thống kê: Trung bình của một số lượng lớn biến ngẫu nhiên độc lập cùng phân phối (i.i.d) sẽ hội tụ về phân phối chuẩn Gaussian N(mu, sigma^2/n). Ước lượng hợp lý cực đại (MLE - Maximum Likelihood Estimation) là nền tảng tối ưu hóa hàm mất mát (Loss Function) trong Machine Learning. Tài liệu: docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3746,10 +3923,14 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Khởi tạo Git trong thư mục project thử, không khởi tạo ở thư mục chứa mọi tài liệu cá nhân. Phân biệt working tree, staging area và commit bằng cách sửa một tệp rồi quan sát git status ở từng bước.
-- [ ] Tạo .gitignore cho tệp biên dịch và thư mục do công cụ sinh ra. Kiểm tra thư mục gốc repository trước git add; chỉ thêm tệp nguồn, README và cấu hình thật sự cần.
-- [ ] Xem git status, thêm đúng tệp nguồn rồi tạo commit đầu tiên. Dùng git diff và git diff --cached để biết cái gì chưa được stage và cái gì sắp vào commit.
-- [ ] Xem lịch sử và đối chiếu những tệp thực sự nằm trong commit. Sau commit, dùng git log --oneline và git show để xác nhận tên, nội dung và thời điểm thay đổi có đúng ý.
+- [ ] Khởi tạo Git trong thư mục project thử, không khởi tạo ở thư mục chứa mọi tài liệu cá nhân. Mô hình nhận thức Git: Git là một đồ thị có hướng không chu trình định địa chỉ theo nội dung (Content-Addressable DAG) gồm các đối tượng bất biến: Blobs (nội dung tệp), Trees (thư mục), Commits (ảnh chụp trạng thái + metadata tác giả + con trỏ cha) định danh bằng mã băm SHA.
+- [ ] Tạo .gitignore cho tệp biên dịch và thư mục do công cụ sinh ra. Làm chủ 3 vùng làm việc: Thư mục làm việc (Working Tree), Vùng chỉ mục chuẩn bị (Staging Area / Index), và Kho lưu trữ lịch sử (Git Repository / .git).
+- [ ] Xem git status, thêm đúng tệp nguồn rồi tạo commit đầu tiên. Dùng git diff (so Working Tree với Index) và git diff --cached (so Index với HEAD commit gần nhất) để kiểm soát chính xác từng byte thay đổi.
+- [ ] Xem lịch sử và đối chiếu những tệp thực sự nằm trong commit. Sau commit, dùng git log --graph --oneline để trực quan hóa cấu trúc nhánh và topo đồ thị DAG.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Mô hình nhận thức Git: Git là một đồ thị có hướng không chu trình định địa chỉ theo nội dung (Content-Addressable DAG) gồm các đối tượng bất biến: Blobs (nội dung tệp), Trees (thư mục), Commits (ảnh chụp trạng thái + metadata tác giả + con trỏ cha) định danh bằng mã băm SHA. 3 vùng làm việc: Working Tree, Staging Area (Index), Repository (.git).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3780,10 +3961,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Tạo nhánh them-tim-kiem và thêm tìm sách theo tên. Trước khi đổi nhánh, kiểm tra thay đổi chưa commit và quyết định lưu hay stash; không bỏ chúng một cách vô thức.
-- [ ] Commit thay đổi, quay lại nhánh chính và quan sát sự khác biệt. Tạo một commit khác ở nhánh chính để quan sát việc merge thực sự ghép hai lịch sử.
-- [ ] Gộp nhánh sau khi biên dịch và thử chức năng thành công. Khi gặp conflict, đọc phần chung, phía hiện tại và phía được gộp; bỏ marker sau khi chọn nội dung đúng.
-- [ ] Tự tạo một xung đột nhỏ trên tệp thử, đọc hai phía và chọn nội dung cần giữ. Sau merge, biên dịch và chạy lại cả chức năng cũ lẫn mới; một merge không báo conflict vẫn có thể ghép hành vi sai.
+- [ ] Tạo nhánh them-tim-kiem và thêm tìm sách theo tên. Bản chất nhánh (Branch) trong Git: Nhánh thực chất chỉ là một con trỏ nhẹ di động (movable pointer chứa mã hash SHA) trỏ tới đỉnh một commit; chuyển nhánh (git switch/checkout) chỉ là dời con trỏ HEAD.
+- [ ] Commit thay đổi, quay lại nhánh chính và quan sát sự khác biệt. Phân biệt rõ ràng: Fast-Forward Merge (chỉ cần dời con trỏ nhánh về phía trước khi không có rẽ nhánh) vs 3-way Merge Commit (ghép 2 nhánh có chung tổ tiên gần nhất Merge Base).
+- [ ] Gộp nhánh sau khi biên dịch và thử chức năng thành công. Làm chủ Interactive Rebase (git rebase -i): Viết lại lịch sử tuyến tính sạch sẽ bằng cách reorder, squash/gộp nhiều commit nhỏ, hoặc edit commit trước khi mở Pull Request.
+- [ ] Tự tạo một xung đột nhỏ trên tệp thử, đọc hai phía và chọn nội dung cần giữ. Kỹ thuật phân tích và giải quyết xung đột (Merge Conflicts): Đọc hiểu điểm mốc chung, nhánh hiện tại (HEAD) và nhánh đang gộp (INCOMING); áp dụng quy chuẩn Conventional Commits (feat, fix, docs, refactor).
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -3857,10 +4038,10 @@ Git nâng cao & Giải quyết xung đột: Phân biệt Fast-forward merge vs 3
 
 **Việc cần làm:**
 
-- [ ] Dùng PowerShell hiện tại hoặc một môi trường Linux học tập; không cần đổi hệ điều hành chính. Tạo thư mục thử có vài tệp với tên chứa khoảng trắng, dùng đường dẫn tương đối rồi tuyệt đối để thao tác.
-- [ ] Di chuyển thư mục, liệt kê tệp và dùng đường dẫn có khoảng trắng. Phân biệt lệnh của PowerShell với lệnh shell Linux; xem trợ giúp của đúng môi trường trước khi sao chép lệnh.
-- [ ] Xem trợ giúp một lệnh, kiểm tra thư mục hiện tại trước thao tác với tệp. Quan sát thư mục hiện tại và đường dẫn đích trước khi ghi đè, di chuyển hoặc xóa tệp thử.
-- [ ] Viết lại một chuỗi thao tác mở thư mục, build, chạy bằng terminal để không phụ thuộc mọi nút trong IDE.
+- [ ] Dùng PowerShell hiện tại hoặc một môi trường Linux học tập; không cần đổi hệ điều hành chính. Làm chủ dòng lệnh POSIX/Linux & Pipes: Hiểu bản chất 3 luồng dữ liệu chuẩn: Standard Input (stdin - 0), Standard Output (stdout - 1), Standard Error (stderr - 2).
+- [ ] Di chuyển thư mục, liệt kê tệp và dùng đường dẫn có khoảng trắng. Kỹ thuật đường ống pipe | kết nối stdout của tiến trình trước thành stdin của tiến trình sau, kết hợp các công cụ Unix kinh điển (grep, awk, sed, sort, uniq, xargs) thành các pipeline xử lý dữ liệu mạnh mẽ.
+- [ ] Xem trợ giúp một lệnh, kiểm tra thư mục hiện tại trước thao tác với tệp. Làm chủ điều hướng luồng: chuyển hướng ghi đè >, nối thêm >>, và gộp kênh lỗi 2>&1.
+- [ ] Phân quyền tập tin trên hệ thống Linux theo hệ bát phân (Octal notation): Read (4), Write (2), Execute (1) trên 3 cấp độ Owner, Group, Others qua lệnh chmod.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -3912,14 +4093,14 @@ Dòng lệnh POSIX/Linux & Pipes: Làm chủ 3 luồng chuẩn: Standard Input (
 
 **Việc cần làm:**
 
-- [ ] Viết CMakeLists cho project thư viện nhiều tệp. Khai báo target từ danh sách tệp nguồn, chuẩn C++ và include cần thiết thay vì gộp mọi thứ vào một lệnh khó đọc.
-- [ ] Build ở thư mục riêng, cấu hình Debug và chạy debugger. Dùng cmake -S . -B build rồi cmake --build build theo môi trường hỗ trợ; hiểu hai bước cấu hình và biên dịch.
-- [ ] Xóa riêng thư mục build thử rồi build lại từ mã nguồn; ghi hướng dẫn tái lập. Đặt tùy chọn cảnh báo/sanitizer theo compiler, tránh ghi cứng một cờ không dùng được trên máy khác.
-- [ ] Thử thay một tệp nguồn, build lại và quan sát chỉ phần liên quan được dựng; lưu hướng dẫn Debug vào README.
+- [ ] Viết CMakeLists cho project thư viện nhiều tệp. Tự động hóa build với Modern CMake (Target-based CMake 3.20+): Tổ chức cấu trúc dự án C++ chuẩn công nghiệp (include/, src/, tests/).
+- [ ] Build ở thư mục riêng, cấu hình Debug và chạy debugger. Sử dụng triết lý Target: Quản lý thư viện và thực thi qua target_include_directories(target PUBLIC/PRIVATE), target_link_libraries(target PUBLIC/PRIVATE), target_compile_features(target PRIVATE cxx_std_17).
+- [ ] Xóa riêng thư mục build thử rồi build lại từ mã nguồn; ghi hướng dẫn tái lập. Tích hợp FetchContent tự động tải và liên kết thư viện ngoài (GoogleTest / Catch2) mà không cần cài đặt thủ công vào hệ thống.
+- [ ] Thiết lập quy trình CI/CD và scaffold hoàn chỉnh gắn liền với đồ án tại docs/projects/05-DEVOPS-CPP-SCAFFOLD.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Tự động hóa build với CMake hiện đại: Viết CMakeLists.txt tổ chức dự án đa thư mục chuẩn công nghiệp (src, include, tests). Quản lý cờ biên dịch chuẩn (-Wall -Wextra -std=c++17 -O2). Gắn liền với Mini-Project 5: Production-Ready C++ Project Scaffold & CI/CD với GitHub Actions.
+Tự động hóa build với CMake hiện đại (Target-based CMake 3.20+): Viết CMakeLists.txt tổ chức dự án đa thư mục chuẩn công nghiệp (src, include, tests) với target_include_directories và target_link_libraries. Quản lý cờ biên dịch chuẩn (-Wall -Wextra -std=c++17 -O2). Gắn liền với Mini-Project 5: Production-Ready C++ Project Scaffold & CI/CD với GitHub Actions. Tài liệu: docs/projects/05-DEVOPS-CPP-SCAFFOLD.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -3933,10 +4114,10 @@ Tự động hóa build với CMake hiện đại: Viết CMakeLists.txt tổ ch
 
 **Việc cần làm:**
 
-- [ ] Chạy chương trình thử dưới AddressSanitizer và UndefinedBehaviorSanitizer nếu bộ công cụ hỗ trợ. Tạo riêng các ví dụ truy cập ngoài mảng, use-after-free và đọc đối tượng đã hết thời gian sống để hiểu loại lỗi.
-- [ ] Cố ý tạo truy cập vượt mảng trong tệp thử rồi đọc vị trí được báo. Đọc stack trace, dòng cấp phát/giải phóng và dòng truy cập sai; sửa tại nơi tạo con trỏ hỏng.
-- [ ] Sửa nguyên nhân và chạy lại; không chỉ tắt cảnh báo. Xác định bộ công cụ đang dùng có hỗ trợ sanitizer nào; không tự nhận sạch lỗi chỉ vì công cụ không chạy được.
-- [ ] Sau bản sửa, chạy lại ca cũ trong cùng cấu hình kiểm tra và cả bản build thường.
+- [ ] Chạy chương trình thử dưới AddressSanitizer và UndefinedBehaviorSanitizer nếu bộ công cụ hỗ trợ. Chẩn đoán và diệt lỗi bộ nhớ lúc runtime: Tích hợp AddressSanitizer (ASan) và UndefinedBehaviorSanitizer (UBSan) qua cờ biên dịch -fsanitize=address,undefined -g trên GCC/Clang để bắt lập tức lỗi Use-After-Free, Heap-Buffer-Overflow, Stack-Overflow.
+- [ ] Cố ý tạo truy cập vượt mảng trong tệp thử rồi đọc vị trí được báo. Sử dụng ThreadSanitizer (TSan) với cờ -fsanitize=thread -g để phát hiện triệt để Data Race trong ứng dụng đa luồng.
+- [ ] Sửa nguyên nhân và chạy lại; không chỉ tắt cảnh báo. Phân tích stack trace từ báo cáo ASan: đối chiếu chính xác dòng cấp phát bộ nhớ, dòng giải phóng và dòng truy cập trái phép.
+- [ ] Sử dụng Valgrind Memcheck để rà soát rò rỉ bộ nhớ (Definitely Lost, Indirectly Lost, Still Reachable).
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -4071,6 +4252,10 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
 - [ ] Thử dependency injection qua constructor để kiểm thử; không học thuộc tên rồi nhét pattern vào mọi lớp. Dùng dependency injection để thay clock, bộ lưu hoặc dịch vụ ngoài bằng bản giả có kiểm soát trong test.
 - [ ] So phiên bản trước/sau bằng một yêu cầu thay đổi thật, kiểm tra chi phí thêm abstraction có đáng.
 - [ ] Nêu một chỗ không cần pattern và giữ mã trực tiếp đơn giản, tránh xem pattern là danh sách phải dùng đủ.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán lúc chạy, Factory Pattern đóng gói khởi tạo đối tượng, Observer Pattern phát sóng sự kiện phân tách module, Dependency Injection tách ghép nối cứng. Tuân thủ 5 nguyên lý SOLID để tạo kiến trúc phần mềm sạch và dễ kiểm thử. Tài liệu: docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -4264,6 +4449,10 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [ ] Thử INSERT vi phạm từng ràng buộc và đọc thông báo; bảo vệ ở database chứ không chỉ kiểm tra ở form.
 - [ ] Dùng IS NULL/IS NOT NULL đúng ngữ nghĩa, thử phép so sánh với NULL để hiểu logic ba giá trị.
 
+**Thông tin thêm & Lưu ý bản chất:**
+
+Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Primary Key), khóa ngoại (Foreign Key). Chuẩn hóa 1NF (Tính nguyên tử), 2NF (Loại bỏ phụ thuộc một phần), 3NF (Loại bỏ phụ thuộc bắc cầu) để triệt tiêu 3 dị thường dữ liệu (Thêm, Sửa, Xóa). Tài liệu: docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
+
 **Nguồn tham khảo miễn phí:**
 
 - [PostgreSQL — tài liệu chính thức](https://www.postgresql.org/docs/current/)
@@ -4341,6 +4530,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 - [PostgreSQL — tài liệu chính thức](https://www.postgresql.org/docs/current/)
   - **Phần cần đọc:** Chương 5 Data Definition: constraints,keys; phần chuẩn hóa thực hiện theo ví dụ tách bảng trong ô.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
+- [Offline Guide: CSDL Quan hệ, Chỉ mục B+Tree & Giao dịch ACID 4 mức cô lập](./docs/guides/09-DATABASE-ACID-TRANSACTIONS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 215 · DDL và thay đổi cấu trúc
 
@@ -4366,21 +4558,24 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
 
 **Việc cần làm:**
 
-- [ ] Gộp kiểm tra sách và tạo phiếu mượn vào một giao dịch. Vẽ các bước đọc trạng thái sách, kiểm tra, tạo phiếu và cập nhật liên quan, chọn ranh giới BEGIN/COMMIT.
-- [ ] Phân biệt atomicity, consistency, isolation và durability. Cố ý gây lỗi ở một bước giữa và kiểm tra ROLLBACK đưa mọi thay đổi của giao dịch về trước.
-- [ ] Thử rollback ở giữa thao tác để xác nhận không lưu nửa chừng. Hiểu consistency cần cả ràng buộc và mã nghiệp vụ đúng, không phải database tự biết mọi quy tắc.
-- [ ] Phân biệt đã COMMIT với client có nhận được phản hồi hay không để chuẩn bị hiểu retry sau này.
-- [ ] Đặt transaction ngắn vừa đủ, không giữ khóa trong lúc chờ người dùng bấm xác nhận.
+- [ ] Gộp kiểm tra sách và tạo phiếu mượn vào một giao dịch. Làm chủ 4 tính chất A.C.I.D của Giao dịch (Transaction): Atomicity (Tính nguyên tử — cơ chế Write-Ahead Logging/WAL để rollback toàn bộ khi lỗi), Consistency (Tính nhất quán — bảo toàn mọi ràng buộc toàn vẹn), Isolation (Tính cô lập — các giao dịch chạy song song độc lập), Durability (Tính bền vững — ghi Redo Log và đẩy xuống đĩa qua hàm hệ thống fsync()).
+- [ ] Phân biệt atomicity, consistency, isolation và durability. Vẽ các bước đọc trạng thái sách, kiểm tra, tạo phiếu và cập nhật liên quan; chọn ranh giới BEGIN/COMMIT chuẩn mực.
+- [ ] Thử rollback ở giữa thao tác để xác nhận không lưu nửa chừng. Cố ý gây lỗi ở một bước giữa và kiểm tra ROLLBACK đưa mọi dữ liệu về trạng thái ban đầu như thể chưa từng xảy ra.
+- [ ] Đặt transaction ngắn vừa đủ, không giữ khóa trong lúc chờ người dùng hoặc I/O mạng.
+- [ ] Tham khảo cẩm nang CSDL quan hệ và ACID tại docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Hệ quản trị CSDL quan hệ: Chuẩn hóa dữ liệu (1NF, 2NF, 3NF, BCNF) để loại bỏ trùng lặp và dị thường cập nhật. Hiểu sâu cơ chế chỉ mục B-Tree Index và tính chất ACID của Transaction: Atomicity (Nguyên tử), Consistency (Nhất quán), Isolation (Cô lập), Durability (Bền vững).
+4 Tính chất A.C.I.D của Giao dịch CSDL: Atomicity (Tính nguyên tử — cơ chế Write-Ahead Logging/WAL để rollback toàn bộ khi lỗi), Consistency (Tính nhất quán — bảo toàn ràng buộc), Isolation (Tính cô lập — các giao dịch chạy song song độc lập), Durability (Tính bền vững — ghi Redo Log và đẩy xuống đĩa qua hàm hệ thống fsync()). Tài liệu: docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [PostgreSQL — tài liệu chính thức](https://www.postgresql.org/docs/current/)
   - **Phần cần đọc:** Tutorial Transactions; chương 13 Concurrency Control: isolation,row locks và serialization failures.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
+- [Offline Guide: CSDL Quan hệ, Chỉ mục B+Tree & Giao dịch ACID 4 mức cô lập](./docs/guides/09-DATABASE-ACID-TRANSACTIONS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 217 · Hai người cùng mượn một sách
 
@@ -4388,12 +4583,16 @@ Hệ quản trị CSDL quan hệ: Chuẩn hóa dữ liệu (1NF, 2NF, 3NF, BCNF)
 
 **Việc cần làm:**
 
-- [ ] Mở hai kết nối độc lập (session A/B) tới cùng database thử, ghi lịch lệnh từng bước để tái hiện cả hai cùng thấy sách còn rảnh.
-- [ ] Chọn một cơ chế bảo vệ rõ như khóa hàng sách trong transaction hoặc ràng buộc phù hợp, không chỉ thêm if ở ứng dụng.
-- [ ] Kiểm tra kết quả cuối cùng không có hai phiếu hoạt động cho một bản sách.
-- [ ] Thử mức isolation của database đang dùng và đọc bảo đảm thực tế của nó; tên chuẩn không thay mọi chi tiết triển khai.
-- [ ] Nếu giao dịch bị hủy do xung đột/deadlock, thử lại toàn bộ giao dịch theo chính sách có giới hạn, không chạy tiếp phần còn dang dở.
-- [ ] Dùng timeout trong bài thử để không để hai session chờ nhau vô hạn.
+- [ ] Phân tích 4 mức độ cô lập chuẩn SQL: Read Uncommitted, Read Committed, Repeatable Read, Serializable; đánh đổi giữa tính an toàn dữ liệu và tốc độ xử lý.
+- [ ] Hiểu bản chất 3 hiện tượng đọc bất thường: Đọc bẩn (Dirty Read — đọc dữ liệu dang dở chưa commit của giao dịch khác), Đọc không lặp lại (Non-repeatable Read — giá trị dòng bị thay đổi giữa 2 lần đọc), Đọc bóng ma (Phantom Read — xuất hiện thêm dòng mới thỏa mãn điều kiện truy vấn).
+- [ ] Mở hai kết nối độc lập (session A/B) tới database thử để tái hiện tình huống cạnh tranh mượn cùng một cuốn sách.
+- [ ] Tìm hiểu cơ chế đa phiên bản MVCC (Multi-Version Concurrency Control) trong PostgreSQL giúp hạn chế đọc bóng ma mà không cần khóa toàn bảng.
+- [ ] Nếu giao dịch bị hủy do xung đột cạnh tranh hoặc deadlock, thiết kế cơ chế thử lại (retry) toàn bộ giao dịch có giới hạn và exponential backoff.
+- [ ] Đọc cẩm nang tại docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+4 Mức độ cô lập giao dịch chuẩn SQL: Read Uncommitted, Read Committed, Repeatable Read, Serializable; đánh đổi giữa tính toàn vẹn dữ liệu và thông lượng xử lý. Bản chất 3 hiện tượng đọc bất thường: Đọc bẩn (Dirty Read), Đọc không lặp lại (Non-repeatable Read), Đọc bóng ma (Phantom Read). Cơ chế đa phiên bản MVCC trong PostgreSQL. Tài liệu: docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -4407,17 +4606,24 @@ Hệ quản trị CSDL quan hệ: Chuẩn hóa dữ liệu (1NF, 2NF, 3NF, BCNF)
 
 **Việc cần làm:**
 
-- [ ] So truy vấn theo mã sách trước và sau khi có index. Chọn truy vấn lọc theo mã hoặc tên và đo trên dữ liệu có phân bố hợp lý, không chỉ vài hàng.
-- [ ] Đọc EXPLAIN, rồi EXPLAIN ANALYZE chỉ với câu lệnh thử đã hiểu sẽ thực thi. Đọc số hàng ước lượng/thực tế, loại scan và điều kiện dùng index trong execution plan.
-- [ ] Phân biệt quét tuần tự, quét chỉ mục và chi phí duy trì index khi ghi. Phân biệt index tăng tốc tìm vị trí với index tự chứa mọi cột cần trả về.
-- [ ] Quan sát thêm/sửa/xóa cũng phải duy trì index, tính cả dung lượng đĩa.
-- [ ] Với EXPLAIN ANALYZE, nhớ truy vấn thật được chạy; thao tác ghi chỉ thử trên dữ liệu thử kiểm soát được.
+- [ ] So truy vấn theo mã sách trước và sau khi có index. Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu khóa định tuyến (Routing Keys) với bậc phân nhánh cao (B hàng trăm phần tử/trang đĩa 4KB), cây lùn (3–4 tầng cho hàng triệu dòng) tối ưu hóa số lần Disk I/O.
+- [ ] Đọc EXPLAIN, rồi EXPLAIN ANALYZE chỉ với câu lệnh thử đã hiểu sẽ thực thi. Các nút lá chứa con trỏ dữ liệu và được liên kết đôi theo thứ tự tăng dần; truy vấn khoảng (BETWEEN) quét trực tiếp trên danh sách liên kết lá mà không cần duyệt ngược lên cây.
+- [ ] Phân biệt quét tuần tự, quét chỉ mục và chi phí duy trì index khi ghi. Nắm chắc Quy tắc tiền tố bên trái nhất (Leftmost Prefix Rule) trên chỉ mục kết hợp INDEX(A, B, C): chỉ mục chỉ có tác dụng khi điều kiện lọc chứa tiền tố liên tục từ A.
+- [ ] Đọc kết quả EXPLAIN / EXPLAIN ANALYZE: phân biệt Sequential Scan (quét tuần tự toàn bảng) vs Index Scan vs Index Only Scan.
+- [ ] Cân nhắc đánh đổi: Index tăng tốc độ truy vấn đọc nhưng làm giảm tốc độ ghi (INSERT/UPDATE/DELETE) và tiêu tốn dung lượng ổ đĩa. Tài liệu: docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu khóa định tuyến (Routing Keys) với bậc phân nhánh cao (B hàng trăm phần tử/trang đĩa 4KB), cây lùn (3–4 tầng cho hàng triệu dòng) tối ưu hóa số lần Disk I/O. Danh sách liên kết đôi giữa các lá hỗ trợ truy vấn khoảng (BETWEEN) cực nhanh. Nắm chắc Quy tắc tiền tố bên trái nhất (Leftmost Prefix Rule) trên chỉ mục kết hợp INDEX(A, B, C). Tài liệu: docs/guides/09-DATABASE-ACID-TRANSACTIONS.md.
 
 **Nguồn tham khảo miễn phí:**
 
 - [PostgreSQL — tài liệu chính thức](https://www.postgresql.org/docs/current/)
   - **Phần cần đọc:** Chương 11 Indexes và chương 14 Performance Tips: Using EXPLAIN; đo trên dữ liệu của mình.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
+- [Offline Guide: CSDL Quan hệ, Chỉ mục B+Tree & Giao dịch ACID 4 mức cô lập](./docs/guides/09-DATABASE-ACID-TRANSACTIONS.md)
+  - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
+  - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
 ### 219 · Chọn index theo truy vấn
 
@@ -5916,13 +6122,16 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
 
 **Việc cần làm:**
 
-- [ ] Chọn một bộ dữ liệu công khai có giấy phép rõ, phạm vi nhỏ. Chốt câu hỏi, quyền dùng dữ liệu, đơn vị mẫu, nhãn và loại lỗi cần tránh trước khi huấn luyện.
-- [ ] Dựng baseline, pipeline, mô hình cải thiện và đánh giá test cuối. Khảo sát dữ liệu, thiết kế split chống rò rỉ rồi dựng baseline có thể tái lập.
-- [ ] Phân tích ví dụ sai, giới hạn áp dụng và viết báo cáo để người khác chạy lại; không chỉ nộp notebook có điểm số. Làm một pipeline và một cải tiến có lý do, ghi thay đổi ở một yếu tố đủ để hiểu tác động.
-- [ ] Giữ tập test cuối cho báo cáo sau khi đã chọn phương án bằng validation.
-- [ ] Phân tích lỗi theo nhóm có ý nghĩa, xem ít ví dụ đúng/sai cụ thể thay vì chỉ đưa một bảng metric.
-- [ ] Đóng gói cách chạy dự đoán và báo cáo giới hạn, không triển khai như công cụ quyết định quan trọng khi chưa có kiểm chứng tương ứng.
+- [ ] Chọn một bộ dữ liệu công khai có giấy phép rõ, phạm vi nhỏ. Đồ án Học máy Thống kê — Bộ phân loại Thư rác Naive Bayes (Multinomial Naive Bayes Spam Classifier): Vận dụng trực tiếp Định lý Bayes với giả định độc lập có điều kiện giữa các từ vựng.
+- [ ] Dựng baseline, pipeline, mô hình cải thiện và đánh giá test cuối. Kỹ thuật tính toán xác suất trên không gian Log (Log-space Probability): log P(Spam|W) = log P(Spam) + sum log P(w_i|Spam) để ngăn chặn triệt để hiện tượng tràn số thực dưới (Floating-point Underflow) khi nhân hàng trăm xác suất nhỏ hơn 1.
+- [ ] Phân tích ví dụ sai, giới hạn áp dụng và viết báo cáo để người khác chạy lại; không chỉ nộp notebook có điểm số. Kỹ thuật làm trơn Laplace (Laplace Add-1 Smoothing) xử lý các từ vựng mới chưa từng xuất hiện trong tập huấn luyện.
+- [ ] Đánh giá toàn diện mô hình: Ma trận nhầm lẫn (Confusion Matrix), Accuracy, Precision, Recall, và F1-Score; mô phỏng Monte Carlo Cross-Validation đánh giá độ tin cậy.
+- [ ] Tham khảo đặc tả kỹ thuật chi tiết tại docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 - [ ] Người khác phải chạy lại được từ hướng dẫn, dữ liệu công khai và seed; đối chiếu baseline bằng cùng split/metric và tự giải thích ba lỗi mô hình điển hình.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Đồ án Học máy Thống kê — Phân loại Thư rác Naive Bayes (Multinomial Naive Bayes Spam Classifier): Vận dụng Định lý Bayes với giả định độc lập có điều kiện, chuyển sang không gian Log chống tràn số thực dưới (Underflow), kỹ thuật làm trơn Laplace (Add-1 Smoothing), Ma trận nhầm lẫn và F1-Score. Tài liệu: docs/projects/04-NAIVE-BAYES-CLASSIFIER.md.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -5956,11 +6165,14 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
 
 **Việc cần làm:**
 
-- [ ] Phân biệt scale up với scale out. Vẽ request đi qua load balancer tới một trong nhiều instance và dữ liệu chung nằm ở đâu.
-- [ ] Đặt load balancer trước nhiều bản ứng dụng và xét nơi lưu session. Phân biệt instance không trạng thái cục bộ với giữ session/file chỉ trong RAM/đĩa riêng của một instance.
-- [ ] Nêu phần vẫn là nút thắt nếu database chưa thay đổi. Thử dừng một instance ở môi trường thử, kiểm tra health check và request đang xử lý bị ảnh hưởng thế nào.
-- [ ] Xét database, kết nối và giới hạn downstream trước khi nhân số app lên nhiều lần.
-- [ ] Không coi scale out luôn giảm độ trễ một request đơn lẻ, nhất là khi phần xử lý tuần tự chưa đổi.
+- [ ] Phân biệt scale up với scale out. Nguyên lý mở rộng hệ thống (Scalability Principles): Phân biệt Scale-Up (Vertical Scaling — tăng CPU/RAM cho một máy chủ) vs Scale-Out (Horizontal Scaling — nhân bản nhiều máy chủ ứng dụng chạy song song).
+- [ ] Đặt load balancer trước nhiều bản ứng dụng và xét nơi lưu session. Thiết kế tầng ứng dụng phi trạng thái (Stateless Application Tier): Chuyển toàn bộ session, tệp và trạng thái dùng chung sang Redis/Database để bất kỳ instance nào cũng có thể xử lý request.
+- [ ] Nêu phần vẫn là nút thắt nếu database chưa thay đổi. Nguyên lý bộ cân bằng tải (Load Balancer): Hoạt động ở tầng 4 (TCP) hoặc tầng 7 (HTTP); làm chủ các thuật toán điều phối Round Robin, Weighted Least Connections, và Băm nhất quán (Consistent Hashing).
+- [ ] Đo lường các chỉ số hiệu năng then chốt: Throughput (RPS - Requests Per Second), Latency ở các phân vị p50, p95, p99, và Độ sẵn sàng (High Availability: 99.9% vs 99.99%).
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Nguyên lý Mở rộng Hệ thống (Scalability Principles): Phân biệt Scale-Up (Vertical Scaling) vs Scale-Out (Horizontal Scaling). Thiết kế tầng ứng dụng phi trạng thái (Stateless Application Tier), các thuật toán cân bằng tải (Round Robin, Least Connections, Consistent Hashing), đo lường Throughput (RPS), Latency (p50, p95, p99), và High Availability.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -5974,11 +6186,14 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
 
 **Việc cần làm:**
 
-- [ ] Thêm cache cho truy vấn đọc nhiều, ít thay đổi. Chọn rõ dữ liệu có thể chấp nhận cũ bao lâu, khóa cache và nguồn dữ liệu chính.
-- [ ] Chọn cache key, TTL và quy tắc vô hiệu hóa khi sửa dữ liệu. Mô tả cache-aside hoặc chiến lược đang dùng: khi miss đọc ở đâu, ai ghi lại và khi sửa vô hiệu hóa thế nào.
-- [ ] Thử cache miss, dữ liệu cũ và cache bị mất; hệ thống vẫn phải có nguồn dữ liệu gốc. Thử thay sách trong database khi cache còn bản cũ, quan sát khoảng trễ tới lúc thông tin mới hiện.
-- [ ] Xét nhiều request cùng miss và cache ngừng hoạt động; không để sự cố cache làm mất nguồn dữ liệu.
-- [ ] Giữ thao tác mượn cần đúng dựa vào ràng buộc/giao dịch, không coi dữ liệu cache cũ là quyền cho phép tạo phiếu.
+- [ ] Thêm cache cho truy vấn đọc nhiều, ít thay đổi. Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cache-Aside (Lazy Loading) — ứng dụng đọc cache trước, nếu miss mới truy vấn DB và nạp ngược lại cache với thời gian sống TTL (Time-To-Live) phù hợp.
+- [ ] Chọn cache key, TTL và quy tắc vô hiệu hóa khi sửa dữ liệu. Hiểu rõ chiến lược vô hiệu hóa cache (Cache Invalidation) khi dữ liệu gốc bị cập nhật để bảo đảm tính nhất quán cuối cùng (Eventual Consistency).
+- [ ] Thử cache miss, dữ liệu cũ và cache bị mất; hệ thống vẫn phải có nguồn dữ liệu gốc. Phòng chống 3 thảm họa cache kinh điển: 1. Thủng cache (Cache Penetration) — dùng Bloom Filter hoặc lưu giá trị rỗng; 2. Sập cache hàng loạt (Cache Avalanche) — thêm jitter ngẫu nhiên vào TTL; 3. Nứt cache khóa nóng (Cache Stampede) — dùng khóa phân tán Mutex để chỉ một luồng nạp lại DB.
+- [ ] Không để sự cố dừng cache làm tê liệt hoặc mất mát nguồn dữ liệu chính.
+
+**Thông tin thêm & Lưu ý bản chất:**
+
+Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cache-Aside (Lazy Loading), thiết lập TTL hợp lý, phòng chống 3 thảm họa cache: Cache Penetration (dùng Bloom Filter), Cache Avalanche (thêm jitter ngẫu nhiên vào TTL), và Cache Stampede (dùng Mutex Locking).
 
 **Nguồn tham khảo miễn phí:**
 

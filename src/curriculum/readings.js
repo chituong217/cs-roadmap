@@ -45,6 +45,32 @@ export const freeLibrary = {
   ethics: ['ACM Code of Ethics — PDF chính thức', 'https://www.acm.org/binaries/content/assets/about/acm-code-of-ethics-and-professional-conduct.pdf', 'Toàn bộ văn bản quy tắc đọc công khai miễn phí.'],
   paper: ['S. Keshav — How to Read a Paper', 'https://svr-sk818-web.cl.cam.ac.uk/keshav/publications/htrap.html', 'Bài viết và bản PDF tác giả công khai miễn phí.'],
   ossu: ['OSSU Computer Science — curriculum', 'https://github.com/ossu/computer-science', 'Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.'],
+  guideMemory: ['Offline Guide: Bản chất Vùng nhớ, Con trỏ & RAII', './docs/guides/01-MEMORY-POINTERS-RAII.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideOOP: ['Offline Guide: Cơ chế Đa hình Động vptr/vtable & 5 Nguyên lý SOLID', './docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideSorting: ['Offline Guide: Sắp xếp Quicksort/Merge Sort & Tìm kiếm Nhị phân trên tập kết quả', './docs/guides/03-SORTING-SEARCH-BINARY-ANSWER.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideTwoPointers: ['Offline Guide: Hai Con Trỏ & Cửa Sổ Trượt (Two Pointers & Sliding Window)', './docs/guides/04-TWO-POINTERS-SLIDING-WINDOW.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideDSU: ['Offline Guide: Cấu trúc Tập hợp Rời rạc (DSU) & Cây khung nhỏ nhất Kruskal', './docs/guides/05-DISJOINT-SET-UNION-DSU.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideGraphs: ['Offline Guide: Thuật toán Đồ thị BFS/DFS, Tô màu 3 trạng thái & Dijkstra Min-Heap', './docs/guides/06-GRAPHS-BFS-DFS-DIJKSTRA-TOPO.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideDP: ['Offline Guide: Khung tư duy Quy hoạch động SRTBOT, Ba lô 0/1, LIS & LCS', './docs/guides/07-DYNAMIC-PROGRAMMING-KNAPSACK-LIS-LCS.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideNetwork: ['Offline Guide: Mạng mức thấp, Socket TCP & Định khung thông điệp HTTP/1.1', './docs/guides/08-NETWORK-SOCKETS-HTTP-TCP.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  guideDatabase: ['Offline Guide: CSDL Quan hệ, Chỉ mục B+Tree & Giao dịch ACID 4 mức cô lập', './docs/guides/09-DATABASE-ACID-TRANSACTIONS.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exSorting: ['Offline Exercises: Tuyển tập bài tập Sắp xếp CSES & VNOI', './docs/exercises/01-SORTING-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exBinarySearch: ['Offline Exercises: Tuyển tập bài tập Tìm kiếm nhị phân CSES & LeetCode', './docs/exercises/02-BINARY-SEARCH-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exTwoPointers: ['Offline Exercises: Tuyển tập bài tập Hai con trỏ & Cửa sổ trượt CSES', './docs/exercises/03-TWO-POINTERS-SLIDING-WINDOW-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exDSU: ['Offline Exercises: Tuyển tập bài tập DSU & Cây khung CSES', './docs/exercises/04-DSU-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exGraphs: ['Offline Exercises: Tuyển tập bài tập Đồ thị BFS/DFS & Dijkstra CSES', './docs/exercises/05-GRAPH-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  exDP: ['Offline Exercises: Tuyển tập bài tập Quy hoạch động kinh điển CSES', './docs/exercises/06-DYNAMIC-PROGRAMMING-EXERCISES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaOSSU: ['Offline Curriculum: Bản đồ chương trình chuẩn OSSU Computer Science', './docs/curricula/01-OSSU-COMPUTER-SCIENCE.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaTYCS: ['Offline Curriculum: Hướng dẫn 9 môn học cốt lõi TeachYourselfCS', './docs/curricula/02-TEACH-YOURSELF-CS.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaMIT: ['Offline Curriculum: Phân rã giáo trình thuật toán MIT 6.006', './docs/curricula/03-MIT-6006-ALGORITHMS.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaBerkeley: ['Offline Curriculum: Tiến hóa cấu trúc dữ liệu UC Berkeley CS61B', './docs/curricula/04-BERKELEY-CS61B-DATA-STRUCTURES.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaStanford: ['Offline Curriculum: Trừu tượng hóa lập trình & Đệ quy Stanford CS106B', './docs/curricula/05-STANFORD-CS106B-ABSTRACTIONS.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  curriculaHCMUS: ['Offline Curriculum: Chiến lược điểm chuẩn xét tuyển chuyên ngành KHMT HCMUS', './docs/curricula/06-HCMUS-CS-CUTOFF-STRATEGY.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  projectArcade: ['Offline Project Spec: Game Arcade 2D Space Invaders C++17', './docs/projects/01-SPACE-INVADERS-CPP.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  projectWebServer: ['Offline Project Spec: HTTP/1.1 Socket Web Server Đa luồng C++', './docs/projects/02-MULTITHREADED-WEB-SERVER.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  projectRouting: ['Offline Project Spec: Động cơ Tìm đường Đồ thị Hiệu năng cao C++', './docs/projects/03-GRAPH-ROUTING-ENGINE.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  projectClassifier: ['Offline Project Spec: Bộ Phân loại Thư rác Naive Bayes & Monte Carlo', './docs/projects/04-NAIVE-BAYES-CLASSIFIER.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
+  projectDevOps: ['Offline Project Spec: Khung Dự án C++ Chuẩn Công nghiệp & CI/CD Pipeline', './docs/projects/05-DEVOPS-CPP-SCAFFOLD.md', 'Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.'],
 };
 
 const scopes = new Map();
@@ -330,6 +356,24 @@ group('paper', `research-reading research-reproduce research-question|Đọc to�
 group('ossu', `
 direction-inventory direction-compare direction-backend direction-ml direction-systems direction-breadth direction-choose|Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
 `);
+
+// --- LIÊN KẾT TÀI LIỆU VÀ BÀI TẬP NGOẠI TUYẾN CỤC BỘ (OFFLINE) ---
+group('guideMemory', `cpp-pointers oop-resource|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.`);
+group('guideOOP', `oop-virtual oop-abstract|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cơ chế đa hình động vptr/vtable và 5 nguyên lý SOLID.`);
+group('guideSorting', `algo-merge algo-quick-heap algo-search algo-binary-practice|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.`);
+group('guideTwoPointers', `algo-two-pointers algo-two-practice|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về kỹ thuật hai con trỏ, cửa sổ trượt và bẫy số âm.`);
+group('guideDSU', `graph-dsu|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cấu trúc DSU, chứng minh chiều cao log N và Kruskal.`);
+group('guideGraphs', `graph-dfs graph-bfs graph-dijkstra graph-topological|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.`);
+group('guideDP', `algo-knapsack algo-lis algo-sequence-dp|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.`);
+group('guideNetwork', `net-udp-tcp net-sockets net-http|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.`);
+group('guideDatabase', `db-design db-transaction db-index|Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.`);
+
+group('exSorting', `algo-sort-practice|Bộ bài tập tuyển chọn bài bản về thuật toán sắp xếp trên CSES và VNOI kèm phân tích chi tiết.`);
+group('exBinarySearch', `algo-binary-practice|Bộ bài tập tuyển chọn bài bản về tìm kiếm nhị phân trên tập kết quả CSES và LeetCode.`);
+group('exTwoPointers', `algo-two-practice|Bộ bài tập tuyển chọn bài bản về hai con trỏ và cửa sổ trượt trên CSES kèm hướng dẫn.`);
+group('exDSU', `graph-mst-practice|Bộ bài tập tuyển chọn bài bản về DSU và cây khung nhỏ nhất trên hệ thống CSES.`);
+group('exGraphs', `graph-bfs-practice graph-dfs-practice graph-dijkstra-practice|Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.`);
+group('exDP', `algo-dp-practice|Bộ bài tập tuyển chọn bài bản về quy hoạch động ba lô, dãy con tăng và khoảng cách biến đổi chuỗi CSES.`);
 
 // Những ô project/tự đánh giá đã có đầy đủ yêu cầu, không thêm nguồn cho đủ số lượng.
 export function attachReadings(tasks) {

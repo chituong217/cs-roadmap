@@ -819,16 +819,6 @@ function Roadmap() {
         </a>
         <span className="prototype-tag">Lộ trình · {edition.version}</span>
         <div className="header-actions">
-          <a
-            className="diagnostic-btn-link"
-            href="test.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Làm bài test chẩn đoán năng lực C++ & DSA (50 câu) trên trang web riêng"
-          >
-            <CheckSquare size={14} />
-            <span>Test Chẩn đoán (50 câu)</span>
-          </a>
           <button
             className={`capstone-header-btn ${capstoneOpen ? 'active' : ''}`}
             aria-label="Xem 5 Đồ án Capstone"

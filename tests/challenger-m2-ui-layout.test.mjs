@@ -217,6 +217,15 @@ test('CHALLENGER 2: Verify main.jsx source code implements exact layout contract
   assert.ok(!code.includes('className="map-heading"'), 'Must not render bulky map-heading banner that crushes canvas');
   assert.ok(!code.includes('className="capstone-trigger"'), 'Must not render duplicate capstone-trigger in filter bar');
 
+  // Verify diagnostic test artifacts are permanently removed
+  assert.ok(!code.includes('diagnostic-btn-link'), 'Must not render diagnostic-btn-link in header');
+  assert.ok(!code.includes('test.html'), 'Must not reference test.html in main.jsx');
+  assert.ok(!fs.existsSync(path.resolve('public/test.html')), 'public/test.html must not exist');
+  assert.ok(!fs.existsSync(path.resolve('scripts/generate-diagnostic-quiz.mjs')), 'generate-diagnostic-quiz.mjs must not exist');
+  assert.ok(!fs.existsSync(path.resolve('scripts/grade-user-submission.mjs')), 'grade-user-submission.mjs must not exist');
+  const styleCss = fs.readFileSync(path.resolve('src/style.css'), 'utf8');
+  assert.ok(!styleCss.includes('diagnostic-btn-link'), 'src/style.css must not contain diagnostic-btn-link');
+
   // Verify concise track tab labels
   for (const track of tracks) {
     assert.ok(track.tabLabel && track.tabLabel.length <= 15, `Track ${track.id} must have a concise tabLabel <= 15 chars`);

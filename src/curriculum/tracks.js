@@ -11,7 +11,7 @@ export const tracks = [
     title: 'Track 0: Nền tảng Lập trình & Bổ khuyết Lỗ hổng (Foundations & Gap Remediation)',
     shortTitle: 'Vá nền C++ & Bộ nhớ',
     tabLabel: 'C++ & Bộ nhớ',
-    description: 'Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ Stack vs Heap, cấp phát động new/delete, triết lý RAII, Rule of 0/3/5, Smart Pointers (unique_ptr, shared_ptr, weak_ptr) và C++ STL hiện đại.',
+    description: 'Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ vật lý Stack vs Heap, địa chỉ ô nhớ, quản lý vòng đời tài nguyên, tránh rò rỉ bộ nhớ và Double-Free, triết lý Rule of Zero với std::vector/std::string, và làm chủ C++ STL cơ bản.',
     icon: 'Terminal',
     colorAccent: '#0284c7',
     hcmusAlignment: ['Nhập môn lập trình (CSC10001)', 'Kỹ thuật lập trình (CSC10002)'],
@@ -162,7 +162,7 @@ export const capstoneProjects = [
     pedagogicalObjective: 'Làm chủ toàn diện các nguyên lý OOP, SOLID và GoF Design Patterns trên C++17; xóa bỏ hoàn toàn thói quen dùng con trỏ thô (raw pointer) sở hữu tài nguyên, đảm bảo an toàn bộ nhớ tuyệt đối bằng RAII.',
     technicalScope: [
       'Phân cấp lớp thực thể: Base class Entity với các phương thức thuần ảo update(float dt) = 0, render() = 0; các lớp con kế thừa Ship, Alien, Bullet, Obstacle.',
-      'Quản lý vòng đời và bộ nhớ: 100% đối tượng trong game được lưu trữ bằng std::vector<std::unique_ptr<Entity>>. Áp dụng triệt để RAII, rule of 0/3/5 và virtual destructor.',
+      'Quản lý vòng đời và bộ nhớ: Lưu trữ danh sách thực thể bằng std::vector<std::unique_ptr<Entity>> để tự động thu hồi tài nguyên, áp dụng Rule of Zero và virtual destructor ở lớp cha để ngăn rò rỉ vùng nhớ.',
       'Mẫu thiết kế (Design Patterns): Factory Pattern (AlienFactory sinh biến thể quái vật theo wave), Strategy Pattern (MovementStrategy: di chuyển zig-zag, di chuyển săn đuổi), Observer Pattern (ScoreManager & SoundManager lắng nghe sự kiện OnAlienDestroyed).',
       'Xử lý va chạm (Collision Detection) giữa Bullet và Alien/Obstacle dựa trên hình hộp bao AABB (Axis-Aligned Bounding Box).'
     ],

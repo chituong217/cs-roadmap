@@ -54,7 +54,10 @@ test('curriculum has stable unique IDs and actionable contents', () => {
     assert.ok(chapters.some(c => c.id === task.chapter));
     assert.ok(task.todos.length >= 3);
     assert.ok(['Học', 'Luyện', 'Áp dụng'].includes(task.kind));
-    for (const [, url] of task.sources || []) assert.equal(new URL(url).protocol, 'https:');
+    for (const [, url] of task.sources || []) {
+      if (url.startsWith('./docs/')) assert.ok(url.endsWith('.md'));
+      else assert.equal(new URL(url).protocol, 'https:');
+    }
   }
   assert.equal(tasks[0].number, '001');
   assert.equal(tasks.at(-1).number, String(tasks.length).padStart(3, '0'));
