@@ -18,7 +18,7 @@ Khung tham chiếu: Khoa CNTT ĐH KHTN (HCMUS), [roadmap.sh Computer Science](ht
 
 | Track | Tên tiến trình | Trọng tâm sư phạm | Môn học HCMUS tương ứng | Số chặng | Số nhiệm vụ | Thời lượng ước tính |
 |---|---|---|---|---|---|---|
-| **TRACK-0** | **Vá nền C++ & Bộ nhớ** | Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ vật lý Stack vs Heap, địa chỉ ô nhớ, quản lý vòng đời tài nguyên, tránh rò rỉ bộ nhớ và Double-Free, triết lý Rule of Zero với std::vector/std::string, và làm chủ C++ STL cơ bản. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 2 chặng | 19 nhiệm vụ | ~60h |
+| **TRACK-0** | **Tư duy Lập trình & Mô hình Thực thi** | Làm chủ mô hình thực thi mã nguồn, bản đồ bộ nhớ vật lý Stack vs Heap, bản chất địa chỉ ô nhớ và con trỏ, tư duy trừu tượng hóa dữ liệu (ADT), chi phí khấu hao mảng động, tư duy đệ quy và quy nạp, bất biến vòng lặp, và phương pháp gỡ lỗi khoa học. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 2 chặng | 19 nhiệm vụ | ~60h |
 | **TRACK-1** | **OOP & Thiết kế Phần mềm** | Nắm chắc điểm 10 môn OOP (CSC10003) HK1 Năm 2: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton). | Lập trình hướng đối tượng (CSC10003) | 1 chặng | 20 nhiệm vụ | ~70h |
 | **TRACK-2** | **DSA Cốt lõi & Giải thuật** | Lấp dứt điểm lỗ hổng thuật toán sắp xếp (Quicksort phân hoạch Hoare/Lomuto, Mergesort, Heapsort), Cây (BST, AVL với 4 phép xoay LL/RR/LR/RL, Binary Heap), Đồ thị (BFS/DFS, Topological sort, Dijkstra với Priority Queue, Bellman-Ford, Floyd-Warshall, Kruskal với DSU nén đường đi, Prim), và Quy hoạch động (Knapsack, LIS O(n log n), LCS). | Cấu trúc dữ liệu và giải thuật (CSC10004) | 4 chặng | 82 nhiệm vụ | ~110h |
 | **TRACK-3** | **Kiến trúc & Mạng Máy tính** | Hoàn thành xuất sắc môn Mạng máy tính (CSC10008) HK1 Năm 2: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark. | Kiến trúc máy tính (CSC10007), Hệ điều hành (CSC10005), Mạng máy tính (CSC10008) | 3 chặng | 38 nhiệm vụ | ~85h |
@@ -122,9 +122,9 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 
 ## Mục lục
 
-### Track 0: Nền tảng Lập trình & Bổ khuyết Lỗ hổng (Foundations & Gap Remediation) (2 chặng, 19 nhiệm vụ)
-- 01. Củng cố C++ (12 nhiệm vụ)
-- 04. Project thư viện (7 nhiệm vụ)
+### Track 0: Tư duy Lập trình & Mô hình Thực thi Máy tính (Computational Thinking & Execution Model) (2 chặng, 19 nhiệm vụ)
+- 01. Tư duy lập trình và mô hình thực thi (12 nhiệm vụ)
+- 04. Thiết kế hệ thống và đánh giá hiệu năng (7 nhiệm vụ)
 
 ### Track 1: Lập trình Hướng đối tượng & Thiết kế Phần mềm (Programming & OOP) (1 chặng, 20 nhiệm vụ)
 - 02. Lập trình hướng đối tượng (20 nhiệm vụ)
@@ -167,23 +167,23 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 
 # Nội dung Chi tiết Lộ trình Học tập (Roadmap Content)
 
-# Track 0: Nền tảng Lập trình & Bổ khuyết Lỗ hổng (Foundations & Gap Remediation)
+# Track 0: Tư duy Lập trình & Mô hình Thực thi Máy tính (Computational Thinking & Execution Model)
 
-> **Mục tiêu:** Xóa tan rào cản con trỏ, giải phóng nỗi sợ segmentation fault, làm chủ cơ chế phân vùng bộ nhớ vật lý Stack vs Heap, địa chỉ ô nhớ, quản lý vòng đời tài nguyên, tránh rò rỉ bộ nhớ và Double-Free, triết lý Rule of Zero với std::vector/std::string, và làm chủ C++ STL cơ bản.
+> **Mục tiêu:** Làm chủ mô hình thực thi mã nguồn, bản đồ bộ nhớ vật lý Stack vs Heap, bản chất địa chỉ ô nhớ và con trỏ, tư duy trừu tượng hóa dữ liệu (ADT), chi phí khấu hao mảng động, tư duy đệ quy và quy nạp, bất biến vòng lặp, và phương pháp gỡ lỗi khoa học.
 > **Môn học HCMUS:** Nhập môn lập trình (CSC10001) · Kỹ thuật lập trình (CSC10002) | **Thời lượng ước tính:** ~60 giờ
 
-## 01. Củng cố C++
+## 01. Tư duy lập trình và mô hình thực thi
 
-### 001 · Tự kiểm tra nền C++
+### 001 · Tư duy phân tích bài toán và ca biên
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Tự viết chương trình nhập một dãy số, tính tổng và tìm phần tử lớn nhất. Dùng riêng các hàm nhập dãy, tính tổng và tìm max; xác định hàm nào được phép thay đổi dữ liệu đầu vào.
-- [ ] Tách phần tính toán thành hàm; không dùng biến toàn cục. Với dãy {-8,-3,-10}, dự đoán max trước khi chạy để phát hiện lỗi khởi tạo max bằng 0.
-- [ ] Thử dãy rỗng, một phần tử và toàn số âm; quy định cách xử lý dãy rỗng. Thử nhập số lượng âm, số lượng bằng 0 và nhập chữ; chương trình phải báo rõ hoặc yêu cầu nhập lại, không truy cập phần tử không tồn tại.
-- [ ] Ghi lại chỗ phải tra cứu. Nếu đã tự làm được, chuyển nhanh qua phần tương ứng bên dưới. Giữ lại phiên bản tự làm đầu tiên, ghi chính xác phần cần ôn như tham chiếu, vòng lặp hoặc chỉ số thay vì kết luận chung là quên C++.
+- [ ] Thiết lập phản xạ 3 pha: Tiền điều kiện (Preconditions) -> Xử lý bất biến -> Hậu điều kiện (Postconditions). Thiết lập phản xạ 3 pha khi tiếp cận bài toán: Tiền điều kiện (Preconditions) -> Xử lý bảo toàn bất biến -> Hậu điều kiện (Postconditions).
+- [ ] Thiết kế bộ dữ liệu thử ca biên trước khi viết mã: Tập rỗng, 1 phần tử, cực trị miền số nguyên, mảng toàn số âm. Thiết kế bộ dữ liệu thử ca biên trước khi viết mã: Tập rỗng, 1 phần tử, cực trị miền số nguyên, mảng toàn số âm, mảng toàn số bằng nhau.
+- [ ] Phân tích chi phí tính toán: Phân biệt giải thuật tối ưu O(N) quét 1 lần với các giải pháp dư thừa; loại bỏ hoàn toàn biến toàn cục để triệt tiêu hiệu ứng phụ. Phân tích chi phí tính toán: Phân biệt giải thuật tối ưu O(N) quét 1 lần với các giải pháp lặp lồng nhau dư thừa; loại bỏ hoàn toàn biến toàn cục để triệt tiêu hiệu ứng phụ (side effects).
+- [ ] Ghi lại các giả định ngầm của bài toán và kiểm chứng độc lập xem giả định có luôn đúng trong mọi trường hợp hay không.
 - [ ] Không nhìn mã cũ, đổi riêng yêu cầu tính tổng thành tổng các số không âm, giữ cách tìm max ban đầu. Sửa hàm tính tổng rồi giải thích vì sao các hàm còn lại không cần đổi; nếu cần gợi ý, ghi đúng mục cần ôn, không đánh dấu cả chặng đã vững.
 
 **Nguồn tham khảo miễn phí:**
@@ -192,16 +192,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 1 C++ Basics và 4 Fundamental Data Types; ưu tiên khởi tạo, giới hạn kiểu và undefined behavior.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 002 · Biên dịch và chạy chương trình
+### 002 · Mô hình thực thi: Từ mã nguồn đến mã máy
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Biên dịch một tệp C++ bằng trình biên dịch đang dùng ở trường. Xác định tên, phiên bản và vị trí trình biên dịch; phân biệt nó với trình soạn thảo và terminal đang dùng.
-- [ ] Phân biệt lỗi biên dịch, lỗi liên kết và lỗi khi chạy bằng ba ví dụ ngắn. Tạo lần lượt lỗi thiếu dấu chấm phẩy, khai báo hàm nhưng không định nghĩa và chia cho 0 ở chương trình thử; ghi mỗi lỗi xuất hiện ở giai đoạn nào.
-- [ ] Bật cảnh báo, chọn chuẩn C++17 và ghi lại lệnh biên dịch vào README. Nếu dùng GCC/Clang, thử -Wall -Wextra -Wpedantic và -std=c++17; với MSVC tìm tùy chọn tương ứng thay vì sao chép nguyên lệnh.
-- [ ] Chạy file thực thi vừa tạo từ đúng thư mục, sửa mã rồi biên dịch lại để tránh vô tình chạy bản cũ.
+- [ ] Hiểu chuỗi biên dịch: Preprocessor -> Compiler (AST/Assembly) -> Assembler -> Linker. Nắm vững chuỗi biến đổi mã nguồn: Preprocessor (xử lý chỉ thị tiền xử lý) -> Compiler (phân tích cú pháp AST, sinh mã hợp ngữ) -> Assembler (sinh mã máy Object) -> Linker (liên kết thư viện tạo file thực thi).
+- [ ] Phân biệt 3 loại lỗi bản chất: Lỗi biên dịch (Compile-time), Lỗi liên kết (Linker: thiếu định nghĩa hàm/thư viện), Lỗi thực thi (Runtime: Segfault, chia 0, tràn stack). Phân biệt bản chất 3 loại lỗi: Lỗi cú pháp/biên dịch (Compile-time), Lỗi liên kết (Linker: thiếu định nghĩa hàm/thư viện), Lỗi thực thi (Runtime: Segfault, chia cho 0, tràn stack).
+- [ ] Hiểu tác động của các cờ tối ưu hóa (-O2, -O3): Inlining hàm, loại bỏ mã chết và tối ưu hóa vòng lặp. Hiểu tác động của các cờ tối ưu hóa của trình biên dịch (-O2, -O3): Inlining hàm, loại bỏ mã chết (dead code elimination) và tối ưu hóa vòng lặp.
+- [ ] Tách biệt môi trường phát triển (Debug mode: giữ ký hiệu gỡ lỗi, kiểm tra biên) và môi trường phát hành (Release mode: tối ưu tốc độ tối đa).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -209,16 +209,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 0: compiler/linker, compiling, warning level và language standard.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 003 · Kiểu dữ liệu và biểu thức
+### 003 · Biểu diễn dữ liệu nhị phân và số học máy tính
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Ôn số nguyên, số thực, bool, ký tự và phép ép kiểu. So sánh int, long long, double, char và bool theo miền giá trị, kích thước thực tế trên máy và mục đích sử dụng.
-- [ ] Thử chia hai số nguyên rồi so sánh với phép chia số thực. Dự đoán rồi chạy 5/2, 5/2.0 và phép gán kết quả số thực sang số nguyên; giải thích phần bị mất.
-- [ ] Tìm giới hạn kiểu số bằng numeric_limits; giải thích vì sao tràn số nguyên có dấu không phải phép toán an toàn. Tách lỗi tràn số khỏi lỗi làm tròn số thực; chọn kiểu trước khi nhân, không chờ phép nhân int tràn rồi mới ép kiểu kết quả.
-- [ ] Kiểm tra biểu thức pha signed/unsigned khi so chỉ số với kích thước; tránh sửa cảnh báo bằng ép kiểu tùy tiện.
+- [ ] Bản chất số nguyên có dấu: Bù 2 (Two's Complement) và hiểm họa Undefined Behavior khi tràn số nguyên có dấu. Bản chất số nguyên có dấu: Cơ chế Bù 2 (Two's Complement) và hiểm họa Undefined Behavior (UB) khi tràn số nguyên có dấu; phân biệt với phép quay vòng (wrap-around) của số không dấu.
+- [ ] Bản chất số thực IEEE 754: Mantissa, Exponent và sai số làm tròn; tuyệt đối không so sánh bằng == mà dùng khoảng sai số epsilon. Bản chất số thực IEEE 754: Phân tách Sign, Exponent, Mantissa và hiểu sai số làm tròn (rounding error); tuyệt đối không so sánh hai số thực bằng toán tử == mà dùng khoảng sai số epsilon |a - b| < eps.
+- [ ] Đánh đổi không gian và độ chính xác (Space-Precision Tradeoff): Khi nào bắt buộc dùng số 64-bit để tránh tràn số thuật toán. Đánh đổi không gian và độ chính xác (Space-Precision Tradeoff): Nhận biết giới hạn 32-bit (khoảng 2*10^9) để chủ động chọn kiểu 64-bit trong các bài toán tích lũy, lũy thừa, tổng mảng.
+- [ ] Tránh lỗi ép kiểu pha trộn (mixed signed/unsigned comparison) khi so sánh chỉ số nguyên với kích thước container (size_t).
 
 **Nguồn tham khảo miễn phí:**
 
@@ -226,15 +226,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 1 C++ Basics và 4 Fundamental Data Types; ưu tiên khởi tạo, giới hạn kiểu và undefined behavior.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 004 · Điều kiện, vòng lặp và nhập liệu
+### 004 · Bất biến vòng lặp và luồng điều khiển
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Viết chương trình nhập điểm đến khi người dùng chọn dừng. Tách thao tác đọc thành công khỏi điều kiện giá trị nằm trong 0–10; đây là hai lỗi đầu vào khác nhau.
-- [ ] Xử lý nhập chữ vào ô cần số, không để vòng lặp mắc kẹt. Khi cin thất bại, khôi phục trạng thái và bỏ phần dữ liệu gây lỗi theo cách đã hiểu; thử nhập nhiều lần liên tiếp sai.
-- [ ] Thử điểm ở biên 0, 10 và ngoài khoảng; tự viết bảng kết quả mong đợi. Tự lần theo biến điều khiển ở đầu và cuối vòng lặp để bảo đảm luôn có đường đi tới bước dừng.
+- [ ] Thiết kế vòng lặp bằng phương pháp Bất biến vòng lặp (Loop Invariant): Khởi đầu, Bảo toàn, Kết thúc. Thiết kế vòng lặp bằng phương pháp Bất biến vòng lặp (Loop Invariant): Chứng minh thuật toán đúng bằng 3 bước: Khởi đầu (Initialization), Bảo toàn (Maintenance), và Kết thúc (Termination).
+- [ ] Chứng minh tính dừng của giải thuật: Ngăn chặn triệt để vòng lặp vô tận (Infinite Loop) trong các bước nhảy chia đôi. Chứng minh tính dừng của giải thuật: Xác định đại lượng suy giảm nghiêm ngặt (Monotonic Variant) sau mỗi bước lặp để ngăn chặn triệt để vòng lặp vô tận.
+- [ ] Tư duy xử lý dữ liệu theo luồng (Data Streaming / Online Algorithm): Xử lý tuần tự không cần nạp toàn bộ vào bộ nhớ. Tư duy xử lý dữ liệu theo luồng (Data Streams / Online Processing): Cập nhật kết quả tức thì (Running Min/Max/Avg) với bộ nhớ O(1) mà không cần lưu trữ toàn bộ dữ liệu vào RAM.
+- [ ] Tách biệt điều kiện dừng thuật toán khỏi điều kiện kiểm tra tính hợp lệ của từng phần tử dữ liệu.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -242,16 +243,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 8 Control Flow và 9 Error Detection and Handling: if, loop, kiểm tra đầu vào.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 005 · Mảng và duyệt chỉ số
+### 005 · Bộ nhớ tuyến tính và tính cục bộ (Locality)
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Viết tìm min, max và đảo mảng bằng vòng lặp. Quy định n không vượt dung lượng mảng; chỉ đọc a[0] sau khi biết n>0.
-- [ ] Quy định độ dài hợp lệ, xử lý mảng rỗng và một phần tử. Đảo mảng bằng hai chỉ số tiến từ hai đầu, dừng đúng khi chúng gặp hoặc vượt nhau.
-- [ ] Tự phát hiện lỗi dùng <= thay cho < ở giới hạn vòng lặp. Với mỗi hàm, ghi miền chỉ số còn hợp lệ sau từng vòng và thử n chẵn lẫn n lẻ.
-- [ ] Phân biệt thay đổi phần tử trong hàm với thay đổi số lượng phần tử hợp lệ mà bên gọi đang giữ.
+- [ ] Bản chất mảng vật lý: Các ô nhớ liên tục trong RAM, truy xuất ngẫu nhiên O(1) qua công thức base + i * sizeof(T). Bản chất mảng vật lý trong kiến trúc máy tính: Khối ô nhớ liên tục trong RAM, truy xuất ngẫu nhiên O(1) thông qua phép tính địa chỉ trực tiếp base + i * sizeof(T).
+- [ ] Nguyên lý Tính cục bộ của bộ nhớ (Locality of Reference): CPU Cache Line (64 bytes) và lý do duyệt mảng tuần tự nhanh gấp 10 lần duyệt ngẫu nhiên. Nguyên lý Tính cục bộ của bộ nhớ (Locality of Reference): Hiểu cơ chế CPU Cache Line (64 bytes); tại sao duyệt mảng tuần tự nhanh gấp nhiều lần duyệt nhảy cóc hoặc danh sách liên kết.
+- [ ] Kỹ thuật biến đổi tại chỗ (In-place Transformation) với không gian bộ nhớ O(1). Kỹ thuật biến đổi mảng tại chỗ (In-place Transformation): Đảo ngược mảng bằng 2 con trỏ đối xứng với không gian bộ nhớ phụ O(1).
+- [ ] Tư duy ranh giới mảng: Hiểu nguyên nhân gây lỗi Segmentation Fault và tràn bộ đệm (Buffer Overflow) khi truy cập chỉ số ngoài khoảng [0, N-1].
 
 **Nguồn tham khảo miễn phí:**
 
@@ -259,16 +260,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 16 Dynamic arrays: chỉ số, duyệt và kích thước; đối chiếu thêm phần C-style arrays nếu đang dùng mảng thuần.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 006 · Hàm và cách truyền tham số
+### 006 · Mô hình khung hàm (Stack Frame) và truyền tham số
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Ôn khai báo, định nghĩa, giá trị trả về và phạm vi của biến. Vẽ biến ở hàm gọi và bản sao/tham chiếu trong hàm được gọi; dùng địa chỉ khi cần quan sát chúng có phải cùng đối tượng.
-- [ ] So sánh truyền giá trị, tham chiếu và tham chiếu const. Viết swap theo truyền giá trị và tham chiếu, dự đoán trạng thái hai biến sau lời gọi.
-- [ ] Viết ba hàm để quan sát khi nào biến bên ngoài bị thay đổi. Dùng const string& cho thao tác chỉ đọc chuỗi; giải thích cả ý tránh sao chép và ý không cho sửa qua tham số đó.
-- [ ] Chọn cách truyền phù hợp cho hàm hoán đổi và hàm chỉ đọc một chuỗi. Phân biệt tham chiếu dùng làm tham số với trả tham chiếu; kiểm tra đối tượng được trả có còn sống sau khi hàm kết thúc.
+- [ ] Hiểu bản chất cuộc gọi hàm trong máy tính: Khung hàm Stack Frame, lưu thanh ghi, địa chỉ trả về (Return address) và con trỏ khung. Mô hình Khung hàm (Stack Frame) trong kiến trúc máy tính: Cơ chế cấp phát vùng nhớ cục bộ, lưu trữ thanh ghi, địa chỉ trả về (Return address) và con trỏ khung (Base pointer).
+- [ ] Phân biệt Pass-by-Value vs Pass-by-Reference dưới góc nhìn phần cứng: Truyền tham chiếu thực chất là truyền địa chỉ ô nhớ qua thanh ghi, tương đương con trỏ hằng T* const. Bản chất Pass-by-Value vs Pass-by-Reference: Truyền tham chiếu thực chất là truyền địa chỉ ô nhớ qua thanh ghi CPU (tương đương con trỏ hằng T* const), loại bỏ hoàn toàn chi phí sao chép đối tượng lớn.
+- [ ] Bất biến tham chiếu hằng (const T&): Bảo vệ dữ liệu chỉ đọc, ngăn chặn hiệu ứng phụ và cho phép liên kết an toàn với giá trị tạm thời (rvalue). Bất biến tham chiếu hằng (const T&): Bảo vệ dữ liệu chỉ đọc, ngăn chặn hiệu ứng lề (Side effects) ngoài ý muốn và cho phép liên kết an toàn với giá trị tạm thời (rvalue).
+- [ ] Hiểm họa tham chiếu treo (Dangling Reference): Chứng minh vì sao trả về tham chiếu tới biến cục bộ trên stack là lỗi chí tử làm sập chương trình.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -276,16 +277,16 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 2 Functions and Files và 12 Compound Types: truyền giá trị, tham chiếu, const reference; làm quiz cuối chương theo đúng phần đã học.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 007 · Tách chương trình thành hàm
+### 007 · Tư duy mô-đun hóa và phân tách trách nhiệm
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Viết chương trình quản lý điểm: nhập, tính trung bình, tìm điểm cao nhất. Quy định hàm tính trung bình nhận danh sách điểm hợp lệ và phản hồi gì nếu danh sách rỗng; không chia cho 0.
-- [ ] Mỗi thao tác nằm trong một hàm; truyền dữ liệu bằng tham số. Để hàm tính toán trả kết quả, phần menu chịu trách nhiệm in, giúp kiểm tra mà không cần nhập bàn phím lặp lại.
-- [ ] Kiểm tra không có điểm, điểm ngoài khoảng 0–10 và dữ liệu hợp lệ. Tạo bảng test với {0}, {10}, {0,10}, nhiều điểm bằng nhau và không có điểm; ghi kết quả mong đợi trước khi chạy.
-- [ ] Đọc lại mã và bỏ những đoạn xử lý bị lặp. Sửa một yêu cầu nhỏ như thêm đếm số điểm đạt, kiểm tra có thể thêm hàm mà không viết lại toàn bộ chương trình.
+- [ ] Phân tách dứt điểm hàm thuần túy (Pure Function: nhận input, tính toán, trả output) khỏi hàm Nhập/Xuất (I/O). Tư duy Mô-đun hóa: Phân tách triệt để hàm thuần túy (Pure Function: chỉ nhận input, tính toán, trả output, không có side-effect) khỏi hàm giao tiếp Nhập/Xuất (I/O).
+- [ ] Thiết kế giao diện hàm (Contract): Định nghĩa rõ ràng tiền điều kiện hợp lệ của tham số, xử lý an toàn khi danh sách rỗng (tránh chia cho 0). Thiết kế Hợp đồng Giao diện Hàm (Function Contract): Định nghĩa rõ ràng tiền điều kiện hợp lệ của tham số, phản hồi an toàn khi tập dữ liệu rỗng (ngăn chặn lỗi chia cho 0).
+- [ ] Xây dựng tư duy kiểm thử tự động (Unit Testable): Tách biệt logic tính toán để kiểm thử hàng loạt ca biên mà không phụ thuộc bàn phím. Tư duy Kiểm thử Tự động (Unit Testable Architecture): Khi logic tính toán tách rời bàn phím, có thể viết test tự động chạy hàng trăm ca biên trong 1 mili-giây.
+- [ ] Tái cấu trúc mã nguồn (Refactoring): Loại bỏ các khối logic lặp lại (DRY - Don't Repeat Yourself), gom nhóm các tham số liên quan thành cấu trúc dữ liệu nhất quán.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -293,20 +294,20 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 2 Functions and Files và 12 Compound Types: truyền giá trị, tham chiếu, const reference; làm quiz cuối chương theo đúng phần đã học.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 008 · string và vector
+### 008 · Cơ chế mảng động và chi phí khấu hao
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Dùng string để nhập cả họ tên có khoảng trắng. Phân biệt size với capacity, truy cập phần tử với thêm phần tử; thử push_back và resize rồi quan sát kích thước.
-- [ ] Dùng vector để thêm phần tử, duyệt và lấy kích thước. Khi kết hợp cin>> với getline, xử lý ký tự xuống dòng còn lại và thử họ tên có khoảng trắng.
-- [ ] Phân biệt chỉ số hợp lệ với vị trí nằm ngoài vector. Phân biệt operator[] không kiểm tra biên với at có kiểm tra; không dùng hành vi ngoài biên để suy ra quy luật chương trình.
-- [ ] Viết ví dụ làm rõ vì sao không được giữ tham chiếu tới phần tử sau một thao tác có thể cấp phát lại vector. Lưu một chỉ số thay cho địa chỉ phần tử nếu cần tìm lại sau khi thêm; kiểm tra quy tắc vô hiệu hóa iterator/tham chiếu của thao tác đang dùng.
+- [ ] Bản chất bên trong của mảng động (std::vector): 3 con trỏ quản lý vùng nhớ (Start, Finish, End of Storage) tương ứng với Size và Capacity. Bản chất bên trong của Mảng động (Dynamic Array): 3 con trỏ quản lý vùng nhớ (Start, Finish, End of Storage) tương ứng với Size (kích thước thực) và Capacity (dung lượng cấp phát).
+- [ ] Chứng minh chiến lược nhân đôi dung lượng (Capacity Doubling): Vì sao mở rộng gấp đôi cho chi phí trung bình khấu hao O(1) amortized, trong khi tăng thêm 1 phần tử lại suy biến thành O(N^2). Chứng minh toán học Chiến lược Nhân đôi Dung lượng (Capacity Doubling): Vì sao mở rộng 2x giúp chi phí thêm phần tử trung bình đạt O(1) khấu hao (Amortized O(1)), trong khi tăng từng phần tử lại suy biến thành O(N^2).
+- [ ] Hiểm họa vô hiệu hóa con trỏ và tham chiếu (Pointer/Iterator Invalidation): Vùng nhớ cũ bị hủy khi vector tái cấp phát; nguyên tắc quản lý chỉ số an toàn. Hiểm họa Vô hiệu hóa Con trỏ/Tham chiếu (Pointer/Iterator Invalidation): Khi vector tái cấp phát vùng nhớ mới, toàn bộ địa chỉ cũ bị hủy; cách phòng tránh con trỏ treo.
+- [ ] Sử dụng mảng động an toàn: Phân biệt kiểm tra biên chủ động với truy xuất chỉ số trực tiếp; tư duy đặt trước dung lượng (reserve) để triệt tiêu chi phí cấp phát lại.
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-vector có thể đổi vùng nhớ khi tăng kích thước. Không giả định địa chỉ phần tử luôn giữ nguyên.
+Mảng động mở rộng bằng cách cấp phát vùng nhớ mới gấp đôi và chuyển dữ liệu sang. Không giả định địa chỉ phần tử luôn giữ nguyên.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -314,16 +315,16 @@ vector có thể đổi vùng nhớ khi tăng kích thước. Không giả đị
   - **Phần cần đọc:** Chương 5: std::string; chương 16: std::vector, thêm/xóa và giới hạn chỉ số.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 009 · Con trỏ, tham chiếu và thời gian sống
+### 009 · Bản chất địa chỉ ô nhớ và con trỏ
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Vẽ biến, địa chỉ và giá trị mà con trỏ đang trỏ tới trong một ví dụ nhỏ. Viết int x, int* p=&x và int& r=x; phân biệt x, &x, p, *p và tác động khi gán qua từng tên.
-- [ ] Phân biệt con trỏ null với con trỏ trỏ đến một đối tượng còn sống. Phân biệt con trỏ chưa khởi tạo, nullptr và con trỏ treo; chỉ kiểm tra khác null chưa đủ bảo đảm đối tượng còn sống.
-- [ ] Giải thích vì sao trả về tham chiếu tới biến cục bộ gây lỗi. Vẽ phạm vi của biến cục bộ rồi xác định thời điểm tham chiếu trả về bị mất hiệu lực.
-- [ ] Viết hàm nhận con trỏ có thể null và xử lý trường hợp null trước khi truy cập. Với mảng và vector, xác định ai sở hữu bộ nhớ, ai chỉ mượn để đọc; không tự delete địa chỉ mà mình không có quyền sở hữu.
+- [ ] Bản chất con trỏ trong máy tính: Biến số nguyên 64-bit lưu địa chỉ một byte trong không gian nhớ phẳng của tiến trình. Con trỏ dưới góc nhìn phần cứng: Không có gì thần bí, chỉ là một biến số nguyên 64-bit lưu địa chỉ một byte trong không gian nhớ phẳng của tiến trình.
+- [ ] Ba thảm họa quản lý bộ nhớ kinh điển: Dangling Pointer (con trỏ treo), Memory Leak (rò rỉ bộ nhớ), và Double Free (giải phóng hai lần). Ba thảm họa quản lý bộ nhớ kinh điển: Dangling Pointer (con trỏ treo), Memory Leak (rò rỉ bộ nhớ), và Double Free (giải phóng hai lần).
+- [ ] Mô hình quyền sở hữu (Ownership Mental Model): Phân biệt rõ người tạo vùng nhớ (owner), người mượn đọc tạm (observer), và trách nhiệm giải phóng tài nguyên. Mô hình Quyền sở hữu (Ownership Mental Model): Phân định dứt khoát đối tượng sở hữu vùng nhớ (Owner), đối tượng mượn tạm để quan sát (Observer), và thời điểm thu hồi tài nguyên.
+- [ ] Phân biệt con trỏ null (nullptr - địa chỉ 0 an toàn để kiểm tra) với con trỏ chưa khởi tạo (chứa giá trị rác ngẫu nhiên).
 
 **Thông tin thêm & Lưu ý bản chất:**
 
@@ -338,16 +339,16 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 010 · Tìm lỗi bằng debugger
+### 010 · Phương pháp gỡ lỗi khoa học và cô lập lỗi
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Đặt breakpoint trong chương trình quản lý điểm. Trước khi chạy debugger, viết đầu vào tái hiện và kết quả đúng; thu nhỏ tới ví dụ ít dữ liệu nhất vẫn sai.
-- [ ] Chạy từng bước, quan sát biến và xem thứ tự các hàm được gọi. Phân biệt step into, step over và continue; dùng call stack để biết vì sao chương trình tới dòng hiện tại.
-- [ ] Cố ý tạo lỗi lệch một chỉ số rồi tìm dòng đầu tiên gây sai. Theo dõi lần đầu biến đi từ đúng sang sai, không chỉ dừng ở nơi chương trình cuối cùng báo lỗi.
-- [ ] Bật cảnh báo trình biên dịch và sửa các cảnh báo liên quan đến mã của mình. Sau khi sửa, chạy lại đầu vào từng gây lỗi cùng vài ca lân cận để xác nhận đã sửa nguyên nhân.
+- [ ] Quy trình gỡ lỗi 4 bước khoa học: Tái hiện ca tối thiểu -> Đặt giả thuyết -> Chặt nhị phân không gian tìm kiếm qua Call Stack -> Kiểm chứng giả thuyết. Quy trình Gỡ lỗi Khoa học 4 bước: (1) Thu nhỏ trường hợp gây lỗi thành ca tối thiểu (Minimal Reproducible Example) -> (2) Đặt giả thuyết về nguyên nhân gốc rễ -> (3) Chặt nhị phân không gian tìm kiếm -> (4) Kiểm chứng và viết test hồi quy.
+- [ ] Kỹ năng đọc Call Stack (Ngăn xếp cuộc gọi) và Frame Variables: Hiểu cách chương trình đi tới điểm crash (Segmentation Fault). Kỹ năng đọc Call Stack (Ngăn xếp cuộc gọi): Lần ngược chuỗi gọi hàm để xác định chính xác ngữ cảnh và đường đi dẫn tới điểm crash.
+- [ ] Sử dụng công cụ giám sát bộ nhớ (AddressSanitizer) để tự động bắt lỗi tràn biên mảng và truy cập vùng nhớ đã giải phóng. Sử dụng công cụ giám sát bộ nhớ (AddressSanitizer): Tự động phát hiện lỗi tràn biên mảng (heap/stack buffer overflow) và truy cập vùng nhớ sau khi giải phóng (use-after-free).
+- [ ] Gỡ lỗi dựa trên bằng chứng: Kiểm tra biến tại các mốc then chốt thay vì đoán mò hoặc in log bừa bãi.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -355,16 +356,16 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 3 Debugging: stepping,breakpoints,watch và call stack.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 011 · Đọc, ghi tệp và kiểm tra lỗi
+### 011 · Tư duy bền vững dữ liệu và luồng I/O
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Dùng ifstream và ofstream để đọc, ghi danh sách tên. Chọn quy ước từng dòng hoặc từng trường, mô tả cách lưu tên có khoảng trắng thay vì trông chờ phép đọc tự đoán.
-- [ ] Kiểm tra mở tệp thành công trước khi xử lý. Dùng kết quả phép đọc làm điều kiện lặp; không chỉ lặp theo !eof rồi vô tình xử lý lại bản ghi cuối.
-- [ ] Phân biệt hết dữ liệu với một dòng dữ liệu không hợp lệ. Kiểm tra cả lỗi sau khi ghi, thông báo đường dẫn đang dùng và không coi file tồn tại là chắc chắn đọc được.
-- [ ] Thử đường dẫn không tồn tại và tệp rỗng; thông báo lỗi dễ hiểu. Thử tệp có dòng trắng, dòng thiếu trường và ký tự sai kiểu; quyết định bỏ dòng hay dừng và báo vị trí lỗi.
+- [ ] Bản chất I/O: Tách biệt bộ nhớ RAM (biến động, tốc độ nano giây) với Ổ cứng/Disk (bền vững, tốc độ micro/mili giây qua hệ điều hành). Bản chất của I/O: Tách biệt bộ nhớ RAM (biến động, tốc độ nano giây) với Ổ cứng/Disk (bền vững, tốc độ micro/mili giây qua hệ điều hành).
+- [ ] Cơ chế vùng đệm (I/O Buffering): Tại sao hệ điều hành đọc/ghi theo khối (4KB/8KB) thay vì từng byte; tác động của thao tác flush. Cơ chế Vùng đệm I/O (Buffering): Tại sao hệ điều hành đọc/ghi theo khối (4KB/8KB) thay vì từng byte; tác động của thao tác flush đối với hiệu năng và an toàn dữ liệu.
+- [ ] Thiết kế định dạng dữ liệu và xử lý lỗi hỏng tệp (Data Corruption Handling): Đọc vào cấu trúc tạm và kiểm tra toàn vẹn trước khi cập nhật trạng thái. Thiết kế Định dạng Dữ liệu & Tính Bền vững: Đọc dữ liệu vào vùng nhớ tạm, kiểm tra toàn vẹn cấu trúc trước khi cập nhật trạng thái hệ thống.
+- [ ] Xử lý lỗi hỏng tệp (Data Corruption): Phát hiện dữ liệu thiếu trường hoặc sai định dạng; dừng an toàn và thông báo vị trí lỗi thay vì âm thầm ghi đè làm mất dữ liệu gốc.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -372,16 +373,16 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 28 Input and Output: file I/O, trạng thái stream và lỗi mở/đọc tệp.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 012 · Lưu danh sách sách bằng C++
+### 012 · Mô hình hóa thực thể và thiết kế hệ thống dữ liệu
 
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Tạo struct Sach gồm mã sách, tên và năm xuất bản. Viết chức năng thêm/tìm/in trước, dùng vector chứa dữ liệu trong bộ nhớ rồi mới gắn đọc ghi tệp.
-- [ ] Dùng vector<Sach> để thêm, tìm theo mã và hiển thị danh sách. Chuẩn hóa quy tắc mã sách, chẳng hạn không rỗng và phân biệt hoa thường hay không; áp dụng nhất quán khi thêm và tìm.
-- [ ] Quy định mã sách không trùng và kiểm tra trước khi thêm. Khi đọc lại tệp, phát hiện mã trùng và năm sai kiểu; không đưa dữ liệu lỗi vào danh sách rồi mới sửa sau.
-- [ ] Lưu rồi đọc lại danh sách từ tệp; thử tên sách có khoảng trắng. Đóng chương trình, mở lại từ tệp đã lưu và đối chiếu từng sách; giữ dữ liệu mẫu để thử lại sau các lần sửa.
+- [ ] Mô hình hóa thực thể: Tổ chức dữ liệu dựa trên các thuộc tính bất biến và khóa định danh duy nhất (Unique Identifier). Tư duy Mô hình hóa Thực thể: Trừu tượng hóa đối tượng thế giới thực thành cấu trúc dữ liệu với các thuộc tính bất biến và khóa định danh duy nhất (Unique ID).
+- [ ] Tách biệt 3 tầng kiến trúc độc lập: Tầng Dữ liệu (Data Model) <-> Tầng Nghiệp vụ (Business Rules) <-> Tầng Giao tiếp (I/O Interface). Kiến trúc 3 tầng phân tách trách nhiệm: Tầng Dữ liệu (Data Model) <-> Tầng Nghiệp vụ cốt lõi (Business Logic) <-> Tầng Giao tiếp (I/O Interface).
+- [ ] Kiểm tra toàn vẹn trạng thái (State Integrity): Đảm bảo hệ thống không bao giờ rơi vào trạng thái nửa vời khi một thao tác gặp lỗi. Bảo vệ Tính toàn vẹn Trạng thái (State Integrity Invariant): Mọi thao tác biến đổi dữ liệu phải đảm bảo trạng thái hệ thống luôn hợp lệ; nếu một bước thất bại phải hoàn tác (Rollback) an toàn.
+- [ ] Đóng gói logic nghiệp vụ: Giữ các quy tắc kiểm tra (như kiểm tra trùng mã, kiểm tra ràng buộc) độc lập hoàn toàn với việc nhập xuất dữ liệu.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -389,84 +390,84 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 28 Input and Output: file I/O, trạng thái stream và lỗi mở/đọc tệp.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-## 04. Project thư viện
+## 04. Thiết kế hệ thống và đánh giá hiệu năng
 
-### 039 · Chốt phiên bản thư viện đầu tiên
+### 039 · Phân tích yêu cầu kỹ thuật và ranh giới hệ thống
 
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
-
-**Việc cần làm:**
-
-- [ ] Viết danh sách chức năng: thêm sách, tìm sách, mượn, trả, lưu và đọc dữ liệu. Viết bảng thao tác với đầu vào, kết quả và tình huống từ chối: mã trùng, sách không tồn tại, sách đang mượn.
-- [ ] Quy định một mã sách đại diện cho một bản sách vật lý. Chọn cách nhận diện độc giả và một bản sách vật lý để không nhập nhằng một đầu sách có nhiều bản.
-- [ ] Quy định chưa hỗ trợ đăng nhập, nhiều người dùng cùng lúc hoặc cơ sở dữ liệu. Vẽ một lượt thêm sách → đăng ký độc giả → mượn → trả trên dữ liệu giả.
-- [ ] Viết năm tình huống sử dụng, trong đó có mượn sách đã được mượn. Chia phiên bản đầu thành phần dữ liệu chạy được rồi menu, lưu tệp và kiểm thử; chưa cần GUI hoặc tính năng ngoài phạm vi.
-
-### 040 · Dựng dữ liệu và quy tắc mượn trả
-
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Bổ sung DocGia và PhieuMuon; mỗi phiếu ghi mã sách, mã độc giả, ngày mượn và trạng thái trả. Quy định khóa định danh của sách, độc giả, phiếu mượn; không dùng vị trí trong vector làm mã lâu dài.
-- [ ] Đưa thao tác mượn trả vào ThuVien; kiểm tra sách và độc giả tồn tại. Xác định nguồn thông tin duy nhất cho trạng thái đang mượn, tránh một cờ ở sách lệch với phiếu mượn.
-- [ ] Không cho cùng một bản sách có hai phiếu mượn đang hoạt động. Kiểm tra mọi điều kiện trước khi cập nhật, hoặc có cách hoàn tác nếu bước sau thất bại.
-- [ ] Giữ quy tắc nghiệp vụ độc lập với menu nhập xuất. Quy định xóa sách/độc giả đang có phiếu hoạt động bị từ chối hay xử lý thế nào; ghi rõ để cài và test thống nhất.
+- [ ] Xác định ranh giới hệ thống: Liệt kê các bất biến nghiệp vụ bắt buộc phải bảo vệ (ví dụ: một tài nguyên không thể ở hai trạng thái mâu thuẫn). Xác định ranh giới hệ thống: Liệt kê các bất biến nghiệp vụ bắt buộc phải bảo vệ (một tài nguyên không thể đồng thời ở hai trạng thái xung đột).
+- [ ] Lập ma trận thao tác: Đầu vào, kết quả mong đợi, và các tình huống từ chối hợp lệ (trùng mã, không tồn tại, trạng thái xung đột). Lập ma trận thao tác: Đầu vào, kết quả mong đợi, và các tình huống từ chối hợp lệ (trùng mã, không tồn tại, trạng thái xung đột).
+- [ ] Quy định rõ phạm vi phiên bản đầu: Tập trung vào tính đúng đắn của logic cốt lõi trước khi thêm tính năng phức tạp. Thiết kế kiến trúc hệ thống 3 tầng phân tách trách nhiệm rõ rệt: Tầng Dữ liệu (Data Model) <-> Tầng Nghiệp vụ cốt lõi (Business Logic) <-> Tầng Giao tiếp (I/O).
+- [ ] Quy định rõ phạm vi phiên bản đầu: Tập trung vào tính đúng đắn của logic cốt lõi trước khi mở rộng tính năng phức tạp.
 
-### 041 · Làm menu dùng được
+### 040 · Thiết kế mô hình thực thể và quan hệ dữ liệu
 
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
-
-**Việc cần làm:**
-
-- [ ] Tạo menu để thêm sách, đăng ký độc giả, tìm kiếm, mượn và trả. Tách menu thành vòng lặp điều hướng và các hàm thao tác; tránh một hàm main chứa toàn bộ nghiệp vụ.
-- [ ] Xử lý lựa chọn không hợp lệ mà không làm chương trình bị lặp vô hạn. Với thao tác xóa/sửa, cho người dùng thấy bản ghi cần tác động trước khi xác nhận.
-- [ ] Nhập được tên có khoảng trắng và quay lại menu sau mỗi thao tác. Xử lý nhập sai kiểu, dòng trống và chọn quay lại; không để ký tự dư khiến lần nhập sau bị bỏ qua.
-- [ ] Thử một lượt từ mở chương trình đến thêm sách, mượn rồi trả. In kết quả đủ rõ: thành công, không tìm thấy hay bị từ chối vì lý do nào, không chỉ in một mã số.
-
-### 042 · Lưu và khôi phục dữ liệu thư viện
-
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Chọn định dạng tệp đơn giản và mô tả cách phân tách các trường. Chọn dấu phân tách không gây nhầm với tên hoặc dùng định dạng có quy tắc escape rõ; viết ví dụ một bản ghi.
-- [ ] Lưu sách, độc giả và phiếu mượn; đọc lại đúng quan hệ giữa các mã. Đọc toàn bộ dữ liệu vào vùng tạm, kiểm tra mã trùng và tham chiếu phiếu tới sách/độc giả trước khi thay dữ liệu đang dùng.
-- [ ] Khi dữ liệu hỏng, báo dòng lỗi; không âm thầm ghi đè tệp gốc. Ghi sang tệp tạm rồi thay bản lưu khi bước ghi thành công; giữ bản sao trước các lần thử lỗi.
-- [ ] Đóng và mở lại chương trình, kiểm tra sách đang mượn vẫn giữ đúng trạng thái. Thử đọc tệp bị cắt giữa chừng và phiếu trỏ tới mã không tồn tại; thông báo cụ thể thay vì tự bỏ dữ liệu quan trọng.
+- [ ] Thiết kế các thực thể độc lập và quan hệ liên kết qua mã định danh, không dùng chỉ số mảng làm khóa định danh lâu dài. Thiết kế các thực thể độc lập và quan hệ dữ liệu liên kết qua khóa định danh duy nhất (Unique ID), không dùng chỉ số mảng làm khóa định danh lâu dài.
+- [ ] Xác lập Nguồn chân lý duy nhất (Single Source of Truth) cho từng trạng thái, ngăn chặn hiện tượng dữ liệu mâu thuẫn ở hai nơi. Xác lập Nguồn chân lý duy nhất (Single Source of Truth - SSOT) cho từng trạng thái, ngăn chặn hiện tượng dữ liệu mâu thuẫn ở hai nơi.
+- [ ] Tách biệt triệt để quy tắc nghiệp vụ khỏi giao diện hiển thị, đảm bảo logic có thể chạy độc lập không cần nhập xuất bàn phím. Tách biệt triệt để quy tắc nghiệp vụ khỏi giao diện hiển thị, đảm bảo toàn bộ logic có thể chạy độc lập và kiểm thử tự động không cần bàn phím.
+- [ ] Xây dựng cơ chế khôi phục trạng thái (State Rollback): Đảm bảo khi một thao tác nhiều bước bị gián đoạn, dữ liệu không bao giờ bị rơi vào trạng thái nửa vời.
 
-### 043 · Thử những trường hợp dễ hỏng
+### 041 · Kiến trúc điều phối luồng dữ liệu
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
-
-**Việc cần làm:**
-
-- [ ] Lập bảng đầu vào và kết quả mong đợi cho thêm, tìm, mượn, trả. Mỗi dòng bảng test ghi trạng thái ban đầu, thao tác, kết quả trả về và trạng thái sau thao tác.
-- [ ] Thử mã trùng, mã không tồn tại, mượn hai lần và trả hai lần. Đặc biệt thử mượn cùng một sách hai lần, trả phiếu đã trả và nhập mã có khoảng trắng đầu/cuối.
-- [ ] Thử thư viện rỗng, tệp không tồn tại, tệp hỏng và tên có dấu. Tạo bộ dữ liệu nhỏ cố định để chạy lại sau mọi lần sửa; tách test cần tệp riêng để không làm hỏng dữ liệu mẫu.
-- [ ] Sửa từng lỗi, chạy lại tình huống đã gây lỗi rồi commit thay đổi. Khi phát hiện lỗi, giữ lại đúng ca đó và chỉ đóng lỗi sau khi ca cũ cùng các ca liên quan đều qua.
-
-### 044 · Hoàn thiện để người khác chạy được
-
-**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Viết README: yêu cầu trình biên dịch, lệnh biên dịch, cách chạy và dữ liệu mẫu. README phải có lệnh build thật đã chạy, thư mục chạy lệnh và ví dụ cách mở dữ liệu mẫu.
-- [ ] Tách tệp nguồn, dữ liệu mẫu và tệp do chương trình sinh ra. Kiểm tra project không phụ thuộc đường dẫn tuyệt đối của riêng máy mình.
-- [ ] Nhờ một người làm theo README hoặc tự thử từ thư mục sao chép sạch. Đánh dấu tệp đầu vào mẫu khác tệp đầu ra, đưa tệp build và dữ liệu cá nhân vào gitignore phù hợp.
-- [ ] Ghi giới hạn hiện tại và một quyết định thiết kế có lý do cụ thể. Ghi một ví dụ lỗi đã được xử lý và một giới hạn còn lại, để người chạy biết phiên bản này hỗ trợ tới đâu.
+- [ ] Xây dựng kiến trúc điều phối tuần tự: Tiếp nhận yêu cầu -> Kiểm tra tính hợp lệ -> Kích hoạt nghiệp vụ -> Phản hồi kết quả rõ ràng. Xây dựng kiến trúc điều phối tuần tự: Tiếp nhận yêu cầu -> Xác thực dữ liệu đầu vào (Validation) -> Kích hoạt nghiệp vụ -> Phản hồi kết quả rõ ràng.
+- [ ] Phân biệt rõ 3 trạng thái phản hồi: Thành công, Không tìm thấy, và Bị từ chối kèm nguyên nhân kỹ thuật cụ thể. Phân biệt rõ ràng 3 trạng thái phản hồi: Thành công, Không tìm thấy, và Bị từ chối kèm nguyên nhân kỹ thuật cụ thể.
+- [ ] Xử lý dữ liệu đầu vào bất thường một cách an toàn mà không làm sập hoặc treo luồng xử lý của hệ thống. Xử lý dữ liệu đầu vào bất thường một cách an toàn mà không làm sập hoặc treo luồng xử lý của hệ thống.
+- [ ] Tách biệt hoàn toàn luồng điều phối (Controller) khỏi phần hiển thị kết quả (View), giúp hệ thống dễ dàng thay thế giao diện (Console, Web API, Test Suite).
 
-### 045 · Tự sửa project khi yêu cầu thay đổi
+### 042 · Cơ chế lưu trữ bền vững nguyên tử và khôi phục
 
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Vá nền C++ & Bộ nhớ (`track-0`)
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
 **Việc cần làm:**
 
-- [ ] Thêm tìm kiếm sách theo một phần tên mà không phá chức năng tìm theo mã. Đặt yêu cầu tìm theo một phần tên có phân biệt hoa thường hay không; chọn quy tắc đơn giản và nhất quán với UTF-8 đang dùng.
-- [ ] Tự lần theo đường đi từ menu tới dữ liệu trước khi sửa. Xác định hàm nào nên nhận yêu cầu mới, dữ liệu nào giữ nguyên và ca kiểm thử nào phải bổ sung.
-- [ ] Chạy lại bảng tình huống kiểm thử và đọc git diff trước khi commit. Thử tìm không có kết quả, nhiều kết quả và tên chứa khoảng trắng; giữ chức năng tìm mã duy nhất vẫn đúng.
-- [ ] Ghi lại phần còn yếu để ôn; tiếp tục công cụ, toán rời rạc rồi cấu trúc dữ liệu. Tự giải thích phần đã sửa bằng luồng dữ liệu, không đọc lại từng dòng mã thay cho giải thích thiết kế.
+- [ ] Thiết kế cơ chế ghi tệp nguyên tử (Atomic Write): Ghi sang tệp tạm rồi hoán đổi tệp để tránh hỏng dữ liệu khi mất nguồn giữa chừng. Thiết kế cơ chế ghi tệp nguyên tử (Atomic Write): Ghi sang tệp tạm (.tmp) rồi thực hiện thao tác hoán đổi tên tệp (Atomic Rename) để tránh hỏng dữ liệu khi mất nguồn giữa chừng.
+- [ ] Đọc và khôi phục toàn vẹn dữ liệu: Nạp toàn bộ vào vùng nhớ tạm, kiểm tra tính toàn vẹn quan hệ trước khi ghi đè trạng thái đang chạy. Đọc và khôi phục toàn vẹn dữ liệu: Nạp toàn bộ vào vùng nhớ tạm, kiểm tra tính toàn vẹn quan hệ trước khi ghi đè trạng thái đang chạy.
+- [ ] Xử lý lỗi hỏng dữ liệu: Báo rõ dòng và vị trí lỗi, dừng an toàn thay vì âm thầm ghi đè làm mất dữ liệu gốc. Xử lý lỗi hỏng dữ liệu (Data Corruption): Báo rõ dòng và vị trí lỗi, dừng an toàn thay vì âm thầm ghi đè làm mất dữ liệu gốc.
+- [ ] Hiểu cơ chế đồng bộ hóa I/O: Tác động của bộ đệm hệ điều hành và cách sử dụng thao tác đồng bộ xuống đĩa cứng (fsync/flush) để đảm bảo độ bền dữ liệu.
+
+### 043 · Chiến lược kiểm thử tự động và ca biên
+
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Xây dựng bộ kiểm thử ca biên tự động: Dữ liệu rỗng, dữ liệu cực trị, thao tác trùng lặp và thao tác sai thứ tự logic. Xây dựng bộ kiểm thử ca biên tự động: Dữ liệu rỗng, dữ liệu cực trị, thao tác trùng lặp và thao tác sai thứ tự logic.
+- [ ] Kiểm tra tính nhất quán: Chạy chuỗi thao tác ngẫu nhiên và đối chiếu trạng thái hệ thống với mô hình kiểm chứng độc lập. Kiểm tra tính nhất quán hệ thống: Chạy chuỗi thao tác ngẫu nhiên (Fuzzing) và đối chiếu trạng thái hệ thống với mô hình kiểm chứng độc lập.
+- [ ] Ghi lại trường hợp tối thiểu gây lỗi (Minimal Failing Case) để khoanh vùng và sửa chữa tận gốc rễ. Ghi lại trường hợp tối thiểu gây lỗi (Minimal Failing Case) để khoanh vùng và sửa chữa tận gốc rễ.
+- [ ] Đo đạc độ bao phủ kiểm thử (Test Coverage) và đảm bảo 100% các nhánh xử lý lỗi nghiệp vụ đều có ca thử tương ứng.
+
+### 044 · Đo lường hiệu năng và tính cục bộ bộ nhớ
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Thiết kế kịch bản đo đạc tài nguyên: Đo thời gian thực thi và dung lượng bộ nhớ khi kích thước dữ liệu tăng từ 10^2 đến 10^5. Thiết kế kịch bản đo đạc tài nguyên: Đo thời gian thực thi và dung lượng bộ nhớ khi kích thước dữ liệu tăng từ 10^2 đến 10^5 phần tử.
+- [ ] Đánh giá tính cục bộ của bộ nhớ (Memory Locality): So sánh chi phí lưu trữ liên tục trên mảng vs cấp phát rời rạc trên heap. Đánh giá tính cục bộ của bộ nhớ (Memory Locality): So sánh chi phí lưu trữ liên tục trên mảng vs cấp phát rời rạc trên heap để quan sát hiệu ứng CPU Cache Hit/Miss.
+- [ ] Viết tài liệu kiến trúc kỹ thuật: Ghi rõ quyết định thiết kế, các đánh đổi kỹ thuật (Trade-offs) và giới hạn hoạt động của hệ thống. Viết tài liệu kiến trúc kỹ thuật: Ghi rõ quyết định thiết kế, các đánh đổi kỹ thuật (Trade-offs) và giới hạn hoạt động của hệ thống.
+- [ ] Đảm bảo dự án có thể biên dịch và chạy độc lập từ checkout sạch mà không phụ thuộc đường dẫn tuyệt đối của máy cá nhân.
+
+### 045 · Tái cấu trúc theo nguyên lý thiết kế phần mềm sạch
+
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Thêm tìm kiếm sách theo một phần tên mà không phá chức năng tìm theo mã. Đánh giá lại sự phân tách trách nhiệm giữa các mô-đun: Giảm độ phụ thuộc (Loose Coupling) và tăng tính gắn kết (High Cohesion).
+- [ ] Tự lần theo đường đi từ menu tới dữ liệu trước khi sửa. Thử nghiệm mở rộng tính năng mới (ví dụ: thêm cơ chế chỉ mục tra cứu) mà không phải sửa đổi mã nguồn các mô-đun đã ổn định (Open/Closed Principle).
+- [ ] Chạy lại bảng tình huống kiểm thử và đọc git diff trước khi commit. Chạy lại toàn bộ bộ kiểm thử tự động để bảo đảm không phát sinh lỗi hồi quy (Regression Bugs) sau khi tái cấu trúc.
+- [ ] Ghi lại phần còn yếu để ôn; tiếp tục công cụ, toán rời rạc rồi cấu trúc dữ liệu. Đúc kết bài học kỹ thuật: Phân tích các quyết định thiết kế đã phải thay đổi trong quá trình phát triển và lý do kỹ thuật đằng sau.
 - [ ] Đưa README cho một người khác dựng và chạy thử; tự xử lý một lỗi họ tái hiện được. Lưu commit trước/sau và test ngăn lỗi quay lại.
 
 # Track 1: Lập trình Hướng đối tượng & Thiết kế Phần mềm (Programming & OOP)
@@ -490,8 +491,8 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 006 · Hàm và cách truyền tham số (`cpp-functions`)
-- [ ] 008 · string và vector (`cpp-containers`)
+- [ ] 006 · Mô hình khung hàm (Stack Frame) và truyền tham số (`cpp-functions`)
+- [ ] 008 · Cơ chế mảng động và chi phí khấu hao (`cpp-containers`)
 - [ ] 014 · Lớp, đối tượng và đóng gói (`oop-class`)
 
 **Thông tin thêm & Lưu ý bản chất:**
