@@ -6,7 +6,9 @@ import { futureSections } from './future.js';
 import { expandTasks } from './details/index.js';
 import { reviseTasks, withPlacements } from './revision.js';
 import { attachReadings } from './readings.js';
-import { tracks, chapterToTrackId, capstoneProjects } from './tracks.js';
+import { tracks as baseTracks, chapterToTrackId as baseChapterToTrackId, capstoneProjects } from './tracks.js';
+import { applyEdition } from './edition.js';
+export { learnerProfile, stages } from './edition.js';
 
 const old = initialTasks.map(t => ({ ...t }));
 // Giữ ID của 32 nhiệm vụ cũ để mọi bản sao lưu tiếp tục dùng được.
@@ -40,9 +42,9 @@ const sections = [
   byId.get('professional'), byId.get('direction'), byId.get('capstone'), byId.get('career'),
 ];
 
-export const chapters = sections.map(({ chapter }, i) => ({
+const legacyChapters = sections.map(({ chapter }, i) => ({
   ...chapter,
-  trackId: chapterToTrackId[chapter.id] || 'track-0',
+  trackId: baseChapterToTrackId[chapter.id] || 'track-0',
   number: String(i + 1).padStart(2, '0')
 }));
 
@@ -233,22 +235,32 @@ export const pedagogicalEnrichments = {
   }
 };
 
-export const tasks = attachReadings(withPlacements(reviseTasks(expanded))).map((t, i) => {
+// Hiệu chỉnh các khẳng định quá tuyệt đối của bản trước, giữ nhiệm vụ và tài liệu.
+pedagogicalEnrichments['oop-virtual'].extra = 'Đa hình động: theo dõi gọi hàm ảo qua con trỏ/tham chiếu lớp cha. vptr/vtable là cách triển khai phổ biến, bố trí và kích thước phụ thuộc ABI/compiler, không do chuẩn C++ bắt buộc. Nếu cho phép delete đối tượng con qua con trỏ Base, destructor Base cần virtual. Đối chiếu mã assembly trên chính compiler đang dùng.';
+pedagogicalEnrichments['direction-choose'].extra = 'Chọn chuyên ngành bằng sản phẩm, bài tự làm và đề cương chính thức. Điều kiện/GPA xét tuyển phải tra thông báo HCMUS cho khóa và năm hiện tại; không coi một ngưỡng GPA tự đặt là bảo đảm trúng tuyển.';
+const legacyTasks = attachReadings(withPlacements(reviseTasks(expanded))).map((t, i) => {
   const enrichment = pedagogicalEnrichments[t.id];
   return {
     ...t,
-    trackId: chapterToTrackId[t.chapter] || 'track-0',
+    trackId: baseChapterToTrackId[t.chapter] || 'track-0',
     extra: enrichment?.extra ? (t.extra ? `${t.extra} ${enrichment.extra}` : enrichment.extra) : t.extra,
     number: String(i + 1).padStart(3, '0')
   };
 });
 
+const revised = applyEdition(legacyTasks);
+const newTrack = { intro:'track-0', debug:'track-5', calculus:'track-4', statistics:'track-4', 'system-programming':'track-3', 'systems-track':'track-3', parallel:'track-3', 'database-internals':'track-6', languages:'track-6', graphics:'track-6', hci:'track-6', 'special-platforms':'track-6', embedded:'track-6', 'data-track':'track-6', 'compiler-track':'track-6', 'distributed-track':'track-6' };
+export const chapterToTrackId = Object.fromEntries(revised.chapters.map(c => [c.id, newTrack[c.id] || baseChapterToTrackId[c.id]]));
+export const chapters = revised.chapters.map(c => ({ ...c, trackId: chapterToTrackId[c.id] }));
+export const tasks = revised.tasks.map(t => ({ ...t, trackId: chapterToTrackId[t.chapter] }));
+export const previousTaskIds = legacyTasks.map(t => t.id);
+export const tracks = baseTracks.map(tr => ({ ...tr, chapterIds: chapters.filter(c => c.trackId === tr.id).map(c => c.id) }));
 export const edition = {
-  version: '2.0.0',
-  title: 'Lộ trình KHMT Toàn diện · HCMUS & Chuẩn Quốc tế (7 Tracks)',
-  scope: 'Lộ trình tự học cá nhân hóa chuẩn HCMUS và quốc tế; 7 tiến trình (tracks) có thứ tự rõ ràng, giải quyết dứt điểm lỗ hổng năm 1, gắn kết HK1 năm 2 và tối ưu xét tuyển chuyên ngành KHMT.',
+  version: '2.1.0',
+  title: 'Nền CS rộng · Hiểu hệ thống · Tự làm được',
+  scope: 'Chương trình tự học có nền chung và các nhánh chuyên sâu; giữ 7 track và tiến độ cũ. Đường nối là thứ tự gợi ý, không phải mọi môn trước đều là điều kiện bắt buộc. Không thay thế yêu cầu tốt nghiệp HCMUS.',
   targetAudience: 'Sinh viên Năm 2 ĐH KHTN (HCMUS) chuẩn bị xét tuyển chuyên ngành Khoa học Máy tính',
-  lastUpdated: '04/11/2026',
+  lastUpdated: '06/11/2026',
 };
 
-export { tracks, chapterToTrackId, capstoneProjects };
+export { capstoneProjects };

@@ -708,7 +708,7 @@ describe('Tier 4: Real-World Scenarios', () => {
         [allTaskIds[1]]: 'done',
       };
       const next = nextTask(tasks, statuses);
-      assert.equal(next.id, allTaskIds[2]);
+      assert.equal(next.id, tasks.find(t => !t.optional).id);
     });
 
     it('skips deferred optional tasks and resumes next required task', () => {

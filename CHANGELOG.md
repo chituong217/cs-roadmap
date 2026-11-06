@@ -1,3 +1,11 @@
+## 2.1.0 — 2026-11-06
+
+- Tích hợp trên 7 commit mới nhất: giữ 7 track, filter, sidebar thu gọn, tick việc, 5 mini-project và storage v2.
+- Thêm 64 nhiệm vụ, tổ chức 42 môn có đầu vào/mục tiêu/bằng chứng; debug và hệ thống lên sớm.
+- Thêm Chương trình thu gọn, profile đã xác nhận, prompt theo môn và hai trạng thái ôn tập.
+- Giữ 355 ID; tiếp tục nhánh tự chọn vừa học; đọc backup v1/v2 không bỏ checkedTodos.
+- Sửa thông tin học hiện tại và các khẳng định quá tuyệt đối về ABI/GPA.
+
 # Thay đổi
 
 ## 1.2.0 — 2026-11-03

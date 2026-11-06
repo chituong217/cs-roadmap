@@ -10,7 +10,7 @@ async function ready() {
 if (!await ready()) {
   const vite = path.join(root, 'node_modules', 'vite', 'bin', 'vite.js');
   if (!existsSync(vite) || !existsSync(path.join(root, 'dist', 'index.html'))) { console.error('Chua co ban chay. Mo terminal trong thu muc nay, chay npm ci va npm run build truoc.'); process.exit(1); }
-  const server = spawn(process.execPath, [vite, 'preview', '--host', '127.0.0.1', '--port', '4178', '--strictPort'], { cwd: root, detached: true, stdio: 'ignore', windowsHide: true });
+  const server = spawn(process.execPath, [vite, 'preview', '--configLoader', 'runner', '--host', '127.0.0.1', '--port', '4178', '--strictPort'], { cwd: root, detached: true, stdio: 'ignore', windowsHide: true });
   server.on('error', err => { console.error(err.message); process.exitCode = 1; });
   server.unref();
   let available = false;

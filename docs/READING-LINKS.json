@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03T12:54:28.881Z",
+  "checkedAt": "2026-11-06T16:03:43.033Z",
   "note": "HTTP reachability only; free-access policy is reviewed separately from author/publisher pages.",
   "result": [
     {
@@ -15,16 +15,40 @@
       "finalUrl": "https://jeffe.cs.illinois.edu/teaching/algorithms/"
     },
     {
+      "key": "android",
+      "url": "https://developer.android.com/guide/components/fundamentals",
+      "status": 200,
+      "finalUrl": "https://developer.android.com/guide/components/fundamentals"
+    },
+    {
+      "key": "berkeleydb",
+      "url": "https://cs186berkeley.net/notes/",
+      "status": 200,
+      "finalUrl": "https://cs186berkeley.net/notes/"
+    },
+    {
       "key": "calculus",
       "url": "https://openstax.org/details/books/calculus-volume-1",
       "status": 200,
       "finalUrl": "https://openstax.org/details/books/calculus-volume-1"
     },
     {
+      "key": "cmudb",
+      "url": "https://15445.courses.cs.cmu.edu/fall2025/",
+      "status": 200,
+      "finalUrl": "https://15445.courses.cs.cmu.edu/fall2025/"
+    },
+    {
       "key": "composing",
       "url": "https://composingprograms.com/pages/",
       "status": 200,
       "finalUrl": "https://composingprograms.com/pages/"
+    },
+    {
+      "key": "composing2",
+      "url": "https://www.composingprograms.com/",
+      "status": 200,
+      "finalUrl": "https://composingprograms.com/"
     },
     {
       "key": "cph",
@@ -37,6 +61,24 @@
       "url": "https://www.learncpp.com/",
       "status": 200,
       "finalUrl": "https://www.learncpp.com/"
+    },
+    {
+      "key": "crafting",
+      "url": "https://craftinginterpreters.com/contents.html",
+      "status": 200,
+      "finalUrl": "https://craftinginterpreters.com/contents.html"
+    },
+    {
+      "key": "cs188",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/textbook/",
+      "status": 200,
+      "finalUrl": "https://inst.eecs.berkeley.edu/~cs188/textbook/"
+    },
+    {
+      "key": "cs61c",
+      "url": "https://notes.cs61c.org/",
+      "status": 200,
+      "finalUrl": "https://notes.cs61c.org/"
     },
     {
       "key": "d2l",
@@ -93,6 +135,12 @@
       "finalUrl": "https://cp-algorithms.com/string/prefix-function.html"
     },
     {
+      "key": "learncpp2",
+      "url": "https://www.learncpp.com/",
+      "status": 200,
+      "finalUrl": "https://www.learncpp.com/"
+    },
+    {
       "key": "linear",
       "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
       "status": 200,
@@ -103,6 +151,12 @@
       "url": "https://matplotlib.org/stable/tutorials/index.html",
       "status": 200,
       "finalUrl": "https://matplotlib.org/stable/tutorials/index.html"
+    },
+    {
+      "key": "missing26",
+      "url": "https://missing.csail.mit.edu/",
+      "status": 200,
+      "finalUrl": "https://missing.csail.mit.edu/"
     },
     {
       "key": "mitAlgo",
@@ -129,6 +183,12 @@
       "finalUrl": "https://www.nand2tetris.org/course"
     },
     {
+      "key": "nandprojects",
+      "url": "https://www.nand2tetris.org/course",
+      "status": 200,
+      "finalUrl": "https://www.nand2tetris.org/course"
+    },
+    {
       "key": "network",
       "url": "https://intronetworks.cs.luc.edu/current/html/index.html",
       "status": 200,
@@ -147,6 +207,12 @@
       "finalUrl": "https://opendatastructures.org/"
     },
     {
+      "key": "omp",
+      "url": "https://www.openmp.org/resources/tutorials-articles/",
+      "status": 200,
+      "finalUrl": "https://www.openmp.org/resources/tutorials-articles/"
+    },
+    {
       "key": "os",
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "status": 200,
@@ -157,6 +223,12 @@
       "url": "https://github.com/ossu/computer-science",
       "status": 200,
       "finalUrl": "https://github.com/ossu/computer-science"
+    },
+    {
+      "key": "ost",
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "status": 200,
+      "finalUrl": "https://pages.cs.wisc.edu/~remzi/OSTEP/"
     },
     {
       "key": "pandas",
@@ -195,10 +267,28 @@
       "finalUrl": "https://docs.python.org/3/tutorial/"
     },
     {
+      "key": "raft",
+      "url": "https://raft.github.io/",
+      "status": 200,
+      "finalUrl": "https://raft.github.io/"
+    },
+    {
+      "key": "ray",
+      "url": "https://raytracing.github.io/",
+      "status": 200,
+      "finalUrl": "https://raytracing.github.io/"
+    },
+    {
       "key": "react",
       "url": "https://react.dev/learn",
       "status": 200,
       "finalUrl": "https://react.dev/learn"
+    },
+    {
+      "key": "rust",
+      "url": "https://docs.rust-embedded.org/book/",
+      "status": 200,
+      "finalUrl": "https://docs.rust-embedded.org/book/"
     },
     {
       "key": "search",
@@ -233,7 +323,8 @@
     {
       "key": "systems",
       "url": "https://diveintosystems.org/book/",
-      "error": "fetch failed"
+      "status": 200,
+      "finalUrl": "https://diveintosystems.org/book/"
     },
     {
       "key": "theory",
@@ -260,10 +351,22 @@
       "finalUrl": "https://www.w3.org/WAI/tutorials/"
     },
     {
+      "key": "wai2",
+      "url": "https://www.w3.org/WAI/tutorials/",
+      "status": 200,
+      "finalUrl": "https://www.w3.org/WAI/tutorials/"
+    },
+    {
       "key": "web",
       "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
       "status": 200,
       "finalUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+    },
+    {
+      "key": "xv6book",
+      "url": "https://pdos.csail.mit.edu/6.1810/2025/xv6.html",
+      "status": 200,
+      "finalUrl": "https://pdos.csail.mit.edu/6.1810/2025/xv6.html"
     }
   ]
 }

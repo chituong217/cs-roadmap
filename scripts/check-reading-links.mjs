@@ -1,14 +1,15 @@
+import { additionalLibrary } from '../src/curriculum/edition-content.js';
 import { freeLibrary } from '../src/curriculum/readings.js';
 import { writeFile } from 'node:fs/promises';
 
-const entries = Object.entries(freeLibrary);
+const entries = Object.entries({ ...freeLibrary, ...additionalLibrary });
 const result = [];
 let cursor = 0;
 async function worker() {
   while (cursor < entries.length) {
     const [key, [, url]] = entries[cursor++];
     try {
-      const response = await fetch(url, { signal: AbortSignal.timeout(15000), headers: { 'User-Agent': 'RoadmapLinkCheck/1.2' } });
+      const response = await fetch(url, { signal: AbortSignal.timeout(15000), headers: { 'User-Agent': 'RoadmapLinkCheck/2.0' } });
       result.push({ key, url, status: response.status, finalUrl: response.url });
       await response.body?.cancel();
     } catch (err) { result.push({ key, url, error: err.message }); }

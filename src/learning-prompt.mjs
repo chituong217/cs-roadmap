@@ -1,3 +1,4 @@
+import { learnerProfile } from './curriculum/edition.js';
 export const teachingPlugin = '[@chituongedu](plugin://chituongedu@workspace-shared-with-me)';
 
 export function chatTitle(task) {
@@ -10,14 +11,14 @@ export function buildLearningPrompt(task, allTasks = []) {
   const sources = (task.sources || []).map(([label, url, scope, access]) =>
     `- ${label}: ${url}${scope ? `\n  Phần cần đọc: ${scope}` : ''}${access ? `\n  Truy cập: ${access}` : ''}`);
   const targets = (task.reviewTargets || []).map(id => allTasks.find(t => t.id === id)).filter(Boolean);
-  const priority = typeof task.optional !== 'boolean' ? '[Bắt buộc / Nâng cao, có thể để học sau]' : task.optional ? 'Nâng cao, có thể để học sau trong vòng nền.' : 'Bắt buộc trong phần nền của roadmap.';
+  const priority = typeof task.optional !== 'boolean' ? '[Bắt buộc / Nâng cao, có thể để học sau]' : task.level === 'bridge' ? 'Lối vào cho người mới; có thể đi nhanh sau kiểm tra nếu đã biết.' : task.optional ? 'Chuyên sâu, có thể để học sau trong vòng nền.' : 'Bắt buộc trong phần nền của roadmap.';
   return `${title}
 
 Dùng ${teachingPlugin} làm phương pháp dạy học cho cuộc trò chuyện này. Nếu plugin chưa được chọn hoặc không truy cập được, nói rõ, không tự nhận đã kích hoạt hay đọc nó.
 
 Tên cuộc trò chuyện mong muốn: "${title}". Nếu có công cụ đổi tên chat hiện tại, hãy dùng; nếu không có, dùng đúng tên này làm tiêu đề đầu tiên và nói ngắn rằng tôi có thể đổi tên thủ công. Không tự nhận đã đổi tên thanh bên chỉ vì đã viết tiêu đề trong câu trả lời.
 
-Tôi là sinh viên năm 2 HCMUS, biết C++, đang học OOP; từng học DSA và làm nhiều bài 28tech nhưng đã quên khá nhiều. Đừng mặc định tôi mới hoàn toàn hoặc đã vững chỉ vì từng làm bài. Tôi muốn hiểu bản chất và tự làm được.
+Tôi là sinh viên năm 2 HCMUS. Điểm xuất phát cập nhật ${learnerProfile.updated}: ${learnerProfile.summary} ${learnerProfile.note} Đừng mặc định tôi mới hoàn toàn hoặc đã vững chỉ vì từng làm bài. Tôi muốn hiểu bản chất và tự làm được.
 
 Ô đang học:
 - Số node: ${task.number}
@@ -25,6 +26,7 @@ Tôi là sinh viên năm 2 HCMUS, biết C++, đang học OOP; từng học DSA 
 - Loại: ${task.kind}
 - Mức ưu tiên: ${priority}
 
+${task.course ? `Môn: ${task.course.title}\nĐầu vào: ${task.course.prerequisites.join('; ')}\nMục tiêu môn: ${task.course.goal}\nBằng chứng chuyển tiếp: ${task.course.evidence}\n` : ''}
 Việc cần làm:
 ${task.todos.map(t => `+ ${t}`).join('\n')}
 ${task.extra ? `\nThông tin thêm:\n${task.extra}\n` : ''}${task.optionalReason ? `\nKhi nào cần quay lại phần này:\n${task.optionalReason}\n` : ''}${targets.length ? `\nCác ô cần ôn tùy bài làm:\n${targets.map(t => `- ${chatTitle(t)}`).join('\n')}\n` : ''}${sources.length ? `\nNguồn tham khảo miễn phí và phạm vi đọc:\n${sources.join('\n')}\n` : ''}

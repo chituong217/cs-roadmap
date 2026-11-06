@@ -241,7 +241,7 @@ test('CHALLENGER 2: 7-column layout has distinct X coordinates and strictly mono
   });
 
   // Verify node counts: 7 track headers + 355 tasks = 362 nodes
-  assert.equal(nodes.length, 7 + 355, 'All-tracks view must generate exactly 362 nodes (7 headers + 355 tasks)');
+  assert.equal(nodes.length, tracks.length + tasks.length, 'Every task and track header must appear exactly once');
 
   // Verify track header X positions: 0, 430, 860, 1290, 1720, 2150, 2580
   const expectedColumnXs = [0, 430, 860, 1290, 1720, 2150, 2580];

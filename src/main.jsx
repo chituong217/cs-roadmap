@@ -31,6 +31,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import PromptDialog from './PromptDialog';
+import CurriculumOverview from './CurriculumOverview';
 import { tracks, chapters, tasks, edition, capstoneProjects, chapterToTrackId } from './curriculum';
 import {
   emptyProgress,
@@ -53,7 +54,7 @@ const normalize = text =>
     .replace(/đ/g, 'd')
     .toLowerCase();
 
-const statusIcon = { todo: Circle, learning: BookOpen, done: Check, deferred: Clock };
+const statusIcon = { todo: Circle, learning: BookOpen, done: Check, deferred: Clock, reviewed: BookOpen, revisit: Clock };
 
 function TaskNode({ data }) {
   const Icon = statusIcon[data.status] || Circle;
@@ -81,7 +82,7 @@ function TaskNode({ data }) {
           <span className={`kind kind-${data.task.kind}`}>{data.task.kind}</span>
         </span>
         <span className="node-chapter">
-          {data.task.optional ? 'NÂNG CAO · CÓ THỂ BỎ QUA' : data.chapter?.title}
+          {data.task.level === 'bridge' ? 'NHẬP MÔN · CÓ THỂ ĐI NHANH' : data.task.optional ? 'CHUYÊN SÂU · HỌC SAU' : data.chapter?.title}
         </span>
         <strong>{data.task.title}</strong>
         <span className="node-bottom">
@@ -151,13 +152,14 @@ function Roadmap() {
   const [activeTrackId, setActiveTrackId] = useState(initial.data.activeTrackId || 'all');
   const [filterStatus, setFilterStatusState] = useState(initial.data.filterStatus || 'all');
   const [filterKind, setFilterKind] = useState('all');
-  const [selected, setSelected] = useState(initial.data.lastTask || tasks[0].id);
+  const [selected, setSelected] = useState(initial.data.lastTask || nextTask(tasks, initial.data.statuses).id);
   const [detailOpen, setDetailOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [notice, setNotice] = useState(initial.notice || initial.error);
   const [storageError, setStorageError] = useState('');
   const [helpOpen, setHelpOpen] = useState(false);
   const [promptOpen, setPromptOpen] = useState(false);
+  const [overviewOpen, setOverviewOpen] = useState(false);
   const [capstoneOpen, setCapstoneOpen] = useState(false);
   const [leftOpen, setLeftOpen] = useState(() => {
     try {
@@ -677,7 +679,7 @@ function Roadmap() {
         <h2>{current.title}</h2>
         {current.optional && (
           <div className="optional-note">
-            <strong>Nâng cao · Có thể bỏ qua trong vòng nền</strong>
+            <strong>{current.level === "bridge" ? "Nhập môn · Có thể đi nhanh" : "Chuyên sâu · Có thể học sau"}</strong>
             <p>{current.optionalReason}</p>
           </div>
         )}
@@ -700,6 +702,7 @@ function Roadmap() {
               );
             })}
         </div>
+        <section className="course-context"><span>{chapter.baseline}</span><p><b>Mục tiêu môn:</b> {chapter.goal}</p><details><summary>Đầu vào và cách kiểm chứng</summary><p><b>Nền cần có:</b> {chapter.prerequisites.join("; ") || "Chưa cần biết lập trình."}</p><p><b>Qua môn khi:</b> {chapter.evidence}</p><small>Điểm xuất phát là lịch sử học, không phải kết luận đã vững.</small></details></section>
         <div className="todo-header">
           <h3>Việc cần làm</h3>
           <span className="todo-counter">
@@ -818,7 +821,7 @@ function Roadmap() {
           </span>
         </a>
         <span className="prototype-tag">Lộ trình · {edition.version}</span>
-        <div className="header-actions">
+        <div className="header-actions"><button className="curriculum-trigger" aria-label="Chương trình" onClick={() => setOverviewOpen(true)}><BookOpen size={15}/><span>Chương trình</span></button>
           <button
             className={`capstone-header-btn ${capstoneOpen ? 'active' : ''}`}
             aria-label="Xem 5 Đồ án Capstone"
@@ -1046,7 +1049,7 @@ function Roadmap() {
               <button className="help-inline-btn" onClick={() => setHelpOpen(v => !v)} aria-expanded={helpOpen}>
                 Cách dùng
               </button>
-              <button className="resume-button" onClick={() => openTask(nextTask(tasks, progress.statuses).id)}>
+              <button className="resume-button" onClick={() => openTask(nextTask(tasks, progress.statuses, progress.lastTask).id)}>
                 Tiếp tục học
                 <ArrowRight size={14} />
               </button>
@@ -1178,7 +1181,7 @@ function Roadmap() {
           <footer className="map-footer">
             <span className="sample-pill">LỘ TRÌNH {edition.version}</span>
             <span>
-              7 Tracks · {chapters.length} chặng · {tasks.length} nhiệm vụ · 5 Đồ án Capstone · Chuẩn HCMUS & Quốc tế
+              7 Tracks · {chapters.length} chặng · {tasks.length} nhiệm vụ · 5 Đồ án Capstone · Học, luyện và làm project
             </span>
           </footer>
         </main>
@@ -1286,6 +1289,7 @@ function Roadmap() {
         </div>
       </dialog>
 
+      <CurriculumOverview open={overviewOpen} onClose={() => setOverviewOpen(false)} chapters={chapters} tasks={tasks} statuses={progress.statuses} onChoose={id => { setFilterStatus('all'); setFilterKind('all'); setQuery(''); openTask(id); }}/>
       <PromptDialog open={promptOpen} onClose={() => setPromptOpen(false)} task={current} tasks={tasks} />
 
       {(notice || storageError) && (

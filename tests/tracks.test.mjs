@@ -27,7 +27,7 @@ test('curriculum defines exactly 7 tracks with complete metadata', () => {
 });
 
 test('every chapter maps cleanly and uniquely to a valid track', () => {
-  assert.equal(chapters.length, 27);
+  assert.equal(chapters.length, 42);
   const validTrackIds = new Set(tracks.map(t => t.id));
 
   for (const ch of chapters) {

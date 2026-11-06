@@ -8,6 +8,8 @@ export const labels = {
   learning: 'Đang học',
   done: 'Hoàn thành',
   deferred: 'Để học sau',
+  reviewed: 'Đã học · cần kiểm tra',
+  revisit: 'Cần ôn',
 };
 
 export const kindLabels = {
@@ -139,10 +141,16 @@ export function loadProgressFromStorage(storage, ids = []) {
   }
 }
 
-export function nextTask(tasks, statuses) {
-  return (
-    tasks.find(t => statuses[t.id] === 'learning') ||
-    tasks.find(t => statuses[t.id] !== 'done' && !(t.optional && statuses[t.id] === 'deferred')) ||
-    tasks[0]
-  );
+export function nextTask(tasks, statuses, lastTask = null) {
+  const pending = t => statuses[t.id] !== 'done' && !(t.optional && statuses[t.id] === 'deferred');
+  const last = tasks.find(t => t.id === lastTask);
+  const inRoute = last && last.optional && statuses[last.id] === 'done'
+    ? tasks.slice(tasks.indexOf(last) + 1).find(t => t.chapter === last.chapter && pending(t)) : null;
+  return tasks.find(t => statuses[t.id] === 'learning')
+    || inRoute
+    || tasks.find(t => statuses[t.id] === 'revisit')
+    || (!Object.keys(statuses).length && tasks.find(t => t.id === 'debug-reproduce'))
+    || tasks.find(t => !t.optional && pending(t))
+    || tasks.find(t => !(t.optional && statuses[t.id] === 'deferred') && statuses[t.id] !== 'done')
+    || tasks[0];
 }

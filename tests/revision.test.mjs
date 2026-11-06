@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tasks, chapters, baselineTaskIds } from '../src/curriculum/index.js';
+import { additionalLibrary } from '../src/curriculum/edition-content.js';
 import { freeLibrary } from '../src/curriculum/readings.js';
 import { emptyProgress, nextTask, validateProgress } from '../src/progress.mjs';
 import { buildLearningPrompt, blankLearningPrompt, chatTitle, teachingPlugin } from '../src/learning-prompt.mjs';
@@ -12,7 +13,7 @@ test('every 1.1 task ID and saved status survives the expanded curriculum', () =
   assert.deepEqual(restored.statuses, statuses);
   assert.equal(restored.lastTask, 'dl-modalities');
   assert.ok(tasks.length > baselineTaskIds.length);
-  assert.equal(chapters.length, 27);
+  assert.equal(chapters.length, 42);
 });
 
 test('deferring optional work does not complete it or prevent resuming required work', () => {
@@ -45,7 +46,7 @@ test('placement tasks route to real lessons without changing another chapter ord
 });
 
 test('assigned readings have a concrete scope and a free access route', () => {
-  const approved = new Set(Object.values(freeLibrary).map(([, url]) => url));
+  const approved = new Set([...Object.values(freeLibrary), ...Object.values(additionalLibrary)].map(([, url]) => url));
   const sourced = tasks.filter(t => t.sources?.length);
   assert.ok(sourced.length > 250);
   for (const t of sourced) {

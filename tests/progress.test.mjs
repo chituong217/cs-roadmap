@@ -44,7 +44,7 @@ test('handles newer curricula without polluting current statuses', () => {
 
 test('resume prioritizes active work then first unfinished task', () => {
   assert.equal(nextTask(tasks, { [ids[2]]: 'learning' }).id, ids[2]);
-  assert.equal(nextTask(tasks, { [ids[0]]: 'done' }).id, ids[1]);
+  assert.equal(nextTask(tasks, { [ids[0]]: 'done' }).id, tasks.find(t => !t.optional).id);
   assert.equal(nextTask(tasks, Object.fromEntries(ids.map(id => [id, 'done']))).id, ids[0]);
 });
 

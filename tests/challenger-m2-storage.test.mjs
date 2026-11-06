@@ -509,7 +509,7 @@ test('CHALLENGER STRESS 5.3: nextTask selects first unfinished required task whe
     [tasks[0].id]: 'done',
     [tasks[1].id]: 'done',
   };
-  assert.equal(nextTask(tasks, statuses).id, tasks[2].id);
+  assert.equal(nextTask(tasks, statuses).id, tasks.find(t => !t.optional).id);
 });
 
 test('CHALLENGER STRESS 5.4: nextTask skips optional deferred tasks but resumes required deferred tasks', () => {
@@ -531,7 +531,7 @@ test('CHALLENGER STRESS 5.4: nextTask skips optional deferred tasks but resumes 
   // nextTask must skip the optional task and pick next unfinished required task
   const chosen = nextTask(tasks, statuses);
   assert.notEqual(chosen.id, optionalTask.id, 'Optional deferred task must be skipped');
-  assert.equal(chosen.id, tasks[optIndex + 1].id);
+  assert.equal(chosen.id, nextRequired.id);
 
   // Contrast: if a required task is deferred, nextTask does NOT skip it
   const requiredTask = tasks.find(t => !t.optional);

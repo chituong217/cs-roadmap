@@ -341,8 +341,8 @@ test('EMPIRICAL STRESS TEST 4: Kahn algorithm computes complete topological sort
 /* 3. CHAPTER CONTIGUITY INVARIANT VERIFICATION                                */
 /* -------------------------------------------------------------------------- */
 
-test('EMPIRICAL STRESS TEST 5: Chapter contiguity across all 27 chapters', () => {
-  assert.equal(chapters.length, 27, 'Curriculum must have exactly 27 chapters');
+test('EMPIRICAL STRESS TEST 5: Chapter contiguity across all courses', () => {
+  assert.equal(chapters.length, 42, 'Expanded curriculum has 42 courses');
 
   for (const ch of chapters) {
     const taskIndices = [];

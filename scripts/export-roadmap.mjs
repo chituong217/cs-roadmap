@@ -95,13 +95,13 @@ for (const tr of tracks) {
   );
 
   for (const c of trChapters) {
-    lines.push(`## ${c.number}. ${c.title}`, '');
+    lines.push(`## ${c.number}. ${c.title}`, '', `**Mục tiêu:** ${c.goal}`, '', `**Đầu vào:** ${c.prerequisites.join('; ') || 'Không cần biết lập trình.'}`, '', `**Bằng chứng:** ${c.evidence}`, '', `**Điểm xuất phát:** ${c.baseline}`, '');
     const chTasks = tasks.filter(t => t.chapter === c.id);
     for (const t of chTasks) {
       lines.push(
         `### ${t.number} · ${t.title}`,
         '',
-        `**Loại:** ${t.kind} | **Mức độ:** ${t.optional ? 'Nâng cao (có thể học sau)' : 'Bắt buộc nền'} | **Track:** ${tr.shortTitle} (\`${t.trackId}\`)`,
+        `**Loại:** ${t.kind} | **Mức độ:** ${t.level === 'bridge' ? 'Nhập môn (có thể đi nhanh)' : t.optional ? 'Chuyên sâu (có thể học sau)' : 'Bắt buộc nền'} | **Track:** ${tr.shortTitle} (\`${t.trackId}\`)`,
         '',
         '**Việc cần làm:**',
         '',

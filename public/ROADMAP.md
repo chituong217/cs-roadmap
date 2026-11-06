@@ -1,14 +1,14 @@
 # Lộ trình KHMT Toàn diện · HCMUS & Chuẩn Quốc tế (7 Tracks)
 
-27 chặng · 355 nhiệm vụ · 7 tiến trình học tập · phiên bản 2.0.0
+42 chặng · 419 nhiệm vụ · 7 tiến trình học tập · phiên bản 2.1.0
 
-Lộ trình tự học cá nhân hóa chuẩn HCMUS và quốc tế; 7 tiến trình (tracks) có thứ tự rõ ràng, giải quyết dứt điểm lỗ hổng năm 1, gắn kết HK1 năm 2 và tối ưu xét tuyển chuyên ngành KHMT.
+Chương trình tự học có nền chung và các nhánh chuyên sâu; giữ 7 track và tiến độ cũ. Đường nối là thứ tự gợi ý, không phải mọi môn trước đều là điều kiện bắt buộc. Không thay thế yêu cầu tốt nghiệp HCMUS.
 
 Đối tượng mục tiêu: Sinh viên Năm 2 ĐH KHTN (HCMUS) chuẩn bị xét tuyển chuyên ngành Khoa học Máy tính
 
 Đọc từ trên xuống theo thứ tự đề xuất. Phần đã biết có thể tự kiểm tra qua các ô chẩn đoán (placement) để đi nhanh. Ô vàng là nâng cao có thể để học sau, không tính vào điều kiện hoàn thành vòng nền. Không phải đợi học hết mới ứng tuyển thực tập.
 
-Nguồn đọc được chọn là sách mở/tài liệu công khai miễn phí; chỉ đọc phạm vi ghi trong ô, không mua sách, khóa học, chứng chỉ hay gói chấm bài. Ngày rà nguồn: 04/11/2026.
+Nguồn đọc được chọn là sách mở/tài liệu công khai miễn phí; chỉ đọc phạm vi ghi trong ô, không mua sách, khóa học, chứng chỉ hay gói chấm bài. Ngày rà nguồn: 06/11/2026.
 
 Khung tham chiếu: Khoa CNTT ĐH KHTN (HCMUS), [roadmap.sh Computer Science](https://roadmap.sh/computer-science), [CS2023](https://csed.acm.org/knowledge-areas/), [OSSU](https://github.com/ossu/computer-science), [TeachYourselfCS](https://teachyourselfcs.com/). Nhiệm vụ và thứ tự được biên soạn riêng theo năng lực và mục tiêu xét chuyên ngành KHMT.
 
@@ -18,13 +18,13 @@ Khung tham chiếu: Khoa CNTT ĐH KHTN (HCMUS), [roadmap.sh Computer Science](ht
 
 | Track | Tên tiến trình | Trọng tâm sư phạm | Môn học HCMUS tương ứng | Số chặng | Số nhiệm vụ | Thời lượng ước tính |
 |---|---|---|---|---|---|---|
-| **TRACK-0** | **Tư duy Lập trình & Mô hình Thực thi** | Làm chủ mô hình thực thi mã nguồn, bản đồ bộ nhớ vật lý Stack vs Heap, bản chất địa chỉ ô nhớ và con trỏ, tư duy trừu tượng hóa dữ liệu (ADT), chi phí khấu hao mảng động, tư duy đệ quy và quy nạp, bất biến vòng lặp, và phương pháp gỡ lỗi khoa học. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 2 chặng | 19 nhiệm vụ | ~60h |
-| **TRACK-1** | **OOP & Thiết kế Phần mềm** | Nắm chắc điểm 10 môn OOP (CSC10003) HK1 Năm 2: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton). | Lập trình hướng đối tượng (CSC10003) | 1 chặng | 20 nhiệm vụ | ~70h |
+| **TRACK-0** | **Tư duy Lập trình & Mô hình Thực thi** | Làm chủ mô hình thực thi mã nguồn, bản đồ bộ nhớ vật lý Stack vs Heap, bản chất địa chỉ ô nhớ và con trỏ, tư duy trừu tượng hóa dữ liệu (ADT), chi phí khấu hao mảng động, tư duy đệ quy và quy nạp, bất biến vòng lặp, và phương pháp gỡ lỗi khoa học. | Nhập môn lập trình (CSC10001), Kỹ thuật lập trình (CSC10002) | 3 chặng | 25 nhiệm vụ | ~60h |
+| **TRACK-1** | **OOP & Thiết kế Phần mềm** | Tiếp nối OOP từ phần nạp chồng hàm, học và kiểm chứng: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton). | Lập trình hướng đối tượng (CSC10003) | 1 chặng | 20 nhiệm vụ | ~70h |
 | **TRACK-2** | **DSA Cốt lõi & Giải thuật** | Lấp dứt điểm lỗ hổng thuật toán sắp xếp (Quicksort phân hoạch Hoare/Lomuto, Mergesort, Heapsort), Cây (BST, AVL với 4 phép xoay LL/RR/LR/RL, Binary Heap), Đồ thị (BFS/DFS, Topological sort, Dijkstra với Priority Queue, Bellman-Ford, Floyd-Warshall, Kruskal với DSU nén đường đi, Prim), và Quy hoạch động (Knapsack, LIS O(n log n), LCS). | Cấu trúc dữ liệu và giải thuật (CSC10004) | 4 chặng | 82 nhiệm vụ | ~110h |
-| **TRACK-3** | **Kiến trúc & Mạng Máy tính** | Hoàn thành xuất sắc môn Mạng máy tính (CSC10008) HK1 Năm 2: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark. | Kiến trúc máy tính (CSC10007), Hệ điều hành (CSC10005), Mạng máy tính (CSC10008) | 3 chặng | 38 nhiệm vụ | ~85h |
-| **TRACK-4** | **Toán Rời rạc & Xác suất Thống kê** | Tối ưu hóa điểm số môn Toán rời rạc & tổ hợp (MTH00040) và Xác suất Thống kê cho CNTT (MTH00041) HK1 Năm 2: Logic mệnh đề & vị từ, chứng minh quy nạp, hệ thức truy hồi, hàm sinh (Generating Functions), nguyên lý Dirichlet, Định lý Bayes, biến ngẫu nhiên và phân phối (Bernoulli, Poisson, Gaussian Normal), Định lý Giới hạn Trung tâm (CLT), MLE và kiểm định giả thuyết. | Toán rời rạc & tổ hợp (MTH00040), Xác suất thống kê cho CNTT (MTH00041), Đại số tuyến tính (MTH00030) | 2 chặng | 34 nhiệm vụ | ~80h |
-| **TRACK-5** | **Công cụ & Kỹ thuật Thực chiến** | Bổ khuyết toàn diện Missing Semester: Git CLI chuyên nghiệp (phân nhánh, giải quyết xung đột merge, interactive rebase, stash, cherry-pick, PR workflow, Conventional Commits), Debugger GDB/LLDB/VS Code, diệt lỗi bộ nhớ với AddressSanitizer/Valgrind, POSIX shell & pipes, CMake đa mô-đun và tự động hóa CI/CD với GitHub Actions. | Thực hành Kỹ thuật Lập trình, Phương pháp Phát triển Phần mềm (CSC13001) | 3 chặng | 27 nhiệm vụ | ~65h |
-| **TRACK-6** | **Sẵn sàng Chuyên ngành KHMT** | Chiến lược tối ưu CPA/GPA xét tuyển chuyên ngành KHMT cuối Năm 2: Hệ quản trị CSDL quan hệ (SQL, chuẩn hóa 1NF/2NF/3NF/BCNF, chỉ mục B-Tree, giao dịch ACID), Web RESTful API, Nhập môn AI & Machine Learning (NumPy, Scikit-learn, PyTorch cơ bản), Lý thuyết tính toán (Automata, P vs NP) và xây dựng 5 Capstone Projects portfolio chứng minh năng lực kỹ nghệ. | Hệ quản trị cơ sở dữ liệu (CSC10006), Nhập môn Trí tuệ Nhân tạo (CSC14001), Xét tuyển Chuyên ngành KHMT (Cuối Năm 2) | 12 chặng | 135 nhiệm vụ | ~120h |
+| **TRACK-3** | **Kiến trúc & Mạng Máy tính** | Tiếp nối mạng từ chương 2, bổ sung kiến trúc/OS từ đầu: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark. | Kiến trúc máy tính (CSC10007), Hệ điều hành (CSC10005), Mạng máy tính (CSC10008) | 6 chặng | 50 nhiệm vụ | ~85h |
+| **TRACK-4** | **Toán Rời rạc & Xác suất Thống kê** | Ôn toán năm 1 theo bài làm, tiếp tục xác suất thống kê và toán tổ hợp đang học: Logic mệnh đề & vị từ, chứng minh quy nạp, hệ thức truy hồi, hàm sinh (Generating Functions), nguyên lý Dirichlet, Định lý Bayes, biến ngẫu nhiên và phân phối (Bernoulli, Poisson, Gaussian Normal), Định lý Giới hạn Trung tâm (CLT), MLE và kiểm định giả thuyết. | Toán rời rạc (MTH00045), Toán học tổ hợp (MTH00050 theo bảng điểm), Xác suất thống kê (MTH00044), Đại số tuyến tính (MTH00035) | 4 chặng | 34 nhiệm vụ | ~80h |
+| **TRACK-5** | **Công cụ & Kỹ thuật Thực chiến** | Bổ khuyết toàn diện Missing Semester: Git CLI chuyên nghiệp (phân nhánh, giải quyết xung đột merge, interactive rebase, stash, cherry-pick, PR workflow, Conventional Commits), Debugger GDB/LLDB/VS Code, diệt lỗi bộ nhớ với AddressSanitizer/Valgrind, POSIX shell & pipes, CMake đa mô-đun và tự động hóa CI/CD với GitHub Actions. | Thực hành Kỹ thuật Lập trình, Phương pháp Phát triển Phần mềm (CSC13001) | 4 chặng | 33 nhiệm vụ | ~65h |
+| **TRACK-6** | **Sẵn sàng Chuyên ngành KHMT** | Nền chuyên ngành có đầu vào và dự án thực hành: Hệ quản trị CSDL quan hệ (SQL, chuẩn hóa 1NF/2NF/3NF/BCNF, chỉ mục B-Tree, giao dịch ACID), Web RESTful API, Nhập môn AI & Machine Learning (NumPy, Scikit-learn, PyTorch cơ bản), Lý thuyết tính toán (Automata, P vs NP) và xây dựng 5 Capstone Projects portfolio chứng minh năng lực kỹ nghệ. | Hệ quản trị cơ sở dữ liệu (CSC10006), Nhập môn Trí tuệ Nhân tạo (CSC14001), Xét tuyển Chuyên ngành KHMT (Cuối Năm 2) | 20 chặng | 175 nhiệm vụ | ~120h |
 
 ---
 
@@ -122,46 +122,61 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 
 ## Mục lục
 
-### Track 0: Tư duy Lập trình & Mô hình Thực thi Máy tính (Computational Thinking & Execution Model) (2 chặng, 19 nhiệm vụ)
-- 01. Tư duy lập trình và mô hình thực thi (12 nhiệm vụ)
-- 04. Thiết kế hệ thống và đánh giá hiệu năng (7 nhiệm vụ)
+### Track 0: Tư duy Lập trình & Mô hình Thực thi Máy tính (Computational Thinking & Execution Model) (3 chặng, 25 nhiệm vụ)
+- 01. Lối vào từ số 0 (6 nhiệm vụ)
+- 02. Kiểm tra và củng cố C++ (12 nhiệm vụ)
+- 07. Project thư viện C++ (7 nhiệm vụ)
 
 ### Track 1: Lập trình Hướng đối tượng & Thiết kế Phần mềm (Programming & OOP) (1 chặng, 20 nhiệm vụ)
-- 02. Lập trình hướng đối tượng (20 nhiệm vụ)
+- 06. Lập trình hướng đối tượng (20 nhiệm vụ)
 
 ### Track 2: Cấu trúc Dữ liệu & Giải thuật Cốt lõi (Algorithms & Data Structures) (4 chặng, 82 nhiệm vụ)
-- 07. Cấu trúc dữ liệu (20 nhiệm vụ)
-- 08. Tư duy và thuật toán cơ bản (24 nhiệm vụ)
-- 09. Đồ thị và đường đi (28 nhiệm vụ)
-- 10. Truy vấn, chuỗi và tổng hợp DSA (10 nhiệm vụ)
+- 09. Phục hồi cấu trúc dữ liệu (20 nhiệm vụ)
+- 14. Thiết kế thuật toán (24 nhiệm vụ)
+- 15. Đồ thị và thuật toán (28 nhiệm vụ)
+- 16. Thuật toán chuyên biệt (10 nhiệm vụ)
 
-### Track 3: Hệ thống Máy tính & Mạng Máy tính (Computer Systems & Networking) (3 chặng, 38 nhiệm vụ)
-- 12. Máy tính hoạt động như thế nào (13 nhiệm vụ)
-- 13. Hệ điều hành và đồng thời (13 nhiệm vụ)
-- 14. Mạng máy tính (12 nhiệm vụ)
+### Track 3: Hệ thống Máy tính & Mạng Máy tính (Computer Systems & Networking) (6 chặng, 50 nhiệm vụ)
+- 10. Dữ liệu, CPU và bộ nhớ (13 nhiệm vụ)
+- 11. Lập trình hệ thống trên Linux (6 nhiệm vụ)
+- 12. Hệ điều hành và đồng thời (13 nhiệm vụ)
+- 13. Mạng máy tính và dịch vụ (12 nhiệm vụ)
+- 31. Lập trình song song (4 nhiệm vụ)
+- 35. Chuyên sâu hệ điều hành (2 nhiệm vụ)
 
-### Track 4: Cơ sở Toán học cho Khoa học Máy tính (Mathematical Foundations) (2 chặng, 34 nhiệm vụ)
-- 06. Toán rời rạc cho lập trình (12 nhiệm vụ)
-- 11. Đại số tuyến tính, giải tích và xác suất (22 nhiệm vụ)
+### Track 4: Cơ sở Toán học cho Khoa học Máy tính (Mathematical Foundations) (4 chặng, 34 nhiệm vụ)
+- 08. Toán rời rạc và lập luận (12 nhiệm vụ)
+- 17. Đại số tuyến tính cho CS (7 nhiệm vụ)
+- 18. Giải tích và tối ưu cơ bản (5 nhiệm vụ)
+- 19. Xác suất và thống kê (10 nhiệm vụ)
 
-### Track 5: Công cụ Phát triển & Kỹ thuật Kỹ nghệ (Developer Tooling & Engineering Practice) (3 chặng, 27 nhiệm vụ)
-- 03. Lưu và quản lý mã nguồn (6 nhiệm vụ)
-- 05. Công cụ, Linux và cách tự học (9 nhiệm vụ)
-- 18. Kỹ thuật phần mềm và làm việc nhóm (12 nhiệm vụ)
+### Track 5: Công cụ Phát triển & Kỹ thuật Kỹ nghệ (Developer Tooling & Engineering Practice) (4 chặng, 33 nhiệm vụ)
+- 03. Debug C++ từ đầu (6 nhiệm vụ)
+- 04. Git và lịch sử thay đổi (6 nhiệm vụ)
+- 05. Linux, shell và công cụ (9 nhiệm vụ)
+- 25. Kỹ nghệ phần mềm (12 nhiệm vụ)
 
-### Track 6: Định hướng & Sẵn sàng Chuyên ngành KHMT (CS Specialization Readiness) (12 chặng, 135 nhiệm vụ)
-- 15. SQL và cơ sở dữ liệu (17 nhiệm vụ)
-- 16. Python để làm công cụ và xử lý dữ liệu (11 nhiệm vụ)
-- 17. Web và API cho sản phẩm đầu tiên (12 nhiệm vụ)
-- 19. Lý thuyết tính toán và ngôn ngữ lập trình (12 nhiệm vụ)
-- 20. Bảo mật ứng dụng (10 nhiệm vụ)
-- 21. Đồ họa, giao diện và khả năng tiếp cận (8 nhiệm vụ)
-- 22. Nền tảng AI và Machine Learning (20 nhiệm vụ)
-- 23. Hệ phân tán và thiết kế hệ thống (12 nhiệm vụ)
-- 24. Trách nhiệm nghề nghiệp và đọc nghiên cứu (6 nhiệm vụ)
-- 25. Chọn hướng chuyên sâu có căn cứ (7 nhiệm vụ)
-- 26. Đồ án lớn có người dùng và bằng chứng (10 nhiệm vụ)
-- 27. Thực tập, phỏng vấn và phát triển nghề (10 nhiệm vụ)
+### Track 6: Định hướng & Sẵn sàng Chuyên ngành KHMT (CS Specialization Readiness) (20 chặng, 175 nhiệm vụ)
+- 20. Mô hình dữ liệu và SQL (17 nhiệm vụ)
+- 21. Bên trong hệ cơ sở dữ liệu (9 nhiệm vụ)
+- 22. Python và công cụ dữ liệu (11 nhiệm vụ)
+- 23. Lý thuyết tính toán (7 nhiệm vụ)
+- 24. Ngôn ngữ lập trình và interpreter (9 nhiệm vụ)
+- 26. Web và API có dữ liệu (12 nhiệm vụ)
+- 27. Nền tảng bảo mật ứng dụng (10 nhiệm vụ)
+- 28. Đồ họa máy tính (7 nhiệm vụ)
+- 29. Tương tác người–máy (9 nhiệm vụ)
+- 30. AI và học máy nền tảng (24 nhiệm vụ)
+- 32. Hệ phân tán và thiết kế hệ thống (12 nhiệm vụ)
+- 33. Di động và ứng dụng offline (3 nhiệm vụ)
+- 34. Nhúng và thiết bị (3 nhiệm vụ)
+- 36. Chuyên sâu hệ dữ liệu (2 nhiệm vụ)
+- 37. Chuyên sâu ngôn ngữ và compiler (4 nhiệm vụ)
+- 38. Chuyên sâu hệ phân tán (3 nhiệm vụ)
+- 39. Đạo đức và đọc nghiên cứu (6 nhiệm vụ)
+- 40. Chọn hướng bằng trải nghiệm (7 nhiệm vụ)
+- 41. Đồ án tổng hợp (10 nhiệm vụ)
+- 42. Thực tập và phát triển tiếp (10 nhiệm vụ)
 
 ---
 
@@ -172,9 +187,135 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
 > **Mục tiêu:** Làm chủ mô hình thực thi mã nguồn, bản đồ bộ nhớ vật lý Stack vs Heap, bản chất địa chỉ ô nhớ và con trỏ, tư duy trừu tượng hóa dữ liệu (ADT), chi phí khấu hao mảng động, tư duy đệ quy và quy nạp, bất biến vòng lặp, và phương pháp gỡ lỗi khoa học.
 > **Môn học HCMUS:** Nhập môn lập trình (CSC10001) · Kỹ thuật lập trình (CSC10002) | **Thời lượng ước tính:** ~60 giờ
 
-## 01. Tư duy lập trình và mô hình thực thi
+## 01. Lối vào từ số 0
 
-### 001 · Tư duy phân tích bài toán và ca biên
+**Mục tiêu:** Viết và giải thích chương trình đầu tiên.
+
+**Đầu vào:** Không cần biết lập trình.
+
+**Bằng chứng:** Một chương trình nhập/xử lý/xuất với hàm và dãy, tự sửa được yêu cầu nhỏ.
+
+**Điểm xuất phát:** Có thể đi nhanh · C++ đã học
+
+### 001 · Chương trình và dữ liệu từ số 0
+
+**Loại:** Học | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt dữ liệu vào, thao tác và dữ liệu ra trên phép tính tiền; lần từng lệnh theo thứ tự.
+- [ ] Viết chương trình đầu tiên in kết quả rồi thay một giá trị; giải thích source, compiler và executable bằng ví dụ đang chạy.
+- [ ] Tự dựng lại chương trình từ tệp trống; nhận diện trường hợp chưa biên dịch lại nên chạy bản cũ.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+### 002 · Biến, biểu thức và kiểu dữ liệu
+
+**Loại:** Học | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Theo dõi giá trị biến sau gán; phân biệt dấu bằng gán với kiểm tra bằng nhau.
+- [ ] Lập bảng giá trị cho tính diện tích và chia số nguyên/số thực; thử 5/2 và 5/2.0.
+- [ ] Tự dự đoán trước khi chạy, giải thích vì sao kiểu và thứ tự phép toán thay đổi kết quả.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+### 003 · Điều kiện và lặp từ ví dụ nhỏ
+
+**Loại:** Học | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Diễn đạt điều kiện bằng đúng/sai, xác định bước lặp và điều kiện dừng trước khi viết.
+- [ ] Viết tính tổng số từ 1 tới n và kiểm tra điểm từ 0 tới 10; thử n bằng 0 và dữ liệu ngoài miền.
+- [ ] Lần tay vòng lặp rồi sửa lỗi lệch một bước; chưa dùng mảng hoặc con trỏ chưa được học.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+### 004 · Hàm và chia bài toán
+
+**Loại:** Học | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa tham số, giá trị trả về và biến cục bộ; vẽ đường gọi của hai hàm nhỏ.
+- [ ] Tách nhập, tính, xuất trong chương trình tính tiền; thử hàm tính riêng với dữ liệu cố định.
+- [ ] Tự thêm một quy tắc giảm giá mà không trộn nhập liệu vào hàm tính.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+### 005 · Chuỗi và dãy dữ liệu
+
+**Loại:** Học | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Dùng string/vector để giữ nhiều dữ liệu; phân biệt kích thước với chỉ số cuối.
+- [ ] Nhập danh sách tên và tìm một tên; xét dãy rỗng, một tên và không tìm thấy.
+- [ ] Tự kiểm tra mọi lần truy cập chỉ số, giải thích điều kiện vòng lặp hợp lệ.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+### 006 · Chương trình nhỏ đầu tiên
+
+**Loại:** Áp dụng | **Mức độ:** Nhập môn (có thể đi nhanh) | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
+
+**Việc cần làm:**
+
+- [ ] Chọn quản lý danh sách việc làm: thêm, liệt kê, tìm; chốt dữ liệu và hành vi trước khi code.
+- [ ] Xây từng chức năng bằng hàm và vector; viết ca thử trước khi thêm chức năng kế tiếp.
+- [ ] Người khác nhập dữ liệu khác vẫn chạy đúng; tự sửa một yêu cầu mới và ghi chỗ cần trợ giúp.
+
+**Khi nào quay lại:** Lối vào cho người mới hoàn toàn. Bạn đã học C++ có thể kiểm tra rồi đi nhanh; không cần học lại phần đã tự làm được.
+
+**Nguồn tham khảo miễn phí:**
+
+- [LearnCpp — bài nhập môn](https://www.learncpp.com/)
+  - **Phần cần đọc:** LearnCpp: chương 0 Introduction/Development, chương 1 Basics, chương 2 Functions, chương 8 Control Flow và phần string/vector; chỉ đọc mục phục vụ từng bài nhỏ, không giả định đã biết cú pháp.
+  - **Truy cập:** Toàn bộ bài viết web miễn phí; đọc theo tên bài và tự build ví dụ nhỏ.
+
+## 02. Kiểm tra và củng cố C++
+
+**Mục tiêu:** Xác định phần C++ còn dùng được và phần cần ôn.
+
+**Đầu vào:** Biến, điều kiện, vòng lặp, hàm
+
+**Bằng chứng:** Tự làm bài kiểm tra và biến thể, chỉ ôn mục chưa tự làm được.
+
+**Điểm xuất phát:** Đã học · cần kiểm tra
+
+### 007 · Tư duy phân tích bài toán và ca biên
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -192,7 +333,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 1 C++ Basics và 4 Fundamental Data Types; ưu tiên khởi tạo, giới hạn kiểu và undefined behavior.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 002 · Mô hình thực thi: Từ mã nguồn đến mã máy
+### 008 · Mô hình thực thi: Từ mã nguồn đến mã máy
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -209,7 +350,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 0: compiler/linker, compiling, warning level và language standard.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 003 · Biểu diễn dữ liệu nhị phân và số học máy tính
+### 009 · Biểu diễn dữ liệu nhị phân và số học máy tính
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -226,7 +367,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 1 C++ Basics và 4 Fundamental Data Types; ưu tiên khởi tạo, giới hạn kiểu và undefined behavior.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 004 · Bất biến vòng lặp và luồng điều khiển
+### 010 · Bất biến vòng lặp và luồng điều khiển
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -243,7 +384,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 8 Control Flow và 9 Error Detection and Handling: if, loop, kiểm tra đầu vào.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 005 · Bộ nhớ tuyến tính và tính cục bộ (Locality)
+### 011 · Bộ nhớ tuyến tính và tính cục bộ (Locality)
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -260,7 +401,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 16 Dynamic arrays: chỉ số, duyệt và kích thước; đối chiếu thêm phần C-style arrays nếu đang dùng mảng thuần.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 006 · Mô hình khung hàm (Stack Frame) và truyền tham số
+### 012 · Mô hình khung hàm (Stack Frame) và truyền tham số
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -277,7 +418,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 2 Functions and Files và 12 Compound Types: truyền giá trị, tham chiếu, const reference; làm quiz cuối chương theo đúng phần đã học.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 007 · Tư duy mô-đun hóa và phân tách trách nhiệm
+### 013 · Tư duy mô-đun hóa và phân tách trách nhiệm
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -294,7 +435,7 @@ Nhằm chuyển hóa lý thuyết thành kỹ năng kỹ nghệ phần mềm th�
   - **Phần cần đọc:** Chương 2 Functions and Files và 12 Compound Types: truyền giá trị, tham chiếu, const reference; làm quiz cuối chương theo đúng phần đã học.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 008 · Cơ chế mảng động và chi phí khấu hao
+### 014 · Cơ chế mảng động và chi phí khấu hao
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -315,7 +456,7 @@ Mảng động mở rộng bằng cách cấp phát vùng nhớ mới gấp đô
   - **Phần cần đọc:** Chương 5: std::string; chương 16: std::vector, thêm/xóa và giới hạn chỉ số.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 009 · Bản chất địa chỉ ô nhớ và con trỏ
+### 015 · Bản chất địa chỉ ô nhớ và con trỏ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -339,7 +480,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 010 · Phương pháp gỡ lỗi khoa học và cô lập lỗi
+### 016 · Phương pháp gỡ lỗi khoa học và cô lập lỗi
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -356,7 +497,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 3 Debugging: stepping,breakpoints,watch và call stack.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 011 · Tư duy bền vững dữ liệu và luồng I/O
+### 017 · Tư duy bền vững dữ liệu và luồng I/O
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -373,7 +514,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 28 Input and Output: file I/O, trạng thái stream và lỗi mở/đọc tệp.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 012 · Mô hình hóa thực thể và thiết kế hệ thống dữ liệu
+### 018 · Mô hình hóa thực thể và thiết kế hệ thống dữ liệu
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -390,9 +531,17 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
   - **Phần cần đọc:** Chương 28 Input and Output: file I/O, trạng thái stream và lỗi mở/đọc tệp.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-## 04. Thiết kế hệ thống và đánh giá hiệu năng
+## 07. Project thư viện C++
 
-### 039 · Phân tích yêu cầu kỹ thuật và ranh giới hệ thống
+**Mục tiêu:** Ghép lập trình, debug và test vào sản phẩm nhỏ.
+
+**Đầu vào:** C++ cơ bản, lớp và Git căn bản
+
+**Bằng chứng:** Người khác chạy lại được, tự sửa một lỗi và một thay đổi yêu cầu.
+
+**Điểm xuất phát:** Thực hành tích hợp
+
+### 060 · Phân tích yêu cầu kỹ thuật và ranh giới hệ thống
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -403,7 +552,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Quy định rõ phạm vi phiên bản đầu: Tập trung vào tính đúng đắn của logic cốt lõi trước khi thêm tính năng phức tạp. Thiết kế kiến trúc hệ thống 3 tầng phân tách trách nhiệm rõ rệt: Tầng Dữ liệu (Data Model) <-> Tầng Nghiệp vụ cốt lõi (Business Logic) <-> Tầng Giao tiếp (I/O).
 - [ ] Quy định rõ phạm vi phiên bản đầu: Tập trung vào tính đúng đắn của logic cốt lõi trước khi mở rộng tính năng phức tạp.
 
-### 040 · Thiết kế mô hình thực thể và quan hệ dữ liệu
+### 061 · Thiết kế mô hình thực thể và quan hệ dữ liệu
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -414,7 +563,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Tách biệt triệt để quy tắc nghiệp vụ khỏi giao diện hiển thị, đảm bảo logic có thể chạy độc lập không cần nhập xuất bàn phím. Tách biệt triệt để quy tắc nghiệp vụ khỏi giao diện hiển thị, đảm bảo toàn bộ logic có thể chạy độc lập và kiểm thử tự động không cần bàn phím.
 - [ ] Xây dựng cơ chế khôi phục trạng thái (State Rollback): Đảm bảo khi một thao tác nhiều bước bị gián đoạn, dữ liệu không bao giờ bị rơi vào trạng thái nửa vời.
 
-### 041 · Kiến trúc điều phối luồng dữ liệu
+### 062 · Kiến trúc điều phối luồng dữ liệu
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -425,7 +574,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Xử lý dữ liệu đầu vào bất thường một cách an toàn mà không làm sập hoặc treo luồng xử lý của hệ thống. Xử lý dữ liệu đầu vào bất thường một cách an toàn mà không làm sập hoặc treo luồng xử lý của hệ thống.
 - [ ] Tách biệt hoàn toàn luồng điều phối (Controller) khỏi phần hiển thị kết quả (View), giúp hệ thống dễ dàng thay thế giao diện (Console, Web API, Test Suite).
 
-### 042 · Cơ chế lưu trữ bền vững nguyên tử và khôi phục
+### 063 · Cơ chế lưu trữ bền vững nguyên tử và khôi phục
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -436,7 +585,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Xử lý lỗi hỏng dữ liệu: Báo rõ dòng và vị trí lỗi, dừng an toàn thay vì âm thầm ghi đè làm mất dữ liệu gốc. Xử lý lỗi hỏng dữ liệu (Data Corruption): Báo rõ dòng và vị trí lỗi, dừng an toàn thay vì âm thầm ghi đè làm mất dữ liệu gốc.
 - [ ] Hiểu cơ chế đồng bộ hóa I/O: Tác động của bộ đệm hệ điều hành và cách sử dụng thao tác đồng bộ xuống đĩa cứng (fsync/flush) để đảm bảo độ bền dữ liệu.
 
-### 043 · Chiến lược kiểm thử tự động và ca biên
+### 064 · Chiến lược kiểm thử tự động và ca biên
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -447,7 +596,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Ghi lại trường hợp tối thiểu gây lỗi (Minimal Failing Case) để khoanh vùng và sửa chữa tận gốc rễ. Ghi lại trường hợp tối thiểu gây lỗi (Minimal Failing Case) để khoanh vùng và sửa chữa tận gốc rễ.
 - [ ] Đo đạc độ bao phủ kiểm thử (Test Coverage) và đảm bảo 100% các nhánh xử lý lỗi nghiệp vụ đều có ca thử tương ứng.
 
-### 044 · Đo lường hiệu năng và tính cục bộ bộ nhớ
+### 065 · Đo lường hiệu năng và tính cục bộ bộ nhớ
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -458,7 +607,7 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 - [ ] Viết tài liệu kiến trúc kỹ thuật: Ghi rõ quyết định thiết kế, các đánh đổi kỹ thuật (Trade-offs) và giới hạn hoạt động của hệ thống. Viết tài liệu kiến trúc kỹ thuật: Ghi rõ quyết định thiết kế, các đánh đổi kỹ thuật (Trade-offs) và giới hạn hoạt động của hệ thống.
 - [ ] Đảm bảo dự án có thể biên dịch và chạy độc lập từ checkout sạch mà không phụ thuộc đường dẫn tuyệt đối của máy cá nhân.
 
-### 045 · Tái cấu trúc theo nguyên lý thiết kế phần mềm sạch
+### 066 · Tái cấu trúc theo nguyên lý thiết kế phần mềm sạch
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Tư duy Lập trình & Mô hình Thực thi (`track-0`)
 
@@ -472,12 +621,20 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 
 # Track 1: Lập trình Hướng đối tượng & Thiết kế Phần mềm (Programming & OOP)
 
-> **Mục tiêu:** Nắm chắc điểm 10 môn OOP (CSC10003) HK1 Năm 2: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton).
+> **Mục tiêu:** Tiếp nối OOP từ phần nạp chồng hàm, học và kiểm chứng: 4 tính chất cốt lõi (Đóng gói, Kế thừa, Đa hình, Trừu tượng), cơ chế bảng hàm ảo vtable/vptr, virtual destructor ở lớp cha, nạp chồng toán tử an toàn, nguyên lý SOLID và GoF Design Patterns (Factory, Strategy, Observer, Singleton).
 > **Môn học HCMUS:** Lập trình hướng đối tượng (CSC10003) | **Thời lượng ước tính:** ~70 giờ
 
-## 02. Lập trình hướng đối tượng
+## 06. Lập trình hướng đối tượng
 
-### 013 · Tự kiểm tra trước chặng OOP
+**Mục tiêu:** Thiết kế lớp và quản lý trách nhiệm/tài nguyên.
+
+**Đầu vào:** Hàm, struct, tham chiếu và thời gian sống
+
+**Bằng chứng:** Sửa một yêu cầu mới, giải thích sao chép, chứa, kế thừa và đa hình.
+
+**Điểm xuất phát:** Đang học · tới nạp chồng hàm
+
+### 040 · Tự kiểm tra trước chặng OOP
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -491,15 +648,15 @@ Thời gian sống là khoảng thời gian đối tượng còn tồn tại và
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 006 · Mô hình khung hàm (Stack Frame) và truyền tham số (`cpp-functions`)
-- [ ] 008 · Cơ chế mảng động và chi phí khấu hao (`cpp-containers`)
-- [ ] 014 · Lớp, đối tượng và đóng gói (`oop-class`)
+- [ ] 012 · Mô hình khung hàm (Stack Frame) và truyền tham số (`cpp-functions`)
+- [ ] 014 · Cơ chế mảng động và chi phí khấu hao (`cpp-containers`)
+- [ ] 041 · Lớp, đối tượng và đóng gói (`oop-class`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 014 · Lớp, đối tượng và đóng gói
+### 041 · Lớp, đối tượng và đóng gói
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -520,7 +677,7 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
   - **Phần cần đọc:** Chương 14 Introduction to Classes: member functions, access control, encapsulation.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 015 · Viết lớp Sach
+### 042 · Viết lớp Sach
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -537,7 +694,7 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
   - **Phần cần đọc:** Chương 14 Introduction to Classes: member functions, access control, encapsulation.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 016 · Constructor và khởi tạo đối tượng
+### 043 · Constructor và khởi tạo đối tượng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -554,7 +711,7 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
   - **Phần cần đọc:** Chương 14: constructors, member initializer lists, default constructors.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 017 · Khởi tạo và kiểm tra dữ liệu
+### 044 · Khởi tạo và kiểm tra dữ liệu
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -571,7 +728,7 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
   - **Phần cần đọc:** Chương 14: constructors, member initializer lists, default constructors.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 018 · const trong thiết kế lớp
+### 045 · const trong thiết kế lớp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -588,7 +745,7 @@ Bản chất Đóng gói (Encapsulation): Bảo vệ bất biến (Invariants) c
   - **Phần cần đọc:** Chương 14: const class objects và const member functions.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 019 · Quan hệ chứa giữa các lớp
+### 046 · Quan hệ chứa giữa các lớp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -609,7 +766,7 @@ Nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) tha
   - **Phần cần đọc:** Chương 23 Object Relationships: composition, aggregation và association.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 020 · Tổ chức lớp ThuVien
+### 047 · Tổ chức lớp ThuVien
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -626,7 +783,7 @@ Nguyên lý Composition over Inheritance: Ưu tiên quan hệ Has-A (chứa) tha
   - **Phần cần đọc:** Chương 23 Object Relationships: composition, aggregation và association.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 021 · Kế thừa trong C++
+### 048 · Kế thừa trong C++
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -649,7 +806,7 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
   - **Phần cần đọc:** Chương 24 Inheritance: basic inheritance, constructors/destructors và access specifiers.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 022 · Viết Nguoi và SinhVien
+### 049 · Viết Nguoi và SinhVien
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -666,7 +823,7 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
   - **Phần cần đọc:** Chương 24 Inheritance: basic inheritance, constructors/destructors và access specifiers.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 023 · Hàm ảo và đa hình
+### 050 · Hàm ảo và đa hình
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -681,7 +838,7 @@ Thuộc tính giống nhau chưa đủ để quyết định kế thừa. Xét x
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu lớp cha. Sao chép đối tượng con thành đối tượng lớp cha có thể làm mất phần dữ liệu riêng của lớp con. Cơ chế Đa hình Động (Dynamic Polymorphism Under The Hood): Trình biên dịch chèn con trỏ bảng ảo vptr (8 bytes) vào đầu mỗi đối tượng và tạo bảng vtable chứa con trỏ hàm ảo trong phân vùng dữ liệu chỉ đọc (.rodata); CPU gọi hàm qua 3 bước tra cứu gián tiếp. BẮT BUỘC khai báo virtual destructor (virtual ~Base()) ở mọi lớp cơ sở đa hình để ngăn chặn lỗi rò rỉ bộ nhớ thảm họa khi giải phóng đối tượng con qua con trỏ lớp cha. Gắn liền với Mini-Project 1: Space Invaders C++ (phân cấp Entity -> Alien/Ship). Tài liệu: docs/guides/02-VIRTUAL-DISPATCH-OOP-SOLID.md và docs/projects/01-SPACE-INVADERS-CPP.md.
+Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu lớp cha. Sao chép đối tượng con thành đối tượng lớp cha có thể làm mất phần dữ liệu riêng của lớp con. Đa hình động: theo dõi gọi hàm ảo qua con trỏ/tham chiếu lớp cha. vptr/vtable là cách triển khai phổ biến, bố trí và kích thước phụ thuộc ABI/compiler, không do chuẩn C++ bắt buộc. Nếu cho phép delete đối tượng con qua con trỏ Base, destructor Base cần virtual. Đối chiếu mã assembly trên chính compiler đang dùng.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -692,7 +849,7 @@ Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu 
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cơ chế đa hình động vptr/vtable và 5 nguyên lý SOLID.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 024 · Tính lương bằng đa hình
+### 051 · Tính lương bằng đa hình
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -709,7 +866,7 @@ Muốn quan sát đa hình lúc chạy, gọi qua con trỏ hoặc tham chiếu 
   - **Phần cần đọc:** Chương 25 Virtual Functions: virtual dispatch, override, abstract classes và virtual destructor.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 025 · Lớp trừu tượng
+### 052 · Lớp trừu tượng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -733,7 +890,7 @@ Lớp trừu tượng (Abstract Base Class) & Giao diện thuần ảo (= 0): Đ
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cơ chế đa hình động vptr/vtable và 5 nguyên lý SOLID.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 026 · Quản lý tài nguyên an toàn
+### 053 · Quản lý tài nguyên an toàn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -757,7 +914,7 @@ Khi lớp tự sở hữu con trỏ cấp phát động, sao chép mặc định
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về bản chất vùng nhớ, con trỏ và nguyên lý RAII.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 027 · Bản chất bộ nhớ và cơ chế sao chép
+### 054 · Bản chất bộ nhớ và cơ chế sao chép
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -779,7 +936,7 @@ Hiểu rõ Stack vs Heap: sao chép nông khiến hai con trỏ trỏ cùng ô n
   - **Phần cần đọc:** Chương 14/21: copy constructor, assignment, shallow/deep copying; đối chiếu quyền sở hữu trước khi tự cấp phát.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 028 · unique_ptr và tự động giải phóng vùng nhớ
+### 055 · unique_ptr và tự động giải phóng vùng nhớ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -801,7 +958,7 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
   - **Phần cần đọc:** Chương 22 Move Semantics and Smart Pointers: RAII, resource ownership và std::unique_ptr.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 029 · Nạp chồng toán tử vừa đủ
+### 056 · Nạp chồng toán tử vừa đủ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -818,7 +975,7 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
   - **Phần cần đọc:** Chương 21 Operator Overloading: ý nghĩa toán tử, member/non-member và operator<<.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 030 · Template và thư viện chuẩn
+### 057 · Template và thư viện chuẩn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -835,7 +992,7 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
   - **Phần cần đọc:** Các bài Function templates trong chương 11 và Class templates trong chương 13; chỉ cú pháp và ví dụ cơ bản.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 031 · Ngoại lệ và giữ trạng thái hợp lệ
+### 058 · Ngoại lệ và giữ trạng thái hợp lệ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -852,7 +1009,7 @@ unique_ptr tự động gọi delete khi ra khỏi scope; quản lý vòng đờ
   - **Phần cần đọc:** Chương 27 Exceptions: throw/try/catch, stack unwinding và exception safety.
   - **Truy cập:** Toàn bộ bài viết và quiz trên trang được đọc miễn phí.
 
-### 032 · Rà lại thiết kế OOP
+### 059 · Rà lại thiết kế OOP
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** OOP & Thiết kế Phần mềm (`track-1`)
 
@@ -879,9 +1036,17 @@ Rà soát chuẩn mực OOP và 5 nguyên lý SOLID: Single Responsibility (mỗ
 > **Mục tiêu:** Lấp dứt điểm lỗ hổng thuật toán sắp xếp (Quicksort phân hoạch Hoare/Lomuto, Mergesort, Heapsort), Cây (BST, AVL với 4 phép xoay LL/RR/LR/RL, Binary Heap), Đồ thị (BFS/DFS, Topological sort, Dijkstra với Priority Queue, Bellman-Ford, Floyd-Warshall, Kruskal với DSU nén đường đi, Prim), và Quy hoạch động (Knapsack, LIS O(n log n), LCS).
 > **Môn học HCMUS:** Cấu trúc dữ liệu và giải thuật (CSC10004) | **Thời lượng ước tính:** ~110 giờ
 
-## 07. Cấu trúc dữ liệu
+## 09. Phục hồi cấu trúc dữ liệu
 
-### 067 · Tự kiểm tra cấu trúc dữ liệu đã học
+**Mục tiêu:** Chọn và duy trì cấu trúc dữ liệu đúng.
+
+**Đầu vào:** Hàm, con trỏ, đệ quy; lập luận và chi phí cơ bản
+
+**Bằng chứng:** Tự cài phần cốt lõi và test biên; so với cách đơn giản trên dữ liệu nhỏ.
+
+**Điểm xuất phát:** Đã học · quên nhiều
+
+### 079 · Tự kiểm tra cấu trúc dữ liệu đã học
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -896,16 +1061,16 @@ Rà soát chuẩn mực OOP và 5 nguyên lý SOLID: Single Responsibility (mỗ
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 075 · Bảng băm và va chạm (`dsa-hash`)
-- [ ] 070 · Danh sách liên kết đơn (`dsa-linked`)
-- [ ] 072 · Stack và LIFO (`dsa-stack`)
-- [ ] 077 · Đệ quy và ngăn xếp lời gọi (`algo-recursion`)
+- [ ] 087 · Bảng băm và va chạm (`dsa-hash`)
+- [ ] 082 · Danh sách liên kết đơn (`dsa-linked`)
+- [ ] 084 · Stack và LIFO (`dsa-stack`)
+- [ ] 089 · Đệ quy và ngăn xếp lời gọi (`algo-recursion`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 068 · Big-O, Theta và chi phí bộ nhớ
+### 080 · Big-O, Theta và chi phí bộ nhớ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -923,7 +1088,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Introduction: Mathematical Background và phân tích thời gian/bộ nhớ.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 069 · Mảng động và chi phí khấu hao
+### 081 · Mảng động và chi phí khấu hao
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -940,7 +1105,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Array-Based Lists: ArrayStack,Resizing và amortized analysis.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 070 · Danh sách liên kết đơn
+### 082 · Danh sách liên kết đơn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -958,7 +1123,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Linked Lists: SLList,DLList; chỉ cài danh sách đơn trước.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 071 · Sửa danh sách không mất nút
+### 083 · Sửa danh sách không mất nút
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -975,7 +1140,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Linked Lists: SLList,DLList; chỉ cài danh sách đơn trước.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 072 · Stack và LIFO
+### 084 · Stack và LIFO
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -992,7 +1157,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Array-Based Lists: ArrayStack,ArrayQueue,ArrayDeque; so thứ tự truy cập.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 073 · Queue, deque và hàng đợi vòng
+### 085 · Queue, deque và hàng đợi vòng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1009,7 +1174,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Array-Based Lists: ArrayStack,ArrayQueue,ArrayDeque; so thứ tự truy cập.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 074 · Chọn stack hay queue
+### 086 · Chọn stack hay queue
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1026,7 +1191,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Array-Based Lists: ArrayStack,ArrayQueue,ArrayDeque; so thứ tự truy cập.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 075 · Bảng băm và va chạm
+### 087 · Bảng băm và va chạm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1044,7 +1209,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Hash Tables: ChainedHashTable,LinearHashTable và điều kiện tải.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 076 · Đếm và tra cứu bằng bảng băm
+### 088 · Đếm và tra cứu bằng bảng băm
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1061,7 +1226,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Hash Tables: ChainedHashTable,LinearHashTable và điều kiện tải.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 077 · Đệ quy và ngăn xếp lời gọi
+### 089 · Đệ quy và ngăn xếp lời gọi
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1078,7 +1243,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 5 Complete search: generating subsets/permutations,backtracking và pruning.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 078 · Sinh cấu hình bằng đệ quy
+### 090 · Sinh cấu hình bằng đệ quy
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1095,7 +1260,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 5 Complete search: generating subsets/permutations,backtracking và pruning.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 079 · Cây nhị phân và các kiểu duyệt
+### 091 · Cây nhị phân và các kiểu duyệt
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1112,7 +1277,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Binary Trees: biểu diễn,traversals và BinarySearchTree.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 080 · Cây tìm kiếm nhị phân
+### 092 · Cây tìm kiếm nhị phân
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1130,7 +1295,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Binary Trees: biểu diễn,traversals và BinarySearchTree.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 081 · Duy trì bất biến BST
+### 093 · Duy trì bất biến BST
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1147,9 +1312,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương Binary Trees: biểu diễn,traversals và BinarySearchTree.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 082 · AVL và cây cân bằng
+### 094 · AVL và cây cân bằng
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -1171,7 +1336,7 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
   - **Phần cần đọc:** Lecture 7: Binary Trees, Part 2: AVL; ôn Binary Trees ở Lecture 6 trước khi học phép xoay.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 083 · Heap và hàng đợi ưu tiên
+### 095 · Heap và hàng đợi ưu tiên
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1189,7 +1354,7 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
   - **Phần cần đọc:** Chương Heaps: BinaryHeap; cài và kiểm tra invariant.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 084 · Giữ phần tử tốt nhất bằng heap
+### 096 · Giữ phần tử tốt nhất bằng heap
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1206,9 +1371,9 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
   - **Phần cần đọc:** Chương Heaps: BinaryHeap; cài và kiểm tra invariant.
   - **Truy cập:** Chọn C++ Edition → HTML/PDF; toàn bộ sách và code miễn phí.
 
-### 085 · Trie cho tiền tố chuỗi
+### 097 · Trie cho tiền tố chuỗi
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -1226,7 +1391,7 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
   - **Phần cần đọc:** Chương 26 String algorithms: trie,string hashing và xử lý chuỗi; chọn đúng cấu trúc của ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 086 · Nâng cấp tra cứu thư viện
+### 098 · Nâng cấp tra cứu thư viện
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1238,9 +1403,17 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
 - [ ] Nếu bổ sung trie, chốt tập ký tự/giới hạn tiếng Việt và kiểm tra hành vi khi nhập ký tự không hỗ trợ.
 - [ ] Nếu bỏ qua trie, chỉ bắt buộc lập chỉ mục mã bằng bảng băm và tra tên bằng duyệt tuyến tính; thử thêm/xóa để chứng minh chỉ mục không lệch. Trie là phần nâng cấp sau khi tự làm được ô tương ứng.
 
-## 08. Tư duy và thuật toán cơ bản
+## 14. Thiết kế thuật toán
 
-### 087 · Tự kiểm tra thuật toán đã học ở 28tech
+**Mục tiêu:** Tự tìm lời giải bằng chia để trị, tham lam và DP.
+
+**Đầu vào:** Cấu trúc dữ liệu, đệ quy và chứng minh cơ bản
+
+**Bằng chứng:** Giải bài mới không gắn nhãn, nêu vì sao đúng và chi phí.
+
+**Điểm xuất phát:** Đã học một phần · kiểm tra
+
+### 143 · Tự kiểm tra thuật toán đã học ở 28tech
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1254,15 +1427,15 @@ Cây AVL tự cân bằng: Hệ số cân bằng Balance Factor BF = h_left - h_
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 088 · Tìm kiếm tuyến tính và nhị phân (`algo-search`)
-- [ ] 097 · Prefix sum và mảng hiệu (`algo-prefix`)
-- [ ] 104 · Khung tư duy quy hoạch động (SRTBOT) (`algo-dp`)
+- [ ] 144 · Tìm kiếm tuyến tính và nhị phân (`algo-search`)
+- [ ] 153 · Prefix sum và mảng hiệu (`algo-prefix`)
+- [ ] 160 · Khung tư duy quy hoạch động (SRTBOT) (`algo-dp`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 088 · Tìm kiếm tuyến tính và nhị phân
+### 144 · Tìm kiếm tuyến tính và nhị phân
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1287,7 +1460,7 @@ Tìm kiếm nhị phân trên mảng đã sắp xếp: Dựa trên tính đơn �
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 089 · Chặt nhị phân trên kết quả (Binary Search on Answer)
+### 145 · Chặt nhị phân trên kết quả (Binary Search on Answer)
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1315,7 +1488,7 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về tìm kiếm nhị phân trên tập kết quả CSES và LeetCode.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 090 · Insertion sort
+### 146 · Insertion sort
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1332,7 +1505,7 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 091 · Selection sort
+### 147 · Selection sort
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1349,7 +1522,7 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 092 · Bubble sort
+### 148 · Bubble sort
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1366,7 +1539,7 @@ Chặt nhị phân trên kết quả (Binary Search on Answer): Chuyển bài to
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 093 · Merge sort và chia để trị (Divide and Conquer)
+### 149 · Merge sort và chia để trị (Divide and Conquer)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1391,7 +1564,7 @@ Merge Sort & Chia để trị (Divide and Conquer): Hệ thức truy hồi T(N) 
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 094 · Quicksort và cơ chế phân hoạch
+### 150 · Quicksort và cơ chế phân hoạch
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1416,7 +1589,7 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về tư duy chia để trị trong Merge Sort/Quicksort và tìm kiếm nhị phân.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 095 · Heapsort
+### 151 · Heapsort
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1433,7 +1606,7 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
   - **Phần cần đọc:** Lecture 3 Sorting và Lecture 8 Binary Heaps; với selection/bubble, chạy tay và kiểm chứng theo nhiệm vụ, không cần tìm một video riêng cho từng thuật toán.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 096 · Kiểm chứng thuật toán sắp xếp
+### 152 · Kiểm chứng thuật toán sắp xếp
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1453,7 +1626,7 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về thuật toán sắp xếp trên CSES và VNOI kèm phân tích chi tiết.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 097 · Prefix sum và mảng hiệu
+### 153 · Prefix sum và mảng hiệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1470,7 +1643,7 @@ Quicksort & Cơ chế phân hoạch: Phân hoạch Lomuto (con trỏ chậm/nhan
   - **Phần cần đọc:** Chương 9 Range queries: prefix sums,binary indexed tree và segment tree; chỉ đọc cấu trúc tương ứng ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 098 · Kỹ thuật hai con trỏ và cửa sổ trượt
+### 154 · Kỹ thuật hai con trỏ và cửa sổ trượt
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1494,7 +1667,7 @@ Kỹ thuật hai con trỏ (Two Pointers): Con trỏ ngược chiều trên mả
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về kỹ thuật hai con trỏ, cửa sổ trượt và bẫy số âm.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 099 · Thực hành hai con trỏ và cửa sổ trượt
+### 155 · Thực hành hai con trỏ và cửa sổ trượt
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1522,7 +1695,7 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về hai con trỏ và cửa sổ trượt trên CSES kèm hướng dẫn.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 100 · Quay lui và cắt tỉa
+### 156 · Quay lui và cắt tỉa
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1539,7 +1712,7 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
   - **Phần cần đọc:** Chương 5 Complete search: generating subsets/permutations,backtracking và pruning.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 101 · Kiểm tra lời giải quay lui
+### 157 · Kiểm tra lời giải quay lui
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1556,7 +1729,7 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
   - **Phần cần đọc:** Chương 5 Complete search: generating subsets/permutations,backtracking và pruning.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 102 · Tham lam và cách chứng minh
+### 158 · Tham lam và cách chứng minh
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1573,7 +1746,7 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
   - **Phần cần đọc:** Chương 6 Greedy algorithms: chiến lược và điều kiện đúng; viết phản ví dụ trước khi chấp nhận một greedy mới.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 103 · Phân biệt tham lam đúng và sai
+### 159 · Phân biệt tham lam đúng và sai
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1593,7 +1766,7 @@ Thực hành Hai con trỏ & Cửa sổ trượt: Trong CSES Playlist (dãy con 
   - **Phần cần đọc:** Đọc chương Greedy Algorithms hoặc Dynamic Programming theo ô đang luyện; chọn một bài cần tự lập luận. Đây là nguồn đào sâu sau khi đã học khái niệm, không thay bài nhập môn.
   - **Truy cập:** Toàn bộ sách và từng chương PDF miễn phí; dùng sau nền đệ quy, cấu trúc dữ liệu và chứng minh.
 
-### 104 · Khung tư duy quy hoạch động (SRTBOT)
+### 160 · Khung tư duy quy hoạch động (SRTBOT)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1615,7 +1788,7 @@ Quy hoạch động (Dynamic Programming): Khung tư duy 6 bước SRTBOT (Subpr
   - **Phần cần đọc:** Chương 7 Dynamic programming: coin change,LIS,knapsack và trạng thái; chỉ làm chủ đề tương ứng ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 105 · Đổi tiền bằng quy hoạch động
+### 161 · Đổi tiền bằng quy hoạch động
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1632,7 +1805,7 @@ Quy hoạch động (Dynamic Programming): Khung tư duy 6 bước SRTBOT (Subpr
   - **Phần cần đọc:** Chương 7 Dynamic programming: coin change,LIS,knapsack và trạng thái; chỉ làm chủ đề tương ứng ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 106 · Ba lô 0/1 (Knapsack) và kỹ thuật nén mảng
+### 162 · Ba lô 0/1 (Knapsack) và kỹ thuật nén mảng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1656,7 +1829,7 @@ Ba lô 0/1 (Knapsack): Trạng thái dp[i][w] = max(dp[i-1][w], dp[i-1][w - weig
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 107 · Dãy con chung dài nhất (LCS)
+### 163 · Dãy con chung dài nhất (LCS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1681,7 +1854,7 @@ Dãy con chung dài nhất (LCS): Lưới trạng thái 2D dp[i][j] trên tiền
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 108 · Edit distance
+### 164 · Edit distance
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1698,7 +1871,7 @@ Dãy con chung dài nhất (LCS): Lưới trạng thái 2D dp[i][j] trên tiền
   - **Phần cần đọc:** Các lecture Dynamic Programming về LCS và edit distance; làm ví dụ bảng nhỏ trước bài tập tổng hợp.
   - **Truy cập:** Lecture notes, bài tập và lời giải công khai miễn phí trên OCW.
 
-### 109 · Dãy con tăng dài nhất (LIS)
+### 165 · Dãy con tăng dài nhất (LIS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1723,7 +1896,7 @@ Dãy con tăng dài nhất (LIS): Từ O(N²) cơ bản tối ưu lên O(N log N
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về khung tư duy 6 bước SRTBOT, Ba lô 0/1, LIS và LCS.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 110 · Tự dựng trạng thái DP
+### 166 · Tự dựng trạng thái DP
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1747,9 +1920,17 @@ Dãy con tăng dài nhất (LIS): Từ O(N²) cơ bản tối ưu lên O(N log N
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về quy hoạch động ba lô, dãy con tăng và khoảng cách biến đổi chuỗi CSES.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-## 09. Đồ thị và đường đi
+## 15. Đồ thị và thuật toán
 
-### 111 · Tự kiểm tra đồ thị đã học
+**Mục tiêu:** Chọn thuật toán phù hợp điều kiện của đồ thị.
+
+**Đầu vào:** Stack/queue/heap, biểu diễn đồ thị và chi phí
+
+**Bằng chứng:** Tự chọn BFS/Dijkstra/Bellman–Ford/MST và dựng phản ví dụ cho cách chọn sai.
+
+**Điểm xuất phát:** Ôn kết hợp toán tổ hợp
+
+### 167 · Tự kiểm tra đồ thị đã học
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1763,15 +1944,15 @@ Dãy con tăng dài nhất (LIS): Từ O(N²) cơ bản tối ưu lên O(N log N
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 112 · Biểu diễn đồ thị trong chương trình (`graph-represent`)
-- [ ] 115 · Duyệt đồ thị theo chiều rộng (BFS) (`graph-bfs`)
-- [ ] 123 · Thuật toán Dijkstra với Min-Heap (`graph-dijkstra`)
+- [ ] 168 · Biểu diễn đồ thị trong chương trình (`graph-represent`)
+- [ ] 171 · Duyệt đồ thị theo chiều rộng (BFS) (`graph-bfs`)
+- [ ] 179 · Thuật toán Dijkstra với Min-Heap (`graph-dijkstra`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 112 · Biểu diễn đồ thị trong chương trình
+### 168 · Biểu diễn đồ thị trong chương trình
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1788,7 +1969,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 11 Basics of graphs: biểu diễn và thuật ngữ.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 113 · Duyệt đồ thị theo chiều sâu (DFS)
+### 169 · Duyệt đồ thị theo chiều sâu (DFS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1812,7 +1993,7 @@ Duyệt đồ thị theo chiều sâu (DFS): Sử dụng Call Stack khám phá c
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 114 · Duyệt vùng và nối các thành phần
+### 170 · Duyệt vùng và nối các thành phần
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1832,7 +2013,7 @@ Duyệt đồ thị theo chiều sâu (DFS): Sử dụng Call Stack khám phá c
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 115 · Duyệt đồ thị theo chiều rộng (BFS)
+### 171 · Duyệt đồ thị theo chiều rộng (BFS)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1856,7 +2037,7 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 116 · Tìm đường trên đồ thị không trọng số
+### 172 · Tìm đường trên đồ thị không trọng số
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1876,7 +2057,7 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 117 · Phát hiện chu trình vô hướng
+### 173 · Phát hiện chu trình vô hướng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1893,7 +2074,7 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 118 · Phát hiện chu trình có hướng
+### 174 · Phát hiện chu trình có hướng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1910,7 +2091,7 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 119 · Đồ thị hai phía
+### 175 · Đồ thị hai phía
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1927,7 +2108,7 @@ Duyệt đồ thị theo chiều rộng (BFS): Dùng std::queue duyệt theo t�
   - **Phần cần đọc:** Chương 12 Graph traversal: DFS,BFS,connectivity,cycle và bipartiteness.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 120 · Sắp xếp Topo (Topological Sort) trên DAG
+### 176 · Sắp xếp Topo (Topological Sort) trên DAG
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1951,7 +2132,7 @@ Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ t
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 121 · Lập lịch phụ thuộc
+### 177 · Lập lịch phụ thuộc
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1968,7 +2149,7 @@ Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ t
   - **Phần cần đọc:** Chương 16 Directed graphs: topological sorting và xử lý DAG.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 122 · Khoảng cách và thao tác relax
+### 178 · Khoảng cách và thao tác relax
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -1985,7 +2166,7 @@ Sắp xếp Topo (Topological Sort) trên DAG: Mô hình hóa thứ tự phụ t
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 123 · Thuật toán Dijkstra với Min-Heap
+### 179 · Thuật toán Dijkstra với Min-Heap
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2011,7 +2192,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về các giải thuật đồ thị BFS/DFS, tô màu 3 trạng thái và Dijkstra.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 124 · Đường đi ngắn nhất với Dijkstra
+### 180 · Đường đi ngắn nhất với Dijkstra
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2031,7 +2212,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về duyệt đồ thị, tìm đường ngắn nhất Dijkstra trên CSES.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 125 · Bellman–Ford và chu trình âm
+### 181 · Bellman–Ford và chu trình âm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2048,7 +2229,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 126 · Kiểm tra Bellman–Ford
+### 182 · Kiểm tra Bellman–Ford
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2065,7 +2246,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 127 · Floyd–Warshall
+### 183 · Floyd–Warshall
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2082,7 +2263,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 128 · Chọn thuật toán đường đi
+### 184 · Chọn thuật toán đường đi
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2102,7 +2283,7 @@ Dijkstra yêu cầu trọng số cạnh không âm; cạnh âm có thể làm h�
   - **Phần cần đọc:** Chương 13 Shortest paths: đọc đúng mục Bellman–Ford,Dijkstra hoặc Floyd–Warshall cần dùng; đối chiếu giả thiết trọng số.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 129 · Tập hợp rời rạc Disjoint Set Union (DSU)
+### 185 · Tập hợp rời rạc Disjoint Set Union (DSU)
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2126,7 +2307,7 @@ Tập hợp rời rạc Disjoint Set Union (DSU): Quản lý phân hoạch các 
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về cấu trúc DSU, chứng minh chiều cao log N và Kruskal.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 130 · Cây khung nhỏ nhất MST
+### 186 · Cây khung nhỏ nhất MST
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2147,7 +2328,7 @@ Bài MST tiêu chuẩn ở đây dùng đồ thị vô hướng. Không liên th
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 131 · Cây khung nhỏ nhất (MST) và Thuật toán Kruskal
+### 187 · Cây khung nhỏ nhất (MST) và Thuật toán Kruskal
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2168,7 +2349,7 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 132 · Prim
+### 188 · Prim
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2185,7 +2366,7 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 15 Spanning trees: Kruskal,union-find và Prim.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 133 · Đối chiếu Prim và Kruskal
+### 189 · Đối chiếu Prim và Kruskal
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2206,9 +2387,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Bộ bài tập tuyển chọn bài bản về DSU và cây khung nhỏ nhất trên hệ thống CSES.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 134 · Thành phần liên thông mạnh
+### 190 · Thành phần liên thông mạnh
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2225,9 +2406,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 17 Strong connectivity: SCC và đồ thị co.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 135 · Đường đi Euler
+### 191 · Đường đi Euler
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2244,9 +2425,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 19 Paths and circuits: Eulerian paths.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 136 · Luồng cực đại và mạng dư
+### 192 · Luồng cực đại và mạng dư
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2263,9 +2444,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 20 Flows and cuts: residual graph,max flow và min cut.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 137 · Bài toán trên cây
+### 193 · Bài toán trên cây
 
-**Loại:** Luyện | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Luyện | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2282,7 +2463,7 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 14 Tree algorithms và 18 Tree queries; chỉ học duyệt cây/subtree/DP đang yêu cầu.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 138 · Project tìm đường và nối mạng
+### 194 · Project tìm đường và nối mạng
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2293,11 +2474,19 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 - [ ] Thêm chế độ nối tất cả địa điểm bằng MST; giải thích vì sao kết quả phục vụ yêu cầu khác tìm đường. Hỗ trợ đa chế độ: Tìm đường ngắn nhất giữa 2 địa điểm, tối ưu hóa mạng lưới liên kết với chi phí thấp nhất (MST), và kiểm tra tính hợp lệ của luồng công việc phụ thuộc (DAG).
 - [ ] Kiểm thử tự động với dữ liệu quy mô lớn: Benchmark thời gian thực thi trên đồ thị giao thông thực tế có hàng chục nghìn đỉnh và cạnh.
 
-## 10. Truy vấn, chuỗi và tổng hợp DSA
+## 16. Thuật toán chuyên biệt
 
-### 139 · Bitmask và tập con
+**Mục tiêu:** Đào sâu truy vấn, chuỗi và thuật toán ngẫu nhiên.
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Đầu vào:** Nền DSA và đồ thị tương ứng
+
+**Bằng chứng:** Tự giải bài cần kỹ thuật đã chọn, đối chiếu brute force.
+
+**Điểm xuất phát:** Đào sâu có lựa chọn
+
+### 195 · Bitmask và tập con
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2315,9 +2504,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 10 Bit manipulation: thao tác bit và biểu diễn tập con.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 140 · Fenwick tree
+### 196 · Fenwick tree
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2335,9 +2524,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 9 Range queries: prefix sums,binary indexed tree và segment tree; chỉ đọc cấu trúc tương ứng ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 141 · Segment tree
+### 197 · Segment tree
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2356,9 +2545,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 9 Range queries: prefix sums,binary indexed tree và segment tree; chỉ đọc cấu trúc tương ứng ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 142 · Chọn cấu trúc truy vấn
+### 198 · Chọn cấu trúc truy vấn
 
-**Loại:** Luyện | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Luyện | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2375,9 +2564,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 9 Range queries: prefix sums,binary indexed tree và segment tree; chỉ đọc cấu trúc tương ứng ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 143 · KMP và hàm tiền tố
+### 199 · KMP và hàm tiền tố
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2395,9 +2584,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Đọc toàn bài Prefix function: định nghĩa pi,thuật toán tuyến tính và ứng dụng KMP; tự dựng bảng trên chuỗi có tiền tố lặp.
   - **Truy cập:** Toàn bộ bài viết và ví dụ miễn phí từ dự án CP-Algorithms.
 
-### 144 · Rolling hash và giới hạn va chạm
+### 200 · Rolling hash và giới hạn va chạm
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2415,9 +2604,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 26 String algorithms: trie,string hashing và xử lý chuỗi; chọn đúng cấu trúc của ô đang học.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 145 · Mã hóa Huffman
+### 201 · Mã hóa Huffman
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2436,9 +2625,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 6: mục Huffman coding; vẽ cây và kiểm tra prefix code.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 146 · Sàng nguyên tố và lũy thừa nhanh
+### 202 · Sàng nguyên tố và lũy thừa nhanh
 
-**Loại:** Luyện | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Luyện | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2456,9 +2645,9 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 21 Number theory: sieve và modular exponentiation.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 147 · Thuật toán ngẫu nhiên và đo thực nghiệm
+### 203 · Thuật toán ngẫu nhiên và đo thực nghiệm
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
 **Việc cần làm:**
 
@@ -2475,7 +2664,7 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
   - **Phần cần đọc:** Chương 24 Probability: randomized algorithms và đo xác suất/thời gian thực nghiệm.
   - **Truy cập:** Toàn bộ PDF miễn phí từ tác giả; khác cuốn Guide to Competitive Programming bản thương mại.
 
-### 148 · Tự chọn thuật toán khi không có nhãn
+### 204 · Tự chọn thuật toán khi không có nhãn
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** DSA Cốt lõi & Giải thuật (`track-2`)
 
@@ -2490,12 +2679,20 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 # Track 3: Hệ thống Máy tính & Mạng Máy tính (Computer Systems & Networking)
 
-> **Mục tiêu:** Hoàn thành xuất sắc môn Mạng máy tính (CSC10008) HK1 Năm 2: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark.
+> **Mục tiêu:** Tiếp nối mạng từ chương 2, bổ sung kiến trúc/OS từ đầu: Mô hình 5 tầng TCP/IP, TCP 3-way handshake và 4-way termination, điều khiển luồng (Sliding Window), điều khiển tắc nghẽn (AIMD, Slow Start), socket programming đa luồng, message framing chống dính gói, chia mạng con CIDR subnetting, DNS, HTTP/1.1 vs HTTP/2 vs HTTP/3 và thực hành Wireshark.
 > **Môn học HCMUS:** Kiến trúc máy tính (CSC10007) · Hệ điều hành (CSC10005) · Mạng máy tính (CSC10008) | **Thời lượng ước tính:** ~85 giờ
 
-## 12. Máy tính hoạt động như thế nào
+## 10. Dữ liệu, CPU và bộ nhớ
 
-### 171 · Tự kiểm tra nền máy tính và hệ thống
+**Mục tiêu:** Nối dữ liệu và mã với hoạt động máy tính.
+
+**Đầu vào:** C++ cơ bản; nhị phân được học trong môn
+
+**Bằng chứng:** Lần một hàm tới assembly và giải thích bố trí dữ liệu/cache.
+
+**Điểm xuất phát:** Nền hệ thống
+
+### 099 · Tự kiểm tra nền máy tính và hệ thống
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2509,15 +2706,15 @@ Thuật toán Kruskal tìm MST: Dựa trên tính chất lát cắt (Cut Propert
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 172 · Nhị phân, hexadecimal và phép bit (`arch-bits`)
-- [ ] 179 · Stack, heap và bố trí dữ liệu (`arch-layout`)
-- [ ] 189 · Luồng và dữ liệu dùng chung (`os-threads`)
+- [ ] 100 · Nhị phân, hexadecimal và phép bit (`arch-bits`)
+- [ ] 107 · Stack, heap và bố trí dữ liệu (`arch-layout`)
+- [ ] 123 · Luồng và dữ liệu dùng chung (`os-threads`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 172 · Nhị phân, hexadecimal và phép bit
+### 100 · Nhị phân, hexadecimal và phép bit
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2535,7 +2732,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Binary and Data Representation: integer,floating point và text; theo dõi giới hạn biểu diễn trong chương trình nhỏ.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 173 · Số thực dấu phẩy động
+### 101 · Số thực dấu phẩy động
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2553,7 +2750,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Binary and Data Representation: integer,floating point và text; theo dõi giới hạn biểu diễn trong chương trình nhỏ.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 174 · ASCII, Unicode và UTF-8
+### 102 · ASCII, Unicode và UTF-8
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2571,7 +2768,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Binary and Data Representation: integer,floating point và text; theo dõi giới hạn biểu diễn trong chương trình nhỏ.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 175 · Cổng logic và mạch tổ hợp
+### 103 · Cổng logic và mạch tổ hợp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2589,7 +2786,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Computer Architecture: gates,circuits,memory và CPU execution; chưa yêu cầu toàn bộ thiết kế CPU.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 176 · Mạch tuần tự và bộ nhớ
+### 104 · Mạch tuần tự và bộ nhớ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2607,7 +2804,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Computer Architecture: gates,circuits,memory và CPU execution; chưa yêu cầu toàn bộ thiết kế CPU.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 177 · CPU thực thi lệnh
+### 105 · CPU thực thi lệnh
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2625,7 +2822,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Computer Architecture: gates,circuits,memory và CPU execution; chưa yêu cầu toàn bộ thiết kế CPU.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 178 · Đọc assembly của chương trình C++ nhỏ
+### 106 · Đọc assembly của chương trình C++ nhỏ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2643,7 +2840,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Assembly Programming: registers,instructions,procedure calls và stack; chọn kiến trúc máy đang dùng để đối chiếu.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 179 · Stack, heap và bố trí dữ liệu
+### 107 · Stack, heap và bố trí dữ liệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2661,7 +2858,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Assembly Programming: registers,instructions,procedure calls và stack; chọn kiến trúc máy đang dùng để đối chiếu.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 180 · Phân cấp bộ nhớ và locality
+### 108 · Phân cấp bộ nhớ và locality
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2679,7 +2876,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Memory Hierarchy và Computer Architecture: locality,cache,pipeline và I/O; đọc mục tương ứng, không cần hết chương trong một lượt.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 181 · Pipeline và giới hạn tăng tốc
+### 109 · Pipeline và giới hạn tăng tốc
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2697,7 +2894,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Memory Hierarchy và Computer Architecture: locality,cache,pipeline và I/O; đọc mục tương ứng, không cần hết chương trong một lượt.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 182 · Ngắt, I/O và ranh giới phần cứng
+### 110 · Ngắt, I/O và ranh giới phần cứng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2715,9 +2912,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Memory Hierarchy và Computer Architecture: locality,cache,pipeline và I/O; đọc mục tương ứng, không cần hết chương trong một lượt.
   - **Truy cập:** Toàn bộ bản web miễn phí. Ví dụ dùng C; chỉ chuyển ý tưởng sang C++ khi hai ngôn ngữ có hành vi tương ứng.
 
-### 183 · Làm một phần Nand to Tetris
+### 111 · Làm một phần Nand to Tetris
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
 **Việc cần làm:**
 
@@ -2735,9 +2932,123 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Project 1 Boolean Logic,2 Boolean Arithmetic và 4 Machine Language: dùng hướng dẫn,slide,software và test miễn phí; ALU thuộc Project 2, không bắt mua sách.
   - **Truy cập:** Chỉ dùng hướng dẫn project, slide, phần mềm và test công khai miễn phí; không yêu cầu mua sách hoặc khóa Coursera.
 
-## 13. Hệ điều hành và đồng thời
+## 11. Lập trình hệ thống trên Linux
 
-### 184 · Kernel, user mode và system call
+**Mục tiêu:** Dùng process, file descriptor và pipe có xử lý lỗi.
+
+**Đầu vào:** Shell, debug, con trỏ và bộ nhớ; C được bổ sung
+
+**Bằng chứng:** Shell nhỏ chạy được, không kẹt EOF hoặc bỏ sót lỗi API.
+
+**Điểm xuất phát:** Học mới sau công cụ
+
+### 112 · C đủ dùng để đọc hệ thống
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Đối chiếu C với C++: con trỏ, struct, chuỗi kết thúc bằng NUL, malloc/free; không giả định hai ngôn ngữ giống hệt.
+- [ ] Chuyển một hàm xử lý buffer sang C, chốt độ dài và quyền sở hữu; build với warning.
+- [ ] Tự sửa lỗi cấp thiếu một byte cho ký tự kết thúc và giải thích vì sao vector/string thường giảm rủi ro ở C++.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+### 113 · Từ source tới executable
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt tiền xử lý, biên dịch, assembly và linking; phân biệt khai báo với định nghĩa.
+- [ ] Tách chương trình thành hai tệp nguồn và một header, tạo rồi sửa lỗi thiếu định nghĩa khi link.
+- [ ] Viết lệnh build sạch tái lập; chỉ ra thay header hay source thì những gì cần build lại.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+### 114 · File descriptor và lỗi I/O
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt descriptor, đường dẫn và tệp đang mở; kiểm tra giá trị trả về của system call.
+- [ ] Viết sao chép tệp theo buffer, xử lý đọc/ghi từng phần và đóng tài nguyên ở đường lỗi.
+- [ ] So byte đầu ra với đầu vào; thử tệp rỗng, đường dẫn không tồn tại và quyền không đủ trong thư mục thử.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+### 115 · Tạo tiến trình và chờ kết quả
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Lần fork/exec/wait trên mô hình Linux, phân biệt thay chương trình với tạo tiến trình.
+- [ ] Viết launcher gọi một lệnh có đối số, chờ và báo exit status; giải thích đường đi lỗi exec.
+- [ ] Thử lệnh tồn tại/không tồn tại và tiến trình con lỗi; không để con tiếp tục chạy logic của cha ngoài ý muốn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+### 116 · Pipe và chuyển hướng
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa hai đầu pipe, EOF và vì sao phải đóng đầu không dùng.
+- [ ] Nối hai tiến trình để lọc văn bản; thêm chuyển hướng stdout sang tệp.
+- [ ] Thử producer kết thúc và dữ liệu lớn hơn buffer; chỉ ra đầu pipe còn mở có thể làm bên đọc chờ mãi.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+### 117 · Shell nhỏ hiểu được từng bước
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Giới hạn cú pháp: lệnh, đối số và một pipe; không hứa hỗ trợ toàn bộ quoting của shell thật.
+- [ ] Ghép đọc lệnh, fork/exec, pipe/wait; thêm builtin cd và giải thích vì sao phải đổi thư mục trong cha.
+- [ ] Thử lệnh sai, dòng rỗng, EOF, pipe; lưu bản test tái hiện và README nêu cú pháp hỗ trợ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+  - **Phần cần đọc:** OSTEP chương Process API, Interlude: Files and Directories; đối chiếu man page tại Linux cho open/read/write/pipe/wait, không sao chép API Windows.
+  - **Truy cập:** Các chương PDF và bài tập công khai miễn phí; không chọn Buy PDF.
+
+## 12. Hệ điều hành và đồng thời
+
+**Mục tiêu:** Hiểu cách OS quản lý tài nguyên và bảo vệ trạng thái.
+
+**Đầu vào:** Bộ nhớ, CPU cơ bản, process/I/O và cấu trúc dữ liệu cần dùng
+
+**Bằng chứng:** Mô phỏng paging/lập lịch và kiểm thử race/deadlock trên chương trình nhỏ.
+
+**Điểm xuất phát:** Chưa học
+
+### 118 · Kernel, user mode và system call
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2755,7 +3066,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 2 Introduction,4 Processes và 6 Limited Direct Execution.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 185 · Tiến trình và không gian địa chỉ
+### 119 · Tiến trình và không gian địa chỉ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2777,7 +3088,7 @@ Tiến trình vs Luồng (Process vs Thread): Mỗi tiến trình có không gia
   - **Phần cần đọc:** Chương 4 Processes và 5 Process API; làm homework mô phỏng/process API đi kèm.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 186 · Tạo và chờ tiến trình con
+### 120 · Tạo và chờ tiến trình con
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2795,7 +3106,7 @@ Tiến trình vs Luồng (Process vs Thread): Mỗi tiến trình có không gia
   - **Phần cần đọc:** Chương 4 Processes và 5 Process API; làm homework mô phỏng/process API đi kèm.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 187 · Lập lịch CPU
+### 121 · Lập lịch CPU
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2813,7 +3124,7 @@ Tiến trình vs Luồng (Process vs Thread): Mỗi tiến trình có không gia
   - **Phần cần đọc:** Chương 7 CPU Scheduling,8 Multi-level Feedback và 9 Lottery Scheduling; chỉ so các chính sách đang học.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 188 · Bộ nhớ ảo và phân trang
+### 122 · Bộ nhớ ảo và phân trang
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2835,7 +3146,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 13 Address Spaces,15 Address Translation,18 Paging và 19 TLBs.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 189 · Luồng và dữ liệu dùng chung
+### 123 · Luồng và dữ liệu dùng chung
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2857,7 +3168,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 26 Concurrency and Threads,27 Thread API và 28 Locks.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 190 · Tái hiện và sửa race condition
+### 124 · Tái hiện và sửa race condition
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2876,7 +3187,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 26 Concurrency and Threads,27 Thread API và 28 Locks.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 191 · Mutex, condition variable và semaphore
+### 125 · Mutex, condition variable và semaphore
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2894,7 +3205,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 28 Locks,30 Condition Variables và 31 Semaphores; đọc bài producer–consumer.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 192 · Hàng đợi producer–consumer
+### 126 · Hàng đợi producer–consumer
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2914,7 +3225,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 28 Locks,30 Condition Variables và 31 Semaphores; đọc bài producer–consumer.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 193 · Deadlock và thứ tự khóa
+### 127 · Deadlock và thứ tự khóa
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2932,7 +3243,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 32 Concurrency Bugs: deadlock và các điều kiện phát sinh.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 194 · Tệp, thư mục và độ bền dữ liệu
+### 128 · Tệp, thư mục và độ bền dữ liệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2950,7 +3261,7 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 39 Files and Directories,40 File System Implementation và 42 FSCK and Journaling.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 195 · Pipe và giao tiếp giữa tiến trình
+### 129 · Pipe và giao tiếp giữa tiến trình
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -2968,9 +3279,9 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 5 Process API và mục Projects: Unix shell; pipe cần đối chiếu API hệ điều hành khi cài.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-### 196 · Project shell tối giản
+### 130 · Project shell tối giản
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
 **Việc cần làm:**
 
@@ -2989,9 +3300,17 @@ Bộ nhớ ảo & Phân trang (Paging): CPU phát ra địa chỉ ảo gồm s�
   - **Phần cần đọc:** Chương 5 Process API và mục Projects: Unix shell; pipe cần đối chiếu API hệ điều hành khi cài.
   - **Truy cập:** Đọc các chương PDF riêng trong Free Book Chapters: toàn bộ nội dung sách được đọc miễn phí. Bỏ qua Buy PDF/bản in trả phí.
 
-## 14. Mạng máy tính
+## 13. Mạng máy tính và dịch vụ
 
-### 197 · Tầng mạng và đóng gói dữ liệu
+**Mục tiêu:** Hiểu giao thức và chẩn đoán lỗi theo tầng.
+
+**Đầu vào:** Mô hình phân tầng; process/I/O cho bài socket
+
+**Bằng chứng:** Quan sát request/gói tin và kiểm dịch vụ khi ngắt kết nối.
+
+**Điểm xuất phát:** Đang học · tới chương 2
+
+### 131 · Tầng mạng và đóng gói dữ liệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3013,7 +3332,7 @@ Mô hình 5 tầng TCP/IP & Đóng gói dữ liệu: Ứng dụng (Application: 
   - **Phần cần đọc:** Chương 1 An Overview of Networks: layers,packets,forwarding và IETF/OSI.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 198 · IP, subnet và định tuyến
+### 132 · IP, subnet và định tuyến
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3035,7 +3354,7 @@ Tầng Mạng & Kỹ thuật chia mạng con (CIDR Subnetting): Tính toán chí
   - **Phần cần đọc:** Chương 9 IP version 4: delivery,subnets,NAT; đọc thêm routing ở chương 13 khi cần.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 199 · Ethernet, MAC, ARP và Wi-Fi
+### 133 · Ethernet, MAC, ARP và Wi-Fi
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3053,7 +3372,7 @@ Tầng Mạng & Kỹ thuật chia mạng con (CIDR Subnetting): Tính toán chí
   - **Phần cần đọc:** Chương 2 Ethernet Basics,4 Wireless LANs và §10.2 ARP.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 200 · DNS từ tên đến địa chỉ
+### 134 · DNS từ tên đến địa chỉ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3071,7 +3390,7 @@ Tầng Mạng & Kỹ thuật chia mạng con (CIDR Subnetting): Tính toán chí
   - **Phần cần đọc:** §1.11 và §10.1 DNS: từ tên tới địa chỉ và cache.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 201 · UDP và TCP
+### 135 · UDP và TCP
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3096,7 +3415,7 @@ Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nha
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 202 · Độ trễ, băng thông và nghẽn
+### 136 · Độ trễ, băng thông và nghẽn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3114,7 +3433,7 @@ Tầng Giao vận (Transport Layer): So sánh UDP (phi kết nối, truyền nha
   - **Phần cần đọc:** §1.2 Data Rate,Throughput and Bandwidth, chương 7 Packets và phần TCP congestion control.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 203 · HTTP request và response
+### 137 · HTTP request và response
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3139,7 +3458,7 @@ Giao thức HTTP & Kiến trúc Web: Cấu trúc Request/Response (Request Line,
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 204 · TLS, HTTPS và chứng chỉ
+### 138 · TLS, HTTPS và chứng chỉ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3157,7 +3476,7 @@ Giao thức HTTP & Kiến trúc Web: Cấu trúc Request/Response (Request Line,
   - **Phần cần đọc:** Mục HTTP và Web security: request/response,HTTPS/TLS; bài quan sát gói tin thực hiện trên kết nối của mình.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 205 · Quan sát gói tin của chính mình
+### 139 · Quan sát gói tin của chính mình
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3175,7 +3494,7 @@ Giao thức HTTP & Kiến trúc Web: Cấu trúc Request/Response (Request Line,
   - **Phần cần đọc:** Mục HTTP và Web security: request/response,HTTPS/TLS; bài quan sát gói tin thực hiện trên kết nối của mình.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 206 · Socket và đóng khung thông điệp
+### 140 · Socket và đóng khung thông điệp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3200,7 +3519,7 @@ Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind()
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về lập trình mạng socket mức thấp và định khung TCP.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 207 · Dịch vụ tra cứu sách qua mạng
+### 141 · Dịch vụ tra cứu sách qua mạng
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3219,7 +3538,7 @@ Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind()
   - **Phần cần đọc:** Các chương UDP Transport và TCP Transport: socket examples,read/write và message framing.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
-### 208 · Chẩn đoán lỗi theo từng tầng
+### 142 · Chẩn đoán lỗi theo từng tầng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
 
@@ -3238,14 +3557,142 @@ Lập trình Socket mạng mức thấp: Các hàm hệ thống socket(), bind()
   - **Phần cần đọc:** §1.14 Some Useful Utilities và phần ICMP; làm thí nghiệm DNS/port nhỏ theo nhiệm vụ.
   - **Truy cập:** Toàn bộ bản sách web miễn phí từ tác giả.
 
+## 31. Lập trình song song
+
+**Mục tiêu:** Chia công việc đúng và kiểm chứng tăng tốc.
+
+**Đầu vào:** Luồng/khóa, cache và đo thời gian
+
+**Bằng chứng:** Kết quả khớp tuần tự, đo overhead và giải thích giới hạn tăng tốc.
+
+**Điểm xuất phát:** Nền song song
+
+### 354 · Song song và giới hạn tăng tốc
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt concurrency với parallelism; giải nghĩa phần tuần tự, overhead và định luật Amdahl.
+- [ ] Tính tốc độ tối đa cho một chương trình có phần tuần tự xác định; thay số core.
+- [ ] Đối chiếu kết quả với giả định; không hứa gấp đôi core thì nhanh gấp đôi.
+
+**Nguồn tham khảo miễn phí:**
+
+- [OpenMP — examples](https://www.openmp.org/resources/tutorials-articles/)
+  - **Phần cần đọc:** OpenMP tutorials: parallel region, work sharing, reduction và synchronization; chọn compiler hỗ trợ và đối chiếu kết quả tuần tự trước.
+  - **Truy cập:** Tài nguyên tutorial công khai miễn phí; chạy ví dụ nhỏ trên CPU, không cần GPU.
+
+### 355 · Chia dữ liệu và reduction
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt dữ liệu shared/private và phép gộp kết quả; xét tính kết hợp của phép toán.
+- [ ] Tính tổng dãy tuần tự rồi song song bằng reduction; thử số thực theo thứ tự khác.
+- [ ] So sai số và thời gian trên dữ liệu đủ lớn; giải thích vì sao mutex mỗi phần tử có thể chậm hơn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [OpenMP — examples](https://www.openmp.org/resources/tutorials-articles/)
+  - **Phần cần đọc:** OpenMP tutorials: parallel region, work sharing, reduction và synchronization; chọn compiler hỗ trợ và đối chiếu kết quả tuần tự trước.
+  - **Truy cập:** Tài nguyên tutorial công khai miễn phí; chạy ví dụ nhỏ trên CPU, không cần GPU.
+
+### 356 · Locality và false sharing
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa cache line và các luồng cập nhật biến khác nhau nhưng chung line.
+- [ ] Đo bộ đếm từng luồng với bố trí liền nhau và tách vùng, tránh compiler loại bỏ công việc.
+- [ ] Lặp đo, ghi CPU/compiler/số luồng; chỉ suy nguyên nhân khi có đối chứng và không coi một lần đo là bằng chứng đủ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [OpenMP — examples](https://www.openmp.org/resources/tutorials-articles/)
+  - **Phần cần đọc:** OpenMP tutorials: parallel region, work sharing, reduction và synchronization; chọn compiler hỗ trợ và đối chiếu kết quả tuần tự trước.
+  - **Truy cập:** Tài nguyên tutorial công khai miễn phí; chạy ví dụ nhỏ trên CPU, không cần GPU.
+
+### 357 · Pipeline xử lý dữ liệu có giới hạn
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Chia đọc/xử lý/ghi, đặt hàng đợi hữu hạn để tránh producer tạo dữ liệu vô hạn.
+- [ ] Dùng thread và queue đã học để xử lý lô tệp nhỏ; giới hạn số worker.
+- [ ] Đối chiếu output tuần tự, kiểm không mất/trùng và dừng sạch khi một worker lỗi.
+
+**Nguồn tham khảo miễn phí:**
+
+- [OpenMP — examples](https://www.openmp.org/resources/tutorials-articles/)
+  - **Phần cần đọc:** OpenMP tutorials: parallel region, work sharing, reduction và synchronization; chọn compiler hỗ trợ và đối chiếu kết quả tuần tự trước.
+  - **Truy cập:** Tài nguyên tutorial công khai miễn phí; chạy ví dụ nhỏ trên CPU, không cần GPU.
+
+## 35. Chuyên sâu hệ điều hành
+
+**Mục tiêu:** Đọc và thay đổi kernel nhỏ có kiểm soát.
+
+**Đầu vào:** C, RISC-V, OS và process/I/O
+
+**Bằng chứng:** Một thay đổi xv6 có baseline, diff và test.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 376 · Đọc kernel nhỏ theo đường system call
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Xác định kernel/user và mã chuyển ranh giới trên xv6 sau nền C/RISC-V.
+- [ ] Theo một system call từ chương trình user tới kernel rồi trả về; ghi tệp/hàm và dữ liệu qua từng bước.
+- [ ] Tự giải thích khi tham số user không hợp lệ; không sửa bừa mã trap khi chưa hiểu thanh ghi được giữ.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT xv6 — sách và mã nguồn](https://pdos.csail.mit.edu/6.1810/2025/xv6.html)
+  - **Phần cần đọc:** xv6 book 2025: Operating System Interfaces, Page Tables, Traps, Locking và File System; đọc mã tương ứng, không phụ thuộc chấm trường.
+  - **Truy cập:** Sách và mã nguồn công khai miễn phí; đây là kỳ 2025 được chọn để đọc ổn định.
+
+### 377 · Thử thay đổi nhỏ trong xv6
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Kiến trúc & Mạng Máy tính (`track-3`)
+
+**Việc cần làm:**
+
+- [ ] Chọn một thay đổi trong fork riêng theo chính sách học liệu, ví dụ bộ đếm syscall; nêu invariant.
+- [ ] Build QEMU/xv6 bằng hướng dẫn chính thức, ghi baseline trước khi sửa và chạy test tương ứng.
+- [ ] Chứng minh ca thường/lỗi vẫn chạy, giữ diff và hướng dẫn; nếu chưa dựng được ghi chưa thực hành, không đánh dấu hoàn thành.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT xv6 — sách và mã nguồn](https://pdos.csail.mit.edu/6.1810/2025/xv6.html)
+  - **Phần cần đọc:** xv6 book 2025: Operating System Interfaces, Page Tables, Traps, Locking và File System; đọc mã tương ứng, không phụ thuộc chấm trường.
+  - **Truy cập:** Sách và mã nguồn công khai miễn phí; đây là kỳ 2025 được chọn để đọc ổn định.
+
 # Track 4: Cơ sở Toán học cho Khoa học Máy tính (Mathematical Foundations)
 
-> **Mục tiêu:** Tối ưu hóa điểm số môn Toán rời rạc & tổ hợp (MTH00040) và Xác suất Thống kê cho CNTT (MTH00041) HK1 Năm 2: Logic mệnh đề & vị từ, chứng minh quy nạp, hệ thức truy hồi, hàm sinh (Generating Functions), nguyên lý Dirichlet, Định lý Bayes, biến ngẫu nhiên và phân phối (Bernoulli, Poisson, Gaussian Normal), Định lý Giới hạn Trung tâm (CLT), MLE và kiểm định giả thuyết.
-> **Môn học HCMUS:** Toán rời rạc & tổ hợp (MTH00040) · Xác suất thống kê cho CNTT (MTH00041) · Đại số tuyến tính (MTH00030) | **Thời lượng ước tính:** ~80 giờ
+> **Mục tiêu:** Ôn toán năm 1 theo bài làm, tiếp tục xác suất thống kê và toán tổ hợp đang học: Logic mệnh đề & vị từ, chứng minh quy nạp, hệ thức truy hồi, hàm sinh (Generating Functions), nguyên lý Dirichlet, Định lý Bayes, biến ngẫu nhiên và phân phối (Bernoulli, Poisson, Gaussian Normal), Định lý Giới hạn Trung tâm (CLT), MLE và kiểm định giả thuyết.
+> **Môn học HCMUS:** Toán rời rạc (MTH00045) · Toán học tổ hợp (MTH00050 theo bảng điểm) · Xác suất thống kê (MTH00044) · Đại số tuyến tính (MTH00035) | **Thời lượng ước tính:** ~80 giờ
 
-## 06. Toán rời rạc cho lập trình
+## 08. Toán rời rạc và lập luận
 
-### 055 · Mệnh đề và phép suy luận
+**Mục tiêu:** Chứng minh, đếm và mô tả cấu trúc rời rạc.
+
+**Đầu vào:** Đại số phổ thông đủ dùng
+
+**Bằng chứng:** Tự viết chứng minh, phản ví dụ và bài đếm có giải thích.
+
+**Điểm xuất phát:** Đã học · ôn theo bài làm
+
+### 067 · Mệnh đề và phép suy luận
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3265,7 +3712,7 @@ Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, luật k�
   - **Phần cần đọc:** Trong giáo trình MIT 2015: các phần Propositions,Predicate Formulas và Quantifiers; làm bài phủ định và phản ví dụ.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 056 · Lượng từ và phủ định
+### 068 · Lượng từ và phủ định
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3282,7 +3729,7 @@ Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, luật k�
   - **Phần cần đọc:** Trong giáo trình MIT 2015: các phần Propositions,Predicate Formulas và Quantifiers; làm bài phủ định và phản ví dụ.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 057 · Tập hợp, hàm và quan hệ
+### 069 · Tập hợp, hàm và quan hệ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3299,7 +3746,7 @@ Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, luật k�
   - **Phần cần đọc:** Phần Mathematical Data Types: sets,sequences,functions và relations.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 058 · Chứng minh và phản ví dụ
+### 070 · Chứng minh và phản ví dụ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3316,7 +3763,7 @@ Logic toán học cho KHMT: Bảng chân trị, các luật De Morgan, luật k�
   - **Phần cần đọc:** Phần Proofs: direct proof,contrapositive,contradiction; chọn bài có lời giải để đối chiếu sau khi tự viết.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 059 · Quy nạp toán học
+### 071 · Quy nạp toán học
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3337,7 +3784,7 @@ Quy nạp toán học 3 bước chuẩn mực: Bước cơ sở (Base case), Gi�
   - **Phần cần đọc:** Phần Induction: simple/strong induction; làm cả cơ sở và bước quy nạp.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 060 · Bất biến vòng lặp
+### 072 · Bất biến vòng lặp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3354,7 +3801,7 @@ Quy nạp toán học 3 bước chuẩn mực: Bước cơ sở (Base case), Gi�
   - **Phần cần đọc:** Phần State Machines: invariant và termination; áp dụng cho vòng lặp đang viết.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 061 · Quy tắc đếm và tổ hợp
+### 073 · Quy tắc đếm và tổ hợp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3371,7 +3818,7 @@ Quy nạp toán học 3 bước chuẩn mực: Bước cơ sở (Base case), Gi�
   - **Phần cần đọc:** Phần Counting: bijection,product/sum rules,pigeonhole và inclusion–exclusion.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 062 · Nguyên lý bồ câu và bao hàm loại trừ
+### 074 · Nguyên lý bồ câu và bao hàm loại trừ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3392,7 +3839,7 @@ Nguyên lý Bồ câu (Pigeonhole Principle - Dirichlet): Dạng cơ bản (n+1 
   - **Phần cần đọc:** Phần Counting: bijection,product/sum rules,pigeonhole và inclusion–exclusion.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 063 · Chia hết, UCLN và số học modulo
+### 075 · Chia hết, UCLN và số học modulo
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3409,7 +3856,7 @@ Nguyên lý Bồ câu (Pigeonhole Principle - Dirichlet): Dạng cơ bản (n+1 
   - **Phần cần đọc:** Phần Number Theory: divisibility,GCD và modular arithmetic.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 064 · Tổng và truy hồi
+### 076 · Tổng và truy hồi
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3430,7 +3877,7 @@ Hệ thức truy hồi & Phân tích thuật toán: Định lý Thợ (Master Th
   - **Phần cần đọc:** Phần Sums and Asymptotics,Recurrences; chưa cần giải mọi dạng truy hồi.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 065 · Ngôn ngữ của cây và đồ thị
+### 077 · Ngôn ngữ của cây và đồ thị
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3447,7 +3894,7 @@ Hệ thức truy hồi & Phân tích thuật toán: Định lý Thợ (Master Th
   - **Phần cần đọc:** Phần Directed Graphs,Simple Graphs và Trees: ngôn ngữ nền, chưa cần toàn bộ định lý nâng cao.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-### 066 · Giải bài toán rời rạc có lập luận
+### 078 · Giải bài toán rời rạc có lập luận
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3465,9 +3912,17 @@ Hệ thức truy hồi & Phân tích thuật toán: Định lý Thợ (Master Th
   - **Phần cần đọc:** Phần Proofs: direct proof,contrapositive,contradiction; chọn bài có lời giải để đối chiếu sau khi tự viết.
   - **Truy cập:** Toàn bộ giáo trình PDF được MIT cung cấp miễn phí, cùng các chương lẻ.
 
-## 11. Đại số tuyến tính, giải tích và xác suất
+## 17. Đại số tuyến tính cho CS
 
-### 149 · Tự kiểm tra nền toán trước khi học tiếp
+**Mục tiêu:** Nối vector, phép biến đổi và xấp xỉ với bài toán tính toán.
+
+**Đầu vào:** Hệ phương trình và phép toán đại số
+
+**Bằng chứng:** Tính và giải thích phép chiếu/vector riêng trên ví dụ nhỏ.
+
+**Điểm xuất phát:** Đã học · kiểm tra và ứng dụng
+
+### 205 · Tự kiểm tra nền toán trước khi học tiếp
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3481,15 +3936,15 @@ Hệ thức truy hồi & Phân tích thuật toán: Định lý Thợ (Master Th
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 150 · Vector và hệ phương trình tuyến tính (`linear-vectors`)
-- [ ] 157 · Đạo hàm và quy tắc dây chuyền (`calculus-derivative`)
-- [ ] 161 · Không gian mẫu và xác suất (`prob-events`)
+- [ ] 206 · Vector và hệ phương trình tuyến tính (`linear-vectors`)
+- [ ] 213 · Đạo hàm và quy tắc dây chuyền (`calculus-derivative`)
+- [ ] 217 · Không gian mẫu và xác suất (`prob-events`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 150 · Vector và hệ phương trình tuyến tính
+### 206 · Vector và hệ phương trình tuyến tính
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3507,7 +3962,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Lecture 1 The Geometry of Linear Equations và Lecture 2 Elimination with Matrices.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 151 · Không gian vector, cơ sở và hạng
+### 207 · Không gian vector, cơ sở và hạng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3525,7 +3980,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Các bài Vector Spaces and Subspaces,Column Space and Nullspace,Independence,Basis and Dimension.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 152 · Ma trận là một phép biến đổi
+### 208 · Ma trận là một phép biến đổi
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3543,7 +3998,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Các bài Matrix Multiplication và Linear Transformations and Their Matrices.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 153 · Trực giao và bình phương tối thiểu
+### 209 · Trực giao và bình phương tối thiểu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3561,7 +4016,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Các bài Orthogonal Vectors and Subspaces,Projections onto Subspaces và Least Squares Approximations.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 154 · Trị riêng và vector riêng
+### 210 · Trị riêng và vector riêng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3579,9 +4034,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Các bài Eigenvalues and Eigenvectors,Diagonalization và Symmetric Matrices.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 155 · SVD và xấp xỉ hạng thấp
+### 211 · SVD và xấp xỉ hạng thấp
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
 **Việc cần làm:**
 
@@ -3599,7 +4054,17 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Bài Singular Value Decomposition; ôn orthogonality và eigenvalues trước, không cần cả khóa ngay trong ô này.
   - **Truy cập:** Dùng video, ghi chú và bài tập OCW miễn phí; không cần mua sách giáo trình của khóa.
 
-### 156 · Hàm số, giới hạn và liên tục
+## 18. Giải tích và tối ưu cơ bản
+
+**Mục tiêu:** Hiểu biến thiên, tích lũy và gradient.
+
+**Đầu vào:** Hàm số, mũ/log và đại số
+
+**Bằng chứng:** Tính/kiểm tra đạo hàm, gradient và giải thích một bước tối ưu.
+
+**Điểm xuất phát:** VTP1–2 đã học
+
+### 212 · Hàm số, giới hạn và liên tục
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3617,7 +4082,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 1 Functions and Graphs và 2 Limits: chỉ ôn hàm,giới hạn và liên tục cần cho đạo hàm.
   - **Truy cập:** Toàn bộ sách web/PDF và bài tập trong sách miễn phí; chọn bản đọc, không mua bản in.
 
-### 157 · Đạo hàm và quy tắc dây chuyền
+### 213 · Đạo hàm và quy tắc dây chuyền
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3635,7 +4100,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 3 Derivatives: định nghĩa,quy tắc đạo hàm và chain rule.
   - **Truy cập:** Toàn bộ sách web/PDF và bài tập trong sách miễn phí; chọn bản đọc, không mua bản in.
 
-### 158 · Tích phân và tổng tích lũy
+### 214 · Tích phân và tổng tích lũy
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3653,7 +4118,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 5 Integration: Riemann sums,definite integrals và Fundamental Theorem of Calculus.
   - **Truy cập:** Toàn bộ sách web/PDF và bài tập trong sách miễn phí; chọn bản đọc, không mua bản in.
 
-### 159 · Đạo hàm riêng và gradient
+### 215 · Đạo hàm riêng và gradient
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3671,7 +4136,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 4 Differentiation of Functions of Several Variables: partial derivatives,chain rule,gradient; phần thuật toán gradient descent thực hiện theo nhiệm vụ, không cần đọc toàn bộ tối ưu nâng cao.
   - **Truy cập:** Toàn bộ sách web/PDF miễn phí; chỉ đọc phần được chỉ định.
 
-### 160 · Gradient descent trên hàm nhỏ
+### 216 · Gradient descent trên hàm nhỏ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3689,7 +4154,17 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 4 Differentiation of Functions of Several Variables: partial derivatives,chain rule,gradient; phần thuật toán gradient descent thực hiện theo nhiệm vụ, không cần đọc toàn bộ tối ưu nâng cao.
   - **Truy cập:** Toàn bộ sách web/PDF miễn phí; chỉ đọc phần được chỉ định.
 
-### 161 · Không gian mẫu và xác suất
+## 19. Xác suất và thống kê
+
+**Mục tiêu:** Mô hình hóa bất định và đánh giá bằng dữ liệu.
+
+**Đầu vào:** Đếm; đại số, giải tích theo phần sử dụng
+
+**Bằng chứng:** Chọn mô hình/ước lượng phù hợp, nêu giả định và giới hạn suy luận.
+
+**Điểm xuất phát:** Đang học · chưa rõ tiến độ
+
+### 217 · Không gian mẫu và xác suất
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3707,7 +4182,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 3 Probability: sample space,conditional probability,independence và Bayes.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 162 · Bayes và tỷ lệ nền
+### 218 · Bayes và tỷ lệ nền
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3729,7 +4204,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 3 Probability: sample space,conditional probability,independence và Bayes.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 163 · Biến ngẫu nhiên, kỳ vọng và phương sai
+### 219 · Biến ngẫu nhiên, kỳ vọng và phương sai
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3751,7 +4226,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 3–4: random variables,expectation,variance; đọc đúng mục Bernoulli/binomial,Poisson hoặc normal theo ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 164 · Bernoulli và phân phối nhị thức
+### 220 · Bernoulli và phân phối nhị thức
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3768,7 +4243,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 3–4: random variables,expectation,variance; đọc đúng mục Bernoulli/binomial,Poisson hoặc normal theo ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 165 · Phân phối Poisson và số sự kiện
+### 221 · Phân phối Poisson và số sự kiện
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3785,7 +4260,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 3–4: random variables,expectation,variance; đọc đúng mục Bernoulli/binomial,Poisson hoặc normal theo ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 166 · Phân phối chuẩn và chuẩn hóa
+### 222 · Phân phối chuẩn và chuẩn hóa
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3802,7 +4277,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 3–4: random variables,expectation,variance; đọc đúng mục Bernoulli/binomial,Poisson hoặc normal theo ô hiện tại.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 167 · Lấy mẫu, ước lượng và khoảng tin cậy
+### 223 · Lấy mẫu, ước lượng và khoảng tin cậy
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3824,7 +4299,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 5 Foundations for Inference: sampling,confidence intervals và hypothesis tests; tiếp tục ví dụ một mẫu ở chương 6–7 khi cần.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 168 · Kiểm định và kích thước hiệu ứng
+### 224 · Kiểm định và kích thước hiệu ứng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3842,7 +4317,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 5 Foundations for Inference: sampling,confidence intervals và hypothesis tests; tiếp tục ví dụ một mẫu ở chương 6–7 khi cần.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 169 · Tương quan và hồi quy
+### 225 · Tương quan và hồi quy
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3860,7 +4335,7 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
   - **Phần cần đọc:** Chương 8 Introduction to Linear Regression: association,residual và giới hạn suy luận nhân quả.
   - **Truy cập:** Toàn bộ PDF miễn phí: chọn FREE PDF, đặt khoản đóng góp tùy chọn bằng $0. Không cần mua bản in hoặc tài nguyên giáo viên.
 
-### 170 · Mô phỏng và báo cáo kết quả
+### 226 · Mô phỏng và báo cáo kết quả
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Toán Rời rạc & Xác suất Thống kê (`track-4`)
 
@@ -3884,9 +4359,123 @@ Biến ngẫu nhiên (Random Variables): Rời rạc (PMF) vs Liên tục (PDF/C
 > **Mục tiêu:** Bổ khuyết toàn diện Missing Semester: Git CLI chuyên nghiệp (phân nhánh, giải quyết xung đột merge, interactive rebase, stash, cherry-pick, PR workflow, Conventional Commits), Debugger GDB/LLDB/VS Code, diệt lỗi bộ nhớ với AddressSanitizer/Valgrind, POSIX shell & pipes, CMake đa mô-đun và tự động hóa CI/CD với GitHub Actions.
 > **Môn học HCMUS:** Thực hành Kỹ thuật Lập trình · Phương pháp Phát triển Phần mềm (CSC13001) | **Thời lượng ước tính:** ~65 giờ
 
-## 03. Lưu và quản lý mã nguồn
+## 03. Debug C++ từ đầu
 
-### 033 · Tạo kho Git đầu tiên
+**Mục tiêu:** Tìm nguyên nhân bằng quan sát thay vì sửa thử.
+
+**Đầu vào:** Chạy được chương trình C++ nhỏ
+
+**Bằng chứng:** Sửa ba lỗi độc lập và giữ test ngăn lỗi quay lại.
+
+**Điểm xuất phát:** Chưa học · ưu tiên mở đầu
+
+### 019 · Tái hiện lỗi trước khi sửa
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt lỗi biên dịch, liên kết, khi chạy và sai kết quả; ghi điều mong đợi và điều quan sát.
+- [ ] Chọn chương trình C++ quen thuộc, giữ đầu vào gây lỗi nhỏ nhất và đúng lệnh build/run.
+- [ ] Một lần chạy lại phải tái hiện cùng lỗi; chỉ ra compiler và tệp thực thi thực sự đang dùng.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+### 020 · Breakpoint, step và xem biến
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa điểm dừng, step into/over/out; phân biệt dòng sắp chạy và dòng đã chạy.
+- [ ] Dừng vòng lặp tìm max trên số âm, xem biến/chỉ số qua mỗi bước; tìm giá trị đầu tiên lệch dự đoán.
+- [ ] Sửa nguyên nhân rồi thử dãy rỗng, một phần tử, toàn âm; giải thích vì sao bản sửa đúng.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+### 021 · Call stack và lỗi đệ quy
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt các lần gọi cùng hàm, tham số và biến cục bộ của mỗi lần; hiểu điểm dừng.
+- [ ] Debug hàm tổng hoặc tìm kiếm đệ quy thiếu điểm dừng; chuyển giữa các frame để xem tham số.
+- [ ] Tự chỉ ra lời gọi sai đầu tiên, sửa rồi kiểm tra n=0/1; không coi tăng giới hạn stack là sửa nguyên nhân.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+### 022 · Theo dõi thay đổi dữ liệu
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt xem biến hiện tại với dừng khi dữ liệu đổi; dùng watchpoint khi debugger hỗ trợ.
+- [ ] Theo một phần tử bị ghi đè sai trong hàm đảo dãy; khoanh vùng phép gán đầu tiên làm hỏng dữ liệu.
+- [ ] Giải thích được tác động của tham chiếu và chỉ số; nếu thiếu watchpoint, dùng breakpoint có điều kiện tương ứng.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+### 023 · Lỗi bộ nhớ và thời gian sống
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Nhận diện truy cập vượt biên, dùng sau giải phóng và con trỏ tới biến đã hết sống.
+- [ ] Chạy ví dụ nhỏ với warning và AddressSanitizer nếu compiler hỗ trợ; đối chiếu dòng báo với call stack.
+- [ ] Sửa quyền sở hữu hoặc chỉ số, không tắt cảnh báo; chạy lại test trước/sau và ghi giới hạn công cụ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+### 024 · Sửa ba lỗi và giữ bằng chứng
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
+
+**Việc cần làm:**
+
+- [ ] Chuẩn bị ba lỗi độc lập: chỉ số, đệ quy, thời gian sống; mỗi lỗi có đầu vào và kết quả mong đợi.
+- [ ] Dùng debugger tìm nguyên nhân, ghi ngắn quan sát quyết định và sửa tối thiểu.
+- [ ] Giữ test ngăn lỗi quay lại; tự giải thích bản vá khi không mở hướng dẫn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT Missing Semester 2026](https://missing.csail.mit.edu/)
+  - **Phần cần đọc:** Bài Debugging and Profiling, phần debugging, logging và debugger; bài roadmap dùng chương trình C++ nhỏ có đầu ra mong đợi.
+  - **Truy cập:** Bài viết và bài tập công khai miễn phí; không yêu cầu dịch vụ chấm của trường.
+
+## 04. Git và lịch sử thay đổi
+
+**Mục tiêu:** Hiểu và quản lý thay đổi trong mã nguồn.
+
+**Đầu vào:** Có tệp chương trình để thực hành
+
+**Bằng chứng:** Tự tạo nhánh, merge, xử lý conflict và khôi phục thay đổi thử.
+
+**Điểm xuất phát:** Chưa học
+
+### 025 · Tạo kho Git đầu tiên
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3907,7 +4496,7 @@ Mô hình nhận thức Git: Git là một đồ thị có hướng không chu t
   - **Phần cần đọc:** Pro Git §1.6 First-Time Git Setup, §2.1 Getting a Git Repository.
   - **Truy cập:** Toàn bộ sách điện tử miễn phí; không cần mua bản in.
 
-### 034 · Lưu một thay đổi có chủ đích
+### 026 · Lưu một thay đổi có chủ đích
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3924,7 +4513,7 @@ Mô hình nhận thức Git: Git là một đồ thị có hướng không chu t
   - **Phần cần đọc:** Pro Git §2.2 Recording Changes, §2.3 Viewing History; thử stage và đọc diff trước commit.
   - **Truy cập:** Toàn bộ sách điện tử miễn phí; không cần mua bản in.
 
-### 035 · Làm tính năng trên nhánh riêng
+### 027 · Làm tính năng trên nhánh riêng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3945,7 +4534,7 @@ Git nâng cao & Giải quyết xung đột: Phân biệt Fast-forward merge vs 3
   - **Phần cần đọc:** Pro Git §3.1–3.2: branch và basic branching/merging.
   - **Truy cập:** Toàn bộ sách điện tử miễn phí; không cần mua bản in.
 
-### 036 · Remote, GitHub và pull request
+### 028 · Remote, GitHub và pull request
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3962,7 +4551,7 @@ Git nâng cao & Giải quyết xung đột: Phân biệt Fast-forward merge vs 3
   - **Phần cần đọc:** Pro Git §2.5 Working with Remotes và chương 6 GitHub: pull requests và góp thay đổi.
   - **Truy cập:** Toàn bộ sách điện tử miễn phí; không cần mua bản in.
 
-### 037 · Khôi phục thay đổi bằng Git
+### 029 · Khôi phục thay đổi bằng Git
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3979,7 +4568,7 @@ Git nâng cao & Giải quyết xung đột: Phân biệt Fast-forward merge vs 3
   - **Phần cần đọc:** Pro Git §2.4 Undoing Things; chỉ đọc thêm reflog trong chương 7 khi cần tìm commit.
   - **Truy cập:** Toàn bộ sách điện tử miễn phí; không cần mua bản in.
 
-### 038 · Đọc và góp ý mã của người khác
+### 030 · Đọc và góp ý mã của người khác
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -3999,9 +4588,17 @@ Git nâng cao & Giải quyết xung đột: Phân biệt Fast-forward merge vs 3
   - **Phần cần đọc:** Các chương Code Review,Knowledge Sharing và How to Work Well on Teams.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-## 05. Công cụ, Linux và cách tự học
+## 05. Linux, shell và công cụ
 
-### 046 · Làm việc bằng dòng lệnh
+**Mục tiêu:** Làm việc bằng shell với đầu vào/đầu ra và tiến trình.
+
+**Đầu vào:** Tệp, thư mục và chạy chương trình
+
+**Bằng chứng:** Tự build/test và lọc log, giải thích mỗi lệnh và quyền đang dùng.
+
+**Điểm xuất phát:** Chưa học Linux
+
+### 031 · Làm việc bằng dòng lệnh
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4022,7 +4619,7 @@ Dòng lệnh POSIX/Linux & Pipes: Làm chủ 3 luồng chuẩn: Standard Input (
   - **Phần cần đọc:** Bài Course Overview + The Shell: điều hướng, quoting và lệnh cơ bản; làm phần Exercises.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 047 · Lọc và ghép dữ liệu văn bản
+### 032 · Lọc và ghép dữ liệu văn bản
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4039,7 +4636,7 @@ Dòng lệnh POSIX/Linux & Pipes: Làm chủ 3 luồng chuẩn: Standard Input (
   - **Phần cần đọc:** Bài Shell Tools and Scripting, Data Wrangling: pipe,grep,sort,uniq và xử lý văn bản.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 048 · Tiến trình và quyền trên Linux
+### 033 · Tiến trình và quyền trên Linux
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4056,7 +4653,7 @@ Dòng lệnh POSIX/Linux & Pipes: Làm chủ 3 luồng chuẩn: Standard Input (
   - **Phần cần đọc:** Bài Command-line Environment: job control,processes,signals và quyền tệp trong bài Shell.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 049 · Tự động hóa việc build C++
+### 034 · Tự động hóa việc build C++
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4077,7 +4674,7 @@ Tự động hóa build với CMake hiện đại (Target-based CMake 3.20+): Vi
   - **Phần cần đọc:** Bài Metaprogramming: build systems,dependencies và testing; dựng Makefile nhỏ thay vì học hết các công cụ.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 050 · Tìm lỗi bộ nhớ bằng công cụ
+### 035 · Tìm lỗi bộ nhớ bằng công cụ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4098,7 +4695,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Bài Debugging and Profiling: debugging,memory và profiling; phân biệt tìm lỗi với đo hiệu năng.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 051 · Đo trước khi tối ưu
+### 036 · Đo trước khi tối ưu
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4115,7 +4712,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Bài Debugging and Profiling: debugging,memory và profiling; phân biệt tìm lỗi với đo hiệu năng.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 052 · Đọc tài liệu kỹ thuật tiếng Anh
+### 037 · Đọc tài liệu kỹ thuật tiếng Anh
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4132,7 +4729,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Bài Q&A: cách tự tìm tài liệu; áp dụng trực tiếp lên tài liệu vector/Git ở nhiệm vụ.
   - **Truy cập:** Bài viết, video và bài tập công khai miễn phí.
 
-### 053 · Dùng AI mà vẫn tự kiểm soát mã
+### 038 · Dùng AI mà vẫn tự kiểm soát mã
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4143,7 +4740,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
 - [ ] Đóng câu trả lời, tự sửa lại mã và giải thích từng phần; không gửi khóa hay dữ liệu riêng tư. Tự thiết kế ít nhất một ca mà lời giải dễ sai, không chỉ chạy test do chính câu trả lời tạo ra.
 - [ ] Nếu chưa hiểu đoạn mã, thu nhỏ ví dụ hoặc quay lại bài nền; không đánh dấu đã học chỉ vì chương trình chạy.
 
-### 054 · Tạo nhịp học và ôn lại
+### 039 · Tạo nhịp học và ôn lại
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4154,9 +4751,17 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
 - [ ] Lưu nhật ký lỗi gồm tình huống, nguyên nhân và cách sửa; dùng lỗi lặp lại để chọn phần cần ôn. Chọn một bài cũ cách vài ngày, đổi dữ kiện hoặc điều kiện và làm lại không xem; nếu mắc, ghi phần cần ôn cụ thể.
 - [ ] Cuối tuần giảm hoặc tăng khối lượng theo việc thật sự làm được, giữ một khoảng nghỉ và thời gian xử lý bài trên trường.
 
-## 18. Kỹ thuật phần mềm và làm việc nhóm
+## 25. Kỹ nghệ phần mềm
 
-### 249 · Yêu cầu, user story và tình huống biên
+**Mục tiêu:** Giữ phần mềm thay đổi được bằng thiết kế/test/review.
+
+**Đầu vào:** Có project để cải tiến; Git và debug
+
+**Bằng chứng:** Một vòng yêu cầu → sửa → test → review có bằng chứng.
+
+**Điểm xuất phát:** Thói quen dùng từ chặng A
+
+### 280 · Yêu cầu, user story và tình huống biên
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4174,7 +4779,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Chương Documentation, mục Design Docs; chương What Is Software Engineering? Chỉ áp dụng phần phù hợp project nhỏ.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 250 · Chia module theo trách nhiệm
+### 281 · Chia module theo trách nhiệm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4192,7 +4797,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Chương Documentation, mục Design Docs; chương What Is Software Engineering? Chỉ áp dụng phần phù hợp project nhỏ.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 251 · Dùng UML để giải thích đúng việc
+### 282 · Dùng UML để giải thích đúng việc
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4210,7 +4815,7 @@ Chẩn đoán và diệt lỗi bộ nhớ: Tích hợp AddressSanitizer (ASan) v
   - **Phần cần đọc:** Mục Design Docs trong chương Documentation: dùng hình để giải thích quyết định; UML chỉ vẽ đúng ký hiệu cần cho nhiệm vụ.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 252 · Design pattern từ vấn đề cụ thể
+### 283 · Design pattern từ vấn đề cụ thể
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4232,7 +4837,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Chọn một chương phù hợp lỗi thiết kế đang gặp, như Observer,State hoặc Command; đọc Problem/Motivation và When to Use, không học thuộc mọi pattern.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ đọc pattern được chỉ định và áp dụng khi có vấn đề phù hợp.
 
-### 253 · Unit test kiểm tra quy tắc nghiệp vụ
+### 284 · Unit test kiểm tra quy tắc nghiệp vụ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4250,7 +4855,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Các chương Unit Testing và Test Doubles: test hành vi,giữ test rõ ràng và chọn fake/stub khi thật sự cần.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 254 · Integration test và end-to-end test
+### 285 · Integration test và end-to-end test
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4268,7 +4873,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Các chương Testing Overview và Larger Testing.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 255 · Refactor có bảo vệ hành vi
+### 286 · Refactor có bảo vệ hành vi
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4286,7 +4891,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Chương Large-Scale Changes: đọc ý tưởng thay đổi có kiểm soát; áp dụng ở phạm vi nhỏ, không làm hệ thống lớn của Google.
   - **Truy cập:** Toàn bộ bản HTML của sách miễn phí; không cần O’Reilly subscription.
 
-### 256 · Tự động kiểm tra mỗi thay đổi
+### 287 · Tự động kiểm tra mỗi thay đổi
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4304,7 +4909,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Các mục workflows,jobs,steps,triggers và artifacts; cấu hình pipeline test/build nhỏ của project.
   - **Truy cập:** Tài liệu miễn phí; có thể viết và kiểm tra cấu hình tại máy, không cần mua gói CI.
 
-### 257 · Container và môi trường tái lập
+### 288 · Container và môi trường tái lập
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4322,7 +4927,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Get started: containers,images,Dockerfile,persisting data và multi-container apps; chỉ cần dựng lại môi trường project.
   - **Truy cập:** Tài liệu miễn phí; thực hành trên Docker Engine cho môi trường cá nhân phù hợp, không cần dịch vụ cloud trả phí.
 
-### 258 · Log và dấu vết lỗi có ích
+### 289 · Log và dấu vết lỗi có ích
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4340,7 +4945,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Chương Monitoring Distributed Systems và Troubleshooting: tín hiệu,log,correlation và tái hiện lỗi.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 259 · Tối ưu theo nút thắt đo được
+### 290 · Tối ưu theo nút thắt đo được
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4358,7 +4963,7 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
   - **Phần cần đọc:** Chương Handling Overload và Monitoring Distributed Systems: tìm nút thắt bằng số đo trước khi tối ưu.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 260 · Làm một vòng phát triển theo nhóm
+### 291 · Làm một vòng phát triển theo nhóm
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Công cụ & Kỹ thuật Thực chiến (`track-5`)
 
@@ -4379,12 +4984,20 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
 
 # Track 6: Định hướng & Sẵn sàng Chuyên ngành KHMT (CS Specialization Readiness)
 
-> **Mục tiêu:** Chiến lược tối ưu CPA/GPA xét tuyển chuyên ngành KHMT cuối Năm 2: Hệ quản trị CSDL quan hệ (SQL, chuẩn hóa 1NF/2NF/3NF/BCNF, chỉ mục B-Tree, giao dịch ACID), Web RESTful API, Nhập môn AI & Machine Learning (NumPy, Scikit-learn, PyTorch cơ bản), Lý thuyết tính toán (Automata, P vs NP) và xây dựng 5 Capstone Projects portfolio chứng minh năng lực kỹ nghệ.
+> **Mục tiêu:** Nền chuyên ngành có đầu vào và dự án thực hành: Hệ quản trị CSDL quan hệ (SQL, chuẩn hóa 1NF/2NF/3NF/BCNF, chỉ mục B-Tree, giao dịch ACID), Web RESTful API, Nhập môn AI & Machine Learning (NumPy, Scikit-learn, PyTorch cơ bản), Lý thuyết tính toán (Automata, P vs NP) và xây dựng 5 Capstone Projects portfolio chứng minh năng lực kỹ nghệ.
 > **Môn học HCMUS:** Hệ quản trị cơ sở dữ liệu (CSC10006) · Nhập môn Trí tuệ Nhân tạo (CSC14001) · Xét tuyển Chuyên ngành KHMT (Cuối Năm 2) | **Thời lượng ước tính:** ~120 giờ
 
-## 15. SQL và cơ sở dữ liệu
+## 20. Mô hình dữ liệu và SQL
 
-### 209 · Tự kiểm tra SQL và dữ liệu
+**Mục tiêu:** Thiết kế dữ liệu và thao tác SQL giữ bất biến.
+
+**Đầu vào:** Tập hợp/quan hệ; lập trình cơ bản
+
+**Bằng chứng:** Dựng DB từ đầu, thử hai phiên giao dịch và backup/restore.
+
+**Điểm xuất phát:** Học mới
+
+### 227 · Tự kiểm tra SQL và dữ liệu
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4398,15 +5011,15 @@ GoF Design Patterns thực chiến: Strategy Pattern thay đổi thuật toán l
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 210 · Bảng, khóa và ràng buộc (`db-relations`)
-- [ ] 212 · JOIN và quan hệ nhiều bảng (`db-join`)
-- [ ] 216 · Transaction và ACID (`db-transaction`)
+- [ ] 228 · Bảng, khóa và ràng buộc (`db-relations`)
+- [ ] 230 · JOIN và quan hệ nhiều bảng (`db-join`)
+- [ ] 234 · Transaction và ACID (`db-transaction`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 210 · Bảng, khóa và ràng buộc
+### 228 · Bảng, khóa và ràng buộc
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4428,7 +5041,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Tutorial chương 2 The SQL Language và chương 5 Data Definition: primary/foreign keys,constraints.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 211 · SELECT, lọc và sắp xếp
+### 229 · SELECT, lọc và sắp xếp
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4446,7 +5059,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Chương 7 Queries: SELECT,WHERE,ORDER BY,LIMIT và NULL.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 212 · JOIN và quan hệ nhiều bảng
+### 230 · JOIN và quan hệ nhiều bảng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4464,7 +5077,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Tutorial phần Joins Between Tables và chương 7 Table Expressions.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 213 · GROUP BY và truy vấn con
+### 231 · GROUP BY và truy vấn con
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4482,7 +5095,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Chương 7 Table Expressions: grouping,HAVING,subqueries.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 214 · Mô hình ER và chuẩn hóa
+### 232 · Mô hình ER và chuẩn hóa
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4503,7 +5116,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 215 · DDL và thay đổi cấu trúc
+### 233 · DDL và thay đổi cấu trúc
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4521,7 +5134,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Chương 5: Creating Tables,Modifying Tables và Dependencies.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 216 · Transaction và ACID
+### 234 · Transaction và ACID
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4546,7 +5159,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 217 · Hai người cùng mượn một sách
+### 235 · Hai người cùng mượn một sách
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4569,7 +5182,7 @@ Mô hình CSDL quan hệ & Chuẩn hóa: Thiết kế bảng, khóa chính (Prim
   - **Phần cần đọc:** Tutorial Transactions; chương 13 Concurrency Control: isolation,row locks và serialization failures.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 218 · Index và kế hoạch thực thi
+### 236 · Index và kế hoạch thực thi
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4594,7 +5207,7 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Tài liệu hướng dẫn chuyên sâu ngoại tuyến về chuẩn hóa CSDL 1NF-3NF, chỉ mục B+Tree và giao dịch ACID.
   - **Truy cập:** Tài liệu cục bộ offline miễn phí lưu trong repo, tự học không cần kết nối mạng.
 
-### 219 · Chọn index theo truy vấn
+### 237 · Chọn index theo truy vấn
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4612,7 +5225,7 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Chương 11 Indexes và chương 14 Performance Tips: Using EXPLAIN; đo trên dữ liệu của mình.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 220 · CTE và view để tổ chức truy vấn
+### 238 · CTE và view để tổ chức truy vấn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4629,9 +5242,9 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Chương 7 WITH Queries và Tutorial Views; không chuyển sang window function trước khi xong CTE/view.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 221 · Window function và xếp hạng
+### 239 · Window function và xếp hạng
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -4648,7 +5261,7 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Tutorial Window Functions và chương 4 Window Function Calls: partition,ordering,frame.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 222 · Truy vấn có tham số và quyền truy cập
+### 240 · Truy vấn có tham số và quyền truy cập
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4666,7 +5279,7 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Chương 21 Database Roles và phần Prepared Statements; dùng parameter binding ở thư viện kết nối.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 223 · Sao lưu phải khôi phục được
+### 241 · Sao lưu phải khôi phục được
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4684,9 +5297,9 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Chương 25 Backup and Restore: SQL dump và restore vào database mới.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 224 · Khi nào cân nhắc NoSQL
+### 242 · Khi nào cân nhắc NoSQL
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -4704,7 +5317,7 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Chương 8: JSON Types; đối chiếu giới hạn PostgreSQL với yêu cầu dữ liệu trước khi quyết định chuyển hệ khác.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-### 225 · Chuyển thư viện sang cơ sở dữ liệu
+### 243 · Chuyển thư viện sang cơ sở dữ liệu
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4723,9 +5336,171 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
   - **Phần cần đọc:** Tutorial chương 2–3, chương 13 Concurrency Control và 25 Backup/Restore: chỉ xem lại mục cần cho project.
   - **Truy cập:** Toàn bộ tài liệu miễn phí. Thử trên PostgreSQL cài tại máy, không cần thuê database.
 
-## 16. Python để làm công cụ và xử lý dữ liệu
+## 21. Bên trong hệ cơ sở dữ liệu
 
-### 226 · Tự kiểm tra trước khi chuyển sang Python
+**Mục tiêu:** Giải thích lưu trữ, query processing và recovery.
+
+**Đầu vào:** SQL, cây/hash, file I/O và đồng thời cơ bản
+
+**Bằng chứng:** Mô phỏng page/buffer/transaction và so kết quả truy vấn.
+
+**Điểm xuất phát:** Hiểu cơ chế dữ liệu
+
+### 244 · Đại số quan hệ phía sau SQL
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa chọn, chiếu và nối trên quan hệ nhỏ; phân biệt mô hình tập với SQL có bản ghi trùng và NULL.
+- [ ] Biểu diễn một truy vấn JOIN/lọc bằng cây phép toán; đẩy điều kiện lọc khi hợp lệ.
+- [ ] So kết quả tính tay với SQL; dựng phản ví dụ khi chuyển điều kiện qua outer join làm đổi nghĩa.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 245 · Trang dữ liệu và bố trí bản ghi
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa page, record, slot và chi phí đọc đĩa theo mô hình đơn giản.
+- [ ] Mô phỏng tệp gồm các trang cố định, chèn/xóa bản ghi qua bảng slot.
+- [ ] Kiểm tra con trỏ tới bản ghi còn đúng sau thao tác; ghi rõ đây là mô hình học tập, chưa là storage engine thật.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 246 · Buffer pool và thay trang
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt cache của DB với cache OS, pin với dirty và eviction với flush.
+- [ ] Mô phỏng buffer ba frame với chuỗi đọc/ghi; không đuổi trang đang được pin.
+- [ ] Theo dõi hit/miss và dữ liệu bẩn được ghi trước khi tái dùng frame; thử hết frame hợp lệ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 247 · B+ tree cho chỉ mục trên đĩa
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt node trong/lá, fanout, tìm kiếm bằng khóa và range scan qua lá.
+- [ ] Chèn một dãy khóa vào cây bậc nhỏ, theo dõi split và tăng chiều cao.
+- [ ] Kiểm tra thứ tự khóa, độ sâu lá và truy vấn khoảng sau mỗi lần chèn; không đồng nhất BST với B+ tree.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 248 · Thực hiện JOIN bằng các thuật toán
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] So nested-loop, sort-merge và hash join theo giả định bộ nhớ/kích thước.
+- [ ] Chạy ba cách trên bảng nhỏ có khóa trùng; ghi số so sánh hoặc lần quét.
+- [ ] Đối chiếu kết quả kể cả nhiều hàng cùng khóa; giải thích dữ liệu lớn hơn RAM làm đổi lựa chọn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 249 · Chi phí và tối ưu truy vấn
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt tương đương ngữ nghĩa với chi phí; giải nghĩa cardinality và selectivity.
+- [ ] So hai thứ tự JOIN trên ba bảng, ước lượng hàng trung gian rồi xem EXPLAIN ở PostgreSQL.
+- [ ] Đối chiếu ước lượng/thực tế, chỉ ra khi thống kê sai làm chọn kế hoạch kém; không coi index luôn nhanh hơn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 250 · Lịch giao dịch và tuần tự hóa
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Biểu diễn read/write của hai transaction; phân biệt isolation level với tên khóa sử dụng.
+- [ ] Dựng lịch lost update và write skew trong môi trường thử; so cách khóa hoặc mức isolation.
+- [ ] Kiểm tra bất biến nghiệp vụ cuối cùng và xử lý retry khi transaction bị hủy; không chỉ kiểm thông báo thành công.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 251 · WAL và phục hồi giao dịch
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa log trước dữ liệu, commit, redo/undo và checkpoint trong mô hình được nêu.
+- [ ] Mô phỏng crash trước/sau ghi log, ghi page và commit; liệt kê dữ liệu phải tồn tại sau recovery.
+- [ ] Kiểm tra giữ giao dịch đã commit và loại tác động chưa commit theo mô hình; phân biệt recovery với backup.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+### 252 · Kho dữ liệu nhỏ có nhật ký
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt key/value đơn luồng, append log và đọc lại khi khởi động; chưa triển khai mọi bảo đảm của DB thật.
+- [ ] Viết put/get và phát hiện bản ghi log bị cắt ở cuối; dùng thư mục dữ liệu thử.
+- [ ] Kiểm tra restart và log hỏng có kiểm soát; ghi rõ chưa bảo đảm mất điện nếu chưa xử lý flush/độ bền hệ thống.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS186 — course notes](https://cs186berkeley.net/notes/)
+  - **Phần cần đọc:** CS186 notes: Disks/Files/Buffers, B+ Trees, Relational Algebra, Joins, Query Optimization, Transactions và Recovery; chọn mục trùng với nhiệm vụ.
+  - **Truy cập:** Ghi chú công khai miễn phí; không yêu cầu tài khoản bCourses hay Gradescope.
+
+## 22. Python và công cụ dữ liệu
+
+**Mục tiêu:** Học khác biệt ngôn ngữ và xử lý dữ liệu tái lập.
+
+**Đầu vào:** Lập trình cơ bản bằng C++
+
+**Bằng chứng:** Tự xử lý tệp lỗi, test và tạo báo cáo có trục/đơn vị đúng.
+
+**Điểm xuất phát:** Ngôn ngữ bổ sung có mục đích
+
+### 253 · Tự kiểm tra trước khi chuyển sang Python
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4739,15 +5514,15 @@ Bản chất Chỉ mục B+Tree trong CSDL quan hệ: Nút trung gian chỉ lưu
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 227 · Chuyển từ C++ sang Python (`py-syntax`)
-- [ ] 228 · List, tuple, dict và set (`py-collections`)
-- [ ] 230 · Tệp, ngoại lệ, JSON và CSV (`py-files`)
+- [ ] 254 · Chuyển từ C++ sang Python (`py-syntax`)
+- [ ] 255 · List, tuple, dict và set (`py-collections`)
+- [ ] 257 · Tệp, ngoại lệ, JSON và CSV (`py-files`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 227 · Chuyển từ C++ sang Python
+### 254 · Chuyển từ C++ sang Python
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4765,7 +5540,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 3 An Informal Introduction và 4 More Control Flow Tools.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 228 · List, tuple, dict và set
+### 255 · List, tuple, dict và set
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4783,7 +5558,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 5 Data Structures: lists,tuples,sets,dictionaries và copying.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 229 · Hàm, module và môi trường ảo
+### 256 · Hàm, module và môi trường ảo
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4801,7 +5576,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 4 Defining Functions,6 Modules và 12 Virtual Environments and Packages.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 230 · Tệp, ngoại lệ, JSON và CSV
+### 257 · Tệp, ngoại lệ, JSON và CSV
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4819,7 +5594,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 7 Input and Output,8 Errors and Exceptions; phần JSON trong thư viện chuẩn.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 231 · Kiểu gợi ý và lớp trong Python
+### 258 · Kiểu gợi ý và lớp trong Python
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4837,7 +5612,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 9 Classes; phần typing của thư viện chuẩn để đọc type hints.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 232 · Iterator, generator và dữ liệu lớn
+### 259 · Iterator, generator và dữ liệu lớn
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4855,7 +5630,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial chương 9: Iterators,Generators và Generator Expressions.
   - **Truy cập:** Toàn bộ tutorial miễn phí; phù hợp người đã biết một ngôn ngữ lập trình.
 
-### 233 · Kiểm thử Python bằng pytest
+### 260 · Kiểm thử Python bằng pytest
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4873,7 +5648,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** How-to: assertions,fixtures,parametrize và temporary directories; làm test cho code tự viết.
   - **Truy cập:** Tài liệu và thư viện miễn phí.
 
-### 234 · Mảng số với NumPy
+### 261 · Mảng số với NumPy
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4891,7 +5666,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Các mục array creation,shape,indexing,broadcasting và basic operations; tự kiểm tra shape trước khi tính.
   - **Truy cập:** Toàn bộ tài liệu và ví dụ đọc/chạy tại máy miễn phí.
 
-### 235 · Đọc và làm sạch dữ liệu bảng
+### 262 · Đọc và làm sạch dữ liệu bảng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4909,7 +5684,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Intro tutorials: read/write tabular data,select subsets,summary statistics,reshape và combine tables.
   - **Truy cập:** Tutorial và dữ liệu ví dụ công khai miễn phí.
 
-### 236 · Báo cáo dữ liệu bằng biểu đồ
+### 263 · Báo cáo dữ liệu bằng biểu đồ
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4927,9 +5702,323 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Quick start và các bài về Figure/Axes: line,scatter,histogram; đặt trục,đơn vị và legend đúng.
   - **Truy cập:** Tài liệu miễn phí; chạy hình ở máy cá nhân.
 
-## 17. Web và API cho sản phẩm đầu tiên
+## 23. Lý thuyết tính toán
 
-### 237 · HTML và cấu trúc nội dung
+**Mục tiêu:** Phân biệt mô hình, tính được và độ khó tính toán.
+
+**Đầu vào:** Logic, tập hợp, quy nạp và thuật toán cơ bản
+
+**Bằng chứng:** Dựng automata, theo quy dẫn và nêu đúng giới hạn P/NP.
+
+**Điểm xuất phát:** Nền CS
+
+### 264 · Ngôn ngữ hình thức và DFA
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt bảng chữ cái, chuỗi và tập chuỗi hợp lệ. Viết tập trạng thái, trạng thái đầu, tập chấp nhận và bảng chuyển cho từng ký tự của bảng chữ cái.
+- [ ] Vẽ DFA nhận chuỗi có số lượng ký tự a chẵn. Thử chuỗi rỗng và các chuỗi độ dài 1–4, theo dõi trạng thái sau từng ký tự.
+- [ ] Mô phỏng trên dữ liệu đúng, sai và chuỗi rỗng; không đồng nhất DFA với mọi chương trình. Giải thích mỗi trạng thái giữ thông tin gì về tiền tố đã đọc, như chẵn/lẻ số a.
+- [ ] Kiểm tra hàm chuyển xác định đúng một trạng thái kế tiếp cho mỗi cặp trạng thái/ký tự trong DFA đầy đủ.
+- [ ] Không đồng nhất trạng thái chấp nhận với phải dừng ngay khi tới; kết quả phụ thuộc sau khi đọc hết chuỗi.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Lecture notes phần finite automata,regular languages và nondeterminism; chọn bài chuyển NFA/DFA nhỏ.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 265 · NFA và regular expression
+
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Viết regex cho một định dạng đầu vào đơn giản. Xác định NFA có thể có nhiều nhánh và nếu dùng epsilon thì cần tính epsilon-closure đúng.
+- [ ] Chuyển NFA nhỏ sang DFA bằng tập trạng thái. Mỗi trạng thái DFA khi chuyển đổi biểu diễn một tập trạng thái NFA, trạng thái chấp nhận chứa ít nhất một trạng thái chấp nhận gốc.
+- [ ] Đối chiếu các chuỗi được chấp nhận; xét giới hạn của mô hình chính quy. So toàn bộ chuỗi ngắn tới một độ dài giới hạn giữa NFA,DFA và regex bằng bộ thử.
+- [ ] Phân biệt regex theo lý thuyết ngôn ngữ chính quy với các tiện ích regex thực tế có thể có tính năng vượt mô hình cơ bản.
+- [ ] Dùng ví dụ yêu cầu nhớ số lượng cân bằng để hiểu một số ngôn ngữ không thể nhận bằng DFA hữu hạn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Lecture notes phần finite automata,regular languages và nondeterminism; chọn bài chuyển NFA/DFA nhỏ.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 266 · Văn phạm phi ngữ cảnh và PDA
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Viết văn phạm cho biểu thức có dấu ngoặc. Ghi terminal, nonterminal, luật sinh và ký hiệu bắt đầu trước khi sinh vài chuỗi.
+- [ ] Vẽ cây phân tích và tìm ví dụ mơ hồ. Vẽ hai cây khác nhau cho cùng biểu thức nếu grammar mơ hồ, nối với kết quả tính có thể khác.
+- [ ] Liên hệ stack với việc nhận dấu ngoặc lồng nhau và phân biệt với DFA. Tách ưu tiên toán tử bằng các tầng biểu thức/term/factor trong ví dụ số học.
+- [ ] Với PDA, chỉ ra stack lưu điều gì khi đọc dấu mở và giảm thế nào khi đọc dấu đóng.
+- [ ] Thử chuỗi đóng trước mở, thiếu đóng và ngoặc lồng; không chỉ thử biểu thức hợp lệ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Phần context-free languages,grammars và pushdown automata.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 267 · Máy Turing và khả năng tính toán
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Theo dõi máy Turing đơn giản trên một chuỗi ngắn. Chọn mô hình máy với băng, đầu đọc/ghi, trạng thái và quy tắc chuyển rõ, chạy tay từng bước trên input nhỏ.
+- [ ] Phân biệt bài toán quyết định với bài toán tối ưu. Phân biệt máy dừng chấp nhận, dừng từ chối và chạy mãi nếu mô hình cho phép.
+- [ ] Đọc ý nghĩa Church–Turing thesis như một luận đề, không coi là định lý chứng minh bằng thử nghiệm. Viết một bài toán quyết định dưới dạng trả yes/no rồi so với bài tìm một đối tượng thỏa điều kiện.
+- [ ] Nêu ý của luận đề Church–Turing nối khả năng tính toán hiệu quả theo nghĩa cơ học với mô hình, không coi nó tự là bảo đảm chạy nhanh.
+- [ ] Tách tính được về nguyên tắc khỏi tính được trong tài nguyên thực tế.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Phần Turing machines,decidability,undecidability và halting problem; chú ý mô hình và giả thiết.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 268 · Bài toán không quyết định được
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Trình bày phát biểu bài toán dừng với đầu vào chương trình và dữ liệu. Ghi đầu vào bài toán dừng là mô tả chương trình và input của nó, yêu cầu thuật toán quyết định đúng cho mọi cặp.
+- [ ] Đọc một chứng minh phản chứng ở mức phù hợp. Theo dõi giả sử có bộ quyết định rồi dựng chương trình đảo hành vi trên chính mô tả của nó.
+- [ ] Phân biệt không có thuật toán tổng quát với không giải được mọi trường hợp cụ thể. Chỉ ra chỗ tạo mâu thuẫn, không dùng câu máy không đủ mạnh thay cho lập luận.
+- [ ] Nêu vài chương trình cụ thể vẫn biết chắc dừng hoặc không dừng; kết quả không quyết định tổng quát không cấm phân tích từng trường hợp.
+- [ ] Phân biệt undecidable với NP-hard hoặc đơn giản là bài chưa biết cách giải nhanh.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Phần Turing machines,decidability,undecidability và halting problem; chú ý mô hình và giả thiết.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 269 · P, NP và phép quy dẫn
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt tìm lời giải với kiểm tra chứng cứ trong thời gian đa thức. Gắn kích thước input với cách mã hóa, tránh coi một thuật toán phụ thuộc giá trị số là tự động đa thức theo số bit.
+- [ ] Giải thích NP-hard và NP-complete; NP không có nghĩa là chắc chắn không đa thức. Với NP, mô tả chứng cứ và bộ kiểm tra đa thức trên một bài ví dụ.
+- [ ] Theo dõi một quy dẫn đơn giản, chú ý đúng chiều quy dẫn; P so với NP vẫn là câu hỏi mở. Theo một phép quy dẫn A→B, giải thích nếu giải B hiệu quả thì dùng được để giải A, không đảo mũi tên tùy ý.
+- [ ] Phân biệt NP-complete thuộc NP và NP-hard, trong khi NP-hard không tự yêu cầu thuộc NP.
+- [ ] Không gọi mọi bài tối ưu là NP chỉ vì khó; nêu phiên bản quyết định và quan hệ của nó với bài tối ưu.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Phần polynomial time,NP-completeness và reductions; phân biệt chưa biết thuật toán nhanh với đã chứng minh không tồn tại.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+### 270 · Khi bài toán không có lời giải nhanh đã biết
+
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] So tìm đường ngắn nhất với đường Hamilton hoặc TSP. Giữ cùng một đồ thị để so yêu cầu ít chi phí từ s tới t với yêu cầu thăm mọi đỉnh, chỉ ra ràng buộc nào tạo khác biệt.
+- [ ] Tự giải chính xác trên n nhỏ bằng vét cạn/DP tập con. Với TSP nhỏ, kiểm tra mọi tour hoặc DP tập con, nêu tăng trưởng tài nguyên khi n tăng.
+- [ ] Thử heuristic trên dữ liệu lớn hơn và báo rõ không bảo đảm tối ưu. Tạo heuristic gần nhất hoặc cải thiện cục bộ, so với tối ưu trên các trường hợp nhỏ biết đáp án.
+- [ ] Báo gap trên dữ liệu đã thử và trường hợp heuristic kém, không biến kết quả thực nghiệm thành bảo đảm xấp xỉ nếu chưa chứng minh.
+- [ ] Chọn giới hạn kích thước/thời gian và cách dừng rõ cho bộ giải thử.
+
+**Nguồn tham khảo miễn phí:**
+
+- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
+  - **Phần cần đọc:** Phần polynomial time,NP-completeness và reductions; phân biệt chưa biết thuật toán nhanh với đã chứng minh không tồn tại.
+  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
+
+## 24. Ngôn ngữ lập trình và interpreter
+
+**Mục tiêu:** Hiểu môi trường, kiểu, cách đánh giá và thực thi ngôn ngữ.
+
+**Đầu vào:** Đệ quy, cấu trúc dữ liệu và Python đủ dùng
+
+**Bằng chứng:** Dự đoán scope/closure và tự kiểm interpreter bằng chương trình nhỏ.
+
+**Điểm xuất phát:** Nền rồi project tự chọn
+
+### 271 · Hệ kiểu, phạm vi và cách đánh giá
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] So kiểu tĩnh của C++ với kiểm tra lúc chạy trong Python. Viết ví dụ kiểu không phù hợp bị C++ báo khi biên dịch và Python chỉ báo khi đường chạy tương ứng thực thi.
+- [ ] Phân biệt phạm vi từ vựng với thời gian sống của giá trị. Phân biệt một biến đang thấy theo lexical scope với đối tượng nó tham chiếu còn sống bao lâu.
+- [ ] Theo dõi truyền giá trị, tham chiếu và closure qua ví dụ ngắn. Dùng hàm lồng/closure nhỏ để quan sát biến được giữ hoặc tra cứu, đối chiếu quy tắc của ngôn ngữ đang dùng.
+- [ ] So truyền một object/list rồi thay nội dung với gán tên tham số sang object mới trong Python.
+- [ ] Không diễn giải type hints Python như cưỡng chế kiểu lúc chạy.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
+  - **Phần cần đọc:** 2nd edition: chương 1 Building Abstractions with Functions,2 Building Abstractions with Data và 3 Interpreting Computer Programs; chỉ đọc scope,environment và functional/object-oriented theo nhiệm vụ.
+  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
+
+### 272 · Cùng bài toán qua nhiều cách lập trình
+
+**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Viết xử lý danh sách theo vòng lặp, hàm thuần và đối tượng. Chọn một yêu cầu duy nhất như lọc và tính tổng sách theo năm, dùng cùng dữ liệu để so ba cách.
+- [ ] Chỉ ra phần có trạng thái thay đổi, tác dụng phụ và phần dễ kiểm thử. Ở cách hàm thuần, không sửa đầu vào và đưa phụ thuộc thành tham số rõ.
+- [ ] Chọn cách đơn giản nhất cho bài; không coi một phong cách luôn tốt hơn. Ở cách hướng đối tượng, chỉ giữ trạng thái/hành vi thực sự thuộc đối tượng, không biến mọi phép tính thành lớp.
+- [ ] So cách test, cách thay một quy tắc và độ rõ ràng, không chỉ so số dòng.
+- [ ] Chỉ ra nơi tác dụng phụ cần thiết như ghi tệp và gom nó về ranh giới dễ kiểm soát.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
+  - **Phần cần đọc:** 2nd edition: chương 1 Building Abstractions with Functions,2 Building Abstractions with Data và 3 Interpreting Computer Programs; chỉ đọc scope,environment và functional/object-oriented theo nhiệm vụ.
+  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
+
+### 273 · Scope và môi trường thực thi
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt nơi biến được nhìn thấy với thời gian sống của giá trị; giải nghĩa môi trường ánh xạ tên sang giá trị.
+- [ ] Vẽ môi trường của hàm lồng gọi hai lần với hai tham số khác nhau.
+- [ ] Tự dự đoán biến nào được tra cứu khi gọi; đối chiếu Python hoặc ngôn ngữ đang dùng, không áp một luật cho mọi ngôn ngữ.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — sách mở](https://www.composingprograms.com/)
+  - **Phần cần đọc:** Chương 1 Functions, chương 2 Data Abstraction và chương 3 Environments/Interpreting; đọc ví dụ nhỏ trước khi cài interpreter.
+  - **Truy cập:** Toàn bộ sách web miễn phí; chỉ đọc mục được giao.
+
+### 274 · Hàm bậc cao và closure
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa truyền/trả hàm, closure giữ môi trường cần dùng sau khi hàm ngoài trở về.
+- [ ] Viết bộ tạo hàm cộng n và so hai closure có trạng thái khác nhau.
+- [ ] Kiểm tra gọi xen kẽ không dùng nhầm môi trường; giải thích aliasing nếu các closure chia sẻ đối tượng mutable.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — sách mở](https://www.composingprograms.com/)
+  - **Phần cần đọc:** Chương 1 Functions, chương 2 Data Abstraction và chương 3 Environments/Interpreting; đọc ví dụ nhỏ trước khi cài interpreter.
+  - **Truy cập:** Toàn bộ sách web miễn phí; chỉ đọc mục được giao.
+
+### 275 · Thứ tự đánh giá và tác dụng phụ
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt giá trị biểu thức với tác động đổi dữ liệu hoặc I/O; nêu quy tắc ngôn ngữ cụ thể.
+- [ ] So hàm thuần tính tổng với hàm vừa tính vừa sửa đầu vào; mô tả phép thế chỉ hợp lệ dưới điều kiện nào.
+- [ ] Viết test không phụ thuộc thứ tự vô tình; không dùng ví dụ có undefined behavior để suy ra quy tắc C++.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — sách mở](https://www.composingprograms.com/)
+  - **Phần cần đọc:** Chương 1 Functions, chương 2 Data Abstraction và chương 3 Environments/Interpreting; đọc ví dụ nhỏ trước khi cài interpreter.
+  - **Truy cập:** Toàn bộ sách web miễn phí; chỉ đọc mục được giao.
+
+### 276 · Quy tắc kiểu cho biểu thức
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa kiểm tra kiểu trước chạy và lúc chạy bằng ngôn ngữ nhỏ có number/bool.
+- [ ] Viết quy tắc kiểu cho cộng, so sánh và if; cài bộ kiểm tra trên cây biểu thức.
+- [ ] Từ chối if có điều kiện là số theo đặc tả; phân biệt lỗi kiểu với tên biến chưa khai báo.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — sách mở](https://www.composingprograms.com/)
+  - **Phần cần đọc:** Chương 1 Functions, chương 2 Data Abstraction và chương 3 Environments/Interpreting; đọc ví dụ nhỏ trước khi cài interpreter.
+  - **Truy cập:** Toàn bộ sách web miễn phí; chỉ đọc mục được giao.
+
+### 277 · Viết lexer cho ngôn ngữ nhỏ
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt cú pháp số, tên biến, dấu +−*/ và dấu ngoặc. Viết ví dụ input và danh sách token mong đợi có loại, lexeme và vị trí bắt đầu.
+- [ ] Tách chuỗi thành token có vị trí để báo lỗi. Phân biệt dấu trừ là token với cách parser hiểu trừ một ngôi/hai ngôi nếu đặc tả có hỗ trợ.
+- [ ] Thử token không hợp lệ và số sai định dạng; giữ đặc tả ngắn. Xử lý khoảng trắng, kết thúc input và ký tự lạ bằng quy tắc rõ, báo dòng/cột thích hợp.
+- [ ] Với tên và số nhiều ký tự, đọc hết phần thuộc token rồi mới chuyển giá trị, không chỉ cắt từng ký tự.
+- [ ] Dùng nguồn tham khảo để hiểu ý tưởng; không chép ví dụ Java rồi nghĩ Python có cùng mọi quy tắc chạy.
+
+**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
+  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
+  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
+
+### 278 · Parser và cây cú pháp trừu tượng
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Viết parser đệ quy xuống cho biểu thức có ưu tiên toán tử. Viết grammar nêu rõ ưu tiên và kết hợp của +,−,*,/ cùng ngoặc; AST phải phản ánh cấu trúc đó.
+- [ ] Dựng AST rồi đánh giá biểu thức. Tách các hàm parse theo tầng ưu tiên, phân biệt tiêu thụ token với nhìn trước.
+- [ ] Thử 2+3*4, biểu thức có ngoặc và thiếu ngoặc; báo đúng vị trí lỗi. Với 8−3−1, kiểm tra kết hợp trái cho kết quả theo đặc tả; với 2+3*4, nhân nằm sâu hơn cộng.
+- [ ] Thử thiếu toán hạng, token thừa sau biểu thức và ngoặc không đóng, báo vị trí đủ để sửa.
+- [ ] Tách dựng AST khỏi đánh giá để in cây và test parser độc lập.
+
+**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
+  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
+  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
+
+### 279 · Interpreter có biến và kiểm thử
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Thêm phép gán và môi trường lưu biến vào interpreter. Định nghĩa bảng môi trường ánh xạ tên→giá trị, chốt phép gán tạo mới hay bắt buộc có tên trước.
+- [ ] Phân biệt lỗi cú pháp, tên chưa tồn tại và lỗi khi đánh giá. Với mỗi loại AST, viết quy tắc đánh giá và cách lỗi lan lên thay vì bắt mọi lỗi rồi trả 0.
+- [ ] Viết test và README mô tả cú pháp được hỗ trợ; so compiler với interpreter ở mức cơ chế. Thử tên chưa tồn tại, chia cho 0 và biểu thức có tác dụng cập nhật biến theo thứ tự đặc tả.
+- [ ] Test cả lexer, parser và interpreter rồi thêm vài ca end-to-end từ chuỗi tới kết quả.
+- [ ] README nêu cú pháp được hỗ trợ, ví dụ chạy và những gì chưa có như hàm hoặc vòng lặp để tránh ngộ nhận đây là ngôn ngữ hoàn chỉnh.
+
+**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
+  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
+  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
+
+## 26. Web và API có dữ liệu
+
+**Mục tiêu:** Ghép giao diện, API và dữ liệu thành luồng hoàn chỉnh.
+
+**Đầu vào:** HTTP, SQL, Python và phân quyền cơ bản được dạy trong môn
+
+**Bằng chứng:** Luồng chính và ca lỗi chạy được từ môi trường sạch.
+
+**Điểm xuất phát:** Project ứng dụng
+
+### 292 · HTML và cấu trúc nội dung
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4947,7 +6036,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Core modules: Structuring content with HTML,forms và semantic structure.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 238 · CSS và bố cục đáp ứng
+### 293 · CSS và bố cục đáp ứng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4965,7 +6054,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Core modules: CSS styling basics,CSS layout và responsive design.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 239 · JavaScript và sự kiện giao diện
+### 294 · JavaScript và sự kiện giao diện
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -4983,7 +6072,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Dynamic scripting with JavaScript: variables,functions,events và DOM.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 240 · Gọi API bất đồng bộ
+### 295 · Gọi API bất đồng bộ
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5001,9 +6090,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Dynamic scripting: asynchronous JavaScript và Fetch API; xử lý loading,error và phản hồi đến sai thứ tự.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 241 · React vừa đủ để dựng giao diện
+### 296 · React vừa đủ để dựng giao diện
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -5021,7 +6110,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Learn: Describing the UI,Adding Interactivity và Managing State; chưa cần toàn bộ ecosystem.
   - **Truy cập:** Toàn bộ tài liệu và ví dụ tương tác trên trang miễn phí.
 
-### 242 · Thiết kế API theo yêu cầu
+### 297 · Thiết kế API theo yêu cầu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5039,7 +6128,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial: First Steps,Path/Query Parameters,Request Body,Response Model và Status Code.
   - **Truy cập:** Toàn bộ tutorial miễn phí; chạy ứng dụng và test trên máy.
 
-### 243 · Dựng API thư viện bằng FastAPI
+### 298 · Dựng API thư viện bằng FastAPI
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5057,7 +6146,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial: First Steps,Path/Query Parameters,Request Body,Response Model và Status Code.
   - **Truy cập:** Toàn bộ tutorial miễn phí; chạy ứng dụng và test trên máy.
 
-### 244 · Kết nối API với PostgreSQL
+### 299 · Kết nối API với PostgreSQL
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5075,7 +6164,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Tutorial: SQL (Relational) Databases và Dependencies; đối chiếu PostgreSQL transaction trước khi ghép luồng mượn sách.
   - **Truy cập:** Toàn bộ tutorial miễn phí; chạy ứng dụng và test trên máy.
 
-### 245 · Đăng nhập và phân quyền cơ bản
+### 300 · Đăng nhập và phân quyền cơ bản
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5101,7 +6190,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Authentication,Password Storage và Authorization Cheat Sheets: đối chiếu phần ứng dụng còn thiếu sau tutorial.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 246 · Kiểm tra API như người dùng bên ngoài
+### 301 · Kiểm tra API như người dùng bên ngoài
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5120,7 +6209,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorial: Handling Errors,Testing và Security; tự gửi cả request không đi qua giao diện.
   - **Truy cập:** Toàn bộ tutorial miễn phí; chạy ứng dụng và test trên máy.
 
-### 247 · Ghép giao diện với API
+### 302 · Ghép giao diện với API
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5139,7 +6228,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Dynamic scripting: asynchronous JavaScript và Fetch API; xử lý loading,error và phản hồi đến sai thứ tự.
   - **Truy cập:** Chỉ dùng bài viết và bài thực hành MDN miễn phí; không yêu cầu khóa đối tác hoặc MDN Plus.
 
-### 248 · Chạy sản phẩm trên môi trường thử
+### 303 · Chạy sản phẩm trên môi trường thử
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5158,233 +6247,17 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Deployment: Concepts và Server Workers; triển khai thử bằng tiến trình/container tại máy, không cần thuê dịch vụ.
   - **Truy cập:** Toàn bộ tutorial miễn phí; chạy ứng dụng và test trên máy.
 
-## 19. Lý thuyết tính toán và ngôn ngữ lập trình
+## 27. Nền tảng bảo mật ứng dụng
 
-### 261 · Ngôn ngữ hình thức và DFA
+**Mục tiêu:** Xác định đe dọa và kiểm quyền/đầu vào đúng ranh giới.
 
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Đầu vào:** Quyền, HTTP, SQL và ứng dụng thử của mình
 
-**Việc cần làm:**
+**Bằng chứng:** Tái hiện và ngăn một lỗi bằng test trong môi trường thử.
 
-- [ ] Phân biệt bảng chữ cái, chuỗi và tập chuỗi hợp lệ. Viết tập trạng thái, trạng thái đầu, tập chấp nhận và bảng chuyển cho từng ký tự của bảng chữ cái.
-- [ ] Vẽ DFA nhận chuỗi có số lượng ký tự a chẵn. Thử chuỗi rỗng và các chuỗi độ dài 1–4, theo dõi trạng thái sau từng ký tự.
-- [ ] Mô phỏng trên dữ liệu đúng, sai và chuỗi rỗng; không đồng nhất DFA với mọi chương trình. Giải thích mỗi trạng thái giữ thông tin gì về tiền tố đã đọc, như chẵn/lẻ số a.
-- [ ] Kiểm tra hàm chuyển xác định đúng một trạng thái kế tiếp cho mỗi cặp trạng thái/ký tự trong DFA đầy đủ.
-- [ ] Không đồng nhất trạng thái chấp nhận với phải dừng ngay khi tới; kết quả phụ thuộc sau khi đọc hết chuỗi.
+**Điểm xuất phát:** Nền bảo mật
 
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Lecture notes phần finite automata,regular languages và nondeterminism; chọn bài chuyển NFA/DFA nhỏ.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 262 · NFA và regular expression
-
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Viết regex cho một định dạng đầu vào đơn giản. Xác định NFA có thể có nhiều nhánh và nếu dùng epsilon thì cần tính epsilon-closure đúng.
-- [ ] Chuyển NFA nhỏ sang DFA bằng tập trạng thái. Mỗi trạng thái DFA khi chuyển đổi biểu diễn một tập trạng thái NFA, trạng thái chấp nhận chứa ít nhất một trạng thái chấp nhận gốc.
-- [ ] Đối chiếu các chuỗi được chấp nhận; xét giới hạn của mô hình chính quy. So toàn bộ chuỗi ngắn tới một độ dài giới hạn giữa NFA,DFA và regex bằng bộ thử.
-- [ ] Phân biệt regex theo lý thuyết ngôn ngữ chính quy với các tiện ích regex thực tế có thể có tính năng vượt mô hình cơ bản.
-- [ ] Dùng ví dụ yêu cầu nhớ số lượng cân bằng để hiểu một số ngôn ngữ không thể nhận bằng DFA hữu hạn.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Lecture notes phần finite automata,regular languages và nondeterminism; chọn bài chuyển NFA/DFA nhỏ.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 263 · Văn phạm phi ngữ cảnh và PDA
-
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Viết văn phạm cho biểu thức có dấu ngoặc. Ghi terminal, nonterminal, luật sinh và ký hiệu bắt đầu trước khi sinh vài chuỗi.
-- [ ] Vẽ cây phân tích và tìm ví dụ mơ hồ. Vẽ hai cây khác nhau cho cùng biểu thức nếu grammar mơ hồ, nối với kết quả tính có thể khác.
-- [ ] Liên hệ stack với việc nhận dấu ngoặc lồng nhau và phân biệt với DFA. Tách ưu tiên toán tử bằng các tầng biểu thức/term/factor trong ví dụ số học.
-- [ ] Với PDA, chỉ ra stack lưu điều gì khi đọc dấu mở và giảm thế nào khi đọc dấu đóng.
-- [ ] Thử chuỗi đóng trước mở, thiếu đóng và ngoặc lồng; không chỉ thử biểu thức hợp lệ.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Phần context-free languages,grammars và pushdown automata.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 264 · Máy Turing và khả năng tính toán
-
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Theo dõi máy Turing đơn giản trên một chuỗi ngắn. Chọn mô hình máy với băng, đầu đọc/ghi, trạng thái và quy tắc chuyển rõ, chạy tay từng bước trên input nhỏ.
-- [ ] Phân biệt bài toán quyết định với bài toán tối ưu. Phân biệt máy dừng chấp nhận, dừng từ chối và chạy mãi nếu mô hình cho phép.
-- [ ] Đọc ý nghĩa Church–Turing thesis như một luận đề, không coi là định lý chứng minh bằng thử nghiệm. Viết một bài toán quyết định dưới dạng trả yes/no rồi so với bài tìm một đối tượng thỏa điều kiện.
-- [ ] Nêu ý của luận đề Church–Turing nối khả năng tính toán hiệu quả theo nghĩa cơ học với mô hình, không coi nó tự là bảo đảm chạy nhanh.
-- [ ] Tách tính được về nguyên tắc khỏi tính được trong tài nguyên thực tế.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Phần Turing machines,decidability,undecidability và halting problem; chú ý mô hình và giả thiết.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 265 · Bài toán không quyết định được
-
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Trình bày phát biểu bài toán dừng với đầu vào chương trình và dữ liệu. Ghi đầu vào bài toán dừng là mô tả chương trình và input của nó, yêu cầu thuật toán quyết định đúng cho mọi cặp.
-- [ ] Đọc một chứng minh phản chứng ở mức phù hợp. Theo dõi giả sử có bộ quyết định rồi dựng chương trình đảo hành vi trên chính mô tả của nó.
-- [ ] Phân biệt không có thuật toán tổng quát với không giải được mọi trường hợp cụ thể. Chỉ ra chỗ tạo mâu thuẫn, không dùng câu máy không đủ mạnh thay cho lập luận.
-- [ ] Nêu vài chương trình cụ thể vẫn biết chắc dừng hoặc không dừng; kết quả không quyết định tổng quát không cấm phân tích từng trường hợp.
-- [ ] Phân biệt undecidable với NP-hard hoặc đơn giản là bài chưa biết cách giải nhanh.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Phần Turing machines,decidability,undecidability và halting problem; chú ý mô hình và giả thiết.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 266 · P, NP và phép quy dẫn
-
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Phân biệt tìm lời giải với kiểm tra chứng cứ trong thời gian đa thức. Gắn kích thước input với cách mã hóa, tránh coi một thuật toán phụ thuộc giá trị số là tự động đa thức theo số bit.
-- [ ] Giải thích NP-hard và NP-complete; NP không có nghĩa là chắc chắn không đa thức. Với NP, mô tả chứng cứ và bộ kiểm tra đa thức trên một bài ví dụ.
-- [ ] Theo dõi một quy dẫn đơn giản, chú ý đúng chiều quy dẫn; P so với NP vẫn là câu hỏi mở. Theo một phép quy dẫn A→B, giải thích nếu giải B hiệu quả thì dùng được để giải A, không đảo mũi tên tùy ý.
-- [ ] Phân biệt NP-complete thuộc NP và NP-hard, trong khi NP-hard không tự yêu cầu thuộc NP.
-- [ ] Không gọi mọi bài tối ưu là NP chỉ vì khó; nêu phiên bản quyết định và quan hệ của nó với bài tối ưu.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Phần polynomial time,NP-completeness và reductions; phân biệt chưa biết thuật toán nhanh với đã chứng minh không tồn tại.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 267 · Khi bài toán không có lời giải nhanh đã biết
-
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] So tìm đường ngắn nhất với đường Hamilton hoặc TSP. Giữ cùng một đồ thị để so yêu cầu ít chi phí từ s tới t với yêu cầu thăm mọi đỉnh, chỉ ra ràng buộc nào tạo khác biệt.
-- [ ] Tự giải chính xác trên n nhỏ bằng vét cạn/DP tập con. Với TSP nhỏ, kiểm tra mọi tour hoặc DP tập con, nêu tăng trưởng tài nguyên khi n tăng.
-- [ ] Thử heuristic trên dữ liệu lớn hơn và báo rõ không bảo đảm tối ưu. Tạo heuristic gần nhất hoặc cải thiện cục bộ, so với tối ưu trên các trường hợp nhỏ biết đáp án.
-- [ ] Báo gap trên dữ liệu đã thử và trường hợp heuristic kém, không biến kết quả thực nghiệm thành bảo đảm xấp xỉ nếu chưa chứng minh.
-- [ ] Chọn giới hạn kích thước/thời gian và cách dừng rõ cho bộ giải thử.
-
-**Nguồn tham khảo miễn phí:**
-
-- [MIT 6.045J — Automata, Computability, and Complexity](https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/)
-  - **Phần cần đọc:** Phần polynomial time,NP-completeness và reductions; phân biệt chưa biết thuật toán nhanh với đã chứng minh không tồn tại.
-  - **Truy cập:** Chỉ dùng lecture notes, video và bài tập OCW công khai miễn phí; không bắt mua sách của syllabus.
-
-### 268 · Hệ kiểu, phạm vi và cách đánh giá
-
-**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] So kiểu tĩnh của C++ với kiểm tra lúc chạy trong Python. Viết ví dụ kiểu không phù hợp bị C++ báo khi biên dịch và Python chỉ báo khi đường chạy tương ứng thực thi.
-- [ ] Phân biệt phạm vi từ vựng với thời gian sống của giá trị. Phân biệt một biến đang thấy theo lexical scope với đối tượng nó tham chiếu còn sống bao lâu.
-- [ ] Theo dõi truyền giá trị, tham chiếu và closure qua ví dụ ngắn. Dùng hàm lồng/closure nhỏ để quan sát biến được giữ hoặc tra cứu, đối chiếu quy tắc của ngôn ngữ đang dùng.
-- [ ] So truyền một object/list rồi thay nội dung với gán tên tham số sang object mới trong Python.
-- [ ] Không diễn giải type hints Python như cưỡng chế kiểu lúc chạy.
-
-**Nguồn tham khảo miễn phí:**
-
-- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
-  - **Phần cần đọc:** 2nd edition: chương 1 Building Abstractions with Functions,2 Building Abstractions with Data và 3 Interpreting Computer Programs; chỉ đọc scope,environment và functional/object-oriented theo nhiệm vụ.
-  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
-
-### 269 · Cùng bài toán qua nhiều cách lập trình
-
-**Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Viết xử lý danh sách theo vòng lặp, hàm thuần và đối tượng. Chọn một yêu cầu duy nhất như lọc và tính tổng sách theo năm, dùng cùng dữ liệu để so ba cách.
-- [ ] Chỉ ra phần có trạng thái thay đổi, tác dụng phụ và phần dễ kiểm thử. Ở cách hàm thuần, không sửa đầu vào và đưa phụ thuộc thành tham số rõ.
-- [ ] Chọn cách đơn giản nhất cho bài; không coi một phong cách luôn tốt hơn. Ở cách hướng đối tượng, chỉ giữ trạng thái/hành vi thực sự thuộc đối tượng, không biến mọi phép tính thành lớp.
-- [ ] So cách test, cách thay một quy tắc và độ rõ ràng, không chỉ so số dòng.
-- [ ] Chỉ ra nơi tác dụng phụ cần thiết như ghi tệp và gom nó về ranh giới dễ kiểm soát.
-
-**Nguồn tham khảo miễn phí:**
-
-- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
-  - **Phần cần đọc:** 2nd edition: chương 1 Building Abstractions with Functions,2 Building Abstractions with Data và 3 Interpreting Computer Programs; chỉ đọc scope,environment và functional/object-oriented theo nhiệm vụ.
-  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
-
-### 270 · Viết lexer cho ngôn ngữ nhỏ
-
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Chốt cú pháp số, tên biến, dấu +−*/ và dấu ngoặc. Viết ví dụ input và danh sách token mong đợi có loại, lexeme và vị trí bắt đầu.
-- [ ] Tách chuỗi thành token có vị trí để báo lỗi. Phân biệt dấu trừ là token với cách parser hiểu trừ một ngôi/hai ngôi nếu đặc tả có hỗ trợ.
-- [ ] Thử token không hợp lệ và số sai định dạng; giữ đặc tả ngắn. Xử lý khoảng trắng, kết thúc input và ký tự lạ bằng quy tắc rõ, báo dòng/cột thích hợp.
-- [ ] Với tên và số nhiều ký tự, đọc hết phần thuộc token rồi mới chuyển giá trị, không chỉ cắt từng ký tự.
-- [ ] Dùng nguồn tham khảo để hiểu ý tưởng; không chép ví dụ Java rồi nghĩ Python có cùng mọi quy tắc chạy.
-
-**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
-
-**Nguồn tham khảo miễn phí:**
-
-- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
-  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
-  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
-
-### 271 · Parser và cây cú pháp trừu tượng
-
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Viết parser đệ quy xuống cho biểu thức có ưu tiên toán tử. Viết grammar nêu rõ ưu tiên và kết hợp của +,−,*,/ cùng ngoặc; AST phải phản ánh cấu trúc đó.
-- [ ] Dựng AST rồi đánh giá biểu thức. Tách các hàm parse theo tầng ưu tiên, phân biệt tiêu thụ token với nhìn trước.
-- [ ] Thử 2+3*4, biểu thức có ngoặc và thiếu ngoặc; báo đúng vị trí lỗi. Với 8−3−1, kiểm tra kết hợp trái cho kết quả theo đặc tả; với 2+3*4, nhân nằm sâu hơn cộng.
-- [ ] Thử thiếu toán hạng, token thừa sau biểu thức và ngoặc không đóng, báo vị trí đủ để sửa.
-- [ ] Tách dựng AST khỏi đánh giá để in cây và test parser độc lập.
-
-**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
-
-**Nguồn tham khảo miễn phí:**
-
-- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
-  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
-  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
-
-### 272 · Interpreter có biến và kiểm thử
-
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
-
-**Việc cần làm:**
-
-- [ ] Thêm phép gán và môi trường lưu biến vào interpreter. Định nghĩa bảng môi trường ánh xạ tên→giá trị, chốt phép gán tạo mới hay bắt buộc có tên trước.
-- [ ] Phân biệt lỗi cú pháp, tên chưa tồn tại và lỗi khi đánh giá. Với mỗi loại AST, viết quy tắc đánh giá và cách lỗi lan lên thay vì bắt mọi lỗi rồi trả 0.
-- [ ] Viết test và README mô tả cú pháp được hỗ trợ; so compiler với interpreter ở mức cơ chế. Thử tên chưa tồn tại, chia cho 0 và biểu thức có tác dụng cập nhật biến theo thứ tự đặc tả.
-- [ ] Test cả lexer, parser và interpreter rồi thêm vài ca end-to-end từ chuỗi tới kết quả.
-- [ ] README nêu cú pháp được hỗ trợ, ví dụ chạy và những gì chưa có như hàm hoặc vòng lặp để tránh ngộ nhận đây là ngôn ngữ hoàn chỉnh.
-
-**Khi nào quay lại:** Project đào sâu ngôn ngữ và trình biên dịch. Các ô lý thuyết tính toán và hệ kiểu trước đó vẫn thuộc nền KHMT.
-
-**Nguồn tham khảo miễn phí:**
-
-- [Composing Programs — 2nd edition](https://composingprograms.com/pages/)
-  - **Phần cần đọc:** 2nd edition: chương 3 Interpreting Computer Programs, mục Exceptions,Interpreters và Languages for Abstraction; đặc tả lexer/parser và test lấy từ nhiệm vụ, không phải bản chép code Scheme sang Python.
-  - **Truy cập:** Bản sách mở miễn phí. Ví dụ Python/Scheme: đọc để hiểu cơ chế, không bắt học thêm cả ngôn ngữ trước.
-
-## 20. Bảo mật ứng dụng
-
-### 273 · Tài sản, đối thủ và mô hình đe dọa
+### 304 · Tài sản, đối thủ và mô hình đe dọa
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5402,7 +6275,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Threat Modeling Cheat Sheet: assets,trust boundaries,threats và mitigations.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 274 · Encoding, hashing và encryption
+### 305 · Encoding, hashing và encryption
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5420,7 +6293,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Cryptographic Storage và Password Storage Cheat Sheets: phân biệt encoding,hashing,encryption; không tự thiết kế crypto.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 275 · Ngăn SQL injection trong môi trường thử
+### 306 · Ngăn SQL injection trong môi trường thử
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5438,7 +6311,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** SQL Injection Prevention Cheat Sheet: prepared statements và allow-list.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 276 · XSS và đưa dữ liệu ra giao diện
+### 307 · XSS và đưa dữ liệu ra giao diện
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5456,7 +6329,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Cross Site Scripting Prevention Cheat Sheet: output encoding theo context và safe sinks.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 277 · Cookie, CORS và CSRF
+### 308 · Cookie, CORS và CSRF
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5474,7 +6347,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Cross-Site Request Forgery Prevention và Session Management Cheat Sheets; CORS đối chiếu thêm MDN.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 278 · Kiểm tra quyền theo từng đối tượng
+### 309 · Kiểm tra quyền theo từng đối tượng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5492,7 +6365,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Authorization và Insecure Direct Object Reference Prevention Cheat Sheets: kiểm tra quyền mỗi request và từng đối tượng.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 279 · Quản lý bí mật và phụ thuộc
+### 310 · Quản lý bí mật và phụ thuộc
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5510,7 +6383,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Secrets Management và Vulnerable Dependency Management Cheat Sheets.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 280 · Đầu vào, upload và giới hạn tài nguyên
+### 311 · Đầu vào, upload và giới hạn tài nguyên
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5528,7 +6401,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Input Validation,File Upload và Denial of Service Cheat Sheets.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 281 · Cấu hình triển khai an toàn
+### 312 · Cấu hình triển khai an toàn
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5546,7 +6419,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** TLS và HTTP Security Headers Cheat Sheets; thử trên cấu hình của project.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-### 282 · Rà bảo mật một luồng hoàn chỉnh
+### 313 · Rà bảo mật một luồng hoàn chỉnh
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5565,9 +6438,17 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Authorization và Insecure Direct Object Reference Prevention Cheat Sheets: kiểm tra quyền mỗi request và từng đối tượng.
   - **Truy cập:** Toàn bộ bài viết miễn phí; chỉ thực hành trên ứng dụng và tài khoản thử của mình.
 
-## 21. Đồ họa, giao diện và khả năng tiếp cận
+## 28. Đồ họa máy tính
 
-### 283 · Pixel, màu và biểu diễn ảnh
+**Mục tiêu:** Hiểu ảnh, camera, tia và ánh sáng bằng renderer nhỏ.
+
+**Đầu vào:** Vector, phép biến đổi, C++ và toán giao điểm được bổ sung
+
+**Bằng chứng:** Xuất ảnh, test giao điểm và giải thích một artifact.
+
+**Điểm xuất phát:** Nền + thực hành CPU
+
+### 314 · Pixel, màu và biểu diễn ảnh
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5585,7 +6466,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Getting started: Textures; màu,kênh và dữ liệu pixel. Chỉ đọc cơ chế ảnh trước khi đụng mã OpenGL.
   - **Truy cập:** Toàn bộ bài viết miễn phí; không yêu cầu sách in hoặc GPU cloud.
 
-### 284 · Biến đổi hình học 2D
+### 315 · Biến đổi hình học 2D
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5603,9 +6484,9 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Getting started: Transformations và Coordinate Systems; phép biến đổi theo thứ tự.
   - **Truy cập:** Toàn bộ bài viết miễn phí; không yêu cầu sách in hoặc GPU cloud.
 
-### 285 · Pipeline đồ họa 3D
+### 316 · Pipeline đồ họa 3D
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -5623,7 +6504,81 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Getting started: Hello Triangle,Coordinate Systems và Camera; chỉ pipeline nền.
   - **Truy cập:** Toàn bộ bài viết miễn phí; không yêu cầu sách in hoặc GPU cloud.
 
-### 286 · Thiết kế từ tác vụ người dùng
+### 317 · Tia, giao điểm và pháp tuyến
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa gốc/hướng tia, tham số t và nghiệm giao mặt cầu; phân biệt tọa độ với vector hướng.
+- [ ] Tính tay một tia cắt mặt cầu, chọn nghiệm dương gần nhất; xét không giao và tiếp tuyến.
+- [ ] So kết quả code với tính tay; không dùng hướng chưa chuẩn hóa trong công thức đòi vector đơn vị.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Ray Tracing in One Weekend — sách mở](https://raytracing.github.io/)
+  - **Phần cần đọc:** Ray Tracing in One Weekend: Output an Image, Rays, Sphere, Surface Normals, Materials và Camera; ảnh nhỏ trên CPU.
+  - **Truy cập:** Toàn bộ sách web miễn phí; dùng ảnh nhỏ và CPU.
+
+### 318 · Camera và phép chiếu
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Xây hệ trục camera và ánh xạ pixel sang tia; phân biệt độ phân giải với góc nhìn.
+- [ ] Dựng ảnh gradient rồi mặt cầu, kiểm tra ảnh có bị đảo trục hoặc méo do aspect ratio.
+- [ ] Đặt vật đối xứng và kiểm vị trí; ghi rõ mô hình camera giản lược chưa có lens thật.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Ray Tracing in One Weekend — sách mở](https://raytracing.github.io/)
+  - **Phần cần đọc:** Ray Tracing in One Weekend: Output an Image, Rays, Sphere, Surface Normals, Materials và Camera; ảnh nhỏ trên CPU.
+  - **Truy cập:** Toàn bộ sách web miễn phí; dùng ảnh nhỏ và CPU.
+
+### 319 · Ánh sáng và lấy mẫu
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt màu vật liệu, chiếu sáng và số mẫu; giải nghĩa nhiễu Monte Carlo ở mức đủ dùng.
+- [ ] So ảnh một mẫu và nhiều mẫu với seed cố định, thêm vật liệu khuếch tán nhỏ.
+- [ ] So vùng tối/sáng và thời gian; không tăng số mẫu để che lỗi giao điểm hoặc hướng pháp tuyến.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Ray Tracing in One Weekend — sách mở](https://raytracing.github.io/)
+  - **Phần cần đọc:** Ray Tracing in One Weekend: Output an Image, Rays, Sphere, Surface Normals, Materials và Camera; ảnh nhỏ trên CPU.
+  - **Truy cập:** Toàn bộ sách web miễn phí; dùng ảnh nhỏ và CPU.
+
+### 320 · Renderer nhỏ có ảnh kiểm chứng
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt cảnh gồm vài mặt cầu, camera và vật liệu; đặt giới hạn thời gian/độ phân giải.
+- [ ] Ghép tia, giao điểm và shading; xuất ảnh và lưu cấu hình cảnh.
+- [ ] Tái dựng cùng cảnh, kiểm các ca giao điểm riêng; giải thích một artifact và cách sửa.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Ray Tracing in One Weekend — sách mở](https://raytracing.github.io/)
+  - **Phần cần đọc:** Ray Tracing in One Weekend: Output an Image, Rays, Sphere, Surface Normals, Materials và Camera; ảnh nhỏ trên CPU.
+  - **Truy cập:** Toàn bộ sách web miễn phí; dùng ảnh nhỏ và CPU.
+
+## 29. Tương tác người–máy
+
+**Mục tiêu:** Thiết kế và đánh giá tương tác từ nhu cầu thực.
+
+**Đầu vào:** Có tác vụ/giao diện nhỏ để quan sát
+
+**Bằng chứng:** Người khác làm được tác vụ, có phản hồi và sửa accessibility.
+
+**Điểm xuất phát:** Nền + thực hành
+
+### 321 · Thiết kế từ tác vụ người dùng
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5641,7 +6596,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorials: Page Structure,Menus và Forms; quan sát tác vụ thật theo checklist trong ô, không chỉ kiểm tra hình thức.
   - **Truy cập:** Hướng dẫn và ví dụ W3C miễn phí.
 
-### 287 · Quan sát người dùng thử thật
+### 322 · Quan sát người dùng thử thật
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5659,7 +6614,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorials: Page Structure,Menus và Forms; quan sát tác vụ thật theo checklist trong ô, không chỉ kiểm tra hình thức.
   - **Truy cập:** Hướng dẫn và ví dụ W3C miễn phí.
 
-### 288 · Dùng được bằng bàn phím
+### 323 · Dùng được bằng bàn phím
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5677,7 +6632,7 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorials: Keyboard access trong menus/forms và labels/instructions; kiểm tra bằng bàn phím thật.
   - **Truy cập:** Hướng dẫn và ví dụ W3C miễn phí.
 
-### 289 · Kiểm tra màn hình nhỏ và trạng thái lỗi
+### 324 · Kiểm tra màn hình nhỏ và trạng thái lỗi
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5695,9 +6650,9 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorials: Page Structure,Images và Forms; thử phóng to,màn hình nhỏ,trạng thái lỗi.
   - **Truy cập:** Hướng dẫn và ví dụ W3C miễn phí.
 
-### 290 · Làm một công cụ minh họa thuật toán
+### 325 · Làm một công cụ minh họa thuật toán
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -5715,9 +6670,81 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
   - **Phần cần đọc:** Tutorials: Images,Tables và Forms; chọn cách biểu diễn thuật toán mà nhãn và thao tác vẫn dùng được.
   - **Truy cập:** Hướng dẫn và ví dụ W3C miễn phí.
 
-## 22. Nền tảng AI và Machine Learning
+### 326 · Từ quan sát tới yêu cầu tương tác
 
-### 291 · Tự kiểm tra trước nền tảng AI và ML
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt điều người dùng nói muốn với khó khăn quan sát được; xác định một tác vụ cụ thể.
+- [ ] Quan sát người đồng ý tham gia thực hiện tác vụ, ghi lỗi và điểm dừng, không thu dữ liệu riêng không cần thiết.
+- [ ] Chuyển phát hiện thành yêu cầu đo được; không tổng quát hóa từ một người thành mọi người.
+
+**Nguồn tham khảo miễn phí:**
+
+- [W3C WAI tutorials](https://www.w3.org/WAI/tutorials/)
+  - **Phần cần đọc:** WAI tutorials: Page Structure, Menus, Forms, Images và Tables; phần nghiên cứu người dùng thực hiện theo đề bài roadmap, không coi accessibility thay toàn bộ HCI.
+  - **Truy cập:** Tutorial công khai miễn phí; kiểm tra bằng công cụ trình duyệt sẵn có.
+
+### 327 · Prototype và luồng trạng thái
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt sơ đồ luồng với prototype dùng thử; xác định trạng thái rỗng/đang tải/lỗi/thành công.
+- [ ] Dựng mẫu giao diện cho tìm và mượn sách, có đường thoát và phục hồi lỗi.
+- [ ] Một người khác thực hiện tác vụ không được chỉ từng nút; ghi nơi hiểu nhầm rồi sửa.
+
+**Nguồn tham khảo miễn phí:**
+
+- [W3C WAI tutorials](https://www.w3.org/WAI/tutorials/)
+  - **Phần cần đọc:** WAI tutorials: Page Structure, Menus, Forms, Images và Tables; phần nghiên cứu người dùng thực hiện theo đề bài roadmap, không coi accessibility thay toàn bộ HCI.
+  - **Truy cập:** Tutorial công khai miễn phí; kiểm tra bằng công cụ trình duyệt sẵn có.
+
+### 328 · Đánh giá usability có tiêu chí
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Đặt thước đo hoàn tất tác vụ, lỗi và thời gian; không đồng nhất đẹp với dễ dùng.
+- [ ] So hai cách bố trí trên cùng tác vụ, ghi thứ tự thử và tác động học trước.
+- [ ] Báo quan sát và giới hạn mẫu nhỏ; không tuyên bố A tốt hơn chỉ dựa một lần nhanh hơn.
+
+**Nguồn tham khảo miễn phí:**
+
+- [W3C WAI tutorials](https://www.w3.org/WAI/tutorials/)
+  - **Phần cần đọc:** WAI tutorials: Page Structure, Menus, Forms, Images và Tables; phần nghiên cứu người dùng thực hiện theo đề bài roadmap, không coi accessibility thay toàn bộ HCI.
+  - **Truy cập:** Tutorial công khai miễn phí; kiểm tra bằng công cụ trình duyệt sẵn có.
+
+### 329 · Sửa giao diện bằng bằng chứng
+
+**Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Dùng semantic HTML, nhãn form, thứ tự focus và thông báo lỗi có liên kết tới trường.
+- [ ] Hoàn thành tác vụ chỉ bằng bàn phím và phóng to; kiểm tra tương phản và không dựa màu duy nhất.
+- [ ] Giữ checklist ca thật và ảnh trước/sau; thử lại sau sửa, không nhận đạt toàn WCAG chỉ từ kiểm tra tự động.
+
+**Nguồn tham khảo miễn phí:**
+
+- [W3C WAI tutorials](https://www.w3.org/WAI/tutorials/)
+  - **Phần cần đọc:** WAI tutorials: Page Structure, Menus, Forms, Images và Tables; phần nghiên cứu người dùng thực hiện theo đề bài roadmap, không coi accessibility thay toàn bộ HCI.
+  - **Truy cập:** Tutorial công khai miễn phí; kiểm tra bằng công cụ trình duyệt sẵn có.
+
+## 30. AI và học máy nền tảng
+
+**Mục tiêu:** Nối tìm kiếm, suy luận và học từ dữ liệu.
+
+**Đầu vào:** Đồ thị; đại số, gradient, xác suất; Python/NumPy cho ML
+
+**Bằng chứng:** Chạy bài AI nhỏ và project ML có baseline/split/metric hợp lệ.
+
+**Điểm xuất phát:** Nền AI rộng hơn ML
+
+### 330 · Tự kiểm tra trước nền tảng AI và ML
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5731,15 +6758,15 @@ Không tự viết thuật toán mã hóa hoặc lưu mật khẩu dạng rõ. V
 
 **Ô cần ôn theo kết quả kiểm tra:**
 
-- [ ] 152 · Ma trận là một phép biến đổi (`linear-transform`)
-- [ ] 159 · Đạo hàm riêng và gradient (`calculus-gradient`)
-- [ ] 295 · Train, validation, test và rò rỉ dữ liệu (`ml-split`)
+- [ ] 208 · Ma trận là một phép biến đổi (`linear-transform`)
+- [ ] 215 · Đạo hàm riêng và gradient (`calculus-gradient`)
+- [ ] 338 · Train, validation, test và rò rỉ dữ liệu (`ml-split`)
 
 **Thông tin thêm & Lưu ý bản chất:**
 
 Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. Code cũ chỉ mở sau lượt thử; khi đã tự làm được một mục, vẫn kiểm tra bằng ca biên hoặc biến thể trước khi đi nhanh qua phần tương ứng.
 
-### 292 · AI, học máy và bài toán tìm kiếm
+### 331 · AI, học máy và bài toán tìm kiếm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5757,7 +6784,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Chương 1 Introduction: learning problems,data và các giới hạn; phần tìm kiếm đọc riêng MIT AI nếu cần.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 293 · A* và heuristic
+### 332 · A* và heuristic
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5776,7 +6803,71 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Lecture videos: Search và Optimal Search — branch and bound,A* và heuristic; chạy tay đồ thị nhỏ trước khi cài.
   - **Truy cập:** Lecture video,notes và bài tập OCW miễn phí; không cần mua sách.
 
-### 294 · Hồi quy, phân loại và phân cụm
+### 333 · Minimax và alpha-beta
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Biểu diễn lượt hai người chơi tổng bằng không, lá có utility; phân biệt tối ưu trước đối thủ với đường đi ngắn nhất.
+- [ ] Chạy tay minimax và alpha-beta trên cùng cây nhỏ, giữ thứ tự duyệt cố định.
+- [ ] So giá trị gốc, ghi nhánh cắt và lý do; giải thích đổi thứ tự chỉ ảnh hưởng lượng duyệt trong mô hình này.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS188 — textbook](https://inst.eecs.berkeley.edu/~cs188/textbook/)
+  - **Phần cần đọc:** CS188 textbook: Search, Games, Constraint Satisfaction, Probability và Markov Decision Processes; chỉ dùng mô hình nhỏ tự tính được.
+  - **Truy cập:** Giáo trình web công khai miễn phí; dùng bài nhỏ tự chạy thay dịch vụ nộp bài.
+
+### 334 · Bài toán thỏa ràng buộc
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa biến, miền và ràng buộc trên bài tô màu đồ thị.
+- [ ] Cài backtracking với kiểm tra ràng buộc và chọn biến; thử forward checking.
+- [ ] So nghiệm với vét cạn, thử bài vô nghiệm; không kết luận không có nghiệm chỉ vì một nhánh thất bại.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS188 — textbook](https://inst.eecs.berkeley.edu/~cs188/textbook/)
+  - **Phần cần đọc:** CS188 textbook: Search, Games, Constraint Satisfaction, Probability và Markov Decision Processes; chỉ dùng mô hình nhỏ tự tính được.
+  - **Truy cập:** Giáo trình web công khai miễn phí; dùng bài nhỏ tự chạy thay dịch vụ nộp bài.
+
+### 335 · Suy luận dưới bất định
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt xác suất có điều kiện và quan hệ nhân quả; biểu diễn mô hình xác suất nhỏ.
+- [ ] Tính posterior khi quan sát bằng chứng bằng liệt kê và chuẩn hóa.
+- [ ] Kiểm tổng xác suất bằng 1, thử bằng chứng hiếm; ghi giả định độc lập thay vì mặc định chúng đúng.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS188 — textbook](https://inst.eecs.berkeley.edu/~cs188/textbook/)
+  - **Phần cần đọc:** CS188 textbook: Search, Games, Constraint Satisfaction, Probability và Markov Decision Processes; chỉ dùng mô hình nhỏ tự tính được.
+  - **Truy cập:** Giáo trình web công khai miễn phí; dùng bài nhỏ tự chạy thay dịch vụ nộp bài.
+
+### 336 · Ra quyết định và phần thưởng
+
+**Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa state, action, transition, reward và discount trong MDP hữu hạn.
+- [ ] Chạy vài vòng value iteration trên lưới nhỏ, so policy khi thay reward.
+- [ ] Giải thích vì sao hành động tối ưu có thể tránh phần thưởng gần; chưa đồng nhất MDP đã biết với học mô hình từ dữ liệu.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Berkeley CS188 — textbook](https://inst.eecs.berkeley.edu/~cs188/textbook/)
+  - **Phần cần đọc:** CS188 textbook: Search, Games, Constraint Satisfaction, Probability và Markov Decision Processes; chỉ dùng mô hình nhỏ tự tính được.
+  - **Truy cập:** Giáo trình web công khai miễn phí; dùng bài nhỏ tự chạy thay dịch vụ nộp bài.
+
+### 337 · Hồi quy, phân loại và phân cụm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5794,7 +6885,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** User Guide: Supervised learning,Unsupervised learning và Choosing the right estimator.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 295 · Train, validation, test và rò rỉ dữ liệu
+### 338 · Train, validation, test và rò rỉ dữ liệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5813,7 +6904,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Common pitfalls: data leakage; Cross-validation: train_test_split,group/time split.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 296 · Hồi quy tuyến tính từ đầu
+### 339 · Hồi quy tuyến tính từ đầu
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5832,7 +6923,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Linear Models: Ordinary Least Squares; tự cài bản nhỏ trước khi so với estimator.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 297 · Logistic regression và ngưỡng quyết định
+### 340 · Logistic regression và ngưỡng quyết định
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5850,7 +6941,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Linear Models: Logistic regression; Tuning the decision threshold: phân biệt score,probability và nhãn.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 298 · Đánh giá đúng bài toán
+### 341 · Đánh giá đúng bài toán
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5869,7 +6960,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Metrics and scoring: chọn classification/regression metric theo câu hỏi và baseline.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 299 · Overfitting, regularization và kiểm định chéo
+### 342 · Overfitting, regularization và kiểm định chéo
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5888,7 +6979,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Cross-validation,hyper-parameter tuning và validation curves; giữ test tới bước đánh giá cuối.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 300 · Decision tree và random forest
+### 343 · Decision tree và random forest
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5906,7 +6997,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Decision Trees và Ensemble methods: random forest; xem overfitting,feature importance và giới hạn diễn giải.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 301 · K-means và phân cụm
+### 344 · K-means và phân cụm
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5923,7 +7014,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Clustering: K-means,initialization,scaling và limitations.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 302 · PCA và giảm chiều dữ liệu
+### 345 · PCA và giảm chiều dữ liệu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5941,7 +7032,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Decomposing signals in components: PCA; kết hợp Pipelines và preprocessing để tránh leakage.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 303 · Pipeline thí nghiệm tái lập được
+### 346 · Pipeline thí nghiệm tái lập được
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -5960,9 +7051,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Pipelines and composite estimators,Common pitfalls và Model persistence; tái lập bằng dữ liệu/seed/môi trường.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-### 304 · Tensor và đạo hàm tự động
+### 347 · Tensor và đạo hàm tự động
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -5984,9 +7075,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** §2.1 Data Manipulation và §2.5 Automatic Differentiation.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 305 · Mạng neural nhỏ và vòng huấn luyện
+### 348 · Mạng neural nhỏ và vòng huấn luyện
 
-**Loại:** Luyện | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Luyện | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6005,9 +7096,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** §5.1–5.4: MLP,implementation,forward/backprop và numerical stability.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 306 · CNN và phép tích chập
+### 349 · CNN và phép tích chập
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6024,9 +7115,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** §7.1–7.6: convolution,padding,stride,channels,pooling và LeNet; chỉ mạng nhỏ trước.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 307 · Embedding và biểu diễn đối tượng bằng vector
+### 350 · Embedding và biểu diễn đối tượng bằng vector
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6043,9 +7134,9 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** Phần Natural Language Processing: Pretraining, mục Word Embedding và Embedding Layers; kiểm tra ID/shape trước khi đọc mô hình lớn.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 308 · Scaled dot-product attention và mask
+### 351 · Scaled dot-product attention và mask
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6062,7 +7153,7 @@ Bài tự kiểm tra để chọn điểm ôn, không có chấm tự động. C
   - **Phần cần đọc:** §11.1 Queries,Keys,and Values; §11.3 Attention Scoring Functions; chưa cần toàn chương Transformer.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 309 · Dùng LLM và đánh giá đầu ra
+### 352 · Dùng LLM và đánh giá đầu ra
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6085,7 +7176,7 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
   - **Phần cần đọc:** Phần Natural Language Processing và các mục về language models; dùng rubric và dữ liệu thử nhỏ trong nhiệm vụ, không bắt gọi API trả phí.
   - **Truy cập:** Toàn bộ sách, code và bài tập web miễn phí. Dùng dữ liệu nhỏ/CPU cho ô nền; không cần thuê GPU.
 
-### 310 · Project ML có baseline và phân tích lỗi
+### 353 · Project ML có baseline và phân tích lỗi
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6108,9 +7199,17 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
   - **Phần cần đọc:** Pipelines and composite estimators,Common pitfalls và Model persistence; tái lập bằng dữ liệu/seed/môi trường.
   - **Truy cập:** Tài liệu, code và dữ liệu nhỏ miễn phí; các bài trong roadmap chạy được trên CPU.
 
-## 23. Hệ phân tán và thiết kế hệ thống
+## 32. Hệ phân tán và thiết kế hệ thống
 
-### 311 · Thiết kế từ tải và yêu cầu
+**Mục tiêu:** Thiết kế dưới lỗi từng phần, retry và dữ liệu cũ.
+
+**Đầu vào:** OS, mạng, dữ liệu và đồng thời
+
+**Bằng chứng:** Mô phỏng lỗi/retry và bảo vệ bất biến dịch vụ.
+
+**Điểm xuất phát:** Nền phân tán
+
+### 358 · Thiết kế từ tải và yêu cầu
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6128,7 +7227,7 @@ Nếu cần API trả phí, chọn hạn mức trước; có thể dùng mô hì
   - **Phần cần đọc:** Các chương Service Level Objectives và Load Balancing at the Frontend: giới hạn tải và mục tiêu phục vụ.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 312 · Tăng cấu hình và chia tải
+### 359 · Tăng cấu hình và chia tải
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6149,7 +7248,7 @@ Nguyên lý Mở rộng Hệ thống (Scalability Principles): Phân biệt Scal
   - **Phần cần đọc:** Các chương Service Level Objectives và Load Balancing at the Frontend: giới hạn tải và mục tiêu phục vụ.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 313 · Cache và dữ liệu cũ
+### 360 · Cache và dữ liệu cũ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6170,7 +7269,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Các chương Addressing Cascading Failures,Handling Overload và Data Processing Pipelines: lỗi,retry và kiểm soát tải; dựng ví dụ nhỏ theo nhiệm vụ.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 314 · Replication và sharding
+### 361 · Replication và sharding
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6188,7 +7287,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Schedule/lecture notes: replication,consistency,fault tolerance và partitions; chỉ đọc phần khái niệm,không bắt làm hết lab sau đại học.
   - **Truy cập:** Chỉ đọc lecture notes/paper công khai miễn phí theo chủ đề; không yêu cầu đăng ký MIT, Gradescope hay dịch vụ cloud. Đây là nguồn sau đại học, chỉ đọc phạm vi đã ghi.
 
-### 315 · Lỗi từng phần và CAP
+### 362 · Lỗi từng phần và CAP
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6206,7 +7305,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Schedule/lecture notes: replication,consistency,fault tolerance và partitions; chỉ đọc phần khái niệm,không bắt làm hết lab sau đại học.
   - **Truy cập:** Chỉ đọc lecture notes/paper công khai miễn phí theo chủ đề; không yêu cầu đăng ký MIT, Gradescope hay dịch vụ cloud. Đây là nguồn sau đại học, chỉ đọc phạm vi đã ghi.
 
-### 316 · Hàng đợi cho tác vụ nền
+### 363 · Hàng đợi cho tác vụ nền
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6224,7 +7323,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Các chương Addressing Cascading Failures,Handling Overload và Data Processing Pipelines: lỗi,retry và kiểm soát tải; dựng ví dụ nhỏ theo nhiệm vụ.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 317 · Idempotency và thử lại an toàn
+### 364 · Idempotency và thử lại an toàn
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6243,9 +7342,9 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Các chương Addressing Cascading Failures,Handling Overload và Data Processing Pipelines: lỗi,retry và kiểm soát tải; dựng ví dụ nhỏ theo nhiệm vụ.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 318 · Đồng thuận và leader ở mức nền tảng
+### 365 · Đồng thuận và leader ở mức nền tảng
 
-**Loại:** Học | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6263,7 +7362,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Lecture notes/paper về Raft: leader election,log replication và safety; mô phỏng ba nút trước khi thử lab.
   - **Truy cập:** Chỉ đọc lecture notes/paper công khai miễn phí theo chủ đề; không yêu cầu đăng ký MIT, Gradescope hay dịch vụ cloud. Đây là nguồn sau đại học, chỉ đọc phạm vi đã ghi.
 
-### 319 · Monolith, service và giao tiếp
+### 366 · Monolith, service và giao tiếp
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6281,7 +7380,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Schedule: case studies về storage/services; chọn một case để so trade-off với monolith thư viện,không sao chép quy mô hệ thống lớn.
   - **Truy cập:** Chỉ đọc lecture notes/paper công khai miễn phí theo chủ đề; không yêu cầu đăng ký MIT, Gradescope hay dịch vụ cloud. Đây là nguồn sau đại học, chỉ đọc phạm vi đã ghi.
 
-### 320 · Theo dõi lỗi xuyên nhiều thành phần
+### 367 · Theo dõi lỗi xuyên nhiều thành phần
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6299,7 +7398,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Chương Monitoring Distributed Systems và Troubleshooting: tín hiệu,log,correlation và tái hiện lỗi.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 321 · Cloud, chi phí và vận hành vừa đủ
+### 368 · Cloud, chi phí và vận hành vừa đủ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6317,9 +7416,9 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Chương Embracing Risk và Service Level Objectives: đánh đổi,ngân sách tài nguyên; lập bảng chi phí giả định, không cần mở tài khoản trả phí.
   - **Truy cập:** Toàn bộ sách web miễn phí; chỉ chọn chương liên quan, không cần dùng Google Cloud.
 
-### 322 · Thiết kế phiên bản lớn hơn của thư viện
+### 369 · Thiết kế phiên bản lớn hơn của thư viện
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6337,9 +7436,337 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Schedule: case studies về storage/services; chọn một case để so trade-off với monolith thư viện,không sao chép quy mô hệ thống lớn.
   - **Truy cập:** Chỉ đọc lecture notes/paper công khai miễn phí theo chủ đề; không yêu cầu đăng ký MIT, Gradescope hay dịch vụ cloud. Đây là nguồn sau đại học, chỉ đọc phạm vi đã ghi.
 
-## 24. Trách nhiệm nghề nghiệp và đọc nghiên cứu
+## 33. Di động và ứng dụng offline
 
-### 323 · Dữ liệu cá nhân và sự đồng ý
+**Mục tiêu:** Nhận diện vòng đời và giới hạn ứng dụng di động.
+
+**Đầu vào:** UI, dữ liệu, HTTP; học Kotlin/công cụ khi chọn project
+
+**Bằng chứng:** Thiết kế luồng offline và thử app nhỏ nếu chọn nhánh.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 370 · Ứng dụng di động và vòng đời
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt màn hình giao diện với tiến trình; trạng thái có thể mất khi hệ thống thu hồi.
+- [ ] Mô tả ứng dụng ghi chú offline qua mở/đóng/xoay màn hình; xác định dữ liệu nào phải lưu.
+- [ ] Dựng hoặc mô phỏng test tái tạo màn hình; ghi rõ chưa thử trên thiết bị nếu mới mô hình hóa.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Android Developers — fundamentals](https://developer.android.com/guide/components/fundamentals)
+  - **Phần cần đọc:** Android app fundamentals: Components, Activity lifecycle và Processes; chỉ đọc nền rồi làm project offline nhỏ bằng công cụ công khai.
+  - **Truy cập:** Tài liệu đọc miễn phí; dùng emulator nếu máy phù hợp, không yêu cầu xuất bản lên store.
+
+### 371 · Dữ liệu offline và đồng bộ
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt bản local, remote, phiên bản và xung đột; không giả định luôn có mạng.
+- [ ] Thiết kế thao tác tạo/sửa ghi chú khi mất mạng và gửi lại; chọn quy tắc xử lý xung đột tường minh.
+- [ ] Chạy hai bản dữ liệu thử với cùng ghi chú bị sửa; giải thích giới hạn của last-write-wins.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Android Developers — fundamentals](https://developer.android.com/guide/components/fundamentals)
+  - **Phần cần đọc:** Android app fundamentals: Components, Activity lifecycle và Processes; chỉ đọc nền rồi làm project offline nhỏ bằng công cụ công khai.
+  - **Truy cập:** Tài liệu đọc miễn phí; dùng emulator nếu máy phù hợp, không yêu cầu xuất bản lên store.
+
+### 372 · Ứng dụng offline nhỏ
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chọn một màn hình thêm/tìm ghi chú, lưu local và có báo lỗi; chưa yêu cầu đưa lên store.
+- [ ] Dựng trên emulator hoặc thiết bị sẵn có; nếu máy thiếu tài nguyên giữ đây là đường tự chọn, không coi thiết kế là app đã chạy.
+- [ ] Khởi động lại vẫn còn dữ liệu; thử dữ liệu rỗng và thao tác liên tiếp; lưu hướng dẫn chạy.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Android Developers — fundamentals](https://developer.android.com/guide/components/fundamentals)
+  - **Phần cần đọc:** Android app fundamentals: Components, Activity lifecycle và Processes; chỉ đọc nền rồi làm project offline nhỏ bằng công cụ công khai.
+  - **Truy cập:** Tài liệu đọc miễn phí; dùng emulator nếu máy phù hợp, không yêu cầu xuất bản lên store.
+
+## 34. Nhúng và thiết bị
+
+**Mục tiêu:** Hiểu tín hiệu, thời gian và ngân sách tài nguyên.
+
+**Đầu vào:** State machine, buffer, bit; học Rust nếu dùng nguồn Rust
+
+**Bằng chứng:** Bộ ghi dữ liệu mô phỏng có kiểm quá tải; không buộc mua board.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 373 · Nhúng: đọc cảm biến và điều khiển
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt dữ liệu mô phỏng với tín hiệu thật; giải nghĩa polling, interrupt và giới hạn thời gian.
+- [ ] Mô phỏng nút nhấn có bounce, viết state machine chống dội với timestamp.
+- [ ] Thử chuỗi nhấn nhanh, giữ lâu và nhiễu; không tuyên bố đã kiểm phần cứng khi chỉ có simulator.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [The Embedded Rust Book](https://docs.rust-embedded.org/book/)
+  - **Phần cần đọc:** Embedded Rust Book: Peripherals, Concurrency và Design Patterns; đọc mô hình phần cứng trước, bổ sung cú pháp Rust nếu chọn thực hành Rust.
+  - **Truy cập:** Sách web miễn phí; bắt đầu bằng mô hình/simulator, không yêu cầu mua board.
+
+### 374 · Ngân sách bộ nhớ và thời gian
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Đặt dung lượng buffer, chu kỳ xử lý và hành vi quá tải; không mặc định heap không giới hạn.
+- [ ] Thiết kế ring buffer cho dữ liệu cảm biến và chính sách khi đầy.
+- [ ] Kiểm wrap-around, trống/đầy và không ghi đè âm thầm; đo hoặc tính theo mô hình được nêu.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [The Embedded Rust Book](https://docs.rust-embedded.org/book/)
+  - **Phần cần đọc:** Embedded Rust Book: Peripherals, Concurrency và Design Patterns; đọc mô hình phần cứng trước, bổ sung cú pháp Rust nếu chọn thực hành Rust.
+  - **Truy cập:** Sách web miễn phí; bắt đầu bằng mô hình/simulator, không yêu cầu mua board.
+
+### 375 · Bộ ghi dữ liệu mô phỏng
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt đầu vào sensor giả, định dạng log và cơ chế lỗi; giữ giao diện thay được sensor thật.
+- [ ] Ghép state machine và buffer trong simulator hoặc chương trình tại máy.
+- [ ] Tái hiện mất mẫu/quá tải và kiểm chính sách phục hồi; ghi phần cần board để kiểm chứng tiếp.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [The Embedded Rust Book](https://docs.rust-embedded.org/book/)
+  - **Phần cần đọc:** Embedded Rust Book: Peripherals, Concurrency và Design Patterns; đọc mô hình phần cứng trước, bổ sung cú pháp Rust nếu chọn thực hành Rust.
+  - **Truy cập:** Sách web miễn phí; bắt đầu bằng mô hình/simulator, không yêu cầu mua board.
+
+## 36. Chuyên sâu hệ dữ liệu
+
+**Mục tiêu:** Tự xây thành phần lưu trữ rồi xử lý cạnh tranh.
+
+**Đầu vào:** DB internals, C++, debug, DSA và đồng thời
+
+**Bằng chứng:** Đối chiếu engine nhỏ với mô hình tham chiếu và lịch lỗi.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 378 · Storage engine theo từng thành phần
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt page format, buffer pool, index và API; trước hết chỉ hỗ trợ một luồng.
+- [ ] Tự cài một thành phần nhỏ rồi test hợp đồng trước khi ghép; kiểm khóa trùng và page đầy.
+- [ ] Đối chiếu với mô hình map trong RAM trên thao tác sinh ngẫu nhiên; lưu seed để tái hiện lỗi.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [CMU 15-445 — Fall 2025](https://15445.courses.cs.cmu.edu/fall2025/)
+  - **Phần cần đọc:** CMU 15-445 Fall 2025: storage, buffer pool, indexes, concurrency và recovery; chỉ chọn slide công khai, project roadmap là bài độc lập.
+  - **Truy cập:** Chọn slide/ghi chú công khai miễn phí; không cần máy hay tài khoản chấm của CMU.
+
+### 379 · Thêm đồng thời và kiểm thử lỗi
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chọn một cơ chế khóa rõ ràng và bất biến dữ liệu; không gắn nhãn ACID khi chưa kiểm đủ.
+- [ ] Tạo lịch hai luồng có barrier để tái hiện xung đột; thêm xử lý deadlock hoặc timeout theo đặc tả.
+- [ ] Chạy lặp, kiểm invariant và dừng sạch; ghi rõ giới hạn recovery/durability còn thiếu.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [CMU 15-445 — Fall 2025](https://15445.courses.cs.cmu.edu/fall2025/)
+  - **Phần cần đọc:** CMU 15-445 Fall 2025: storage, buffer pool, indexes, concurrency và recovery; chỉ chọn slide công khai, project roadmap là bài độc lập.
+  - **Truy cập:** Chọn slide/ghi chú công khai miễn phí; không cần máy hay tài khoản chấm của CMU.
+
+## 37. Chuyên sâu ngôn ngữ và compiler
+
+**Mục tiêu:** Nối resolver, bytecode, VM và quản lý bộ nhớ.
+
+**Đầu vào:** Interpreter, scope, kiểu, stack và bộ nhớ
+
+**Bằng chứng:** Interpreter và VM cho cùng kết quả trên test độc lập.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 380 · Phân giải tên và kiểm tra trước chạy
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt tìm tên theo scope với tra giá trị lúc chạy; xác định shadowing theo đặc tả.
+- [ ] Thêm resolver cho interpreter, phát hiện biến dùng sai scope hoặc khai báo lỗi.
+- [ ] Test hai biến trùng tên ở scope khác và closure; thông báo lỗi có vị trí nguồn.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Crafting Interpreters — sách web](https://craftinginterpreters.com/contents.html)
+  - **Phần cần đọc:** Crafting Interpreters: Resolving and Binding, A Virtual Machine, Chunks of Bytecode, Calls and Functions, Garbage Collection; học sau interpreter nền.
+  - **Truy cập:** Toàn bộ sách web miễn phí; không cần mua bản in.
+
+### 381 · Bytecode và máy ảo stack
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Giải nghĩa instruction, operand, instruction pointer và stack effect.
+- [ ] Biên dịch biểu thức số học thành bytecode rồi chạy trên VM, in trace từng lệnh.
+- [ ] So kết quả với interpreter cây; từ chối bytecode thiếu toán hạng thay vì đọc ngoài stack.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Crafting Interpreters — sách web](https://craftinginterpreters.com/contents.html)
+  - **Phần cần đọc:** Crafting Interpreters: Resolving and Binding, A Virtual Machine, Chunks of Bytecode, Calls and Functions, Garbage Collection; học sau interpreter nền.
+  - **Truy cập:** Toàn bộ sách web miễn phí; không cần mua bản in.
+
+### 382 · Quản lý bộ nhớ trong runtime
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt đối tượng reachable với không còn tên trực tiếp; xác định root của VM.
+- [ ] Mô phỏng mark/sweep trên đồ thị nhỏ có chu trình và closure giữ tham chiếu.
+- [ ] Kiểm không thu hồi đối tượng còn sống; giải thích vì sao reference counting đơn giản bỏ sót chu trình.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Crafting Interpreters — sách web](https://craftinginterpreters.com/contents.html)
+  - **Phần cần đọc:** Crafting Interpreters: Resolving and Binding, A Virtual Machine, Chunks of Bytecode, Calls and Functions, Garbage Collection; học sau interpreter nền.
+  - **Truy cập:** Toàn bộ sách web miễn phí; không cần mua bản in.
+
+### 383 · Ngôn ngữ nhỏ có hai bộ thực thi
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt ngữ pháp, kiểu và lỗi hỗ trợ; giữ interpreter làm đối chứng cho VM.
+- [ ] Thêm hàm, biến cục bộ và gọi hàm; sinh chương trình nhỏ hợp lệ để so hai kết quả.
+- [ ] Kiểm lỗi parse/type/runtime có vị trí; ghi tính năng chưa hỗ trợ và kết quả kiểm tra độc lập.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Crafting Interpreters — sách web](https://craftinginterpreters.com/contents.html)
+  - **Phần cần đọc:** Crafting Interpreters: Resolving and Binding, A Virtual Machine, Chunks of Bytecode, Calls and Functions, Garbage Collection; học sau interpreter nền.
+  - **Truy cập:** Toàn bộ sách web miễn phí; không cần mua bản in.
+
+## 38. Chuyên sâu hệ phân tán
+
+**Mục tiêu:** Theo thứ tự sự kiện, consensus và deduplication.
+
+**Đầu vào:** Nền phân tán, network và concurrent testing
+
+**Bằng chứng:** Trace lỗi tái hiện được và bất biến log/request được kiểm.
+
+**Điểm xuất phát:** Nhánh tự chọn
+
+### 384 · Thời gian và thứ tự sự kiện
+
+**Loại:** Học | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Phân biệt thời gian đồng hồ với quan hệ happens-before; giải nghĩa clock logic.
+- [ ] Ghi trace gửi/nhận trên ba tiến trình, gán Lamport timestamp và xem sự kiện đồng thời.
+- [ ] Dựng ví dụ timestamp nhỏ hơn không chứng minh quan hệ nhân quả; thử message đến trễ.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Raft — tài nguyên tác giả](https://raft.github.io/)
+  - **Phần cần đọc:** Raft paper: leader election, log replication và safety; đọc mô hình lỗi trước, không tuyên bố mô phỏng tương đương triển khai production.
+  - **Truy cập:** Paper, minh họa và tài nguyên đọc miễn phí; mô phỏng tại máy.
+
+### 385 · Mô phỏng log replicated có lỗi
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Chốt mô hình ba nút, mất/chậm message, timeout và term; phân biệt commit với chỉ ghi ở một nút.
+- [ ] Mô phỏng election và replication, thêm mất leader hoặc partition; giữ trace tái hiện.
+- [ ] Kiểm không áp dụng hai lệnh khác nhau ở cùng log index đã commit; nói rõ chưa có chứng minh đúng đầy đủ.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Raft — tài nguyên tác giả](https://raft.github.io/)
+  - **Phần cần đọc:** Raft paper: leader election, log replication và safety; đọc mô hình lỗi trước, không tuyên bố mô phỏng tương đương triển khai production.
+  - **Truy cập:** Paper, minh họa và tài nguyên đọc miễn phí; mô phỏng tại máy.
+
+### 386 · Dịch vụ key/value và retry
+
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+
+**Việc cần làm:**
+
+- [ ] Định nghĩa request ID, kết quả trả lại và trạng thái lưu; không dùng retry mù cho thao tác tăng.
+- [ ] Ghép client/service nhỏ, mô phỏng response bị mất và request lặp.
+- [ ] Kiểm mỗi thao tác theo ID có cùng hiệu ứng đã đặc tả; đo và ghi giới hạn khi server restart.
+
+**Khi nào quay lại:** Đường chuyên sâu: học sau nền của môn, chọn khi muốn tự xây thành phần này. Không bắt hoàn thành mọi nhánh để xong phần nền.
+
+**Nguồn tham khảo miễn phí:**
+
+- [Raft — tài nguyên tác giả](https://raft.github.io/)
+  - **Phần cần đọc:** Raft paper: leader election, log replication và safety; đọc mô hình lỗi trước, không tuyên bố mô phỏng tương đương triển khai production.
+  - **Truy cập:** Paper, minh họa và tài nguyên đọc miễn phí; mô phỏng tại máy.
+
+## 39. Đạo đức và đọc nghiên cứu
+
+**Mục tiêu:** Lập luận về tác động, quyền riêng tư và bằng chứng.
+
+**Đầu vào:** Một project và mô hình dữ liệu cụ thể
+
+**Bằng chứng:** Báo cáo giới hạn và nguồn, đọc paper để đặt câu hỏi kiểm chứng.
+
+**Điểm xuất phát:** Dùng xuyên chương trình
+
+### 387 · Dữ liệu cá nhân và sự đồng ý
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6357,7 +7784,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** ACM Code of Ethics §1.2 Avoid harm,§1.4 Be fair và §1.6 Respect privacy; gắn vào dữ liệu của project.
   - **Truy cập:** Toàn bộ văn bản quy tắc đọc công khai miễn phí.
 
-### 324 · Giấy phép mã nguồn và dữ liệu
+### 388 · Giấy phép mã nguồn và dữ liệu
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6375,7 +7802,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** ACM Code of Ethics §1.5 Respect the work required to produce new ideas,inventions,creative works,and computing artifacts; đọc thêm LICENSE của thư viện/dataset thực sự dùng.
   - **Truy cập:** Toàn bộ văn bản quy tắc đọc công khai miễn phí.
 
-### 325 · Sai lệch, tác động và giới hạn hệ thống
+### 389 · Sai lệch, tác động và giới hạn hệ thống
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6393,7 +7820,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** ACM Code of Ethics §1.2 Avoid harm,§1.4 Be fair và §1.6 Respect privacy; gắn vào dữ liệu của project.
   - **Truy cập:** Toàn bộ văn bản quy tắc đọc công khai miễn phí.
 
-### 326 · Đọc một paper theo ba lượt
+### 390 · Đọc một paper theo ba lượt
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6412,9 +7839,9 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc toàn bộ bài How to Read a Paper: three-pass approach; bài ngắn,không phải yêu cầu đọc cả một giáo trình.
   - **Truy cập:** Bài viết và bản PDF tác giả công khai miễn phí.
 
-### 327 · Tái tạo một kết quả nhỏ
+### 391 · Tái tạo một kết quả nhỏ
 
-**Loại:** Áp dụng | **Mức độ:** Nâng cao (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
+**Loại:** Áp dụng | **Mức độ:** Chuyên sâu (có thể học sau) | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
 **Việc cần làm:**
 
@@ -6433,7 +7860,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc toàn bộ bài How to Read a Paper: three-pass approach; bài ngắn,không phải yêu cầu đọc cả một giáo trình.
   - **Truy cập:** Bài viết và bản PDF tác giả công khai miễn phí.
 
-### 328 · Đặt câu hỏi có thể kiểm chứng
+### 392 · Đặt câu hỏi có thể kiểm chứng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6452,9 +7879,17 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc toàn bộ bài How to Read a Paper: three-pass approach; bài ngắn,không phải yêu cầu đọc cả một giáo trình.
   - **Truy cập:** Bài viết và bản PDF tác giả công khai miễn phí.
 
-## 25. Chọn hướng chuyên sâu có căn cứ
+## 40. Chọn hướng bằng trải nghiệm
 
-### 329 · Nhìn lại bằng sản phẩm đã làm
+**Mục tiêu:** Chọn hướng từ công việc đã thử và nền cần bổ sung.
+
+**Đầu vào:** Đã thử một số mảng và giữ sản phẩm/bài làm
+
+**Bằng chứng:** Một quyết định có bằng chứng và chương trình tiếp nối cụ thể.
+
+**Điểm xuất phát:** Không cần học hết các nhánh
+
+### 393 · Nhìn lại bằng sản phẩm đã làm
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6472,7 +7907,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 330 · Đối chiếu công việc với điều mình muốn
+### 394 · Đối chiếu công việc với điều mình muốn
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6490,7 +7925,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 331 · Khảo sát hướng kỹ sư phần mềm và backend
+### 395 · Khảo sát hướng kỹ sư phần mềm và backend
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6508,7 +7943,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 332 · Khảo sát hướng ML và nghiên cứu AI
+### 396 · Khảo sát hướng ML và nghiên cứu AI
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6526,7 +7961,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 333 · Khảo sát hướng hệ thống và ngôn ngữ
+### 397 · Khảo sát hướng hệ thống và ngôn ngữ
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6544,7 +7979,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 334 · Nhận diện các hướng khác trong KHMT
+### 398 · Nhận diện các hướng khác trong KHMT
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6562,7 +7997,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-### 335 · Chốt một hướng để tập trung
+### 399 · Chốt một hướng để tập trung
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6576,7 +8011,7 @@ Chiến lược lưu bộ đệm phân tán (Distributed Caching): Mô hình Cac
 
 **Thông tin thêm & Lưu ý bản chất:**
 
-Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA tích lũy giai đoạn cơ sở (Năm 1 + Năm 2) với các môn cơ sở ngành cốt lõi (NMLT, KTLT, CTDL&GT, OOP, MMT, Toán rời rạc, Xác suất thống kê). Mục tiêu GPA an toàn: >= 8.0 - 8.5+. Chuẩn bị sớm portfolio 5 Capstone Mini-Projects để tạo lợi thế vượt trội.
+Chọn chuyên ngành bằng sản phẩm, bài tự làm và đề cương chính thức. Điều kiện/GPA xét tuyển phải tra thông báo HCMUS cho khóa và năm hiện tại; không coi một ngưỡng GPA tự đặt là bảo đảm trúng tuyển.
 
 **Nguồn tham khảo miễn phí:**
 
@@ -6584,9 +8019,17 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
   - **Phần cần đọc:** Đọc mục Organization,Core CS,Advanced CS và Final project để so phạm vi; chọn một hướng,không học hết mọi nhánh Advanced và không chuyển sang khóa trả phí.
   - **Truy cập:** Đọc cấu trúc Core/Advanced và Final project miễn phí. Các khóa bên ngoài không được mặc định miễn phí; chỉ dùng nguồn đã chọn riêng trong roadmap.
 
-## 26. Đồ án lớn có người dùng và bằng chứng
+## 41. Đồ án tổng hợp
 
-### 336 · Chọn vấn đề đủ cụ thể
+**Mục tiêu:** Xây sản phẩm có người dùng và thay đổi thực.
+
+**Đầu vào:** Nền phù hợp đề tài; yêu cầu và test
+
+**Bằng chứng:** Người khác dựng/chạy/thử và mình xử lý phản hồi có bằng chứng.
+
+**Điểm xuất phát:** Tổng hợp
+
+### 400 · Chọn vấn đề đủ cụ thể
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6598,7 +8041,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Nêu cách chứng minh phiên bản đầu hữu ích như hoàn thành một lượt nghiệp vụ hoặc vượt baseline có ý nghĩa.
 - [ ] Kiểm tra đề tài cần gì từ người khác/dịch vụ ngoài để không bị kẹt ở một phụ thuộc chưa có.
 
-### 337 · Viết yêu cầu và cách nghiệm thu
+### 401 · Viết yêu cầu và cách nghiệm thu
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6610,7 +8053,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Nêu rõ những gì chưa làm như thanh toán, quy mô rất lớn hoặc hỗ trợ nhiều nền tảng.
 - [ ] Đưa bản ngắn cho người phản hồi và ghi thay đổi yêu cầu trước khi code phần lớn sản phẩm.
 
-### 338 · Thiết kế vừa đủ để bắt tay làm
+### 402 · Thiết kế vừa đủ để bắt tay làm
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6622,7 +8065,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Tách lát đầu tiên đi xuyên hệ thống để sớm phát hiện rủi ro giao diện/dữ liệu.
 - [ ] Đặt quy ước ID, lỗi, cấu hình và cấu trúc thư mục ở mức nhóm có thể làm việc nhất quán, không tạo bộ quy tắc quá lớn.
 
-### 339 · Làm một luồng hoàn chỉnh đầu tiên
+### 403 · Làm một luồng hoàn chỉnh đầu tiên
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6634,7 +8077,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Lưu hướng dẫn chạy lát đầu và một bộ test ngắn để lần sau không phá phần đã có.
 - [ ] Cho người dùng/giảng viên xem sớm để phát hiện mình đang giải sai bài toán trước khi mở rộng.
 
-### 340 · Hoàn thiện các tính năng cốt lõi
+### 404 · Hoàn thiện các tính năng cốt lõi
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6646,7 +8089,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Theo dõi thay đổi phạm vi: tính năng mới cần thay mốc nào hoặc loại bớt phần nào, không cứ cộng thêm.
 - [ ] Nếu dùng AI/thư viện, đọc và kiểm chứng phần tích hợp, ghi đúng đóng góp thay vì nhận toàn bộ là tự viết.
 
-### 341 · Kiểm chứng chức năng và chất lượng
+### 405 · Kiểm chứng chức năng và chất lượng
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6660,7 +8103,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Chốt một phiên bản release candidate để sửa lỗi, tránh đổi thêm nhiều tính năng ngay trước demo.
 - [ ] Chọn một thay đổi yêu cầu chưa chuẩn bị trước, tự tìm chỗ sửa, bổ sung test và chạy lại luồng chính; ghi phần cần trợ giúp thay vì chỉ nộp demo chạy theo kịch bản.
 
-### 342 · Đưa đồ án tới người dùng thử
+### 406 · Đưa đồ án tới người dùng thử
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6673,7 +8116,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Chuẩn bị dữ liệu demo và phương án chạy cục bộ nếu mạng/dịch vụ ngoài không sẵn có.
 - [ ] Chỉ ghi triển khai thành công sau khi người khác thực sự mở hoặc chạy được luồng chính.
 
-### 343 · Sửa theo phản hồi và sự cố thật
+### 407 · Sửa theo phản hồi và sự cố thật
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6685,7 +8128,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Sửa vấn đề ảnh hưởng hoàn thành tác vụ trước, thêm test hoặc ca kiểm lại tương ứng.
 - [ ] Thông báo thay đổi và mời thử lại đúng tình huống đã lỗi, ghi điều gì đã cải thiện và điều còn hạn chế.
 
-### 344 · Viết báo cáo kỹ thuật có bằng chứng
+### 408 · Viết báo cáo kỹ thuật có bằng chứng
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6698,7 +8141,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Gắn link mã, hướng dẫn chạy, test và vài hình có nhãn đúng; phân biệt tính năng chạy thật với ý tưởng tương lai.
 - [ ] Viết giới hạn để người đọc biết sản phẩm dùng được trong điều kiện nào.
 
-### 345 · Trình bày và bảo vệ đồ án
+### 409 · Trình bày và bảo vệ đồ án
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6711,9 +8154,17 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Nhờ người khác hỏi ở phần mình tự làm, ghi câu chưa trả lời được và quay lại kiểm tra mã/tài liệu.
 - [ ] Không dùng video hoặc ảnh thay cho một tính năng chưa chạy mà không nói rõ đó là bản mô phỏng.
 
-## 27. Thực tập, phỏng vấn và phát triển nghề
+## 42. Thực tập và phát triển tiếp
 
-### 346 · Chọn lúc bắt đầu ứng tuyển
+**Mục tiêu:** Trình bày việc thật, phỏng vấn và tiếp tục học.
+
+**Đầu vào:** Có sản phẩm và năng lực phù hợp vị trí
+
+**Bằng chứng:** Giải thích/sửa mã của mình và đối chiếu yêu cầu công việc.
+
+**Điểm xuất phát:** Có thể bắt đầu khi đủ nền phù hợp
+
+### 410 · Chọn lúc bắt đầu ứng tuyển
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6725,7 +8176,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Bắt đầu nộp phù hợp khi đủ cơ sở, dùng phản hồi thật để điều chỉnh; không đợi hoàn thành mọi ô nâng cao.
 - [ ] Tiếp tục học trên trường và giữ thời gian ứng tuyển/phỏng vấn vừa sức thay vì bỏ sạch một phía.
 
-### 347 · Chọn sản phẩm đưa vào hồ sơ
+### 411 · Chọn sản phẩm đưa vào hồ sơ
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6737,7 +8188,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Gắn số đo chỉ khi có phương pháp và kết quả lưu lại; nêu giới hạn của demo.
 - [ ] Dọn secret, dữ liệu người thật và tài nguyên không rõ quyền trước khi chia sẻ công khai.
 
-### 348 · Viết CV dựa trên việc đã làm
+### 412 · Viết CV dựa trên việc đã làm
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6749,7 +8200,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Với số liệu, lưu cách đo để trả lời khi được hỏi, không tự thêm tỷ lệ tăng tốc hoặc số người dùng.
 - [ ] Kiểm tra chính tả, link, thông tin liên hệ và file PDF mở được trước khi gửi đúng phiên bản cho vị trí đó.
 
-### 349 · Ôn DSA cho phỏng vấn
+### 413 · Ôn DSA cho phỏng vấn
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6761,7 +8212,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Sau lượt, phân loại lỗi do thuật toán hay do không diễn đạt/không kiểm tra, sửa đúng loại.
 - [ ] Giải lại một biến thể sau vài ngày để kiểm tra hiểu cấu trúc, không chỉ thuộc một bài quen.
 
-### 350 · Vấn đáp nền tảng CS
+### 414 · Vấn đáp nền tảng CS
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6773,7 +8224,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Tự vẽ luồng một request từ trình duyệt tới dữ liệu và chỉ ra chỗ mạng, OS, database cùng tham gia.
 - [ ] Quay lại nhiệm vụ thực hành khi không giải thích được một hành vi chính mình đã xây.
 
-### 351 · Phỏng vấn thử bằng project thật
+### 415 · Phỏng vấn thử bằng project thật
 
 **Loại:** Luyện | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6786,7 +8237,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Sau buổi, ghi 2–3 việc sửa cụ thể trong project hoặc kiến thức, không chỉ tự nhận phỏng vấn chưa tốt.
 - [ ] Tắt lời giải và công cụ sinh code trong một phần phỏng vấn thử; tự giải thích một module và sửa một lỗi nhỏ để kiểm tra mình có thật sự làm chủ project.
 
-### 352 · Ứng tuyển có theo dõi
+### 416 · Ứng tuyển có theo dõi
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6798,7 +8249,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Nếu nhận bài tuyển dụng, làm rõ phạm vi/thời hạn và quy tắc dùng công cụ; nộp đúng phần tự làm.
 - [ ] Dùng phản hồi hoặc câu hỏi gặp thật để chọn bài ôn, không xem một lần bị từ chối là kết luận về toàn bộ năng lực.
 
-### 353 · Làm việc trong nhóm khi mới vào nghề
+### 417 · Làm việc trong nhóm khi mới vào nghề
 
 **Loại:** Học | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6810,7 +8261,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Gửi thay đổi nhỏ có giải thích/test, xử lý review bằng kiểm chứng chứ không phòng thủ hoặc làm theo không hiểu.
 - [ ] Ghi lại quy tắc hệ thống và bài học từ bug, nhưng không chép bí mật hay dữ liệu nội bộ ra hồ sơ công khai.
 
-### 354 · Đóng góp mã nguồn mở vừa sức
+### 418 · Đóng góp mã nguồn mở vừa sức
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
@@ -6823,7 +8274,7 @@ Chiến lược xét tuyển chuyên ngành KHMT HCMUS: Căn cứ điểm GPA t�
 - [ ] Kiên nhẫn với review, không tạo nhiều thay đổi hình thức để lấy số lượng thành tích.
 - [ ] Nếu thay đổi chưa được nhận, vẫn lưu bài học kỹ thuật và hiểu lý do, không tự nhận là đã được merge.
 
-### 355 · Lập vòng phát triển tiếp theo
+### 419 · Lập vòng phát triển tiếp theo
 
 **Loại:** Áp dụng | **Mức độ:** Bắt buộc nền | **Track:** Sẵn sàng Chuyên ngành KHMT (`track-6`)
 
