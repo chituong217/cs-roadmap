@@ -2,6 +2,7 @@
 // ID riêng "n-*". Mỗi spec gộp nhiều chủ đề (topic) hoặc cả chương; `cov` ghi chương/topic được gộp để test
 // bao phủ kiểm được không mất nội dung. `scope` (các đoạn văn) KHÔNG phải checklist giao việc.
 import { BLOCKS, AUTHORED_COURSES, AUTHORED_COURSE_MAP, CATALOG_COURSE_MAP, computeTopologicalOrder } from '../syllabus/index.mjs';
+import { SOURCE_MAP } from '../syllabus/sources.mjs';
 import { SPECS } from './specs/index.mjs';
 
 const ACCENTS = ['#23654f', '#3f5f77', '#866716', '#7a4b6b', '#a4562c', '#2f6f73', '#5a5a8f'];
@@ -37,7 +38,10 @@ function buildSources(topicIds) {
     if (s.locator && !arr.includes(s.locator)) arr.push(s.locator);
     seen.set(s.sourceId, arr);
   }
-  return [...seen].map(([sourceId, locs]) => ({ sourceId, locator: locs.slice(0, 3).join('; ') }));
+  return [...seen].map(([sourceId, locs]) => {
+    const src = SOURCE_MAP.get(sourceId);
+    return { sourceId, title: src?.title ?? sourceId, url: src?.url ?? '', locator: locs.slice(0, 3).join('; ') };
+  });
 }
 
 let prevInCourse = new Map();
@@ -60,6 +64,8 @@ export const MAP_NODES = specsSorted.map((s, i) => {
   return {
     id: s.id, title: s.t, groupId: course.blockId, courseId: s.c, courseTitle: course.title,
     stage: stripChapter(first.chapter.title), order: i + 1, level: allExt ? 'extension' : 'core',
-    needs, needsText, scope: s.p, covers, sources: buildSources(covers),
+    needs, needsText, scope: s.p, covers,
+    topics: covers.map(id => ({ id, title: topicIndex.get(id).topic.title })),
+    sources: buildSources(covers),
   };
 });

@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
 import { ArrowRight, BookOpen, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
-import { SOURCE_MAP } from '../syllabus/sources.mjs';
-import { MAP_GROUPS, MAP_NODES, MAP_LEVELS } from './nodes.mjs';
+import { MAP_GROUPS, MAP_NODES, MAP_LEVELS } from './map-data.generated.mjs';
 import {
   MAP_STATUS_LABELS, MAP_STORAGE_KEY, emptyMapProgress, loadMapProgress, saveMapProgress,
   exportMapProgress, validateMapProgress, nextNodeId,
@@ -17,6 +16,10 @@ const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: C
 const byId = new Map(MAP_NODES.map(n => [n.id, n]));
 const groupById = new Map(MAP_GROUPS.map(g => [g.id, g]));
 const IDS = MAP_NODES.map(n => n.id);
+// Bố cục cố định: mỗi nhóm một cột, các node xếp theo thứ tự học; vị trí không đổi khi lọc để bản đồ ổn định.
+const POS = new Map();
+MAP_GROUPS.forEach((g, gi) => MAP_NODES.filter(n => n.groupId === g.id).forEach((n, i) => POS.set(n.id, { x: gi * 420, y: i * 190 })));
+const COURSES = [...new Map(MAP_NODES.map(n => [n.courseId, { id: n.courseId, title: n.courseTitle, groupId: n.groupId }])).values()];
 
 function MapNode({ data }) {
   const { node, group, status, active, open } = data;
@@ -32,10 +35,10 @@ function MapNode({ data }) {
         aria-pressed={active}
       >
         <span className="node-meta">
-          <span>{String(node.order).padStart(2, '0')}</span>
+          <span>{String(node.order).padStart(3, '0')}</span>
           <span className="node-track-tag" style={{ color: group.accent }}>{group.title}</span>
         </span>
-        <span className="node-chapter">{node.stage}{node.level === 'extension' ? ' · MỞ RỘNG' : ''}</span>
+        <span className="node-chapter">{node.courseTitle}{node.level === 'extension' ? ' · MỞ RỘNG' : ''}</span>
         <strong>{node.title}</strong>
         <span className="node-bottom">
           <span className="node-status"><Icon size={13} />{MAP_STATUS_LABELS[status]}</span>
@@ -53,13 +56,13 @@ function Details({ node, status, setStatus, openNode, onClose }) {
   return (
     <>
       <div className="detail-top">
-        <span>NODE {String(node.order).padStart(2, '0')} · {group.title.toUpperCase()}</span>
+        <span>NODE {String(node.order).padStart(3, '0')} · {group.title.toUpperCase()}</span>
         <button className="icon-button mobile-close" aria-label="Đóng chi tiết" onClick={onClose}><X size={20} /></button>
       </div>
       <div className="detail-scroll" tabIndex={0} aria-label="Nội dung chi tiết node">
         <div className="detail-eyebrow">
           <span className="track-pill" style={{ backgroundColor: group.accent + '20', color: group.accent }}>{group.title}</span>
-          <span>{node.stage}</span>
+          <span>{node.courseTitle} · {node.stage}</span>
         </div>
         <h2>{node.title}</h2>
         <div className="status-select" role="group" aria-label="Trạng thái node">
@@ -90,15 +93,16 @@ function Details({ node, status, setStatus, openNode, onClose }) {
         </details>
         <details className="fold">
           <summary>Nguồn tham khảo miễn phí</summary>
-          {node.sources.map(s => {
-            const src = SOURCE_MAP.get(s.sourceId);
-            return (
-              <div className="reading" key={s.sourceId + s.locator}>
-                <a href={src.url} target="_blank" rel="noreferrer">{src.title}<ExternalLink size={12} /></a>
-                <small>{s.locator}</small>
-              </div>
-            );
-          })}
+          {node.sources.map(s => (
+            <div className="reading" key={s.sourceId}>
+              <a href={s.url} target="_blank" rel="noreferrer">{s.title}<ExternalLink size={12} /></a>
+              {s.locator && <small>{s.locator}</small>}
+            </div>
+          ))}
+        </details>
+        <details className="fold">
+          <summary>Chủ đề giáo trình đã gộp ({node.topics.length})</summary>
+          <ul>{node.topics.map(t => <li key={t.id}>{t.title}</li>)}</ul>
         </details>
       </div>
     </>
@@ -113,12 +117,14 @@ function MapView() {
   const [selected, setSelected] = useState(() => progress.data.lastNode || IDS[0]);
   const [groupFilter, setGroupFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [courseFilter, setCourseFilter] = useState('all');
   const [query, setQuery] = useState('');
   const [notice, setNotice] = useState(progress.error);
   const importRef = useRef(null);
   const dialogRef = useRef(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const small = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 999px)').matches;
-  const closeDetail = () => dialogRef.current?.open && dialogRef.current.close();
+  const closeDetail = () => { if (dialogRef.current?.open) dialogRef.current.close(); setDialogOpen(false); };
   const data = progress.data;
   const statusOf = id => data.statuses[id] || 'unread';
 
@@ -127,7 +133,7 @@ function MapView() {
   const update = fn => setProgress(p => ({ ...p, data: fn(p.data) }));
   const openNode = id => {
     setSelected(id);
-    if (small() && dialogRef.current && !dialogRef.current.open) dialogRef.current.showModal();
+    if (small() && dialogRef.current && !dialogRef.current.open) { setDialogOpen(true); setTimeout(() => dialogRef.current?.showModal(), 0); }
     update(d => ({ ...d, lastNode: id }));
     const n = flow.getNode(id);
     if (n) flow.setCenter(n.position.x + 183, n.position.y + 73, { zoom: 0.9, duration: 300 });
@@ -140,13 +146,14 @@ function MapView() {
 
   const visibleIds = useMemo(() => new Set(MAP_NODES.filter(n =>
     (groupFilter === 'all' || n.groupId === groupFilter) &&
+    (courseFilter === 'all' || n.courseId === courseFilter) &&
     (statusFilter === 'all' || statusOf(n.id) === statusFilter) &&
     (!query || norm([n.title, n.stage, ...n.scope].join(' ')).includes(norm(query)))
-  ).map(n => n.id)), [groupFilter, statusFilter, query, data]);
+  ).map(n => n.id)), [groupFilter, courseFilter, statusFilter, query, data]);
 
   const nodes = useMemo(() => MAP_NODES.filter(n => visibleIds.has(n.id)).map(n => ({
     id: n.id, type: 'map',
-    position: { x: MAP_GROUPS.findIndex(g => g.id === n.groupId) * 400, y: (n.order - 1) * 190 },
+    position: POS.get(n.id),
     data: { node: n, group: groupById.get(n.groupId), status: statusOf(n.id), active: n.id === selected, open: openNode },
   })), [visibleIds, selected, data]);
 
@@ -185,7 +192,7 @@ function MapView() {
       <header className="app-header">
         <a className="brand" href="#" onClick={e => { e.preventDefault(); openNode(IDS[0]); }}>
           <span className="brand-icon"><GitBranch size={20} /></span>
-          <span>Lộ trình <b>KHMT</b><small>BẢN MẪU 3 NODE · CHƯA PHÁT HÀNH</small></span>
+          <span>Lộ trình <b>KHMT</b><small>{MAP_NODES.length} NODE · BẢN NHÁP CHƯA PHÁT HÀNH</small></span>
         </a>
         <div className="header-actions">
           <a className="header-link" href="./reader.html">Bản đọc dài</a>
@@ -211,24 +218,27 @@ function MapView() {
           </label>
           <nav className="chapter-nav" aria-label="Danh sách node">
             <p className="search-count">{visibleIds.size} node</p>
-            {MAP_NODES.filter(n => visibleIds.has(n.id)).map(n => (
-              <button key={n.id} className={`chapter-link ${n.id === selected ? 'selected' : ''}`} onClick={() => openNode(n.id)}>
-                <span className="chapter-number">{String(n.order).padStart(2, '0')}</span>
-                <span><strong>{n.title}</strong><small>{groupById.get(n.groupId).title} · {MAP_STATUS_LABELS[statusOf(n.id)]}</small></span>
+            {MAP_NODES.filter(n => visibleIds.has(n.id)).map((n, i, arr) => (
+              <React.Fragment key={n.id}>
+              {(i === 0 || arr[i - 1].courseId !== n.courseId) && <p className="course-heading">{n.courseTitle}</p>}
+              <button className={`chapter-link ${n.id === selected ? 'selected' : ''}`} onClick={() => openNode(n.id)}>
+                <span className="chapter-number">{String(n.order).padStart(3, '0')}</span>
+                <span><strong>{n.title}</strong><small>{MAP_STATUS_LABELS[statusOf(n.id)]}</small></span>
               </button>
+              </React.Fragment>
             ))}
             {!visibleIds.size && <p className="empty">Không có node phù hợp. Thử từ khóa khác, ví dụ “con trỏ”.</p>}
           </nav>
         </aside>
         <main className="map-main">
           <div className="track-switcher" role="tablist" aria-label="Nhóm kiến thức">
-            <button role="tab" aria-selected={groupFilter === 'all'} className={`track-tab ${groupFilter === 'all' ? 'active' : ''}`} onClick={() => setGroupFilter('all')}>
+            <button role="tab" aria-selected={groupFilter === 'all'} className={`track-tab ${groupFilter === 'all' ? 'active' : ''}`} onClick={() => { setGroupFilter('all'); setCourseFilter('all'); }}>
               <Layers size={13} /><span className="track-tab-name">Tất cả</span><span className="track-tab-badge">{total}</span>
             </button>
             {MAP_GROUPS.map(g => {
               const list = MAP_NODES.filter(n => n.groupId === g.id);
               return (
-                <button key={g.id} role="tab" aria-selected={groupFilter === g.id} className={`track-tab ${groupFilter === g.id ? 'active' : ''}`} style={{ '--track-accent': g.accent }} onClick={() => setGroupFilter(g.id)}>
+                <button key={g.id} role="tab" aria-selected={groupFilter === g.id} className={`track-tab ${groupFilter === g.id ? 'active' : ''}`} style={{ '--track-accent': g.accent }} onClick={() => { setGroupFilter(g.id); setCourseFilter('all'); }}>
                   <span className="track-tab-name">{g.title}</span>
                   <span className="track-tab-badge">{list.filter(n => statusOf(n.id) === 'completed').length}/{list.length}</span>
                 </button>
@@ -244,12 +254,19 @@ function MapView() {
                 </button>
               ))}
             </div>
+            <label className="filter-group">
+              <span className="filter-label">Môn:</span>
+              <select aria-label="Lọc theo môn" value={courseFilter} onChange={e => setCourseFilter(e.target.value)}>
+                <option value="all">Tất cả môn</option>
+                {COURSES.filter(c => groupFilter === 'all' || c.groupId === groupFilter).map(c => <option key={c.id} value={c.id}>{c.title}</option>)}
+              </select>
+            </label>
             <div className="filter-actions">
               <button className="resume-button" onClick={() => openNode(cont)}>Tiếp tục học <ArrowRight size={13} /></button>
             </div>
           </div>
           <div className="map-canvas">
-            <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, n) => openNode(n.id)} fitView fitViewOptions={{ padding: 0.25, minZoom: 0.7, maxZoom: 1 }}
+            <ReactFlow key={`${groupFilter}|${courseFilter}`} onlyRenderVisibleElements nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, n) => openNode(n.id)} onInit={inst => { const n = inst.getNode(selected); if (n) inst.setCenter(n.position.x + 183, n.position.y + 73, { zoom: 0.8 }); else inst.fitView({ padding: 0.25, minZoom: 0.6, maxZoom: 1 }); }}
               minZoom={0.25} maxZoom={1.4} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false}
               zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling>
               <Background color="#d9ddd6" gap={24} size={1} />
@@ -259,7 +276,7 @@ function MapView() {
               <button aria-label="Phóng to" onClick={() => flow.zoomIn()}><Plus size={16} /></button>
               <span />
               <button aria-label="Về node đang chọn" onClick={() => openNode(selected)}><Focus size={16} /></button>
-              <button aria-label="Toàn cảnh" onClick={() => flow.fitView({ duration: 350, padding: 0.25, minZoom: 0.7, maxZoom: 1 })}><Layers size={16} /></button>
+              <button aria-label="Toàn cảnh" onClick={() => flow.fitView({ duration: 350, padding: 0.1 })}><Layers size={16} /></button>
             </div>
             <div className="canvas-caption">Bấm vào ô để mở chi tiết</div>
           </div>
@@ -268,8 +285,8 @@ function MapView() {
           <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={() => {}} />
         </aside>
       </div>
-      <dialog ref={dialogRef} className="details mobile-details" aria-label="Chi tiết node" onCancel={closeDetail}>
-        <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={closeDetail} />
+      <dialog ref={dialogRef} className="details mobile-details" aria-label="Chi tiết node" onCancel={closeDetail} onClose={() => setDialogOpen(false)}>
+        {dialogOpen && <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={closeDetail} />}
       </dialog>
       {notice && (
         <div className="notice" role="status">
