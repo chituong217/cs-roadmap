@@ -1,0 +1,286 @@
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
+import { ArrowRight, BookOpen, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
+import { SOURCE_MAP } from '../syllabus/sources.mjs';
+import { MAP_GROUPS, MAP_NODES, MAP_LEVELS } from './nodes.mjs';
+import {
+  MAP_STATUS_LABELS, MAP_STORAGE_KEY, emptyMapProgress, loadMapProgress, saveMapProgress,
+  exportMapProgress, validateMapProgress, nextNodeId,
+} from './map-progress.mjs';
+import '@xyflow/react/dist/style.css';
+import '../style.css';
+import './map.css';
+
+const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase();
+const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: Clock };
+const byId = new Map(MAP_NODES.map(n => [n.id, n]));
+const groupById = new Map(MAP_GROUPS.map(g => [g.id, g]));
+const IDS = MAP_NODES.map(n => n.id);
+
+function MapNode({ data }) {
+  const { node, group, status, active, open } = data;
+  const Icon = icons[status];
+  return (
+    <>
+      <Handle type="target" position={Position.Top} />
+      <button
+        className={`task-node nodrag nopan ${active ? 'active' : ''} ${status === 'completed' ? 'done' : status}`}
+        style={{ '--track-accent': group.accent }}
+        onClick={e => { e.stopPropagation(); open(node.id); }}
+        aria-label={`${node.title} · ${group.title}`}
+        aria-pressed={active}
+      >
+        <span className="node-meta">
+          <span>{String(node.order).padStart(2, '0')}</span>
+          <span className="node-track-tag" style={{ color: group.accent }}>{group.title}</span>
+        </span>
+        <span className="node-chapter">{node.stage}{node.level === 'extension' ? ' · MỞ RỘNG' : ''}</span>
+        <strong>{node.title}</strong>
+        <span className="node-bottom">
+          <span className="node-status"><Icon size={13} />{MAP_STATUS_LABELS[status]}</span>
+          <span className="open-node">Chi tiết <ArrowRight size={14} /></span>
+        </span>
+      </button>
+      <Handle type="source" position={Position.Bottom} />
+    </>
+  );
+}
+const nodeTypes = { map: MapNode };
+
+function Details({ node, status, setStatus, openNode, onClose }) {
+  const group = groupById.get(node.groupId);
+  return (
+    <>
+      <div className="detail-top">
+        <span>NODE {String(node.order).padStart(2, '0')} · {group.title.toUpperCase()}</span>
+        <button className="icon-button mobile-close" aria-label="Đóng chi tiết" onClick={onClose}><X size={20} /></button>
+      </div>
+      <div className="detail-scroll" tabIndex={0} aria-label="Nội dung chi tiết node">
+        <div className="detail-eyebrow">
+          <span className="track-pill" style={{ backgroundColor: group.accent + '20', color: group.accent }}>{group.title}</span>
+          <span>{node.stage}</span>
+        </div>
+        <h2>{node.title}</h2>
+        <div className="status-select" role="group" aria-label="Trạng thái node">
+          {Object.entries(MAP_STATUS_LABELS).map(([key, label]) => {
+            const Icon = icons[key];
+            return (
+              <button key={key} aria-pressed={status === key} className={status === key ? `chosen ${key === 'completed' ? 'done' : key}` : ''} onClick={() => setStatus(key)}>
+                <Icon size={14} />{label}
+              </button>
+            );
+          })}
+        </div>
+        <h3>Nội dung cần nắm</h3>
+        <div className="scope">{node.scope.map((p, i) => <p key={i}>{p}</p>)}</div>
+        <details className="fold">
+          <summary>Kiến thức đầu vào</summary>
+          <ul>
+            {node.needs.map(id => (
+              <li key={id}><button className="link-btn" onClick={() => openNode(id)}>{byId.get(id).title}</button></li>
+            ))}
+            {node.needsText.map(t => <li key={t}>{t}</li>)}
+            {!node.needs.length && !node.needsText.length && <li>Không cần nền riêng.</li>}
+          </ul>
+        </details>
+        <details className="fold">
+          <summary>Mức độ</summary>
+          <p>{MAP_LEVELS[node.level]}{node.level === 'core' ? ': thuộc phần nền, nên nắm trước khi đi tiếp.' : ': có thể học sau khi xong phần nền.'}</p>
+        </details>
+        <details className="fold">
+          <summary>Nguồn tham khảo miễn phí</summary>
+          {node.sources.map(s => {
+            const src = SOURCE_MAP.get(s.sourceId);
+            return (
+              <div className="reading" key={s.sourceId + s.locator}>
+                <a href={src.url} target="_blank" rel="noreferrer">{src.title}<ExternalLink size={12} /></a>
+                <small>{s.locator}</small>
+              </div>
+            );
+          })}
+        </details>
+      </div>
+    </>
+  );
+}
+
+function MapView() {
+  const flow = useReactFlow();
+  const [progress, setProgress] = useState(() =>
+    typeof localStorage === 'undefined' ? { data: emptyMapProgress(), error: '' } : loadMapProgress(localStorage, IDS)
+  );
+  const [selected, setSelected] = useState(() => progress.data.lastNode || IDS[0]);
+  const [groupFilter, setGroupFilter] = useState('all');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [query, setQuery] = useState('');
+  const [notice, setNotice] = useState(progress.error);
+  const importRef = useRef(null);
+  const dialogRef = useRef(null);
+  const small = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 999px)').matches;
+  const closeDetail = () => dialogRef.current?.open && dialogRef.current.close();
+  const data = progress.data;
+  const statusOf = id => data.statuses[id] || 'unread';
+
+  useEffect(() => { saveMapProgress(localStorage, data); }, [data]);
+
+  const update = fn => setProgress(p => ({ ...p, data: fn(p.data) }));
+  const openNode = id => {
+    setSelected(id);
+    if (small() && dialogRef.current && !dialogRef.current.open) dialogRef.current.showModal();
+    update(d => ({ ...d, lastNode: id }));
+    const n = flow.getNode(id);
+    if (n) flow.setCenter(n.position.x + 183, n.position.y + 73, { zoom: 0.9, duration: 300 });
+  };
+  const setStatus = st => update(d => {
+    const statuses = { ...d.statuses };
+    if (st === 'unread') delete statuses[selected]; else statuses[selected] = st;
+    return { ...d, statuses };
+  });
+
+  const visibleIds = useMemo(() => new Set(MAP_NODES.filter(n =>
+    (groupFilter === 'all' || n.groupId === groupFilter) &&
+    (statusFilter === 'all' || statusOf(n.id) === statusFilter) &&
+    (!query || norm([n.title, n.stage, ...n.scope].join(' ')).includes(norm(query)))
+  ).map(n => n.id)), [groupFilter, statusFilter, query, data]);
+
+  const nodes = useMemo(() => MAP_NODES.filter(n => visibleIds.has(n.id)).map(n => ({
+    id: n.id, type: 'map',
+    position: { x: MAP_GROUPS.findIndex(g => g.id === n.groupId) * 400, y: (n.order - 1) * 190 },
+    data: { node: n, group: groupById.get(n.groupId), status: statusOf(n.id), active: n.id === selected, open: openNode },
+  })), [visibleIds, selected, data]);
+
+  const edges = useMemo(() => MAP_NODES.flatMap(n => n.needs.filter(r => visibleIds.has(n.id) && visibleIds.has(r)).map(r => ({
+    id: `${r}->${n.id}`, source: r, target: n.id, markerEnd: { type: MarkerType.ArrowClosed, color: '#9ca79b' },
+    style: { stroke: '#9ca79b', strokeWidth: 1.6 },
+  }))), [visibleIds]);
+
+  const total = MAP_NODES.length;
+  const done = MAP_NODES.filter(n => statusOf(n.id) === 'completed').length;
+  const current = byId.get(selected);
+  const cont = nextNodeId(MAP_NODES, data.statuses, data.lastNode);
+
+  const doExport = () => {
+    const url = URL.createObjectURL(new Blob([exportMapProgress(data)], { type: 'application/json' }));
+    const a = document.createElement('a');
+    a.href = url; a.download = `tien-do-ban-do-${new Date().toISOString().slice(0, 10)}.json`; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setNotice('Đã tạo bản sao lưu tiến độ bản đồ.');
+  };
+  const doImport = async e => {
+    const f = e.target.files?.[0]; e.target.value = '';
+    if (!f) return;
+    try {
+      if (f.size > 1024 * 1024) throw new Error('Tệp quá lớn (giới hạn 1 MB).');
+      const { data: d, ignored } = validateMapProgress(JSON.parse(await f.text()), IDS);
+      update(cur => ({ ...cur, statuses: { ...cur.statuses, ...d.statuses }, lastNode: d.lastNode || cur.lastNode }));
+      setNotice(`Đã nhập tiến độ.${ignored ? ` Bỏ qua ${ignored} mục không thuộc bản đồ này.` : ''}`);
+    } catch (err) {
+      setNotice(err instanceof SyntaxError ? 'Không đọc được JSON. Tiến độ hiện tại được giữ nguyên.' : err.message);
+    }
+  };
+
+  return (
+    <div className="app-shell">
+      <header className="app-header">
+        <a className="brand" href="#" onClick={e => { e.preventDefault(); openNode(IDS[0]); }}>
+          <span className="brand-icon"><GitBranch size={20} /></span>
+          <span>Lộ trình <b>KHMT</b><small>BẢN MẪU 3 NODE · CHƯA PHÁT HÀNH</small></span>
+        </a>
+        <div className="header-actions">
+          <a className="header-link" href="./reader.html">Bản đọc dài</a>
+          <button onClick={doExport}><Download size={15} /><span>Xuất tiến độ</span></button>
+          <button onClick={() => importRef.current.click()}><Upload size={15} /><span>Nhập tiến độ</span></button>
+          <input ref={importRef} type="file" accept=".json,application/json" onChange={doImport} hidden />
+        </div>
+      </header>
+      <div className="workspace">
+        <aside className="sidebar">
+          <div className="sidebar-top">
+            <span className="eyebrow">BẢN ĐỒ KIẾN THỨC</span>
+            <h1>Từng chủ đề, vững nền.</h1>
+          </div>
+          <div className="progress-box">
+            <div><span>Đã nắm</span><strong>{total ? Math.round((done / total) * 100) : 0}%</strong></div>
+            <progress value={done} max={total} aria-label="Tiến độ" />
+            <small>{done}/{total} node</small>
+          </div>
+          <label className="search-box">
+            <Search size={15} />
+            <input type="search" aria-label="Tìm node" placeholder="Tìm node, khái niệm…" value={query} onChange={e => setQuery(e.target.value)} />
+          </label>
+          <nav className="chapter-nav" aria-label="Danh sách node">
+            <p className="search-count">{visibleIds.size} node</p>
+            {MAP_NODES.filter(n => visibleIds.has(n.id)).map(n => (
+              <button key={n.id} className={`chapter-link ${n.id === selected ? 'selected' : ''}`} onClick={() => openNode(n.id)}>
+                <span className="chapter-number">{String(n.order).padStart(2, '0')}</span>
+                <span><strong>{n.title}</strong><small>{groupById.get(n.groupId).title} · {MAP_STATUS_LABELS[statusOf(n.id)]}</small></span>
+              </button>
+            ))}
+            {!visibleIds.size && <p className="empty">Không có node phù hợp. Thử từ khóa khác, ví dụ “con trỏ”.</p>}
+          </nav>
+        </aside>
+        <main className="map-main">
+          <div className="track-switcher" role="tablist" aria-label="Nhóm kiến thức">
+            <button role="tab" aria-selected={groupFilter === 'all'} className={`track-tab ${groupFilter === 'all' ? 'active' : ''}`} onClick={() => setGroupFilter('all')}>
+              <Layers size={13} /><span className="track-tab-name">Tất cả</span><span className="track-tab-badge">{total}</span>
+            </button>
+            {MAP_GROUPS.map(g => {
+              const list = MAP_NODES.filter(n => n.groupId === g.id);
+              return (
+                <button key={g.id} role="tab" aria-selected={groupFilter === g.id} className={`track-tab ${groupFilter === g.id ? 'active' : ''}`} style={{ '--track-accent': g.accent }} onClick={() => setGroupFilter(g.id)}>
+                  <span className="track-tab-name">{g.title}</span>
+                  <span className="track-tab-badge">{list.filter(n => statusOf(n.id) === 'completed').length}/{list.length}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="filter-bar">
+            <div className="filter-group" role="group" aria-label="Lọc theo trạng thái">
+              <span className="filter-label">Trạng thái:</span>
+              {['all', ...Object.keys(MAP_STATUS_LABELS)].map(k => (
+                <button key={k} className={`filter-pill ${statusFilter === k ? 'active' : ''}`} aria-pressed={statusFilter === k} onClick={() => setStatusFilter(k)}>
+                  {k === 'all' ? 'Tất cả' : MAP_STATUS_LABELS[k]}
+                </button>
+              ))}
+            </div>
+            <div className="filter-actions">
+              <button className="resume-button" onClick={() => openNode(cont)}>Tiếp tục học <ArrowRight size={13} /></button>
+            </div>
+          </div>
+          <div className="map-canvas">
+            <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, n) => openNode(n.id)} fitView fitViewOptions={{ padding: 0.25, minZoom: 0.7, maxZoom: 1 }}
+              minZoom={0.25} maxZoom={1.4} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false}
+              zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling>
+              <Background color="#d9ddd6" gap={24} size={1} />
+            </ReactFlow>
+            <div className="canvas-controls">
+              <button aria-label="Thu nhỏ" onClick={() => flow.zoomOut()}><Minus size={16} /></button>
+              <button aria-label="Phóng to" onClick={() => flow.zoomIn()}><Plus size={16} /></button>
+              <span />
+              <button aria-label="Về node đang chọn" onClick={() => openNode(selected)}><Focus size={16} /></button>
+              <button aria-label="Toàn cảnh" onClick={() => flow.fitView({ duration: 350, padding: 0.25, minZoom: 0.7, maxZoom: 1 })}><Layers size={16} /></button>
+            </div>
+            <div className="canvas-caption">Bấm vào ô để mở chi tiết</div>
+          </div>
+        </main>
+        <aside className="details desktop-details" aria-label="Chi tiết node">
+          <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={() => {}} />
+        </aside>
+      </div>
+      <dialog ref={dialogRef} className="details mobile-details" aria-label="Chi tiết node" onCancel={closeDetail}>
+        <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={closeDetail} />
+      </dialog>
+      {notice && (
+        <div className="notice" role="status">
+          <span>{notice}</span>
+          <button className="icon-button" aria-label="Đóng thông báo" onClick={() => setNotice('')}><X size={16} /></button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <ReactFlowProvider><MapView /></ReactFlowProvider>
+);

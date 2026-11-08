@@ -5,7 +5,7 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      input: { main: 'index.html', legacy: 'legacy.html' },
+      input: { main: 'index.html', legacy: 'legacy.html', map: 'map.html', reader: 'reader.html' },
       output: {
         manualChunks(rawId) {
           const id = rawId.replaceAll('\\', '/');

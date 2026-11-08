@@ -1,0 +1,9 @@
+.scope p{font-size:12px;line-height:1.9;color:#3e5049;margin:0 0 12px}
+.fold{border-top:1px solid var(--line);padding:10px 0;margin-top:6px;font-size:11px}
+.fold summary{cursor:pointer;font-weight:600;font-size:11px}
+.fold ul{margin:8px 0 0;padding-left:18px;line-height:1.8;color:#3e5049}
+.fold p{margin:8px 0 0;line-height:1.8;color:#3e5049}
+.link-btn{background:none;border:0;padding:0;color:var(--green);text-decoration:underline;text-underline-offset:3px;font-size:11px}
+.reading{margin-top:8px}.reading small{display:block;color:var(--muted);font-size:10px}
+.header-link{font-size:11px;color:var(--ink);padding:7px 11px}
+.filter-bar .resume-button{margin-left:auto}
