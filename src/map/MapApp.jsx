@@ -192,7 +192,7 @@ function MapView() {
       <header className="app-header">
         <a className="brand" href="#" onClick={e => { e.preventDefault(); openNode(IDS[0]); }}>
           <span className="brand-icon"><GitBranch size={20} /></span>
-          <span>Lộ trình <b>KHMT</b><small>{MAP_NODES.length} NODE · BẢN NHÁP CHƯA PHÁT HÀNH</small></span>
+          <span>Lộ trình <b>KHMT</b><small>{MAP_NODES.length} NODE · BẢN NHÁP</small></span>
         </a>
         <div className="header-actions">
           <a className="header-link" href="./reader.html">Bản đọc dài</a>

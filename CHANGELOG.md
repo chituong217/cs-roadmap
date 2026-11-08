@@ -26,3 +26,9 @@
 
 - Mở rộng bản thử thành 339 nhiệm vụ thuộc 27 chặng, từ C++ tới nền tảng KHMT, đồ án và thực tập.
 - Thêm bản văn bản được xuất từ cùng dữ liệu và chỉ dựng phần sơ đồ đang hiển thị.
+
+## Bản đồ node mới (nhánh map-prototype, chưa phát hành)
+- Trang chính (`index.html`) quay lại giao diện bản đồ node; bản đọc dài ở `reader.html`, bản bản đồ cũ ở `legacy.html`.
+- 217 node gộp từ 683 chủ đề của 50 môn (`src/map/specs/*.mjs`); sidebar "Nội dung cần nắm" là văn xuôi, không có checklist.
+- Tiến độ lưu riêng ở `cs-map.progress.v1`, không tự chuyển từ tiến độ cũ.
+- Sau khi sửa specs hoặc giáo trình: `node scripts/build-map-data.mjs` để sinh lại `src/map/map-data.generated.mjs`.
