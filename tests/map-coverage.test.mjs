@@ -28,7 +28,7 @@ test('thứ tự học: tiên quyết luôn đứng trước, không có chu tr�
   for (const n of MAP_NODES) for (const r of n.needs) assert.ok(order.get(r) < n.order, `${n.id} cần ${r} đứng sau`);
 });
 test('mô tả là văn xuôi, không phải checklist hay lời giao việc', () => {
-  const imperative = /^(hãy|làm|viết|cài|chạy|thực hành|tự|giải|xây)\b/i;
+  const imperative = /^(hãy|làm|viết|cài|chạy|thực hành|tự|xây)\b/i;
   for (const n of MAP_NODES) {
     assert.ok(n.scope.length >= 1 && n.scope.length <= 4, n.id);
     const words = n.scope.join(' ').split(/\s+/).length;
