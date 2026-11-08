@@ -1,2 +1,3 @@
 import { B1 } from './b1.mjs';
-export const SPECS = [...B1];
+import { B2 } from './b2.mjs';
+export const SPECS = [...B1, ...B2];

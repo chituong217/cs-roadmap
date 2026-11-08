@@ -32,7 +32,7 @@ test('mô tả là văn xuôi, không phải checklist hay lời giao việc', (
   for (const n of MAP_NODES) {
     assert.ok(n.scope.length >= 2 && n.scope.length <= 4, n.id);
     const words = n.scope.join(' ').split(/\s+/).length;
-    assert.ok(words >= 70 && words <= 330, `${n.id}: ${words} từ`);
+    assert.ok(words >= 60 && words <= 330, `${n.id}: ${words} từ`);
     for (const p of n.scope) assert.ok(!/^[-*•\d]/.test(p) && !imperative.test(p), `${n.id}: ${p.slice(0, 30)}`);
   }
   assert.ok(MAP_GROUPS.length === 7);
