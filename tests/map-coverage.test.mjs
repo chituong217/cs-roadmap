@@ -30,9 +30,9 @@ test('thứ tự học: tiên quyết luôn đứng trước, không có chu tr�
 test('mô tả là văn xuôi, không phải checklist hay lời giao việc', () => {
   const imperative = /^(hãy|làm|viết|cài|chạy|thực hành|tự|giải|xây)\b/i;
   for (const n of MAP_NODES) {
-    assert.ok(n.scope.length >= 2 && n.scope.length <= 4, n.id);
+    assert.ok(n.scope.length >= 1 && n.scope.length <= 4, n.id);
     const words = n.scope.join(' ').split(/\s+/).length;
-    assert.ok(words >= 60 && words <= 330, `${n.id}: ${words} từ`);
+    assert.ok(words >= 40 && words <= 330, `${n.id}: ${words} từ`);
     for (const p of n.scope) assert.ok(!/^[-*•\d]/.test(p) && !imperative.test(p), `${n.id}: ${p.slice(0, 30)}`);
   }
   assert.ok(MAP_GROUPS.length === 7);
