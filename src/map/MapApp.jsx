@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
-import { ArrowRight, BookOpen, Sparkles, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
+import { ArrowRight, BookOpen, Sparkles, Hammer, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
 import { MAP_GROUPS, MAP_NODES, MAP_LEVELS } from './map-data.generated.mjs';
 import {
   MAP_STATUS_LABELS, MAP_STORAGE_KEY, emptyMapProgress, loadMapProgress, saveMapProgress,
@@ -17,13 +17,15 @@ const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: C
 const byId = new Map(MAP_NODES.map(n => [n.id, n]));
 const groupById = new Map(MAP_GROUPS.map(g => [g.id, g]));
 const IDS = MAP_NODES.map(n => n.id);
+const PROJECT_LABELS = { unread: 'Chưa làm', learning: 'Đang làm', completed: 'Đã xong', revisit: 'Cần sửa' };
+const labelOf = (node, key) => (node.kind === 'project' ? PROJECT_LABELS[key] : MAP_STATUS_LABELS[key]);
 const SKIP_LABEL = { fast: 'ĐÃ HỌC · ĐI NHANH', later: 'NÂNG CAO · HỌC SAU' };
 // Truy cập localStorage có thể ném lỗi (chế độ riêng tư, khung sandbox); khi đó ứng dụng vẫn chạy, chỉ không lưu.
 const store = (() => { try { return window.localStorage; } catch { return null; } })();
 // Bố cục cố định: mỗi nhóm một cột, các node xếp theo thứ tự học; vị trí không đổi khi lọc để bản đồ ổn định.
 const POS = new Map();
 MAP_GROUPS.forEach((g, gi) => MAP_NODES.filter(n => n.groupId === g.id).forEach((n, i) => POS.set(n.id, { x: gi * 420, y: i * 190 })));
-const COURSES = [...new Map(MAP_NODES.map(n => [n.courseId, { id: n.courseId, title: n.courseTitle, groupId: n.groupId }])).values()];
+const COURSES = [...new Map(MAP_NODES.filter(n => n.kind !== 'project').map(n => [n.courseId, { id: n.courseId, title: n.courseTitle, groupId: n.groupId }])).values()];
 
 function MapNode({ data }) {
   const { node, group, status, active, open } = data;
@@ -32,7 +34,7 @@ function MapNode({ data }) {
     <>
       <Handle type="target" position={Position.Top} />
       <button
-        className={`task-node nodrag nopan ${node.skip ? 'optional' : ''} ${active ? 'active' : ''} ${status === 'completed' ? 'done' : status}`}
+        className={`task-node nodrag nopan ${node.kind === 'project' ? 'project' : ''} ${node.skip ? 'optional' : ''} ${active ? 'active' : ''} ${status === 'completed' ? 'done' : status}`}
         style={{ '--track-accent': group.accent }}
         onClick={e => { e.stopPropagation(); open(node.id); }}
         aria-label={`${node.title} · ${group.title}`}
@@ -42,10 +44,10 @@ function MapNode({ data }) {
           <span>{String(node.order).padStart(3, '0')}</span>
           <span className="node-track-tag" style={{ color: group.accent }}>{group.title}</span>
         </span>
-        <span className="node-chapter">{node.skip ? `${SKIP_LABEL[node.skip.kind]} · ` : ''}{node.courseTitle}</span>
+        <span className="node-chapter">{node.kind === 'project' ? `DỰ ÁN · ${node.time}` : `${node.skip ? `${SKIP_LABEL[node.skip.kind]} · ` : ''}${node.courseTitle}`}</span>
         <strong>{node.title}</strong>
         <span className="node-bottom">
-          <span className="node-status"><Icon size={13} />{MAP_STATUS_LABELS[status]}</span>
+          <span className="node-status"><Icon size={13} />{labelOf(node, status)}</span>
           <span className="open-node">Chi tiết <ArrowRight size={14} /></span>
         </span>
       </button>
@@ -80,15 +82,35 @@ function Details({ node, status, setStatus, openNode, onClose, onPrompt }) {
             const Icon = icons[key];
             return (
               <button key={key} aria-pressed={status === key} className={status === key ? `chosen ${key === 'completed' ? 'done' : key}` : ''} onClick={() => setStatus(key)}>
-                <Icon size={14} />{label}
+                <Icon size={14} />{labelOf(node, key)}
               </button>
             );
           })}
         </div>
-        <button className="prompt-trigger" onClick={onPrompt}><Sparkles size={14} />Prompt học node này với AI</button>
-        <h3>Nội dung cần nắm</h3>
-        <div className="scope">{node.scope.map((p, i) => <p key={i}>{p}</p>)}</div>
-        <details className="fold">
+        <button className="prompt-trigger" onClick={onPrompt}><Sparkles size={14} />{node.kind === 'project' ? 'Prompt làm dự án này với AI' : 'Prompt học node này với AI'}</button>
+        {node.kind === 'project' ? (
+          <>
+            <h3>Mục tiêu của dự án</h3>
+            <div className="scope">{node.scope.map((p, i) => <p key={i}>{p}</p>)}</div>
+            <h3>Sản phẩm cần có</h3>
+            <ul className="project-list">{node.build.map(t => <li key={t}>{t}</li>)}</ul>
+            <h3>Tiêu chí xong</h3>
+            <ul className="project-list">{node.done.map(t => <li key={t}>{t}</li>)}</ul>
+            {node.stretch && <p className="project-stretch"><b>Mở rộng:</b> {node.stretch}</p>}
+            <details className="fold" open>
+              <summary>Kiến thức dùng trong dự án</summary>
+              <ul>{[...node.needs, ...node.uses].map(id => byId.get(id)).filter(Boolean).map(n => (
+                <li key={n.id}><button className="link-btn" onClick={() => openNode(n.id)}>{n.title}</button></li>
+              ))}</ul>
+            </details>
+          </>
+        ) : (
+          <>
+            <h3>Nội dung cần nắm</h3>
+            <div className="scope">{node.scope.map((p, i) => <p key={i}>{p}</p>)}</div>
+          </>
+        )}
+        {node.kind !== 'project' && <details className="fold">
           <summary>Kiến thức đầu vào</summary>
           <ul>
             {node.needs.map(id => (
@@ -97,11 +119,11 @@ function Details({ node, status, setStatus, openNode, onClose, onPrompt }) {
             {node.needsText.map(t => <li key={t}>{t}</li>)}
             {!node.needs.length && !node.needsText.length && <li>Không cần nền riêng.</li>}
           </ul>
-        </details>
-        <details className="fold">
+        </details>}
+        {node.kind !== 'project' && <details className="fold">
           <summary>Mức độ</summary>
           <p>{MAP_LEVELS[node.level]}{node.level === 'core' ? ': thuộc phần nền, nên nắm trước khi đi tiếp.' : ': có thể học sau khi xong phần nền.'}</p>
-        </details>
+        </details>}
         <details className="fold">
           <summary>Nguồn tham khảo miễn phí</summary>
           {node.sources.map(s => (
@@ -111,10 +133,10 @@ function Details({ node, status, setStatus, openNode, onClose, onPrompt }) {
             </div>
           ))}
         </details>
-        <details className="fold">
+        {node.kind !== 'project' && <details className="fold">
           <summary>Chủ đề giáo trình đã gộp ({node.topics.length})</summary>
           <ul>{node.topics.map(t => <li key={t.id}>{t.title}</li>)}</ul>
-        </details>
+        </details>}
       </div>
     </>
   );
@@ -176,6 +198,8 @@ function MapView() {
     style: { stroke: '#9ca79b', strokeWidth: 1.6 },
   }))), [visibleIds]);
 
+  const shown = MAP_NODES.filter(n => !(hideSkip && n.skip));
+  const projectCount = MAP_NODES.filter(n => n.kind === 'project').length;
   const mainNodes = MAP_NODES.filter(n => !n.skip);
   const total = mainNodes.length;
   const done = mainNodes.filter(n => statusOf(n.id) === 'completed').length;
@@ -207,7 +231,7 @@ function MapView() {
       <header className="app-header">
         <a className="brand" href="#" onClick={e => { e.preventDefault(); openNode(IDS[0]); }}>
           <span className="brand-icon"><GitBranch size={20} /></span>
-          <span>Lộ trình <b>KHMT</b><small>{MAP_NODES.length} NODE · BẢN NHÁP</small></span>
+          <span>Lộ trình <b>KHMT</b><small>{MAP_NODES.length - projectCount} NODE · {projectCount} DỰ ÁN · BẢN NHÁP</small></span>
         </a>
         <div className="header-actions">
           <a className="header-link" href="./reader.html">Bản đọc dài</a>
@@ -219,13 +243,13 @@ function MapView() {
       <div className="workspace">
         <aside className="sidebar">
           <div className="sidebar-top">
-            <span className="eyebrow">BẢN ĐỒ KIẾN THỨC</span>
+            <span className="eyebrow">BẢN ĐỒ KIẾN THỨC VÀ DỰ ÁN</span>
             <h1>Từng chủ đề, vững nền.</h1>
           </div>
           <div className="progress-box">
             <div><span>Phần chính đã nắm</span><strong>{total ? Math.round((done / total) * 100) : 0}%</strong></div>
             <progress value={done} max={total} aria-label="Tiến độ" />
-            <small>{done}/{total} node chính · {MAP_NODES.length - total} node vàng có thể bỏ qua</small>
+            <small>{done}/{total} node và dự án chính · {MAP_NODES.length - total} node vàng có thể bỏ qua</small>
           </div>
           <label className="search-box">
             <Search size={15} />
@@ -248,10 +272,10 @@ function MapView() {
         <main className="map-main">
           <div className="track-switcher" role="tablist" aria-label="Nhóm kiến thức">
             <button role="tab" aria-selected={groupFilter === 'all'} className={`track-tab ${groupFilter === 'all' ? 'active' : ''}`} onClick={() => { setGroupFilter('all'); setCourseFilter('all'); }}>
-              <Layers size={13} /><span className="track-tab-name">Tất cả</span><span className="track-tab-badge">{total}</span>
+              <Layers size={13} /><span className="track-tab-name">Tất cả</span><span className="track-tab-badge" title="Số node đang hiển thị">{shown.length}</span>
             </button>
             {MAP_GROUPS.map(g => {
-              const list = MAP_NODES.filter(n => n.groupId === g.id && !n.skip);
+              const list = shown.filter(n => n.groupId === g.id);
               return (
                 <button key={g.id} role="tab" aria-selected={groupFilter === g.id} className={`track-tab ${groupFilter === g.id ? 'active' : ''}`} style={{ '--track-accent': g.accent }} onClick={() => { setGroupFilter(g.id); setCourseFilter('all'); }}>
                   <span className="track-tab-name">{g.title}</span>

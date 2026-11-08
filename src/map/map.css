@@ -26,3 +26,12 @@
 #root .prompt-dialog .prompt-copy{color:#fff}
 #root .prompt-dialog :is(.prompt-mode button,.prompt-actions button:not(.prompt-copy)){color:#243a34}
 #root .prompt-dialog textarea{color:#293e35}
+
+/* Node dự án */
+#root .task-node.project{border:1.5px dashed var(--track-accent,#23654f);background:#f2f7f4}
+#root .task-node.project .node-chapter{color:var(--track-accent,#23654f);font-weight:700}
+#root .task-node.project.optional{background:#fff7cf}
+#root .details .project-list{margin:6px 0 14px;padding-left:20px}
+#root .details .project-list li{font-size:12px;line-height:1.8;color:#243a34;margin:0 0 6px}
+#root .details .project-stretch{font-size:12px;line-height:1.8;color:#4d6158;margin:0 0 14px}
+#root .details .project-stretch b{color:#243a34}

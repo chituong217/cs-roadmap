@@ -5,6 +5,7 @@ import { BLOCKS, AUTHORED_COURSES, AUTHORED_COURSE_MAP, CATALOG_COURSE_MAP, comp
 import { SOURCE_MAP } from '../syllabus/sources.mjs';
 import { SPECS } from './specs/index.mjs';
 import { FAST_COURSES, LATER_COURSES, EXTENSION_REASON } from './profile.mjs';
+import { PROJECTS } from './projects.mjs';
 
 const ACCENTS = ['#23654f', '#3f5f77', '#866716', '#7a4b6b', '#a4562c', '#2f6f73', '#5a5a8f'];
 const SHORT = {
@@ -46,7 +47,7 @@ function buildSources(topicIds) {
 }
 
 let prevInCourse = new Map();
-export const MAP_NODES = specsSorted.map((s, i) => {
+const BASE = specsSorted.map((s, i) => {
   const course = AUTHORED_COURSE_MAP.get(s.c);
   const cat = CATALOG_COURSE_MAP.get(s.c);
   const covers = expandCov(s.cov);
@@ -73,3 +74,24 @@ export const MAP_NODES = specsSorted.map((s, i) => {
     sources: buildSources(covers),
   };
 });
+
+// Dự án: mỗi dự án đứng ngay sau node muộn nhất mà nó cần hoặc dùng, thuộc nhóm của node đó.
+const placed = [...BASE];
+for (const p of PROJECTS) {
+  const deps = [...p.needs, ...p.uses];
+  const last = Math.max(...deps.map(id => {
+    const k = placed.findIndex(n => n.id === id);
+    if (k < 0) throw new Error(`Dự án ${p.id}: không có node ${id}`);
+    return k;
+  }));
+  const anchor = placed[last];
+  placed.splice(last + 1, 0, {
+    id: p.id, kind: 'project', title: p.t, groupId: anchor.groupId, courseId: 'project', courseTitle: 'Dự án',
+    stage: `Dự án thực hành · ${p.time}`, order: 0, level: 'core', needs: p.needs, needsText: [],
+    skip: p.skip ? { kind: 'fast', reason: p.skip } : null,
+    scope: p.scope, build: p.build, done: p.done, stretch: p.stretch, uses: p.uses, time: p.time,
+    covers: [], topics: [],
+    sources: p.resources.map(r => ({ sourceId: r.url, title: r.title, url: r.url, locator: r.locator })),
+  });
+}
+export const MAP_NODES = placed.map((n, i) => ({ ...n, order: i + 1 }));

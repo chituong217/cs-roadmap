@@ -8,7 +8,7 @@ export const LEARNER_NOTE =
   'Đừng mặc định tôi mới hoàn toàn hoặc đã vững chỉ vì từng học môn đó. Tôi muốn hiểu bản chất và tự làm được.';
 
 export function chatTitle(node) {
-  return `Node ${node.order}: ${node.title}`;
+  return node.kind === 'project' ? node.title : `Node ${node.order}: ${node.title}`;
 }
 
 function priorityLine(node) {
@@ -17,7 +17,47 @@ function priorityLine(node) {
   return node.level === 'core' ? 'Phần nền: nên nắm trước khi đi tiếp.' : 'Phần mở rộng: học sau khi vững phần nền.';
 }
 
+function buildProjectPrompt(node, byId) {
+  const title = node.title;
+  const uses = [...(node.needs || []), ...(node.uses || [])].map(id => byId.get(id)?.title).filter(Boolean);
+  const sources = (node.sources || []).map(s => `- ${s.title}: ${s.url}`);
+  const list = a => a.map(t => `- ${t}`).join('\n');
+  return `${title}
+
+Dùng ${TEACHING_PLUGIN} làm phương pháp dạy học cho cuộc trò chuyện này. Nếu công cụ này chưa được chọn hoặc không truy cập được, nói rõ, không tự nhận đã kích hoạt hay đọc nó.
+
+Tên cuộc trò chuyện mong muốn: "${title}".
+
+${LEARNER_NOTE}
+
+Tôi muốn làm dự án sau và cần bạn đóng vai người hướng dẫn, không làm thay tôi.
+
+Dự án: ${node.title} (${node.time}).
+
+Mục tiêu:
+${node.scope.join('\n\n')}
+
+Sản phẩm cần có:
+${list(node.build)}
+
+Tiêu chí xong:
+${list(node.done)}
+${node.stretch ? `\nHướng mở rộng: ${node.stretch}\n` : ''}${uses.length ? `\nKiến thức dự án dùng (tôi có thể cần ôn một số):\n${list(uses)}\n` : ''}${sources.length ? `\nNguồn tham khảo miễn phí:\n${sources.join('\n')}\n` : ''}
+Cách hướng dẫn:
+1. Bắt đầu bằng việc hỏi tôi đang ở đâu: đã làm gì, dùng ngôn ngữ nào, còn thiếu kiến thức nào trong danh sách trên. Nếu thiếu, ôn ngắn rồi mới làm.
+2. Cùng tôi chia dự án thành các mốc nhỏ, mỗi mốc có kết quả kiểm tra được. Mỗi lượt chỉ làm một mốc, không giao toàn bộ dự án một lúc.
+3. Không viết thay phần cốt lõi. Khi tôi bí, gợi ý tăng dần: câu hỏi dẫn dắt, rồi hướng tiếp cận, rồi đoạn mã nhỏ minh họa. Nếu tôi xin lời giải đầy đủ thì cung cấp và ghi nhận phần đó là được hướng dẫn.
+4. Khi tôi gửi mã hoặc kết quả, nhận xét thẳng: phần nào đúng, lỗi quan trọng nhất ở đâu, vì sao sai, cách kiểm chứng. Không nói đã chạy mã nếu bạn chỉ đọc.
+5. Nhắc tôi viết kiểm thử và ghi lại quyết định thiết kế. Hỏi vì sao tôi chọn cách này trước khi góp ý.
+6. Đối chiếu với từng mục trong "Tiêu chí xong"; chưa có bằng chứng thì chưa kết luận xong.
+7. Chỉ dùng nguồn miễn phí hợp pháp, không bịa nguồn hay kết quả. Nếu chưa chắc, nói rõ và đề xuất cách kiểm chứng.
+8. Cuối buổi, tóm tắt mốc đã xong, lỗi còn mắc và việc tiếp theo để tôi dán sang chat sau.
+
+Bắt đầu bằng câu hỏi ở bước 1.`;
+}
+
 export function buildMapPrompt(node, byId = new Map()) {
+  if (node.kind === 'project') return buildProjectPrompt(node, byId);
   const title = chatTitle(node);
   const needs = (node.needs || []).map(id => byId.get(id)?.title).filter(Boolean);
   const needsText = node.needsText || [];

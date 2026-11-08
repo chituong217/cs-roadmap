@@ -23,7 +23,7 @@ export default function MapPrompt({ open, onClose, node, byId }) {
   return (
     <dialog ref={dialog} className="prompt-dialog" aria-labelledby="prompt-title" onCancel={onClose} onClose={onClose}>
       <div className="prompt-top">
-        <div><span className="eyebrow">HỌC CÙNG AI</span><h2 id="prompt-title">Prompt cho node này</h2></div>
+        <div><span className="eyebrow">HỌC CÙNG AI</span><h2 id="prompt-title">{node.kind === 'project' ? 'Prompt cho dự án này' : 'Prompt cho node này'}</h2></div>
         <button className="icon-button" aria-label="Đóng prompt" onClick={onClose}><X size={20} /></button>
       </div>
       <div className="prompt-body">
