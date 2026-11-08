@@ -16,6 +16,8 @@ const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: C
 const byId = new Map(MAP_NODES.map(n => [n.id, n]));
 const groupById = new Map(MAP_GROUPS.map(g => [g.id, g]));
 const IDS = MAP_NODES.map(n => n.id);
+// Truy cập localStorage có thể ném lỗi (chế độ riêng tư, khung sandbox); khi đó ứng dụng vẫn chạy, chỉ không lưu.
+const store = (() => { try { return window.localStorage; } catch { return null; } })();
 // Bố cục cố định: mỗi nhóm một cột, các node xếp theo thứ tự học; vị trí không đổi khi lọc để bản đồ ổn định.
 const POS = new Map();
 MAP_GROUPS.forEach((g, gi) => MAP_NODES.filter(n => n.groupId === g.id).forEach((n, i) => POS.set(n.id, { x: gi * 420, y: i * 190 })));
@@ -112,7 +114,7 @@ function Details({ node, status, setStatus, openNode, onClose }) {
 function MapView() {
   const flow = useReactFlow();
   const [progress, setProgress] = useState(() =>
-    typeof localStorage === 'undefined' ? { data: emptyMapProgress(), error: '' } : loadMapProgress(localStorage, IDS)
+    store ? loadMapProgress(store, IDS) : { data: emptyMapProgress(), error: '' }
   );
   const [selected, setSelected] = useState(() => progress.data.lastNode || IDS[0]);
   const [groupFilter, setGroupFilter] = useState('all');
@@ -128,7 +130,7 @@ function MapView() {
   const data = progress.data;
   const statusOf = id => data.statuses[id] || 'unread';
 
-  useEffect(() => { saveMapProgress(localStorage, data); }, [data]);
+  useEffect(() => { if (store) saveMapProgress(store, data); }, [data]);
 
   const update = fn => setProgress(p => ({ ...p, data: fn(p.data) }));
   const openNode = id => {
