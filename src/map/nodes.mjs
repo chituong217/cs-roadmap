@@ -4,6 +4,7 @@
 import { BLOCKS, AUTHORED_COURSES, AUTHORED_COURSE_MAP, CATALOG_COURSE_MAP, computeTopologicalOrder } from '../syllabus/index.mjs';
 import { SOURCE_MAP } from '../syllabus/sources.mjs';
 import { SPECS } from './specs/index.mjs';
+import { FAST_COURSES, LATER_COURSES, EXTENSION_REASON } from './profile.mjs';
 
 const ACCENTS = ['#23654f', '#3f5f77', '#866716', '#7a4b6b', '#a4562c', '#2f6f73', '#5a5a8f'];
 const SHORT = {
@@ -61,10 +62,13 @@ export const MAP_NODES = specsSorted.map((s, i) => {
     ...(s.x ?? []),
   ];
   const allExt = covers.every(id => topicIndex.get(id)?.topic.level === 'extension');
+  const skip = LATER_COURSES[s.c] ? { kind: 'later', reason: LATER_COURSES[s.c] }
+    : allExt ? { kind: 'later', reason: EXTENSION_REASON }
+    : FAST_COURSES[s.c] ? { kind: 'fast', reason: FAST_COURSES[s.c] } : null;
   return {
     id: s.id, title: s.t, groupId: course.blockId, courseId: s.c, courseTitle: course.title,
     stage: stripChapter(first.chapter.title), order: i + 1, level: allExt ? 'extension' : 'core',
-    needs, needsText, scope: s.p, covers,
+    needs, needsText, skip, scope: s.p, covers,
     topics: covers.map(id => ({ id, title: topicIndex.get(id).topic.title })),
     sources: buildSources(covers),
   };

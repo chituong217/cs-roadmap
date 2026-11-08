@@ -19,10 +19,16 @@ test('node không có trường checklist; nguồn có URL https', () => {
     for (const s of n.sources) assert.match(s.url, /^https:\/\//, `${n.id}: ${s.sourceId}`);
   }
 });
-test('kiến thức mở rộng không bị coi là tiên quyết của node nền tảng', () => {
+test('node có thể bỏ qua (vàng, học sau) không là tiên quyết của node chính', () => {
   const by = new Map(MAP_NODES.map(n => [n.id, n]));
-  for (const n of MAP_NODES) if (n.level === 'core')
-    for (const r of n.needs) assert.equal(by.get(r).level, 'core', `${n.id} cần node mở rộng ${r}`);
+  for (const n of MAP_NODES) if (n.skip?.kind !== 'later')
+    for (const r of n.needs) assert.notEqual(by.get(r).skip?.kind, 'later', `${n.id} cần node học sau ${r}`);
+  for (const n of MAP_NODES) if (n.level === 'extension') assert.equal(n.skip?.kind, 'later', n.id);
+});
+test('node vàng đều có lý do và thuộc hồ sơ người học', () => {
+  const kinds = new Set(MAP_NODES.map(n => n.skip?.kind ?? 'core'));
+  assert.deepEqual([...kinds].sort(), ['core', 'fast', 'later']);
+  for (const n of MAP_NODES) if (n.skip) assert.ok(n.skip.reason.length > 20, n.id);
 });
 test('ba node mẫu tồn tại và nối đúng thứ tự', () => {
   const by = new Map(MAP_NODES.map(n => [n.id, n]));

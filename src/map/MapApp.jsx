@@ -16,6 +16,7 @@ const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: C
 const byId = new Map(MAP_NODES.map(n => [n.id, n]));
 const groupById = new Map(MAP_GROUPS.map(g => [g.id, g]));
 const IDS = MAP_NODES.map(n => n.id);
+const SKIP_LABEL = { fast: 'ĐÃ HỌC · ĐI NHANH', later: 'NÂNG CAO · HỌC SAU' };
 // Truy cập localStorage có thể ném lỗi (chế độ riêng tư, khung sandbox); khi đó ứng dụng vẫn chạy, chỉ không lưu.
 const store = (() => { try { return window.localStorage; } catch { return null; } })();
 // Bố cục cố định: mỗi nhóm một cột, các node xếp theo thứ tự học; vị trí không đổi khi lọc để bản đồ ổn định.
@@ -30,7 +31,7 @@ function MapNode({ data }) {
     <>
       <Handle type="target" position={Position.Top} />
       <button
-        className={`task-node nodrag nopan ${active ? 'active' : ''} ${status === 'completed' ? 'done' : status}`}
+        className={`task-node nodrag nopan ${node.skip ? 'optional' : ''} ${active ? 'active' : ''} ${status === 'completed' ? 'done' : status}`}
         style={{ '--track-accent': group.accent }}
         onClick={e => { e.stopPropagation(); open(node.id); }}
         aria-label={`${node.title} · ${group.title}`}
@@ -40,7 +41,7 @@ function MapNode({ data }) {
           <span>{String(node.order).padStart(3, '0')}</span>
           <span className="node-track-tag" style={{ color: group.accent }}>{group.title}</span>
         </span>
-        <span className="node-chapter">{node.courseTitle}{node.level === 'extension' ? ' · MỞ RỘNG' : ''}</span>
+        <span className="node-chapter">{node.skip ? `${SKIP_LABEL[node.skip.kind]} · ` : ''}{node.courseTitle}</span>
         <strong>{node.title}</strong>
         <span className="node-bottom">
           <span className="node-status"><Icon size={13} />{MAP_STATUS_LABELS[status]}</span>
@@ -67,6 +68,12 @@ function Details({ node, status, setStatus, openNode, onClose }) {
           <span>{node.courseTitle} · {node.stage}</span>
         </div>
         <h2>{node.title}</h2>
+        {node.skip && (
+          <div className="optional-note">
+            <strong>{node.skip.kind === 'fast' ? 'Có thể đi nhanh' : 'Có thể học sau'}</strong>
+            <p>{node.skip.reason}</p>
+          </div>
+        )}
         <div className="status-select" role="group" aria-label="Trạng thái node">
           {Object.entries(MAP_STATUS_LABELS).map(([key, label]) => {
             const Icon = icons[key];
@@ -120,6 +127,7 @@ function MapView() {
   const [groupFilter, setGroupFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
   const [courseFilter, setCourseFilter] = useState('all');
+  const [hideSkip, setHideSkip] = useState(false);
   const [query, setQuery] = useState('');
   const [notice, setNotice] = useState(progress.error);
   const importRef = useRef(null);
@@ -149,9 +157,10 @@ function MapView() {
   const visibleIds = useMemo(() => new Set(MAP_NODES.filter(n =>
     (groupFilter === 'all' || n.groupId === groupFilter) &&
     (courseFilter === 'all' || n.courseId === courseFilter) &&
+    !(hideSkip && n.skip) &&
     (statusFilter === 'all' || statusOf(n.id) === statusFilter) &&
     (!query || norm([n.title, n.stage, ...n.scope].join(' ')).includes(norm(query)))
-  ).map(n => n.id)), [groupFilter, courseFilter, statusFilter, query, data]);
+  ).map(n => n.id)), [groupFilter, courseFilter, hideSkip, statusFilter, query, data]);
 
   const nodes = useMemo(() => MAP_NODES.filter(n => visibleIds.has(n.id)).map(n => ({
     id: n.id, type: 'map',
@@ -164,8 +173,9 @@ function MapView() {
     style: { stroke: '#9ca79b', strokeWidth: 1.6 },
   }))), [visibleIds]);
 
-  const total = MAP_NODES.length;
-  const done = MAP_NODES.filter(n => statusOf(n.id) === 'completed').length;
+  const mainNodes = MAP_NODES.filter(n => !n.skip);
+  const total = mainNodes.length;
+  const done = mainNodes.filter(n => statusOf(n.id) === 'completed').length;
   const current = byId.get(selected);
   const cont = nextNodeId(MAP_NODES, data.statuses, data.lastNode);
 
@@ -210,9 +220,9 @@ function MapView() {
             <h1>Từng chủ đề, vững nền.</h1>
           </div>
           <div className="progress-box">
-            <div><span>Đã nắm</span><strong>{total ? Math.round((done / total) * 100) : 0}%</strong></div>
+            <div><span>Phần chính đã nắm</span><strong>{total ? Math.round((done / total) * 100) : 0}%</strong></div>
             <progress value={done} max={total} aria-label="Tiến độ" />
-            <small>{done}/{total} node</small>
+            <small>{done}/{total} node chính · {MAP_NODES.length - total} node vàng có thể bỏ qua</small>
           </div>
           <label className="search-box">
             <Search size={15} />
@@ -238,7 +248,7 @@ function MapView() {
               <Layers size={13} /><span className="track-tab-name">Tất cả</span><span className="track-tab-badge">{total}</span>
             </button>
             {MAP_GROUPS.map(g => {
-              const list = MAP_NODES.filter(n => n.groupId === g.id);
+              const list = MAP_NODES.filter(n => n.groupId === g.id && !n.skip);
               return (
                 <button key={g.id} role="tab" aria-selected={groupFilter === g.id} className={`track-tab ${groupFilter === g.id ? 'active' : ''}`} style={{ '--track-accent': g.accent }} onClick={() => { setGroupFilter(g.id); setCourseFilter('all'); }}>
                   <span className="track-tab-name">{g.title}</span>
@@ -263,12 +273,17 @@ function MapView() {
                 {COURSES.filter(c => groupFilter === 'all' || c.groupId === groupFilter).map(c => <option key={c.id} value={c.id}>{c.title}</option>)}
               </select>
             </label>
+            <label className="filter-group skip-toggle">
+              <input type="checkbox" checked={hideSkip} onChange={e => setHideSkip(e.target.checked)} />
+              <span className="legend-swatch" aria-hidden="true" />
+              <span>Ẩn node vàng (đi nhanh / học sau)</span>
+            </label>
             <div className="filter-actions">
               <button className="resume-button" onClick={() => openNode(cont)}>Tiếp tục học <ArrowRight size={13} /></button>
             </div>
           </div>
           <div className="map-canvas">
-            <ReactFlow key={`${groupFilter}|${courseFilter}`} onlyRenderVisibleElements nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, n) => openNode(n.id)} onInit={inst => { const n = inst.getNode(selected); if (n) inst.setCenter(n.position.x + 183, n.position.y + 73, { zoom: 0.8 }); else inst.fitView({ padding: 0.25, minZoom: 0.6, maxZoom: 1 }); }}
+            <ReactFlow key={`${groupFilter}|${courseFilter}|${hideSkip}`} onlyRenderVisibleElements nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodeClick={(_, n) => openNode(n.id)} onInit={inst => { const n = inst.getNode(selected); if (n) inst.setCenter(n.position.x + 183, n.position.y + 73, { zoom: 0.8 }); else inst.fitView({ padding: 0.25, minZoom: 0.6, maxZoom: 1 }); }}
               minZoom={0.25} maxZoom={1.4} nodesConnectable={false} nodesDraggable={false} elementsSelectable={false}
               zoomOnDoubleClick={false} panOnScroll deleteKeyCode={null} preventScrolling>
               <Background color="#d9ddd6" gap={24} size={1} />

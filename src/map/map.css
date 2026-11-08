@@ -9,3 +9,11 @@
 .filter-bar .resume-button{margin-left:auto}
 .course-heading{font-size:9px;letter-spacing:.8px;font-weight:700;color:var(--muted);text-transform:uppercase;margin:14px 8px 4px;line-height:1.5}
 .filter-group select{max-width:210px;border:1px solid var(--line);background:var(--paper);border-radius:4px;font-size:10px;padding:4px 6px;color:var(--ink)}
+.skip-toggle{display:flex;align-items:center;gap:6px;font-size:10px;cursor:pointer}
+.legend-swatch{width:12px;height:12px;border-radius:3px;background:#fff0ae;border:1px solid #d7bd59;display:inline-block}
+/* Màu chữ đặt tường minh trong sidebar để không phụ thuộc theme của nơi nhúng. */
+#root .details :is(h2,h3,summary,.fold p,.fold li,.scope p,.optional-note,.optional-note strong,.status-select button){color:#243a34}
+#root .details .status-select .chosen.learning{color:#70520b}
+#root .details .status-select .chosen.done{color:#245239}
+#root .details .optional-note{background:#fff0ae;border:1px solid #e0c65a;border-radius:6px;padding:12px 14px;margin:0 0 16px}
+#root .details .optional-note p{margin:6px 0 0;font-size:11px;line-height:1.8}
