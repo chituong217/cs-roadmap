@@ -17,3 +17,12 @@
 #root .details .status-select .chosen.done{color:#245239}
 #root .details .optional-note{background:#fff0ae;border:1px solid #e0c65a;border-radius:6px;padding:12px 14px;margin:0 0 16px}
 #root .details .optional-note p{margin:6px 0 0;font-size:11px;line-height:1.8}
+
+/* Nút mở prompt trong thanh bên */
+#root .details .prompt-trigger{display:inline-flex;align-items:center;gap:7px;margin:14px 0 2px;padding:9px 13px;font-size:12px;border:1px solid #9cae96;border-radius:5px;background:#e8eee4;color:#243a34;cursor:pointer}
+#root .details .prompt-trigger:hover{background:#dde7d8}
+#root .prompt-dialog :is(h2,p,label,span,a){color:#243a34}
+#root .prompt-dialog .prompt-note,#root .prompt-dialog .prompt-node-name{color:#4d6158}
+#root .prompt-dialog .prompt-copy{color:#fff}
+#root .prompt-dialog :is(.prompt-mode button,.prompt-actions button:not(.prompt-copy)){color:#243a34}
+#root .prompt-dialog textarea{color:#293e35}

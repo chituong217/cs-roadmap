@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactFlow, ReactFlowProvider, Background, Handle, Position, MarkerType, useReactFlow } from '@xyflow/react';
-import { ArrowRight, BookOpen, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
+import { ArrowRight, BookOpen, Sparkles, Check, Circle, Clock, Download, ExternalLink, Focus, GitBranch, Layers, Minus, Plus, Search, Upload, X } from 'lucide-react';
 import { MAP_GROUPS, MAP_NODES, MAP_LEVELS } from './map-data.generated.mjs';
 import {
   MAP_STATUS_LABELS, MAP_STORAGE_KEY, emptyMapProgress, loadMapProgress, saveMapProgress,
@@ -10,6 +10,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import '../style.css';
 import './map.css';
+import MapPrompt from './MapPrompt.jsx';
 
 const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase();
 const icons = { unread: Circle, learning: BookOpen, completed: Check, revisit: Clock };
@@ -54,7 +55,7 @@ function MapNode({ data }) {
 }
 const nodeTypes = { map: MapNode };
 
-function Details({ node, status, setStatus, openNode, onClose }) {
+function Details({ node, status, setStatus, openNode, onClose, onPrompt }) {
   const group = groupById.get(node.groupId);
   return (
     <>
@@ -84,6 +85,7 @@ function Details({ node, status, setStatus, openNode, onClose }) {
             );
           })}
         </div>
+        <button className="prompt-trigger" onClick={onPrompt}><Sparkles size={14} />Prompt học node này với AI</button>
         <h3>Nội dung cần nắm</h3>
         <div className="scope">{node.scope.map((p, i) => <p key={i}>{p}</p>)}</div>
         <details className="fold">
@@ -132,6 +134,7 @@ function MapView() {
   const [notice, setNotice] = useState(progress.error);
   const importRef = useRef(null);
   const dialogRef = useRef(null);
+  const [promptOpen, setPromptOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const small = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 999px)').matches;
   const closeDetail = () => { if (dialogRef.current?.open) dialogRef.current.close(); setDialogOpen(false); };
@@ -299,12 +302,13 @@ function MapView() {
           </div>
         </main>
         <aside className="details desktop-details" aria-label="Chi tiết node">
-          <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={() => {}} />
+          <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={() => {}} onPrompt={() => setPromptOpen(true)} />
         </aside>
       </div>
       <dialog ref={dialogRef} className="details mobile-details" aria-label="Chi tiết node" onCancel={closeDetail} onClose={() => setDialogOpen(false)}>
-        {dialogOpen && <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={closeDetail} />}
+        {dialogOpen && <Details node={current} status={statusOf(selected)} setStatus={setStatus} openNode={openNode} onClose={closeDetail} onPrompt={() => setPromptOpen(true)} />}
       </dialog>
+      <MapPrompt open={promptOpen} onClose={() => setPromptOpen(false)} node={current} byId={byId} />
       {notice && (
         <div className="notice" role="status">
           <span>{notice}</span>
